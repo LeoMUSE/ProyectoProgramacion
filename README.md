@@ -2,6 +2,6 @@
 
 # Grupo ''
 - Vicente Cara
-- Diego Xu
+- Diego Xu Huang
 - Martin Tarantoviez
 - Leandro Flores
