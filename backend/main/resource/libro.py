@@ -28,7 +28,7 @@ class Libro(Resource):
         return 'Error', 404
 
 class Libros(Resource):
-    def get():
+    def get(self):
         return LIBROS
 
     def post(self):

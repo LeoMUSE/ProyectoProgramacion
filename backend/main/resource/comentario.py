@@ -24,11 +24,11 @@ class Comentario(Resource):
     def delete(self, id):
         if int(id) in COMENTARIO:
             del COMENTARIO[int(id)]
-            return 'Eliminado', 201
+            return 'Eliminado Exitosamente', 201
         return 'Error', 404
 
 class Comentarios(Resource):
-    def get():
+    def get(self):
         return COMENTARIO
 
     def post(self):
