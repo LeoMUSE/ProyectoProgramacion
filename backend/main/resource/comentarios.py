@@ -15,9 +15,9 @@ class Comentario(Resource):
 
     def put(self, id):
         if int(id) in COMENTARIO:
-            libro = COMENTARIO[int(id)]
+            comentario = COMENTARIO[int(id)]
             data = request.get_json()
-            libro.update(data)
+            comentario.update(data)
             return 'Modificado Exitosamente', 201
         return 'Error', 404
 
@@ -32,9 +32,9 @@ class Comentarios(Resource):
         return COMENTARIO
 
     def post(self):
-        libro = request.get_json()
+        comentario = request.get_json()
         id = int(max(COMENTARIO.keys())) + 1
-        COMENTARIO[id] = libro
+        COMENTARIO[id] = comentario
         return 'Añadido Exitosamente', 201
     
 if __name__ == '__main__':
