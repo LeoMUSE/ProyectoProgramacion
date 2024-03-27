@@ -11,6 +11,7 @@ def create_app():
     load_dotenv() 
 
     api.add_resource(resources.LoginResource, '/login')
+    api.add_resource(resources.SignInResource, '/signin')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')
     api.add_resource(resources.UsuariosResource, '/usuarios')
     api.add_resource(resources.LibroResource, '/libro/<id>')
