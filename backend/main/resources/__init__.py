@@ -6,4 +6,4 @@ from .libro import Libro as LibroResource
 from .libro import Libros as LibrosResourse
 from .prestamo import Prestamo as PrestamoResourse
 from .prestamo import Prestamos as PrestamosResourse
-
+from .notificacion import Notificacion as NotifacionResourse
