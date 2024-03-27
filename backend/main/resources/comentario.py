@@ -28,7 +28,7 @@ class Comentario(Resource):
         return 'Error', 404
 
 class Comentarios(Resource):
-    def get():
+    def get(self):
         return COMENTARIO
 
     def post(self):
