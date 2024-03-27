@@ -17,7 +17,9 @@ def create_app():
     api.add_resource(resources.LibrosResourse, '/libros')
     api.add_resource(resources.ValoracionResourse, '/valoracion/<id>')
     api.add_resource(resources.ValoracionesResourse, '/valoraciones')
-
+    api.add_resource(resources.ComentarioResource, '/comentario/<id>')
+    api.add_resource(resources.ComentariosResource, '/comentarios')
+    api.add_resource(resources.NotifacionResourse, '/notificacion')
     api.init_app(app)
 
     return app
