@@ -14,21 +14,21 @@ class Prestamo(Resource):
     def get(self, id):
         if int(id) in PRESTAMOS:
             return PRESTAMOS[int(id)]
-        return '', 404
+        return 'Error', 404
 
     def put(self, id):
         if int(id) in PRESTAMOS:
             libro = PRESTAMOS[int(id)]
             data = request.get_json()
             libro.update(data)
-            return '', 201
-        return '', 404
+            return 'Modificado Exitosamente', 201
+        return 'Error', 404
 
     def delete(self, id):
         if int(id) in PRESTAMOS:
             del PRESTAMOS[int(id)]
-            return '', 201
-        return '', 404
+            return 'Eliminado Exitosamente', 201
+        return 'Error', 404
     
     
 

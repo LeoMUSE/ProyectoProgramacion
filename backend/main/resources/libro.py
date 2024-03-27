@@ -11,28 +11,28 @@ class Libro(Resource):
     def get(self, id):
         if int(id) in LIBROS:
             return LIBROS[int(id)]
-        return '', 404
+        return 'Error', 404
 
     def put(self, id):
         if int(id) in LIBROS:
             libro = LIBROS[int(id)]
             data = request.get_json()
             libro.update(data)
-            return '', 201
-        return '', 404
+            return 'Modificado Exitosamente', 201
+        return 'Error', 404
 
     def delete(self, id):
         if int(id) in LIBROS:
             del LIBROS[int(id)]
-            return '', 201
-        return '', 404
+            return 'Eliminado Exitosamente', 201
+        return 'Error', 404
 
 class Libros(Resource):
-    def get():
+    def get(self):
         return LIBROS
 
     def post(self):
         libro = request.get_json()
         id = int(max(LIBROS.keys())) + 1
         LIBROS[id] = libro
-        return '', 201
+        return 'Añadido Exitosamente', 201

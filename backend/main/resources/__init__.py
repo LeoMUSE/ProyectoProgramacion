@@ -6,3 +6,5 @@ from .libro import Libro as LibroResource
 from .libro import Libros as LibrosResourse
 from .prestamo import Prestamo as PrestamoResourse
 from .prestamo import Prestamos as PrestamosResourse
+from .valoracion import Valoracion as ValoracionResourse
+from .valoracion import Valoraciones as ValoracionesResourse
