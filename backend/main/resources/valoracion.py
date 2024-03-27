@@ -18,14 +18,14 @@ class Valoracion(Resource):
             valo = VALORACIONES[int(id)]
             data = request.get_json()
             valo.update(data)
-            return '', 201
-        return '', 404
+            return 'Modificado Exitosamente', 201
+        return 'Error', 404
     
     def delete(self, id):
         if int(id) in VALORACIONES:
             del VALORACIONES[int(id)]
-            return '', 204
-        return '', 404
+            return 'Eliminado Exitosamente', 204
+        return 'Error', 404
 
 class Valoraciones(Resource):
     def get(self):

@@ -24,7 +24,7 @@ class Comentario(Resource):
     def delete(self, id):
         if int(id) in COMENTARIO:
             del COMENTARIO[int(id)]
-            return 'Eliminado', 201
+            return 'Eliminado', 204
         return 'Error', 404
 
 class Comentarios(Resource):

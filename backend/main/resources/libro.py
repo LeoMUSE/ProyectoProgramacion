@@ -24,7 +24,7 @@ class Libro(Resource):
     def delete(self, id):
         if int(id) in LIBROS:
             del LIBROS[int(id)]
-            return 'Eliminado Exitosamente', 201
+            return 'Eliminado Exitosamente', 204
         return 'Error', 404
 
 class Libros(Resource):

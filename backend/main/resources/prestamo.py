@@ -3,8 +3,8 @@ from flask import request
 
 
 PRESTAMOS = {
-    1: {'usuario': 'usuario1', 'monto': 1000},
-    2: {'usuario': 'usuario2', 'monto': 2000}
+    1: {'usuario': 'usuario1', 'Inicio Prestamo': '10/5/2024', 'Fin Prestamo': '16/5/2024'},
+    2: {'usuario': 'usuario2', 'Inicio Prestamo': '15/5/2024', 'Fin Prestamo': '21/5/2024'}
 }
 
 
@@ -27,7 +27,7 @@ class Prestamo(Resource):
     def delete(self, id):
         if int(id) in PRESTAMOS:
             del PRESTAMOS[int(id)]
-            return 'Eliminado Exitosamente', 201
+            return 'Eliminado Exitosamente', 204
         return 'Error', 404
     
     
