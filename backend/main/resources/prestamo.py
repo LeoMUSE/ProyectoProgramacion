@@ -3,8 +3,8 @@ from flask import request
 
 
 PRESTAMOS = {
-    1: {'usuario': 'usuario1', 'Inicio Prestamo': 10/5/2024, 'Fin Prestamo': 16/5/2024},
-    2: {'usuario': 'usuario2', 'Inicio Prestamo': 15/5/2024, 'Fin Prestamo': 21/5/2024}
+    1: {'usuario': 'usuario1', 'Inicio Prestamo': '10/5/2024', 'Fin Prestamo': '16/5/2024'},
+    2: {'usuario': 'usuario2', 'Inicio Prestamo': '15/5/2024', 'Fin Prestamo': '21/5/2024'}
 }
 
 
@@ -14,21 +14,21 @@ class Prestamo(Resource):
     def get(self, id):
         if int(id) in PRESTAMOS:
             return PRESTAMOS[int(id)]
-        return '', 404
+        return 'Error', 404
 
     def put(self, id):
         if int(id) in PRESTAMOS:
             libro = PRESTAMOS[int(id)]
             data = request.get_json()
             libro.update(data)
-            return '', 201
-        return '', 404
+            return 'Modificado Exitosamente', 201
+        return 'Error', 404
 
     def delete(self, id):
         if int(id) in PRESTAMOS:
             del PRESTAMOS[int(id)]
-            return '', 201
-        return '', 404
+            return 'Eliminado Exitosamente', 204
+        return 'Error', 404
     
     
 

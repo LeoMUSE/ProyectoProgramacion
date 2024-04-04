@@ -8,8 +8,7 @@ LOGINS = {
 
 class Login(Resource):
     def post(self):
-        login = request.get_json
-        id = int(max(LOGINS.keys())) + 1
+        login = request.get_json()
+        id = int(max(LOGINS.keys()))+1
         LOGINS[id] = login
         return LOGINS[id], 201
-    

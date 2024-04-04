@@ -13,4 +13,3 @@ class SignIn(Resource):
         id = int(max(SIGNIN.keys()))+1
         SIGNIN[id] = singIn
         return SIGNIN[id], 201
-    
