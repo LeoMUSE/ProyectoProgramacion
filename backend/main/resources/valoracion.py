@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+from main.models import ValoracionModel
+from .. import db
 
 VALORACIONES = {
     1:{'Usuario:':'MaritoRz', 'Libro':'Odisea','Valoración:':'1/5'},
@@ -9,9 +11,11 @@ VALORACIONES = {
 
 class Valoracion(Resource):
     def get(self,id):
-        if int(id) in VALORACIONES:
-            return VALORACIONES[int(id)]
-        return '', 404
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        return valoracion.to_json()
+        # if int(id) in VALORACIONES:
+        #     return VALORACIONES[int(id)]
+        # return '', 404
     
     def put(self,id):
         if int(id) in VALORACIONES:

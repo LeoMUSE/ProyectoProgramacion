@@ -1,7 +1,7 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_restful import Api
-import main.resources as resources  
+
 import os
 
 from flask_sqlalchemy import SQLAlchemy
@@ -26,7 +26,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////'+os.getenv('DATABASE_PATH')+os.getenv('DATABASE_NAME')
     db.init_app(app)
 
-
+    import main.resources as resources  
     api.add_resource(resources.LoginResource, '/login')
     api.add_resource(resources.SignInResource, '/signin')
     api.add_resource(resources.UsuarioResource, '/usuario/<id>')

@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+from main.models import ComentarioModel
+from .. import db
 
 COMENTARIO = {
     1 : {'Fecha':'21/08/24', 'Usuario':'Leandro Flores', 'Mensaje':'Un libro muy entretenido'},
@@ -9,9 +11,13 @@ COMENTARIO = {
 
 class Comentario(Resource):
     def get(self, id):
-        if int(id) in COMENTARIO:
-            return COMENTARIO[int(id)]
-        return 'Error', 404
+        libro = db.session.query(ComentarioModel).get_or_404(id)
+        return libro.to_json()
+
+
+        # if int(id) in COMENTARIO:
+        #     return COMENTARIO[int(id)]
+        # return 'Error', 404
 
     def put(self, id):
         if int(id) in COMENTARIO:

@@ -1,5 +1,7 @@
 from flask_restful import Resource
 from flask import request
+from main.models import LibroModel
+from .. import db
 
 LIBROS = {
     1:{'Titulo':'Odisea', 'Autor': 'Homero', 'Genero':'Poema epico', 'Editorial':'La Estacion'},
@@ -9,9 +11,14 @@ LIBROS = {
 
 class Libro(Resource):
     def get(self, id):
-        if int(id) in LIBROS:
-            return LIBROS[int(id)]
-        return 'Error', 404
+        libro = db.session.query(LibroModel).get_or_404(id)
+        return libro.to_json()
+
+
+
+        # if int(id) in LIBROS:
+        #     return LIBROS[int(id)]
+        # return 'Error', 404
 
     def put(self, id):
         if int(id) in LIBROS:
