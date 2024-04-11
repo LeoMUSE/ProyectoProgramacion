@@ -4,4 +4,6 @@
 /lib64
 /env
 pyvenv.dfg
+pyvenv.cfg
 .env
+__pycache__/
