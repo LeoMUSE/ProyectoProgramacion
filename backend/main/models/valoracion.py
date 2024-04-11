@@ -1,20 +1,32 @@
 from .. import db
-from sqlalchemy import ForeignKey
 
 class Valoracion(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    id_usuario = db.Column(db.Integer, ForeignKey('usuario.id'))
-    id_libro = db.Column(db.Integer, ForeignKey('libro.id'))
-    valoracion = db.Column(db.Integer, nullable=False)
-    
+    idValoracion = db.Column(db.Integer, primary_key=True)
+    fk_idUsuario = 0
+    fk_idLibro = 0
+    valoracion = db.Column(db.String, nullable=False)
 
-    #Convertir objeto en JSON
+    def __repr__(self):
+        return f"<id: {self.idValoracion}, Usuario: {self.fk_idLibro}, Libro: {self.fk_idLibro}, Valoracion: {self.fk_idUsuario}"
+    
     def to_json(self):
         valoracion_json = {
-            'id': self.id,
-            'id_usuario': self.id_usuario,
-            'id_libro': self.id_libro,
-            'valoracion': int(self.valoracion),
-          
+            "id" : int(self.idValoracion),
+            "Usuario" : str(self.fk_idUsuario),
+            "Libro" : str(self.fk_idLibro),
+            "Valoracion" : str(self.valoracion)
         }
-        return valoracion_json
+    
+
+    @staticmethod
+    def from_json(valoracion_json):
+        id = valoracion_json.get("id")
+        usuario = valoracion_json.get("Usuario")
+        libro = valoracion_json.get("Libro")
+        valoracion = valoracion_json.get("Valoracion")
+        return Valoracion(
+            idValoracion=id,
+            fk_idUsuario=usuario,
+            fk_idLibro=libro,
+            valoracion=valoracion
+        )

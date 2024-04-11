@@ -1,20 +1,31 @@
 from .. import db
-from sqlalchemy import ForeignKey
 
 class Comentario(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    id_usuario = db.Column(db.Integer, ForeignKey('usuario.id'))
-    descripcion = db.Column(db.String(100), nullable=False)
+    idComentario = db.Column(db.Integer, primary_key=True)
+    fk_idUser = 0
+    descripcion = db.Column(db.String(255), nullable=False)
 
+    def __repr__(self):
+        return f"<id: {self.idComentario}, Usuario: {self.fk_idUser}, Descripcion: {self.descripcion}"
     
-
-    #Convertir objeto en JSON
     def to_json(self):
         comentario_json = {
-            'id': self.id,
-            'id_usuario': self.id_usuario,
-            'descripcion': str(self.descripcion),
- 
-        
+            "id" : int(self.idComentario),
+            "Usuario" : str(self.fk_idUser),
+            "Descripcion" : str(self.descripcion)
         }
         return comentario_json
+    
+    @staticmethod
+    def from_json(comentario_json):
+        id = comentario_json.get("id")
+        usuario = comentario_json.get("Usuario")
+        descripcion = comentario_json.get("Descripcion")
+        return Comentario(
+            idComentario=id,
+            fk_idUser=usuario,
+            descripcion=descripcion
+        )
+
+if __name__ == '__main__':
+    pass

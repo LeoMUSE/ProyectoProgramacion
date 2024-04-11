@@ -1,19 +1,30 @@
 from .. import db
-from sqlalchemy import ForeignKey
 
 class Autor(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
-    apellido = db.Column(db.String(100), nullable=False)
-    
+    idAutor = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(60), nullable=False)
+    apellido = db.Column(db.String(60), nullable=False)
 
-    #Convertir objeto en JSON
+    def __repr__(self):
+        return f"<id: {self.idAutor}, Nombre: {self.nombre}, Apellido: {self.apellido}>"
+    
     def to_json(self):
         autor_json = {
-            'id': self.id,
-            'nombre': str(self.nombre),
-            'apellido': str(self.apellido),
-            
-
+            "id" : int(self.idAutor),
+            "Nombre" : str(self.nombre),
+            "Apellido" : str(self.apellido)
         }
-        return autor_json
+    
+    @staticmethod
+    def from_json(autor_json):
+        idAutor = autor_json.get("id")
+        nombre = autor_json.get("Nombre")
+        apellido = autor_json.get("Apellido")
+        return Autor(
+            idAutor=id,
+            nombre=nombre,
+            apellido=apellido
+        )
+    
+if __name__ == '__main__':
+    pass

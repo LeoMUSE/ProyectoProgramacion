@@ -1,20 +1,28 @@
 from .. import db
-from sqlalchemy import ForeignKey
 
 class Notificacion(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    id_usuario = db.Column(db.Integer, ForeignKey('usuario.id'))
-    descripcion = db.Column(db.String(100), nullable=False)
-    
-    
+    idNotificacion = db.Column(db.Integer, primary_key=True)
+    fk_idUsuario = db.Column(db.String(60), nullable=False)
+    descripcion = db.Column(db.String(255), nullable=False)
 
-    #Convertir objeto en JSON
+    def __repr__(self):
+        return f"<id: {self.idNotificacion}, Usuario: {self.fk_idUsuario}, Descripcion: {self.descripcion}"
+    
     def to_json(self):
         notificacion_json = {
-            'id': self.id,
-            'id_usuario': self.id_usuario,
-            'descripcion': str(self.descripcion),
-        
-
+            "id" : int(self.idNotificacion),
+            "Usuario" : str(self.fk_idUsuario),
+            "Descripcion" : str(self.descripcion) 
         }
         return notificacion_json
+    
+    @staticmethod
+    def from_json(notificacion_json):
+        id = notificacion_json.get("id")
+        usuario = notificacion_json.get("Usuario")
+        descripcion = notificacion_json.get("Descripcion")
+        return Notificacion(
+            idNotificacion=id,
+            fk_idUusuario=usuario,
+            descripcion=descripcion
+        )
