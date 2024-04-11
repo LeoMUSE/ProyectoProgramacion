@@ -16,7 +16,7 @@ class Usuario(db.Model):
             f"<id: {self.idUser}, User: {self.user}, Contraseña: {self.contraseña}, Nombre: {self.nombre},"
             + f"Apellido: {self.apellido}, DNI: {self.dni}, Telefono: {self.telefono}, Email: {self.email}, Rol: {self.rol}>"
         )
-    def get_json(self):
+    def to_json(self):
         usuario_json = {
             "id" : int(self.idUser),
             "User" : str(self.user),

@@ -10,7 +10,7 @@ class Libro(db.Model):
     def __repr__(self):
         return f"<id: {self.idLibro}, Cantidad: {self.cantidad}, Autor: {self.fk_idAutor}, Editorial: {self.editorial}, Genero: {self.genero}>"
 
-    def get_json(self):
+    def to_json(self):
         libro_json = {
             "id" : int(self.idLibro),
             "Cantidad" : int(self.cantidad),

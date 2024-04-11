@@ -11,7 +11,7 @@ class Prestamo(db.Model):
     def __repr__(self):
         return f"<id: {self.idPrestamo}, Usuario: {self.fk_idUser}, Libro: {self.fk_idLibro}, Inicio_Prestamo: {self.inicio_prestamo}, Fin_Prestamo: {self.fin_prestamo}"
     
-    def get_json(self):
+    def to_json(self):
         prestamo_json = {
             "id" : int(self.idPrestamo),
             "Usuario" : str(self.fk_idUser),
