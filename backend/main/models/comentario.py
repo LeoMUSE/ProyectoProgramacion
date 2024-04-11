@@ -1,7 +1,7 @@
 from .. import db
 
 class Comentario(db.Model):
-    idComentario = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    idComentario = db.Column(db.Integer, primary_key=True)
     fk_idUser = 0
     descripcion = db.Column(db.String(255), nullable=False)
 

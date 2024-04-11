@@ -1,44 +1,47 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
+from .. import db
+from main.models import PrestamoModel
 
 
-PRESTAMOS = {
-    1: {'usuario': 'usuario1', 'Inicio Prestamo': '10/5/2024', 'Fin Prestamo': '16/5/2024'},
-    2: {'usuario': 'usuario2', 'Inicio Prestamo': '15/5/2024', 'Fin Prestamo': '21/5/2024'}
-}
 
-
+#PRESTAMOS = {
+#    1: {'usuario': 'usuario1', 'fechaI': '20/10/20', 'fechaT': '27/10/20' },
+#    2: {'usuario': 'usuario2', 'fechaI': '21/10/20', 'fechaT': '28/10/20' },
+#}
 
 class Prestamo(Resource):
-
     def get(self, id):
-        if int(id) in PRESTAMOS:
-            return PRESTAMOS[int(id)]
-        return 'Error', 404
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        return prestamo.to_json()
 
     def put(self, id):
-        if int(id) in PRESTAMOS:
-            libro = PRESTAMOS[int(id)]
-            data = request.get_json()
-            libro.update(data)
-            return 'Modificado Exitosamente', 201
-        return 'Error', 404
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(prestamo, key, value)
+        db.session.add(prestamo)
+        db.session.commit()
+        return prestamo.to_json() , 201
+
 
     def delete(self, id):
-        if int(id) in PRESTAMOS:
-            del PRESTAMOS[int(id)]
-            return 'Eliminado Exitosamente', 204
-        return 'Error', 404
-    
-    
+        prestamo = db.session.query(PrestamoModel).get_or_404(id)
+        db.session.delete(prestamo)
+        db.session.commit()
+        return '', 204
 
 class Prestamos(Resource):
     def get(self):
-        return PRESTAMOS
+        prestamos = db.session.query(PrestamoModel).all()
+        return jsonify([prestamo.to_json() for prestamo in prestamos])
 
     def post(self):
-        nuevo_prestamo = request.get_json()
-        id = int(max(PRESTAMOS.keys())) + 1
-        PRESTAMOS[id] = nuevo_prestamo
-        return PRESTAMOS[id], 201
+        prestamo = PrestamoModel.from_json(request.get_json())
+        db.session.add(prestamo)
+        db.session.commit()
+        print(prestamo)
+#         return prestamo.to_json()
     
+# if __name__ == '__main__':
+#     pass

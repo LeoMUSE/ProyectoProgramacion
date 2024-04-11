@@ -1,7 +1,7 @@
 from .. import db
 
 class Usuario(db.Model):
-    idUser = db.Column(db.Integer(4), primary_key=True, autoincrement=True)
+    idUser = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.String(60), nullable=False)
     contraseña = db.Column(db.String(60), nullable=False)
     nombre = db.Column(db.String(60), nullable=False)
