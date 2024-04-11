@@ -1,41 +1,46 @@
 from flask_restful import Resource
-from flask import request
+from flask import request, jsonify
+from main.models import ValoracionModel
+from .. import db
 
-VALORACIONES = {
-    1:{'Usuario:':'MaritoRz', 'Libro':'Odisea','Valoración:':'1/5'},
-    2:{'Usuario:': 'PipeVC', 'Libro':'El Código Da Vinci','Valoracion': '3/5'},
-    3:{'Usuario:':'Facu81', 'Libro':'Don Quijote de la Mancha', 'Valoracion':'5/5'}
-}
+#VALORACIONES = {
+#    1:{'Usuario:':'MaritoRz', 'Libro':'Odisea','Valoración:':'1/5'},
+#    2:{'Usuario:': 'PipeVC', 'Libro':'El Código Da Vinci','Valoracion': '3/5'},
+#    3:{'Usuario:':'Facu81', 'Libro':'Don Quijote de la Mancha', 'Valoracion':'5/5'}
+#}
 
 class Valoracion(Resource):
-    def get(self,id):
-        if int(id) in VALORACIONES:
-            return VALORACIONES[int(id)]
-        return '', 404
-    
-    def put(self,id):
-        if int(id) in VALORACIONES:
-            valo = VALORACIONES[int(id)]
-            data = request.get_json()
-            valo.update(data)
-            return '', 201
-        return '', 404
-    
+    def get(self, id):
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        return valoracion.to_json()
+
+    def put(self, id):
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        data = request.get_json().items()
+        for key, value in data:
+            setattr(valoracion, key, value)
+        db.session.add(valoracion)
+        db.session.commit()
+        return valoracion.to_json() , 201
+
+
     def delete(self, id):
-        if int(id) in VALORACIONES:
-            del VALORACIONES[int(id)]
-            return '', 204
-        return '', 404
+        valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        db.session.delete(valoracion)
+        db.session.commit()
+        return '', 204
 
 class Valoraciones(Resource):
     def get(self):
-        return VALORACIONES
-    
+        valoraciones = db.session.query(ValoracionModel).all()
+        return jsonify([valoracion.to_json() for valoracion in valoraciones])
+
     def post(self):
-        valo = request.get_json()
-        id = int(max(VALORACIONES.keys())) + 1
-        VALORACIONES[id] = valo
-        return VALORACIONES[id], 201
+        valoracion = ValoracionModel.from_json(request.get_json())
+        db.session.add(valoracion)
+        db.session.commit()
+        print(valoracion)
+        return valoracion.to_json()
     
 if __name__ == '__main__':
     pass
