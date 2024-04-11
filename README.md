@@ -1,7 +1,6 @@
 # ProyectoProgramacion
 
-# Grupo ''
+# Grupo 'G'
 - Vicente Cara
 - Diego Xu
-- Martin Tarantoviez
 - Leandro Flores
