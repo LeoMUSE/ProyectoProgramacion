@@ -3,7 +3,7 @@ from .. import db
 class Notificacion(db.Model):
     idNotificacion = db.Column(db.Integer, primary_key=True)
     fk_idUsuario = db.Column(db.String(60), nullable=False)
-    descripcion = db.Column(db.String(255), nillable=False)
+    descripcion = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
         return f"<id: {self.idNotificacion}, Usuario: {self.fk_idUsuario}, Descripcion: {self.descripcion}"
@@ -20,9 +20,9 @@ class Notificacion(db.Model):
     def from_json(notificacion_json):
         id = notificacion_json.get("id")
         usuario = notificacion_json.get("Usuario")
-        descripcion = notificacion_json.get("descripcion")
+        descripcion = notificacion_json.get("Descripcion")
         return Notificacion(
-            id=id,
-            usuario=usuario,
+            idNotificacion=id,
+            fk_idUusuario=usuario,
             descripcion=descripcion
         )

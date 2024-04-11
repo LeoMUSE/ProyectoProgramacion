@@ -21,7 +21,7 @@ class Autor(db.Model):
         nombre = autor_json.get("Nombre")
         apellido = autor_json.get("Apellido")
         return Autor(
-            id=id,
+            idAutor=id,
             nombre=nombre,
             apellido=apellido
         )

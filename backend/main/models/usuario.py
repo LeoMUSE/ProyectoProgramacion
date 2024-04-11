@@ -6,7 +6,7 @@ class Usuario(db.Model):
     contraseña = db.Column(db.String(60), nullable=False)
     nombre = db.Column(db.String(60), nullable=False)
     apellido = db.Column(db.String(60), nullable=False)
-    dni = db.Column(db.Integer(8), nullable=False)
+    dni = db.Column(db.Integer, nullable=False)
     telefono = db.Column(db.String(14), nullable=False)
     email = db.Column(db.String(60), nullable=False)
     rol = db.Column(db.String(30), nullable=False)
@@ -42,7 +42,7 @@ class Usuario(db.Model):
         email = usuario_json.get("Email")
         rol = usuario_json.get("Rol")   
         return Usuario(
-            id=id,
+            idUser=id,
             user=user,
             contraseña=contraseña,
             nombre=nombre,

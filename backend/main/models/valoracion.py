@@ -25,8 +25,8 @@ class Valoracion(db.Model):
         libro = valoracion_json.get("Libro")
         valoracion = valoracion_json.get("Valoracion")
         return Valoracion(
-            id=id,
-            usuario=usuario,
-            libro=libro,
+            idValoracion=id,
+            fk_idUsuario=usuario,
+            fk_idLibro=libro,
             valoracion=valoracion
         )
