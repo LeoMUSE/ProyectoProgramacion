@@ -3,7 +3,7 @@ from .. import db
 class Notificacion(db.Model):
     idNotificacion = db.Column(db.Integer, primary_key=True)
     fk_idUsuario = db.Column(db.String(60), nullable=False)
-    descripcion = db.Column(db.String(255), nillable=False)
+    descripcion = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
         return f"<id: {self.idNotificacion}, Usuario: {self.fk_idUsuario}, Descripcion: {self.descripcion}"
