@@ -3,8 +3,8 @@ from datetime import datetime
 
 class Prestamo(db.Model):
     idPrestamo = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    fk_idUser = 0
-    fk_idLibro=0
+    fk_idUser = db.Column(db.Integer, nullable=False)
+    fk_idLibro= db.Column(db.Integer, nullable=False)
     inicio_prestamo = db.Column(db.DateTime, nullable=False)
     fin_prestamo = db.Column(db.DateTime, nullable=False)
 
@@ -14,10 +14,10 @@ class Prestamo(db.Model):
     def to_json(self):
         prestamo_json = {
             "id" : int(self.idPrestamo),
-            "Usuario" : str(self.fk_idUser),
-            "Libro" : str(self.fk_idLibro),
-            "Inicio_Prestamo" : str(self.inicio_prestamo.strftime("%d/%m/%Y")),
-            "Fin_Prestamo" : str(self.fin_prestamo.strftime("%d/%m/%Y"))
+            "Usuario" : int(self.fk_idUser),
+            "Libro" : int(self.fk_idLibro),
+            "Inicio_Prestamo" : str(self.inicio_prestamo.strftime("%d-%m-%y")),
+            "Fin_Prestamo" : str(self.fin_prestamo.strftime("%d-%m-%y"))
         }
         return prestamo_json
     
@@ -26,11 +26,11 @@ class Prestamo(db.Model):
         id = prestamo_json.get("id")
         usuario = prestamo_json.get("Usuario")
         libro = prestamo_json.get("Libro")
-        inicio_prestamo = prestamo_json.get("Inicio_Prestamo")
-        fin_prestamo = prestamo_json.get("Fin_prestamo")
+        inicio_prestamo = datetime.strptime(prestamo_json.get("Inicio_Prestamo"), "%d-%m-%y")
+        fin_prestamo = datetime.strptime(prestamo_json.get("Fin_Prestamo"), "%d-%m-%y")
         return Prestamo(
             idPrestamo=id,
-            fk_idUsuario=usuario,
+            fk_idUser=usuario,
             fk_idLibro=libro,
             inicio_prestamo=inicio_prestamo,
             fin_prestamo=fin_prestamo

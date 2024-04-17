@@ -2,8 +2,8 @@ from .. import db
 
 class Valoracion(db.Model):
     idValoracion = db.Column(db.Integer, primary_key=True)
-    fk_idUsuario = 0
-    fk_idLibro = 0
+    fk_idUsuario = db.Column(db.Integer, nullable=False)
+    fk_idLibro = db.Column(db.Integer, nullable=False)
     valoracion = db.Column(db.String, nullable=False)
 
     def __repr__(self):
@@ -12,8 +12,8 @@ class Valoracion(db.Model):
     def to_json(self):
         valoracion_json = {
             "id" : int(self.idValoracion),
-            "Usuario" : str(self.fk_idUsuario),
-            "Libro" : str(self.fk_idLibro),
+            "Usuario" : int(self.fk_idUsuario),
+            "Libro" : int(self.fk_idLibro),
             "Valoracion" : str(self.valoracion)
         }
     

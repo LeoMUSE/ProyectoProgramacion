@@ -2,16 +2,16 @@ from .. import db
 
 class Notificacion(db.Model):
     idNotificacion = db.Column(db.Integer, primary_key=True)
-    fk_idUsuario = db.Column(db.String(60), nullable=False)
+    fk_idUser = db.Column(db.Integer, nullable=False)
     descripcion = db.Column(db.String(255), nullable=False)
 
     def __repr__(self):
-        return f"<id: {self.idNotificacion}, Usuario: {self.fk_idUsuario}, Descripcion: {self.descripcion}"
+        return f"<id: {self.idNotificacion}, Usuario: {self.fk_idUser}, Descripcion: {self.descripcion}"
     
     def to_json(self):
         notificacion_json = {
             "id" : int(self.idNotificacion),
-            "Usuario" : str(self.fk_idUsuario),
+            "Usuario" : int(self.fk_idUser),
             "Descripcion" : str(self.descripcion) 
         }
         return notificacion_json
@@ -23,6 +23,6 @@ class Notificacion(db.Model):
         descripcion = notificacion_json.get("Descripcion")
         return Notificacion(
             idNotificacion=id,
-            fk_idUusuario=usuario,
+            fk_idUser=usuario,
             descripcion=descripcion
         )

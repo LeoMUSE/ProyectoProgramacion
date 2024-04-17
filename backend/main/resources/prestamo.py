@@ -41,7 +41,7 @@ class Prestamos(Resource):
         db.session.add(prestamo)
         db.session.commit()
         print(prestamo)
-#         return prestamo.to_json()
+        return prestamo.to_json()
     
-# if __name__ == '__main__':
-#     pass
+if __name__ == '__main__':
+    pass
