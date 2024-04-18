@@ -16,6 +16,7 @@ class Valoracion(db.Model):
             "Libro" : int(self.fk_idLibro),
             "Valoracion" : str(self.valoracion)
         }
+        return valoracion_json
     
 
     @staticmethod

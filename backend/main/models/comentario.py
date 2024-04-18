@@ -10,7 +10,7 @@ class Comentario(db.Model):
 
 
     def __repr__(self):
-        return f"<id: {self.idComentario}, Usuario: {self.fk_idUser}, Fecha: {self.fecha}, Descripcion: {self.descripcion}"
+        return f"<id: {self.idComentario}, Usuario: {self.fk_idUser},Libro:{self.fk_idLibro}, Fecha: {self.fecha}, Descripcion: {self.descripcion}"
 
     def to_json(self):
         comentario_json = {
@@ -20,6 +20,7 @@ class Comentario(db.Model):
             "Fecha" : str(self.fecha.strftime("%d-%m-%y")),
             "Descripcion" : str(self.descripcion)
         }
+        return comentario_json
     
     @staticmethod
     def from_json(comentario_json):
