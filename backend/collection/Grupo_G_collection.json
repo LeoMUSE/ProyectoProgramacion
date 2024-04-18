@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0b481cdf-6461-4857-8f4d-a858d31dfa28",
-		"name": "collection",
+		"_postman_id": "09fcfa8f-029d-4135-b62a-356bde366af4",
+		"name": "collection Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33777156"
 	},
@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"Nombre\": \"Facundo\",\n        \"Apellido\": \"Munes\",\n        \"DNI\": 44901254,\n        \"Telefono\": 2613126531,\n        \"Email\": \"facun@gmail.com\",\n        \"Rol\": \"Usuario\"\n}",
+							"raw": "{\n\"User\" : \"RamonRmz\", \n\"Contraseña\" : \"ramon123\", \n\"Nombre\" : \"Ramon\",\n\"Apellido\" : \"Ramirez\", \n\"DNI\" : 42123123,\n\"Telefono\" : \"261231223\", \n\"Email\" : \"ramonrmz@gmial.com\",\n\"Rol\" : \"Usuario\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,13 +98,13 @@
 					"response": []
 				},
 				{
-					"name": "/usuario/1",
+					"name": "/usuario/5",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Nombre\": \"Ricardo\",\n    \"Apellido\": \"Montes\",\n    \"DNI\": 44909938,\n    \"Telefono\": 2613123216,\n    \"Email\": \"ricardito12@gmial.com\",\n    \"Rol\": \"Usuario\"\n}",
+							"raw": "{\n    \"User\" : \"Ramonrmz\", \n    \"Contraseña\" : \"ramon123\", \n    \"Nombre\" : \"Ramon\",\n    \"Apellido\" : \"Ramirez\", \n    \"DNI\" : 42123123,\n    \"Telefono\" : \"261231223\", \n    \"Email\" : \"ramonrmz@gmial.com\",\n    \"Rol\" : \"Admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -112,7 +112,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/1",
+							"raw": "http://127.0.0.1:5000/usuario/5",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -123,19 +123,19 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"1"
+								"5"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/usuario/2",
+					"name": "/usuario/3",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/2",
+							"raw": "http://127.0.0.1:5000/usuario/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -146,7 +146,7 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -186,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Titulo\": \"El Principito\",\n    \"Autor\": \"Antoine de Saint-Exupéry\",\n    \"Genero\": \"Fábula\",\n    \"Editorial\": \"Gran Travesía\"\n}",
+							"raw": "{\n\"Titulo\" : \"El señor de los anillo\",\n\"Cantidad\" : 2,\n\"Autor\" : 5,\n\"Editorial\" : \"Tirant Lo Blanch\",\n\"Genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -234,13 +234,13 @@
 					"response": []
 				},
 				{
-					"name": "/libro/1",
+					"name": "/libro/4",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Titulo\": \"Odisea\",\n    \"Autor\": \"Homero\",\n    \"Genero\": \"Poema epico\",\n    \"Editorial\": \"Océano\"\n}",
+							"raw": "{\n    \"Titulo\": \"El Codigo Da Vinci\",\n    \"Cantidad\": 14,\n    \"Autor\": 2,\n    \"Editorial\": \"Doubleday\",\n    \"Genero\": \"Policial-Ficcion\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -248,7 +248,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/libro/1",
+							"raw": "http://127.0.0.1:5000/libro/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -259,7 +259,7 @@
 							"port": "5000",
 							"path": [
 								"libro",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -394,7 +394,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Fecha\": \"12/02/24\",\n    \"Usuario\": \"Vicente Cara\",\n    \"Mensaje\": \"No lo recomiendo.\"\n}",
+							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 4,\n\"Fecha\" : \"21-11-24\",\n\"Descripcion\": \" asadvsdasedcxas\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -448,7 +448,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Fecha\": \"21/08/24\",\n    \"Usuario\": \"Pedro Picapiedra\",\n    \"Mensaje\": \"Un libro muy entretenido\"\n}",
+							"raw": "{\n    \"Usuario\" : 1,\n    \"Libro\" : 2,\n    \"Fecha\" : \"10-02-24\",\n    \"Descripcion\": \"Muy buen libroaaaaaaaaaaa\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -530,7 +530,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Usuario:\": \"Pedrin\",\n    \"Libro\": \"El Principito\",\n    \"Valoración:\": \"4/5\"\n}",
+							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 3,\n\"Valoracion\" : \"3/5\" \n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -584,7 +584,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Usuario:\": \"MaritoRz\",\n    \"Libro\": \"Odisea\",\n    \"Valoración:\": \"2/5\"\n}",
+							"raw": "{\n    \"Usuario\" : 1,\n    \"Libro\" : 3,\n    \"Valoracion\" : \"3/5\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -666,7 +666,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": \"usuario5\",\n    \"Inicio Prestamo\": \"17/7/2024\",\n    \"Fin Prestamo\": \"24/7/2024\"\n}",
+							"raw": "{\n\"Usuario\" : 2,\n\"Libro\" : 5,\n\"Inicio_Prestamo\" : \"08-08-24\",\n\"Fin_Prestamo\" : \"15-08-24\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -720,7 +720,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": \"usuario20\",\n    \"Inicio Prestamo\": \"10/5/2024\",\n    \"Fin Prestamo\": \"16/5/2024\"\n}",
+							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 3,\n\"Inicio_Prestamo\" : \"10-11-24\",\n\"Fin_Prestamo\" : \"17-11-24\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -780,7 +780,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Usuario\" : \"PedritoPiKa\",\n    \"Notificacion\" : \"Estas demorado, entrega el libro\"\n}",
+							"raw": "{\n\"Usuario\" : 4,\n\"Descripcion\" : \"Falta 1 dia para la entrega de su libro\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -799,6 +799,142 @@
 							"port": "5000",
 							"path": [
 								"notificacion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autor",
+			"item": [
+				{
+					"name": "/autores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/autores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/autores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nombre\" : \"Jhon Ronald\",\n    \"Apellido\" : \"Reuel Tolkien\",\n    \"Apodo\" : \"J.R.R Tolkien\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/autores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/autor/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/autor/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"autor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/autor/2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Nombre\": \"Miguel\",\n    \"Apellido\": \"De Cervantes Saavedra\",\n    \"Apodo\": \"Migue\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/autor/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"autor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/autor/3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/autor/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"autor",
+								"4"
 							]
 						}
 					},
