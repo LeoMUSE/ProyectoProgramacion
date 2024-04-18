@@ -14,20 +14,20 @@ class Prestamo(db.Model):
     def to_json(self):
         prestamo_json = {
             "id" : int(self.idPrestamo),
-            "Usuario" : int(self.fk_idUser),
-            "Libro" : int(self.fk_idLibro),
-            "Inicio_Prestamo" : str(self.inicio_prestamo.strftime("%d-%m-%y")),
-            "Fin_Prestamo" : str(self.fin_prestamo.strftime("%d-%m-%y"))
+            "usuario" : int(self.fk_idUser),
+            "libro" : int(self.fk_idLibro),
+            "inicio_prestamo" : str(self.inicio_prestamo.strftime("%d-%m-%Y")),
+            "fin_prestamo" : str(self.fin_prestamo.strftime("%d-%m-%Y"))
         }
         return prestamo_json
     
     @staticmethod
     def from_json(prestamo_json):
         id = prestamo_json.get("id")
-        usuario = prestamo_json.get("Usuario")
-        libro = prestamo_json.get("Libro")
-        inicio_prestamo = datetime.strptime(prestamo_json.get("Inicio_Prestamo"), "%d-%m-%y")
-        fin_prestamo = datetime.strptime(prestamo_json.get("Fin_Prestamo"), "%d-%m-%y")
+        usuario = prestamo_json.get("usuario")
+        libro = prestamo_json.get("libro")
+        inicio_prestamo = datetime.strptime(prestamo_json.get("inicio_prestamo"), "%d-%m-%Y")
+        fin_prestamo = datetime.strptime(prestamo_json.get("fin_prestamo"), "%d-%m-%Y")
         return Prestamo(
             idPrestamo=id,
             fk_idUser=usuario,

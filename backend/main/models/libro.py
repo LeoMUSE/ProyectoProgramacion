@@ -9,27 +9,27 @@ class Libro(db.Model):
     genero = db.Column(db.String(60), nullable=False)
 
     def __repr__(self):
-        return f"<id: {self.idLibro}, Cantidad: {self.cantidad}, Autor: {self.fk_idAutor}, Editorial: {self.editorial}, Genero: {self.genero}>"
+        return f"<id: {self.idLibro},Titulo: {self.titulo} Cantidad: {self.cantidad}, Autor: {self.fk_idAutor}, Editorial: {self.editorial}, Genero: {self.genero}>"
 
     def to_json(self):
         libro_json = {
             "id" : int(self.idLibro),
-            "Titulo" : str(self.titulo),
-            "Cantidad" : int(self.cantidad),
-            "Autor" : int(self.fk_idAutor),
-            "Editorial" : str(self.editorial),
-            "Genero" : str(self.genero)
+            "titulo" : str(self.titulo),
+            "cantidad" : int(self.cantidad),
+            "autor" : int(self.fk_idAutor),
+            "editorial" : str(self.editorial),
+            "genero" : str(self.genero)
         }
         return libro_json
     
     @staticmethod
     def from_json(libro_json):
         id = libro_json.get("id")
-        titulo = libro_json.get("Titulo")
-        cantidad = libro_json.get("Cantidad")
-        autor = libro_json.get("Autor")
-        editorial = libro_json.get("Editorial")
-        genero = libro_json.get("Genero")
+        titulo = libro_json.get("titulo")
+        cantidad = libro_json.get("cantidad")
+        autor = libro_json.get("autor")
+        editorial = libro_json.get("editorial")
+        genero = libro_json.get("genero")
         return Libro(
             idLibro=id,
             titulo=titulo,

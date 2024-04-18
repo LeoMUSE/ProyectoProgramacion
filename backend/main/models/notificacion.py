@@ -11,16 +11,16 @@ class Notificacion(db.Model):
     def to_json(self):
         notificacion_json = {
             "id" : int(self.idNotificacion),
-            "Usuario" : int(self.fk_idUser),
-            "Descripcion" : str(self.descripcion) 
+            "usuario" : int(self.fk_idUser),
+            "descripcion" : str(self.descripcion) 
         }
         return notificacion_json
     
     @staticmethod
     def from_json(notificacion_json):
         id = notificacion_json.get("id")
-        usuario = notificacion_json.get("Usuario")
-        descripcion = notificacion_json.get("Descripcion")
+        usuario = notificacion_json.get("usuario")
+        descripcion = notificacion_json.get("descripcion")
         return Notificacion(
             idNotificacion=id,
             fk_idUser=usuario,

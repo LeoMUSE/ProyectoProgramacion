@@ -19,28 +19,28 @@ class Usuario(db.Model):
     def to_json(self):
         usuario_json = {
             "id" : int(self.idUser),
-            "User" : str(self.user),
-            "Contraseña" : str(self.contraseña),
-            "Nombre" : str(self.nombre),
-            "Apellido" : str(self.apellido),
-            "DNI" : int(self.dni),
-            "Telefono" : str(self.telefono),
-            "Email" : str(self.email),
-            "Rol" : str(self.rol)
+            "user" : str(self.user),
+            "contraseña" : str(self.contraseña),
+            "nombre" : str(self.nombre),
+            "apellido" : str(self.apellido),
+            "dni" : int(self.dni),
+            "telefono" : str(self.telefono),
+            "email" : str(self.email),
+            "rol" : str(self.rol)
         }
         return usuario_json
     
     @staticmethod
     def from_json(usuario_json):
         id = usuario_json.get("id")
-        user = usuario_json.get("User")
-        contraseña = usuario_json.get("Contraseña")
-        nombre = usuario_json.get("Nombre")
-        apellido = usuario_json.get("Apellido")
-        dni = usuario_json.get("DNI")
-        telefono = usuario_json.get("Telefono")
-        email = usuario_json.get("Email")
-        rol = usuario_json.get("Rol")   
+        user = usuario_json.get("user")
+        contraseña = usuario_json.get("contraseña")
+        nombre = usuario_json.get("nombre")
+        apellido = usuario_json.get("apellido")
+        dni = usuario_json.get("dni")
+        telefono = usuario_json.get("telefono")
+        email = usuario_json.get("email")
+        rol = usuario_json.get("rol")   
         return Usuario(
             idUser=id,
             user=user,

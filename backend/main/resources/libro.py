@@ -19,7 +19,7 @@ class Libro(Resource):
         libro = db.session.query(LibroModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(libro, key.lower(), value) #.lower() por probema de mayusculas, entre atributo y json
+            setattr(libro, key, value) #.lower() por probema de mayusculas, entre atributo y json
         db.session.add(libro)
         db.session.commit()
         return libro.to_json() , 201

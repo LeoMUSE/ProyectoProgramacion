@@ -12,7 +12,7 @@ class Autor(Resource):
         autor = db.session.query(AutorModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(autor, key.lower(), value)
+            setattr(autor, key, value)
         db.session.add(autor)
         db.session.commit()
         return autor.to_json() , 201
