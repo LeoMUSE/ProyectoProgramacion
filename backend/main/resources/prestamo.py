@@ -19,7 +19,7 @@ class Prestamo(Resource):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(prestamo, key, value)
+            setattr(prestamo, key.lower(), value)
         db.session.add(prestamo)
         db.session.commit()
         return prestamo.to_json() , 201
