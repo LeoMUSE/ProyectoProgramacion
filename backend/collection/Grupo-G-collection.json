@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"User\" : \"RamonRmz\", \n\"Contraseña\" : \"ramon123\", \n\"Nombre\" : \"Ramon\",\n\"Apellido\" : \"Ramirez\", \n\"DNI\" : 42123123,\n\"Telefono\" : \"261231223\", \n\"Email\" : \"ramonrmz@gmial.com\",\n\"Rol\" : \"Usuario\"\n}",
+							"raw": "{\n\"user\" : \"RamonRmz\", \n\"contraseña\" : \"ramon123\", \n\"nombre\" : \"Ramon\",\n\"apellido\" : \"Ramirez\", \n\"dni\" : 42123123,\n\"telefono\" : \"261231223\", \n\"email\" : \"ramonrmz@gmial.com\",\n\"rol\" : \"Usuario\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,7 +104,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"User\" : \"Ramonrmz\", \n    \"Contraseña\" : \"ramon123\", \n    \"Nombre\" : \"Ramon\",\n    \"Apellido\" : \"Ramirez\", \n    \"DNI\" : 42123123,\n    \"Telefono\" : \"261231223\", \n    \"Email\" : \"ramonrmz@gmial.com\",\n    \"Rol\" : \"Admin\"\n}",
+							"raw": "{\n    \"user\": \"RamonRMZ\",\n    \"contraseña\": \"ramon123\",\n    \"nombre\": \"Ramon\",\n    \"apellido\": \"Ramirez\",\n    \"dni\": 42123123,\n    \"telefono\": \"261231223\",\n    \"email\": \"ramonrmz@gmial.com\",\n    \"rol\": \"Admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -186,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Titulo\" : \"El señor de los anillo\",\n\"Cantidad\" : 2,\n\"Autor\" : 5,\n\"Editorial\" : \"Tirant Lo Blanch\",\n\"Genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
+							"raw": "{\n\"titulo\" : \"El señor de los anillo\",\n\"cantidad\" : 2,\n\"autor\" : 5,\n\"editorial\" : \"Tirant Lo Blanch\",\n\"genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,7 +240,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Titulo\": \"El Codigo Da Vinci\",\n    \"Cantidad\": 14,\n    \"Autor\": 2,\n    \"Editorial\": \"Doubleday\",\n    \"Genero\": \"Policial-Ficcion\"\n}",
+							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 3,\n    \"autor\": 4,\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -394,7 +394,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 4,\n\"Fecha\" : \"21-11-24\",\n\"Descripcion\": \" asadvsdasedcxas\" \n}",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 4,\n\"fecha\" : \"21-11-2024\",\n\"descripcion\": \" asadvsdasedcxas\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -448,7 +448,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Usuario\" : 1,\n    \"Libro\" : 2,\n    \"Fecha\" : \"10-02-24\",\n    \"Descripcion\": \"Muy buen libroaaaaaaaaaaa\" \n}",
+							"raw": "{\n    \"usuario\": 1,\n    \"libro\": 2,\n    \"fecha\": \"21-02-2024\",\n    \"descripcion\": \"Muy buen aaaaaaaaaaaaa\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,12 +474,12 @@
 					"response": []
 				},
 				{
-					"name": "/comentario/2",
+					"name": "/comentario/3",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/comentario/2",
+							"raw": "http://127.0.0.1:5000/comentario/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -490,7 +490,7 @@
 							"port": "5000",
 							"path": [
 								"comentario",
-								"2"
+								"3"
 							]
 						}
 					},
@@ -530,7 +530,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 3,\n\"Valoracion\" : \"3/5\" \n}\n",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"valoracion\" : \"3/5\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -584,7 +584,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Usuario\" : 1,\n    \"Libro\" : 3,\n    \"Valoracion\" : \"3/5\" \n}",
+							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 3,\n    \"valoracion\": \"5/5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -666,7 +666,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Usuario\" : 2,\n\"Libro\" : 5,\n\"Inicio_Prestamo\" : \"08-08-24\",\n\"Fin_Prestamo\" : \"15-08-24\"\n}",
+							"raw": "{\n\"usuario\" : 2,\n\"libro\" : 5,\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"15-08-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -720,7 +720,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Usuario\" : 1,\n\"Libro\" : 3,\n\"Inicio_Prestamo\" : \"10-11-24\",\n\"Fin_Prestamo\" : \"17-11-24\"\n}",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"inicio_prestamo\" : \"12-11-2024\",\n\"fin_prestamo\" : \"18-11-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -838,7 +838,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Nombre\" : \"Jhon Ronald\",\n    \"Apellido\" : \"Reuel Tolkien\",\n    \"Apodo\" : \"J.R.R Tolkien\"\n}",
+							"raw": "{\n\"nombre\" : \"Jhon Ronald\",\n\"apellido\" : \"Reuel Tolkien\",\n\"apodo\" : \"J.R.R Tolkien\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -892,7 +892,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"Nombre\": \"Miguel\",\n    \"Apellido\": \"De Cervantes Saavedra\",\n    \"Apodo\": \"Migue\"\n}",
+							"raw": "{\n    \"nombre\": \"Miguel\",\n    \"apellido\": \"De Cervantes Saavedra\",\n    \"apodo\": \"Migue\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

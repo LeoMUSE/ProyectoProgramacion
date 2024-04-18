@@ -2,7 +2,8 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import ComentarioModel
-
+import regex
+from datetime import datetime
 
 #COMENTARIO = {
 #    1 : {'Fecha':'21/08/24', 'Usuario':'Leandro Flores', 'Mensaje':'Un libro muy entretenido'},
@@ -19,7 +20,9 @@ class Comentario(Resource):
         comentario = db.session.query(ComentarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(comentario, key.lower(), value)
+            if regex.match(r"(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])\2(\d{4})", str(value)) != None:
+                setattr(comentario, key.lower(), datetime.strptime(value, "%d-%m-%Y"))
+            else: setattr(comentario, key.lower(), value)
         db.session.add(comentario)
         db.session.commit()
         return comentario.to_json() , 201

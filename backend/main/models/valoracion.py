@@ -12,19 +12,18 @@ class Valoracion(db.Model):
     def to_json(self):
         valoracion_json = {
             "id" : int(self.idValoracion),
-            "Usuario" : int(self.fk_idUsuario),
-            "Libro" : int(self.fk_idLibro),
-            "Valoracion" : str(self.valoracion)
+            "usuario" : int(self.fk_idUsuario),
+            "libro" : int(self.fk_idLibro),
+            "valoracion" : str(self.valoracion)
         }
         return valoracion_json
     
-
     @staticmethod
     def from_json(valoracion_json):
         id = valoracion_json.get("id")
-        usuario = valoracion_json.get("Usuario")
-        libro = valoracion_json.get("Libro")
-        valoracion = valoracion_json.get("Valoracion")
+        usuario = valoracion_json.get("usuario")
+        libro = valoracion_json.get("libro")
+        valoracion = valoracion_json.get("valoracion")
         return Valoracion(
             idValoracion=id,
             fk_idUsuario=usuario,

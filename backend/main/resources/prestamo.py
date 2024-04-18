@@ -2,6 +2,8 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import PrestamoModel
+import regex
+from datetime import datetime
 
 
 
@@ -19,7 +21,9 @@ class Prestamo(Resource):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(prestamo, key.lower(), value)
+            if regex.match(r"(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])\2(\d{4})", str(value)) != None:
+                setattr(prestamo, key.lower(), datetime.strptime(value, "%d-%m-%Y"))
+            else: setattr(prestamo, key.lower(), value)
         db.session.add(prestamo)
         db.session.commit()
         return prestamo.to_json() , 201
