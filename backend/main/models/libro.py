@@ -4,9 +4,11 @@ class Libro(db.Model):
     idLibro = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String, nullable=False)
     cantidad = db.Column(db.Integer, nullable=False)
-    fk_idAutor = db.Column(db.Integer, nullable=False)
+    fk_idAutor = db.Column(db.Integer, nullable=False) #un libro solo tiene un autor, pero los autores pueden tener varios libros, 1:n
     editorial = db.Column(db.String(60), nullable=False)
     genero = db.Column(db.String(60), nullable=False)
+    comentarios_libro = db.relationship("Comentario", back_populates="fk_libro_comentario", cascade="all, delete-orphan")
+    valoraciones_libro = db.relationship("Valoracion", back_populates="fk_libro_valoracion", cascade= "all, delete-orphan")
 
     def __repr__(self):
         return f"<id: {self.idLibro},Titulo: {self.titulo} Cantidad: {self.cantidad}, Autor: {self.fk_idAutor}, Editorial: {self.editorial}, Genero: {self.genero}>"
