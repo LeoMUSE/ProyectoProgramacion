@@ -3,9 +3,9 @@ from . import UsuarioModel, LibroModel
 
 class Valoracion(db.Model):
     idValoracion = db.Column(db.Integer, primary_key=True)
-    fk_idUser = db.Column(db.Integer, db.ForeingKey("usuario.idUser"), nullable=False) #un usuario puede tener varias valoraciones, pero estas valoraciones le perteneces solo a un usuarios, 1:n
+    fk_idUser = db.Column(db.Integer, db.ForeignKey("usuario.idUser"), nullable=False) #un usuario puede tener varias valoraciones, pero estas valoraciones le perteneces solo a un usuarios, 1:n
     fk_user_valoracion = db.relationship("Usuario", back_populates="valoraciones_user", uselist=False, single_parent=True)
-    fk_idLibro = db.Column(db.Integer, db.ForeingKey("libro.idLibro"), nullable=False) #1:n
+    fk_idLibro = db.Column(db.Integer, db.ForeignKey("libro.idLibro"), nullable=False) #1:n
     fk_libro_valoracion = db.relationship("Libro", back_populates="valoraciones_libro", uselist=False, single_parent=True)
     valoracion = db.Column(db.String, nullable=False)
 

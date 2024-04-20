@@ -3,7 +3,7 @@ from . import UsuarioModel
 
 class Notificacion(db.Model):
     idNotificacion = db.Column(db.Integer, primary_key=True)
-    fk_idUser = db.Column(db.Integer, db.ForeingKey("usuario.idUser"), nullable=False)
+    fk_idUser = db.Column(db.Integer, db.ForeignKey("usuario.idUser"), nullable=False)
     fk_user_notificacion = db.relationship("Usuario", back_populates="notificaciones_user", uselist=False, single_parent=True) #un usuario puede tener varias notificacions, pero una notificacion va a solo un usuario, 1:n
     descripcion = db.Column(db.String(255), nullable=False)
 
