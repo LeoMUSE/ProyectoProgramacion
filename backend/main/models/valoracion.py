@@ -10,7 +10,7 @@ class Valoracion(db.Model):
     valoracion = db.Column(db.String, nullable=False)
 
     def __repr__(self):
-        return f"<id: {self.idValoracion}, Usuario: {self.fk_idLibro}, Libro: {self.fk_idLibro}, Valoracion: {self.fk_idUsuario}"
+        return f"<id: {self.idValoracion}, Usuario: {self.fk_idLibro}, Libro: {self.fk_idLibro}, Valoracion: {self.fk_idUser}"
     
     def to_json(self):
         self.fk_user_valoracion = db.session.query(UsuarioModel).get_or_404(self.fk_idUser)
@@ -31,7 +31,7 @@ class Valoracion(db.Model):
         valoracion = valoracion_json.get("valoracion")
         return Valoracion(
             idValoracion=id,
-            fk_idUsuario=usuario,
+            fk_idUser=usuario,
             fk_idLibro=libro,
             valoracion=valoracion
         )

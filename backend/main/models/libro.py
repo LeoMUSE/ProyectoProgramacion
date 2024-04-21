@@ -41,7 +41,7 @@ class Libro(db.Model):
             idLibro=id,
             titulo=titulo,
             cantidad=cantidad,
-            fk_idAutor=autor,
+            #fk_idAutor=autor, #no funciona m:n, ver
             editorial=editorial,
             genero=genero
         )

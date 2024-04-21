@@ -39,7 +39,7 @@ class Prestamo(db.Model):
         return Prestamo(
             idPrestamo=id,
             fk_idUser=usuario,
-            fk_idLibro=libro,
+            #fk_idLibro=libro, #no funciona de m:n, ver
             inicio_prestamo=inicio_prestamo,
             fin_prestamo=fin_prestamo
         )
