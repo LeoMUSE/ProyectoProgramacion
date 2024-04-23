@@ -34,14 +34,12 @@ class Libro(db.Model):
         id = libro_json.get("id")
         titulo = libro_json.get("titulo")
         cantidad = libro_json.get("cantidad")
-        autor = libro_json.get("autor")
         editorial = libro_json.get("editorial")
         genero = libro_json.get("genero")
         return Libro(
             idLibro=id,
             titulo=titulo,
             cantidad=cantidad,
-            #fk_idAutor=autor, #no funciona m:n, ver
             editorial=editorial,
             genero=genero
         )

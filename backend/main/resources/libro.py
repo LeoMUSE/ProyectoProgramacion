@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import LibroModel
+from main.models import LibroModel, AutorModel
 
 
 #LIBROS = {
@@ -35,7 +35,7 @@ class Libros(Resource):
     def get(self):
         libros = db.session.query(LibroModel).all()
         return jsonify([libro.to_json() for libro in libros])
-
+    
     def post(self):
         libro = LibroModel.from_json(request.get_json())
         db.session.add(libro)

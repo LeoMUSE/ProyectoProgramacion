@@ -33,13 +33,11 @@ class Prestamo(db.Model):
     def from_json(prestamo_json):
         id = prestamo_json.get("id")
         usuario = prestamo_json.get("usuario")
-        libro = prestamo_json.get("libro")
         inicio_prestamo = datetime.strptime(prestamo_json.get("inicio_prestamo"), "%d-%m-%Y")
         fin_prestamo = datetime.strptime(prestamo_json.get("fin_prestamo"), "%d-%m-%Y")
         return Prestamo(
             idPrestamo=id,
             fk_idUser=usuario,
-            #fk_idLibro=libro, #no funciona de m:n, ver
             inicio_prestamo=inicio_prestamo,
             fin_prestamo=fin_prestamo
         )
