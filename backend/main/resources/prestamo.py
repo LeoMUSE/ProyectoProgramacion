@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import PrestamoModel
+from main.models import PrestamoModel, LibroModel
 import regex
 from datetime import datetime
 
@@ -41,10 +41,16 @@ class Prestamos(Resource):
         return jsonify([prestamo.to_json() for prestamo in prestamos])
 
     def post(self):
+        libro_exist = request.get_json().get("libro")
         prestamo = PrestamoModel.from_json(request.get_json())
+
+        if libro_exist:
+            libros = LibroModel.query.filter(LibroModel.idLibro.in_(libro_exist)).all()
+            for libro in libros:
+                prestamo.fk_idLibro.append(libro)
+
         db.session.add(prestamo)
         db.session.commit()
-        print(prestamo)
         return prestamo.to_json()
     
 if __name__ == '__main__':

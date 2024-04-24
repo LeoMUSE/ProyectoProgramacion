@@ -24,7 +24,7 @@ class Prestamo(db.Model):
         prestamo_json = {
             "id" : int(self.idPrestamo),
             "usuario" : self.fk_user_prestamo.to_json(),
-            "libro" : [libro.to_json for libro in self.fk_idLibro],
+            "libro" : [libro.to_json() for libro in self.fk_idLibro],
             "inicio_prestamo" : str(self.inicio_prestamo.strftime("%d-%m-%Y")),
             "fin_prestamo" : str(self.fin_prestamo.strftime("%d-%m-%Y"))
         }

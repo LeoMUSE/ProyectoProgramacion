@@ -37,11 +37,16 @@ class Libros(Resource):
         return jsonify([libro.to_json() for libro in libros])
     
     def post(self):
+        autor_exist = request.get_json().get("autor")
         libro = LibroModel.from_json(request.get_json())
+
+        if autor_exist:
+            autor_id = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
+            libro.fk_idAutor.extend(autor_id)
+        
         db.session.add(libro)
         db.session.commit()
-        print(libro)
-        return libro.to_json()
+        return libro.to_json(), 201
     
 if __name__ == '__main__':
     pass
