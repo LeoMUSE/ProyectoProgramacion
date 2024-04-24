@@ -1,11 +1,12 @@
 from .. import db
 
 libros_autores = db.Table("libros_autores",
-    db.Column("id_autor",db.Integer,db.ForeignKey("autor.idAutor"), primary_key=True),
-    db.Column("id_libro", db.Integer, db.ForeignKey("libro.idLibro"), primary_key=True)
+    db.Column("id_autor",db.Integer,db.ForeignKey("autores.idAutor"), primary_key=True),
+    db.Column("id_libro", db.Integer, db.ForeignKey("libros.idLibro"), primary_key=True)
 )
 
 class Libro(db.Model):
+    __tablename__ = "libros"
     idLibro = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String, nullable=False)
     cantidad = db.Column(db.Integer, nullable=False)

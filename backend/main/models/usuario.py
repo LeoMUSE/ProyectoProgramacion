@@ -1,6 +1,7 @@
 from .. import db
 
 class Usuario(db.Model):
+    __tablename__ = "usuarios"
     idUser = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.String(60), nullable=False)
     contraseña = db.Column(db.String(60), nullable=False)
