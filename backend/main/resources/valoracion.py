@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import ValoracionModel
+from main.models import ValoracionModel, UsuarioModel, LibroModel
 
 
 # VALORACIONES = {
@@ -18,12 +18,23 @@ class Valoracion(Resource):
     #modificar metodo PUT, para poder cambair relaciones
     def put(self, id):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
-        data = request.get_json().items()
-        for key, value in data:
-            setattr(valoracion, key, value)
+        data = request.get_json()
+
+        nuevo_usuario_id = data.get('usuario')
+        if nuevo_usuario_id:
+            nuevo_usuario = UsuarioModel.query.get_or_404(nuevo_usuario_id)
+            valoracion.fk_user_valoracion = nuevo_usuario
+
+        nuevo_libro_id = data.get('libro')
+        if nuevo_libro_id:
+            nuevo_libro = LibroModel.query.get_or_404(nuevo_libro_id)
+            valoracion.fk_libro_valoracion = nuevo_libro
+        for key, value in data.items():
+            setattr(valoracion, key.lower(), value)
+
         db.session.add(valoracion)
         db.session.commit()
-        return valoracion.to_json() , 201
+        return valoracion.to_json(), 201
 
 
     def delete(self, id):
