@@ -14,12 +14,18 @@ class Libro(Resource):
     def get(self, id):
         libro = db.session.query(LibroModel).get_or_404(id)
         return libro.to_json()
-
+    
+    #modificar metodo PUT, para poder cambair relaciones
     def put(self, id):
         libro = db.session.query(LibroModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            setattr(libro, key, value) #.lower() por probema de mayusculas, entre atributo y json
+            if key == 'autor':
+                nuevo_autor_id = value
+                nuevo_autor = AutorModel.query.get_or_404(nuevo_autor_id)
+                libro.fk_idAutor = [nuevo_autor]
+            else:
+                setattr(libro, key, value)
         db.session.add(libro)
         db.session.commit()
         return libro.to_json() , 201

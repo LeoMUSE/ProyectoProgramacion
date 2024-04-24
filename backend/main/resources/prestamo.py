@@ -17,16 +17,22 @@ class Prestamo(Resource):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
 
+    #modificar metodo PUT, para poder cambiar relaciones
     def put(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
             if regex.match(r"(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])\2(\d{4})", str(value)) != None: #expresión regular para fechas tipo dd-mm-aaaa
                 setattr(prestamo, key.lower(), datetime.strptime(value, "%d-%m-%Y"))
-            else: setattr(prestamo, key.lower(), value)
+            elif key == 'libro':
+                nuevos_libros_ids = value
+                nuevos_libros = [LibroModel.query.get_or_404(libro_id) for libro_id in nuevos_libros_ids]
+                prestamo.fk_idLibro = nuevos_libros
+            else: 
+                setattr(prestamo, key.lower(), value)
         db.session.add(prestamo)
         db.session.commit()
-        return prestamo.to_json() , 201
+        return prestamo.to_json(), 201
 
 
     def delete(self, id):

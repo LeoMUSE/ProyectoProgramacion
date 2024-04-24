@@ -15,6 +15,7 @@ class Valoracion(Resource):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
         return valoracion.to_json()
 
+    #modificar metodo PUT, para poder cambair relaciones
     def put(self, id):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)
         data = request.get_json().items()

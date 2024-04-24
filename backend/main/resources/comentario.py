@@ -15,7 +15,8 @@ class Comentario(Resource):
     def get(self, id):
         comentario = db.session.query(ComentarioModel).get_or_404(id)
         return comentario.to_json()
-
+    
+    #modificar metodo PUT, para poder cambair relaciones
     def put(self, id):
         comentario = db.session.query(ComentarioModel).get_or_404(id)
         data = request.get_json().items()
