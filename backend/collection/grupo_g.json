@@ -3,14 +3,15 @@
 		"_postman_id": "09fcfa8f-029d-4135-b62a-356bde366af4",
 		"name": "collection Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33777156"
+		"_exporter_id": "33777156",
+		"_collection_link": "https://gold-comet-113394.postman.co/workspace/My-Workspace~8ce96e3e-33f4-4013-89aa-7630f7785c91/collection/33777156-09fcfa8f-029d-4135-b62a-356bde366af4?action=share&source=collection_link&creator=33777156"
 	},
 	"item": [
 		{
 			"name": "Usuario",
 			"item": [
 				{
-					"name": "/usuarios",
+					"name": "Listar usuarios",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -44,7 +45,7 @@
 					"response": []
 				},
 				{
-					"name": "/usuarios",
+					"name": "Agregar usuario",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -75,12 +76,12 @@
 					"response": []
 				},
 				{
-					"name": "/usuario/1",
+					"name": "Ver usuario",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/1",
+							"raw": "http://127.0.0.1:5000/usuario/5",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -91,14 +92,14 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"1"
+								"5"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/usuario/5",
+					"name": "Modificar usuario",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -130,7 +131,7 @@
 					"response": []
 				},
 				{
-					"name": "/usuario/3",
+					"name": "Borrar usuario",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -158,7 +159,7 @@
 			"name": "Libro",
 			"item": [
 				{
-					"name": "/libros",
+					"name": "Listar libros",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -180,13 +181,13 @@
 					"response": []
 				},
 				{
-					"name": "/libros",
+					"name": "Agregar libro",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"titulo\" : \"El señor de los anillo\",\n\"cantidad\" : 2,\n\"autor\" : 5,\n\"editorial\" : \"Tirant Lo Blanch\",\n\"genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
+							"raw": "{\n\"titulo\" : \"El señor de los anillo\",\n\"cantidad\" : 2,\n\"autor\" : [5],\n\"editorial\" : \"Tirant Lo Blanch\",\n\"genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -211,12 +212,24 @@
 					"response": []
 				},
 				{
-					"name": "/libro/1",
+					"name": "Ver libro",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/libro/1",
+							"raw": "http://127.0.0.1:5000/libro/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -227,20 +240,20 @@
 							"port": "5000",
 							"path": [
 								"libro",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/libro/4",
+					"name": "Modificar libro",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 3,\n    \"autor\": 4,\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
+							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 5,\n    \"autor\": [4],\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -266,7 +279,7 @@
 					"response": []
 				},
 				{
-					"name": "/libro/3",
+					"name": "Borrar libro",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -366,7 +379,7 @@
 			"name": "Comentario",
 			"item": [
 				{
-					"name": "/comentarios",
+					"name": "Listar comentarios",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -388,7 +401,7 @@
 					"response": []
 				},
 				{
-					"name": "/comentarios",
+					"name": "Agregar comentario",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -419,7 +432,7 @@
 					"response": []
 				},
 				{
-					"name": "/comentario/1",
+					"name": "Ver comentario",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -442,13 +455,13 @@
 					"response": []
 				},
 				{
-					"name": "/comentario/1",
+					"name": "Modificar comentario",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": 1,\n    \"libro\": 2,\n    \"fecha\": \"21-02-2024\",\n    \"descripcion\": \"Muy buen aaaaaaaaaaaaa\"\n}",
+							"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"20-02-2024\",\n    \"descripcion\": \"Muy buen aaaa\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -474,7 +487,7 @@
 					"response": []
 				},
 				{
-					"name": "/comentario/3",
+					"name": "Borrar comentario",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -502,7 +515,7 @@
 			"name": "Valoracion",
 			"item": [
 				{
-					"name": "/valoraciones",
+					"name": "Listar Valoraciones",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -524,7 +537,7 @@
 					"response": []
 				},
 				{
-					"name": "/valoraciones",
+					"name": "Agregar valoracion",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -555,7 +568,7 @@
 					"response": []
 				},
 				{
-					"name": "/valoracion/1",
+					"name": "Ver valoracion",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -578,13 +591,13 @@
 					"response": []
 				},
 				{
-					"name": "/valoracion/1",
+					"name": "Modificar valoracion",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 3,\n    \"valoracion\": \"5/5\"\n}",
+							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 3,\n    \"valoracion\": \"2/5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -610,7 +623,7 @@
 					"response": []
 				},
 				{
-					"name": "/valoracion/2",
+					"name": "Borrar valoracion",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -638,7 +651,7 @@
 			"name": "Prestamo",
 			"item": [
 				{
-					"name": "/prestamos",
+					"name": "Listar prestamos",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -660,13 +673,13 @@
 					"response": []
 				},
 				{
-					"name": "/prestamos",
+					"name": "Agregar prestamo",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 2,\n\"libro\" : 5,\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"15-08-2024\"\n}",
+							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [5],\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"15-08-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -691,7 +704,7 @@
 					"response": []
 				},
 				{
-					"name": "/prestamo/1",
+					"name": "Ver prestamo",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -714,13 +727,13 @@
 					"response": []
 				},
 				{
-					"name": "/prestamo/1",
+					"name": "Modificar prestamo",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"inicio_prestamo\" : \"12-11-2024\",\n\"fin_prestamo\" : \"18-11-2024\"\n}",
+							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [2],\n\"inicio_prestamo\" : \"10-11-2024\",\n\"fin_prestamo\" : \"23-11-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -746,7 +759,7 @@
 					"response": []
 				},
 				{
-					"name": "/prestamo2",
+					"name": "Borrar prestamo",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -774,7 +787,7 @@
 			"name": "Notificacion",
 			"item": [
 				{
-					"name": "/notificacion",
+					"name": "Agregar notificacion",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -810,7 +823,7 @@
 			"name": "Autor",
 			"item": [
 				{
-					"name": "/autores",
+					"name": "Listar autores",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -832,7 +845,7 @@
 					"response": []
 				},
 				{
-					"name": "/autores",
+					"name": "Agregar autor",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -863,12 +876,12 @@
 					"response": []
 				},
 				{
-					"name": "/autor/1",
+					"name": "Ver autor",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/autor/1",
+							"raw": "http://127.0.0.1:5000/autor/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -879,14 +892,14 @@
 							"port": "5000",
 							"path": [
 								"autor",
-								"1"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "/autor/2",
+					"name": "Modificar autor",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -918,7 +931,7 @@
 					"response": []
 				},
 				{
-					"name": "/autor/3",
+					"name": "Borrar autor",
 					"request": {
 						"method": "DELETE",
 						"header": [],

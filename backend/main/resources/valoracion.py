@@ -35,7 +35,13 @@ class Valoracion(Resource):
         db.session.add(valoracion)
         db.session.commit()
         return valoracion.to_json(), 201
-
+        # valoracion = db.session.query(ValoracionModel).get_or_404(id)
+        # data = request.get_json().items()
+        # for key, value in data:
+        #     setattr(valoracion, key, value)
+        # db.session.add(valoracion)
+        # db.session.commit()
+        # return valoracion.to_json() , 201                                                                
 
     def delete(self, id):
         valoracion = db.session.query(ValoracionModel).get_or_404(id)

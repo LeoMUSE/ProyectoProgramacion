@@ -29,7 +29,13 @@ class Libro(Resource):
         db.session.add(libro)
         db.session.commit()
         return libro.to_json() , 201
-
+        # libro = db.session.query(LibroModel).get_or_404(id)
+        # data = request.get_json().items()
+        # for key, value in data:
+        #     setattr(libro, key, value) #.lower() por probema de mayusculas, entre atributo y json
+        # db.session.add(libro)
+        # db.session.commit()
+        # return libro.to_json() , 201
 
     def delete(self, id):
         libro = db.session.query(LibroModel).get_or_404(id)
