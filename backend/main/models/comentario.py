@@ -19,13 +19,14 @@ class Comentario(db.Model):
     @staticmethod
     def from_json(comentario_json):
         id = comentario_json.get("id")
-        usuario = comentario_json.get("Usuario")
-        descripcion = comentario_json.get("Descripcion")
+        usuario = comentario_json.get("usuario")
+        libro = comentario_json.get("libro")
+        fecha = datetime.strptime(comentario_json.get("fecha"), "%d-%m-%Y")
+        descripcion = comentario_json.get("descripcion")
         return Comentario(
             idComentario=id,
             fk_idUser=usuario,
+            fk_idLibro=libro,
+            fecha=fecha,
             descripcion=descripcion
         )
-
-if __name__ == '__main__':
-    pass

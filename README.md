@@ -2,5 +2,5 @@
 
 # Grupo 'G'
 - Vicente Cara
-- Diego Xu
+- Diego Xu Huang
 - Leandro Flores
