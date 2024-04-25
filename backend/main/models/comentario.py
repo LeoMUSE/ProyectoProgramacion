@@ -1,10 +1,14 @@
 from .. import db
 from datetime import datetime
+from . import UsuarioModel, LibroModel
 
 class Comentario(db.Model):
+    __tablename__ = "comentarios"
     idComentario = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    fk_idUser = db.Column(db.Integer, nullable=False)
-    fk_idLibro = db.Column(db.Integer, nullable=False)
+    fk_idUser = db.Column(db.Integer, db.ForeignKey("usuarios.idUser"), nullable=False)
+    fk_user_comentario = db.relationship("Usuario", back_populates="comentarios_user", uselist=False, single_parent=True) #un usuario puede tener varios coemntarios, pero un comentario le pertenece solo a un usuario 1:n
+    fk_idLibro =db.Column(db.Integer, db.ForeignKey("libros.idLibro"), nullable=False)
+    fk_libro_comentario = db.relationship("Libro", back_populates="comentarios_libro", uselist=False, single_parent=True) #un libro puede tener varios comentarios, pero un comentario se relaciona unicamente con un libro 1:n
     fecha = db.Column(db.DateTime, nullable=False)
     descripcion = db.Column(db.String(255), nullable=False)
 
@@ -12,10 +16,12 @@ class Comentario(db.Model):
         return f"<id: {self.idComentario}, Usuario: {self.fk_idUser}, Libro:{self.fk_idLibro}, Fecha: {self.fecha}, Descripcion: {self.descripcion}"
 
     def to_json(self):
+        self.fk_user_comentario = db.session.query(UsuarioModel).get_or_404(self.fk_idUser)
+        self.fk_libro_comentario = db.session.query(LibroModel).get_or_404(self.fk_idLibro)
         comentario_json = {
             "id" : int(self.idComentario),
-            "usuario" : int(self.fk_idUser),
-            "libro" : int(self.fk_idLibro),
+            "usuario" : self.fk_user_comentario.to_json(),
+            "libro" : self.fk_libro_comentario.to_json(),
             "fecha" : str(self.fecha.strftime("%d-%m-%Y")),
             "descripcion" : str(self.descripcion)
         }

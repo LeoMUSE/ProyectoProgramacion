@@ -1,6 +1,8 @@
 from .. import db
+from .libro import libros_autores
 
 class Autor(db.Model):
+    __tablename__ = "autores"
     idAutor = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(60), nullable=False)
     apellido = db.Column(db.String(60), nullable=False)
