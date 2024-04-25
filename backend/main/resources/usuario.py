@@ -33,8 +33,40 @@ class Usuario(Resource):
 
 class Usuarios(Resource):
     def get(self):
-        usuarios = db.session.query(UsuarioModel).all()
-        return jsonify([usuario.to_json() for usuario in usuarios])
+        page = 1
+
+        per_page = 10
+
+        usuarios = db.session.query(UsuarioModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #usuarios por rol
+
+        #usuarios por nombre
+
+        #usuarios por dni
+
+        #usuarios por telefono (area)
+
+        #usuarios por email
+
+
+        ### FIN FILTROS ###
+
+        # obtener valor paginado
+        usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'usuarios': [usuario.to_json() for usuario in usuarios],
+                    'total':usuarios.total,
+                    'pages':usuarios.pages,
+                    'page':page    
+                        })
 
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())

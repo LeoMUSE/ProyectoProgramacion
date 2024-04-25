@@ -55,6 +55,20 @@ class Libros(Resource):
         if request.args.get('per_page'):
             per_page = int(request.args.get('per_page'))
 
+        ### FILTROS ###
+
+        #genero
+        
+        #autor
+
+        #titulo
+
+        #editorial
+
+        #libro mas valorados
+
+
+        ### FIN FILTROS ###
 
         libros = libros.paginate(page=page, per_page=per_page, error_out=True)
 

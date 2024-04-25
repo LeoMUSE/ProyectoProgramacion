@@ -68,6 +68,20 @@ class Prestamos(Resource):
             page = int(request.args.get('page'))
         if request.args.get('per_page'):
             per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #prestamos con mas de 1 libro
+
+        #prestamos proximos a finalizar
+
+        #prestamos por usuario (usuario puede tener mas de un prestamo)
+
+        #prestamos finalizados
+
+        #
+
+        ### FIN FILTROS ###
         
         prestamos = prestamos.paginate(page=page, per_page=per_page, error_out=True)
 

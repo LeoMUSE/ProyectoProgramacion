@@ -10,11 +10,35 @@ from main.models import NotificacionModel
 #}
 
 class Notificacion(Resource):
-
     def get(self):
-        pass
+        page = 1
 
-        
+        per_page = 10
+
+        notificaciones = db.session.query(NotificacionModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #fecha
+
+        #usuario/descripcion
+
+        ### FIN FILTROS ###
+
+        # obtener valor paginado
+        notificaciones = notificaciones.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'notificaciones': [usuario.to_json() for usuario in notificaciones],
+                    'total':notificaciones.total,
+                    'pages':notificaciones.pages,
+                    'page':page    
+                        })
+
     
     def post(self):
         notificacion = NotificacionModel.from_json(request.get_json())
