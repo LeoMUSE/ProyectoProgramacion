@@ -13,6 +13,3 @@ class SignIn(Resource):
         id = int(max(SIGNIN.keys()))+1
         SIGNIN[id] = singIn
         return SIGNIN[id], 201
-    
-if __name__ == '__main__':
-    pass
