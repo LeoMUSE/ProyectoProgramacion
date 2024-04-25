@@ -50,6 +50,25 @@ class Usuarios(Resource):
 
         ### FILTROS ###
 
+        #usuarios por rol
+        if request.args.get("rol"):
+            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+request.args.get('rol')+"%"))
+
+        #usuarios por nombre
+        if request.args.get("nombre"):
+            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+
+        #usuarios por dni
+        if request.args.get("dni"):
+            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+request.args.get('dni')+"%"))
+
+        #usuarios por telefono (area)
+        if request.args.get("telefono"):
+            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+request.args.get('telefono')+"%"))
+
+        #usuarios por email
+        if request.args.get("email"):
+            usuarios = usuarios.filter(UsuarioModel.email.like("%"+request.args.get('email')+"%"))
 
         ### FIN FILTROS ###
 

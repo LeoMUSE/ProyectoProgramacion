@@ -44,10 +44,52 @@ class Libro(Resource):
         return '', 204
 
 class Libros(Resource):
-    def get(self):
-        libros = db.session.query(LibroModel).all()
-        return jsonify([libro.to_json() for libro in libros])
+    # def get(self):
+    #     libros = db.session.query(LibroModel).all()
+    #     return jsonify([libro.to_json() for libro in libros])
     
+
+
+    def get(self):
+        page = 1
+        per_page = 10
+
+        libros = db.session.query(LibroModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #genero
+        
+        #autor
+
+        #titulo
+        if request.args.get("titulo"):
+            libros = libros.filter(LibroModel.titulo.like("%"+request.args.get('titulo')+"%"))
+
+        #editorial
+        if request.args.get("editorial"):
+            libros = libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
+
+        #libro mas valorados
+        
+
+        ### FIN FILTROS ###
+
+        libros = libros.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'libros' : [libro.to_json() for libro in libros],
+                    'total' : libros.total,
+                    'pages' : libros.pages,
+                    'page' : page
+        })
+    
+
+
     def post(self):
         autor_exist = request.get_json().get("autor")
         libro = LibroModel.from_json(request.get_json())

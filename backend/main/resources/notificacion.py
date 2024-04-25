@@ -11,20 +11,7 @@ from main.models import NotificacionModel
 
 class Notificacion(Resource):
 
-    def get(self, id):
-        notificacion = db.session.query(NotificacionModel).get_or_404(id)
-        return notificacion.to_json()
-    
-    def post(self):
-        notificacion = NotificacionModel.from_json(request.get_json())
-        db.session.add(notificacion)
-        db.session.commit()
-        print(notificacion)
-        return notificacion.to_json()
-    
 
-
-class Notificaciones(Resource):
     def get(self):
         # usuarios = db.session.query(UsuarioModel).all()
         # return jsonify([usuario.to_json() for usuario in usuarios])
@@ -43,9 +30,11 @@ class Notificaciones(Resource):
 
         ### FILTROS ###
 
+        #fecha
+
+        #usuario/descripcion
 
         ### FIN FILTROS ###
-
 
         # obtener valor paginado
         notificaciones = notificaciones.paginate(page=page, per_page=per_page, error_out=True)
@@ -56,6 +45,20 @@ class Notificaciones(Resource):
                     'page':page    
                         })
 
+
+  
+    
+    def post(self):
+        notificacion = NotificacionModel.from_json(request.get_json())
+        db.session.add(notificacion)
+        db.session.commit()
+        print(notificacion)
+        return notificacion.to_json()
+    
+
+
+
+    
 
 if __name__ == '__main__':
     pass

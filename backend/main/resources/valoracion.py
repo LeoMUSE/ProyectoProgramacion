@@ -50,9 +50,39 @@ class Valoracion(Resource):
         return '', 204
 
 class Valoraciones(Resource):
+    # def get(self):
+    #     valoraciones = db.session.query(ValoracionModel).all()
+    #     return jsonify([valoracion.to_json() for valoracion in valoraciones])
+
+
     def get(self):
-        valoraciones = db.session.query(ValoracionModel).all()
-        return jsonify([valoracion.to_json() for valoracion in valoraciones])
+        page = 1
+        #Cantidad de elementos por página por defecto
+        per_page = 10
+        
+        #no ejecuto el .all()
+        valoraciones = db.session.query(ValoracionModel)
+        
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+        
+        ### FILTROS ###
+
+        #valoraciones por libro
+        
+        ### FIN FILTROS ####
+        
+        valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'valoraciones': [valoracion.to_json() for valoracion in valoraciones],
+                  'total': valoraciones.total,
+                  'pages': valoraciones.pages,
+                  'page': page
+                })
+
+
 
     def post(self):
         valoracion = ValoracionModel.from_json(request.get_json())
