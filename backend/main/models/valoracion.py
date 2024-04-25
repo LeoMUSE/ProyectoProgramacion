@@ -1,8 +1,8 @@
 from .. import db
 
 class Valoracion(db.Model):
-    idValoracion = db.Column(db.Integer, primary_key=True)
     fk_idUsuario = 0
+    idValoracion = db.Column(db.Integer, primary_key=True)
     fk_idLibro = 0
     valoracion = db.Column(db.String, nullable=False)
 
@@ -24,9 +24,9 @@ class Valoracion(db.Model):
         libro = valoracion_json.get("Libro")
         valoracion = valoracion_json.get("Valoracion")
         return Valoracion(
-            id=id,
-            usuario=usuario,
-            libro=libro,
+            idValoracion=id,
+            fk_idUsuario=usuario,
+            fk_idLibro=libro,
             valoracion=valoracion
         )
     

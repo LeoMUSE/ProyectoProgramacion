@@ -28,7 +28,7 @@ class Libro(db.Model):
         editorial = libro_json.get("Editorial")
         genero = libro_json.get("Genero")
         return Libro(
-            id=id,
+            idLibro=id,
             cantidad=cantidad,
             fk_idAutor=autor,
             editorial=editorial,

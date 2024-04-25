@@ -42,7 +42,7 @@ class Usuario(db.Model):
         email = usuario_json.get("Email")
         rol = usuario_json.get("Rol")   
         return Usuario(
-            id=id,
+            idUser=id,
             user=user,
             contraseña=contraseña,
             nombre=nombre,

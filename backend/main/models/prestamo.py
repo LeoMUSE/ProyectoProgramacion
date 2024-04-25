@@ -29,9 +29,9 @@ class Prestamo(db.Model):
         inicio_prestamo = prestamo_json.get("Inicio_Prestamo")
         fin_prestamo = prestamo_json.get("Fin_prestamo")
         return Prestamo(
-            id=id,
-            usuario=usuario,
-            libro=libro,
+            idPrestamo=id,
+            fk_idUser=usuario,
+            fk_idLibro=libro,
             inicio_prestamo=inicio_prestamo,
             fin_prestamo=fin_prestamo
         )

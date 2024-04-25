@@ -22,8 +22,8 @@ class Notificacion(db.Model):
         usuario = notificacion_json.get("Usuario")
         descripcion = notificacion_json.get("descripcion")
         return Notificacion(
-            id=id,
-            usuario=usuario,
+            idNotificacion=id,
+            fk_idUsuario=usuario,
             descripcion=descripcion
         )
     

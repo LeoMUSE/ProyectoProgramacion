@@ -22,8 +22,8 @@ class Comentario(db.Model):
         usuario = comentario_json.get("Usuario")
         descripcion = comentario_json.get("Descripcion")
         return Comentario(
-            id=id,
-            usuario=usuario,
+            idComentario=id,
+            fk_idUser=usuario,
             descripcion=descripcion
         )
 
