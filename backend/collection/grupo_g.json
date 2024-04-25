@@ -253,7 +253,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 5,\n    \"autor\": [4],\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
+							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 5,\n    \"autor\": [1],\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -461,7 +461,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": 1,\n    \"libro\": 1,\n    \"fecha\": \"20-02-2024\",\n    \"descripcion\": \"Muy buen aaaa\"\n}",
+							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 2,\n    \"fecha\": \"23-02-2024\",\n    \"descripcion\": \"Muy buenoooo\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -543,7 +543,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"valoracion\" : \"3/5\" \n}",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"valoracion\" : \"3/5\" \n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -597,7 +597,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 3,\n    \"valoracion\": \"2/5\"\n}",
+							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 4,\n    \"valoracion\": \"5/5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -679,7 +679,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [5],\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"15-08-2024\"\n}",
+							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [2],\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"10-08-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -741,7 +741,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/prestamo/1",
+							"raw": "http://127.0.0.1:5000/prestamo/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -752,7 +752,7 @@
 							"port": "5000",
 							"path": [
 								"prestamo",
-								"1"
+								"2"
 							]
 						}
 					},
