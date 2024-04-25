@@ -10,6 +10,11 @@ from main.models import NotificacionModel
 #}
 
 class Notificacion(Resource):
+
+    def get(self):
+        pass
+
+        
     
     def post(self):
         notificacion = NotificacionModel.from_json(request.get_json())

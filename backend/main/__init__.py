@@ -2,8 +2,8 @@ import os
 from flask import Flask
 from dotenv import load_dotenv
 from flask_restful import Api
-
 from flask_sqlalchemy import SQLAlchemy
+from flask_jwt_extended import JWTManager
 
 api = Api()
 
@@ -41,5 +41,7 @@ def create_app():
     api.add_resource(resources.AutorResource, '/autor/<id>')
     api.add_resource(resources.AutoresResource, '/autores')
     api.init_app(app)
+    # app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+    # app.config["JWT_ACCES_TOKEN_EXPIRES"] = int(os.getenv("JWT_ACCES_TOKEN_EXPIRES"))
 
     return app
