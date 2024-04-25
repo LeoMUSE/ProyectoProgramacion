@@ -66,7 +66,11 @@ class Valoraciones(Resource):
         ### FILTROS ###
 
         #valoraciones por libro
-        
+        if request.args.get("nroValoracion"):
+            valoraciones=valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
+
+        #libro con mayor numero de valoraciones
+                
         ### FIN FILTROS ####
         
         valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)

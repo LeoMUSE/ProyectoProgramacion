@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import LibroModel, AutorModel
+from main.models import LibroModel, AutorModel, ValoracionModel
 from sqlalchemy import func, desc
 
 #LIBROS = {
@@ -58,14 +58,20 @@ class Libros(Resource):
         ### FILTROS ###
 
         #genero
+        if request.args.get("genero"):
+            libros=libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%"))
         
-        #autor
+        #autor ARRGLAR
+        # if request.args.get("autor"):
+        #     libros=libros.filter(LibroModel.fk_idAutor == AutorModel.idAutor)
 
         #titulo
+        if request.args.get("titulo"):
+            libros = libros.filter(LibroModel.titulo.like("%"+request.args.get('titulo')+"%"))
 
         #editorial
-
-        #libro mas valorados
+        if request.args.get("editorial"):
+            libros = libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
 
 
         ### FIN FILTROS ###

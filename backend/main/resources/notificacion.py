@@ -24,9 +24,7 @@ class Notificacion(Resource):
 
         ### FILTROS ###
 
-        #fecha
-
-        #usuario/descripcion
+        #usuario
 
         ### FIN FILTROS ###
 
