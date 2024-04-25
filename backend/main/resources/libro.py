@@ -61,9 +61,11 @@ class Libros(Resource):
         if request.args.get("genero"):
             libros=libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%"))
         
-        #autor ARRGLAR
-        # if request.args.get("autor"):
-        #     libros=libros.filter(LibroModel.fk_idAutor == AutorModel.idAutor)
+        #autor 
+        autor = request.args.get("autor")
+        if autor:
+             autor_id = AutorModel.query.get_or_404(autor)
+             libros=libros.filter(LibroModel.fk_idAutor.contains(autor_id))
 
         #titulo
         if request.args.get("titulo"):

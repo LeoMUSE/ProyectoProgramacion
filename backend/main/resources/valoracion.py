@@ -2,8 +2,11 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import ValoracionModel, UsuarioModel, LibroModel
+from sqlalchemy import func, desc, asc
 
-
+class BusquedaIncorrecta(Exception):
+    pass
+    
 # VALORACIONES = {
 #    1:{'Usuario:':'MaritoRz', 'Libro':'Odisea','Valoración:':'1/5'},
 #    2:{'Usuario:': 'PipeVC', 'Libro':'El Código Da Vinci','Valoracion': '3/5'},
@@ -69,8 +72,15 @@ class Valoraciones(Resource):
         if request.args.get("nroValoracion"):
             valoraciones=valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
 
-        #libro con mayor numero de valoraciones
-                
+        #libro del más valorado al menos valorado 
+        if request.args.get('ordenValoracion') == 'Valoraciones_desc':
+            valoraciones=valoraciones.order_by(desc(ValoracionModel.valoracion))
+        elif request.args.get('ordenValoracion') == "Valoraciones_asc":
+            valoraciones=valoraciones.order_by(asc(ValoracionModel.valoracion))
+        else:
+            raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
+        
+
         ### FIN FILTROS ####
         
         valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)

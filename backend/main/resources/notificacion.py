@@ -4,6 +4,7 @@ from .. import db
 from main.models import NotificacionModel
 
 
+
 #NOTIFICACIONES = {
 #    1:{'Usuario':'facu','Notifacion':'Quedan X dias de prestamo'},
 #    2:{'Usuario':'elcapo', 'Notificacion':'Has prestado X libro'}
@@ -25,6 +26,9 @@ class Notificacion(Resource):
         ### FILTROS ###
 
         #usuario
+        usuario = request.args.get('usuario')
+        if usuario:
+            notificaciones=notificaciones.filter(NotificacionModel.fk_idUser == usuario)
 
         ### FIN FILTROS ###
 

@@ -4,6 +4,7 @@ from .. import db
 from main.models import PrestamoModel, LibroModel, UsuarioModel
 import regex
 from datetime import datetime
+from sqlalchemy import func, desc
 
 
 
@@ -71,15 +72,35 @@ class Prestamos(Resource):
 
         ### FILTROS ###
 
-        #prestamos con mas de 1 libro
+        usuario = request.args.get('usuario')
+        fecha_inicio = request.args.get('inicio_prestamo')
+        fecha_termino = request.args.get('fin_prestamo')
+        cant_libros = request.args.get('cant_libros')
+        libro = request.args.get('libro_id')
 
-        #prestamos proximos a finalizar
+        #usuario
+        if usuario:
+            prestamos = prestamos.filter(PrestamoModel.fk_idUser == usuario)
 
-        #prestamos por usuario (usuario puede tener mas de un prestamo)
+        #inicio_prestamo
+        if fecha_inicio:
+            fecha_inicio = datetime.strptime(fecha_inicio, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.inicio_prestamo == fecha_inicio)
 
-        #prestamos finalizados
+        #fin_prestamo
+        if fecha_termino:
+            fecha_termino = datetime.strptime(fecha_termino, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.fin_prestamo == fecha_termino)
+        
+        #prestamos por cantidad de libros
+        if cant_libros:
+            prestamos=prestamos.outerjoin(PrestamoModel.fk_idLibro).group_by(PrestamoModel.idPrestamo).having(func.count(LibroModel.idLibro) == int(request.args.get("cant_libros")))
 
-        #
+        #Prestamo por libro especifico
+        if libro:
+             libro_id = LibroModel.query.get_or_404(libro)
+             prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
+        
 
         ### FIN FILTROS ###
         
