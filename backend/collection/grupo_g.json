@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "09fcfa8f-029d-4135-b62a-356bde366af4",
-		"name": "collection Copy",
+		"name": "grupo_g",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33777156",
 		"_collection_link": "https://gold-comet-113394.postman.co/workspace/My-Workspace~8ce96e3e-33f4-4013-89aa-7630f7785c91/collection/33777156-09fcfa8f-029d-4135-b62a-356bde366af4?action=share&source=collection_link&creator=33777156"
@@ -777,7 +777,7 @@
 			"name": "Valoracion",
 			"item": [
 				{
-					"name": "filters",
+					"name": "Filters",
 					"item": [
 						{
 							"name": "Busqueda por n/5",

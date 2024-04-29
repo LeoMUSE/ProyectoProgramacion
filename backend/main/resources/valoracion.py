@@ -77,8 +77,8 @@ class Valoraciones(Resource):
             valoraciones=valoraciones.order_by(desc(ValoracionModel.valoracion))
         elif request.args.get('ordenValoracion') == "Valoraciones_asc":
             valoraciones=valoraciones.order_by(asc(ValoracionModel.valoracion))
-        else:
-            raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
+        # else:
+        #     raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
         
 
         ### FIN FILTROS ####
