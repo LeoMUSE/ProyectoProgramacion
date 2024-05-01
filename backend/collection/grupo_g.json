@@ -75,7 +75,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/usuarios?dni=42123123",
+									"raw": "http://127.0.0.1:5000/usuarios?dni=392123123",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -90,7 +90,7 @@
 									"query": [
 										{
 											"key": "dni",
-											"value": "42123123"
+											"value": "392123123"
 										}
 									]
 								}
@@ -173,7 +173,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuarios",
+							"raw": "http://127.0.0.1:5000/usuarios?page=1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -184,6 +184,12 @@
 							"port": "5000",
 							"path": [
 								"usuarios"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -426,7 +432,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/libros",
+							"raw": "http://127.0.0.1:5000/libros?page=1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -437,6 +443,12 @@
 							"port": "5000",
 							"path": [
 								"libros"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -948,7 +960,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 4,\n    \"valoracion\": \"5/5\"\n}",
+							"raw": "{\n    \"usuario\": 5,\n    \"libro\": 4,\n    \"valoracion\": \"2/5\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -956,7 +968,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/valoracion/1",
+							"raw": "http://127.0.0.1:5000/valoracion/6",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -967,7 +979,7 @@
 							"port": "5000",
 							"path": [
 								"valoracion",
-								"1"
+								"6"
 							]
 						}
 					},
@@ -1152,7 +1164,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/prestamos",
+							"raw": "http://127.0.0.1:5000/prestamos?page=1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1163,6 +1175,12 @@
 							"port": "5000",
 							"path": [
 								"prestamos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -1350,7 +1368,27 @@
 					"name": "Listar notificaciones",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/notificacion?page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"notificacion"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
 					},
 					"response": []
 				}
