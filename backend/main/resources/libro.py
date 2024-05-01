@@ -1,8 +1,8 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import LibroModel, AutorModel
-
+from main.models import LibroModel, AutorModel, ValoracionModel
+from sqlalchemy import func, desc
 
 #LIBROS = {
 #    1:{'Titulo':'Odisea', 'Autor': 'Homero', 'Genero':'Poema epico', 'Editorial':'La Estacion'},
@@ -45,8 +45,46 @@ class Libro(Resource):
 
 class Libros(Resource):
     def get(self):
-        libros = db.session.query(LibroModel).all()
-        return jsonify([libro.to_json() for libro in libros])
+        page = 1
+        per_page = 10
+
+        libros = db.session.query(LibroModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #genero
+        if request.args.get("genero"):
+            libros=libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%"))
+        
+        #autor 
+        autor = request.args.get("autor")
+        if autor:
+             autor_id = AutorModel.query.get_or_404(autor)
+             libros=libros.filter(LibroModel.fk_idAutor.contains(autor_id))
+
+        #titulo
+        if request.args.get("titulo"):
+            libros = libros.filter(LibroModel.titulo.like("%"+request.args.get('titulo')+"%"))
+
+        #editorial
+        if request.args.get("editorial"):
+            libros = libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
+
+
+        ### FIN FILTROS ###
+
+        libros = libros.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'libros' : [libro.to_json() for libro in libros],
+                    'total' : libros.total,
+                    'pages' : libros.pages,
+                    'page' : page
+        })
     
     def post(self):
         autor_exist = request.get_json().get("autor")

@@ -33,8 +33,50 @@ class Usuario(Resource):
 
 class Usuarios(Resource):
     def get(self):
-        usuarios = db.session.query(UsuarioModel).all()
-        return jsonify([usuario.to_json() for usuario in usuarios])
+        page = 1
+
+        per_page = 10
+
+        usuarios = db.session.query(UsuarioModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        #usuarios por rol
+        if request.args.get("rol"):
+            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+request.args.get('rol')+"%"))
+
+        #usuarios por nombre
+        if request.args.get("nombre"):
+            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+
+        #usuarios por dni
+        if request.args.get("dni"):
+            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+request.args.get('dni')+"%"))
+
+        #usuarios por telefono (area)
+        if request.args.get("telefono"):
+            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+request.args.get('telefono')+"%"))
+
+        #usuarios por email
+        if request.args.get("email"):
+            usuarios = usuarios.filter(UsuarioModel.email.like("%"+request.args.get('email')+"%"))
+
+
+        ### FIN FILTROS ###
+
+        # obtener valor paginado
+        usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'usuarios': [usuario.to_json() for usuario in usuarios],
+                    'total':usuarios.total,
+                    'pages':usuarios.pages,
+                    'page':page    
+                        })
 
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())

@@ -4,6 +4,7 @@ from .. import db
 from main.models import PrestamoModel, LibroModel, UsuarioModel
 import regex
 from datetime import datetime
+from sqlalchemy import func, desc
 
 
 
@@ -58,8 +59,58 @@ class Prestamo(Resource):
 
 class Prestamos(Resource):
     def get(self):
-        prestamos = db.session.query(PrestamoModel).all()
-        return jsonify([prestamo.to_json() for prestamo in prestamos])
+        page = 1
+
+        per_page = 10
+
+        prestamos = db.session.query(PrestamoModel)
+
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+
+        ### FILTROS ###
+
+        usuario = request.args.get('usuario')
+        fecha_inicio = request.args.get('inicio_prestamo')
+        fecha_termino = request.args.get('fin_prestamo')
+        cant_libros = request.args.get('cant_libros')
+        libro = request.args.get('libro_id')
+
+        #usuario
+        if usuario:
+            prestamos = prestamos.filter(PrestamoModel.fk_idUser == usuario)
+
+        #inicio_prestamo
+        if fecha_inicio:
+            fecha_inicio = datetime.strptime(fecha_inicio, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.inicio_prestamo == fecha_inicio)
+
+        #fin_prestamo
+        if fecha_termino:
+            fecha_termino = datetime.strptime(fecha_termino, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.fin_prestamo == fecha_termino)
+        
+        #prestamos por cantidad de libros
+        if cant_libros:
+            prestamos=prestamos.outerjoin(PrestamoModel.fk_idLibro).group_by(PrestamoModel.idPrestamo).having(func.count(LibroModel.idLibro) == int(request.args.get("cant_libros")))
+
+        #Prestamo por libro especifico
+        if libro:
+             libro_id = LibroModel.query.get_or_404(libro)
+             prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
+        
+
+        ### FIN FILTROS ###
+        
+        prestamos = prestamos.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'prestamos' : [prestamo.to_json() for prestamo in prestamos],
+                    'total' : prestamos.total,
+                    'pages' : prestamos.pages,
+                    'page' : page
+        })
 
     def post(self):
         libro_exist = request.get_json().get("libro")

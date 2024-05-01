@@ -2,8 +2,11 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import ValoracionModel, UsuarioModel, LibroModel
+from sqlalchemy import func, desc, asc
 
-
+class BusquedaIncorrecta(Exception):
+    pass
+    
 # VALORACIONES = {
 #    1:{'Usuario:':'MaritoRz', 'Libro':'Odisea','Valoración:':'1/5'},
 #    2:{'Usuario:': 'PipeVC', 'Libro':'El Código Da Vinci','Valoracion': '3/5'},
@@ -51,8 +54,42 @@ class Valoracion(Resource):
 
 class Valoraciones(Resource):
     def get(self):
-        valoraciones = db.session.query(ValoracionModel).all()
-        return jsonify([valoracion.to_json() for valoracion in valoraciones])
+        page = 1
+        #Cantidad de elementos por página por defecto
+        per_page = 10
+        
+        #no ejecuto el .all()
+        valoraciones = db.session.query(ValoracionModel)
+        
+        if request.args.get('page'):
+            page = int(request.args.get('page'))
+        if request.args.get('per_page'):
+            per_page = int(request.args.get('per_page'))
+        
+        ### FILTROS ###
+
+        #valoraciones por libro
+        if request.args.get("nroValoracion"):
+            valoraciones=valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
+
+        #libro del más valorado al menos valorado 
+        if request.args.get('ordenValoracion') == 'Valoraciones_desc':
+            valoraciones=valoraciones.order_by(desc(ValoracionModel.valoracion))
+        elif request.args.get('ordenValoracion') == "Valoraciones_asc":
+            valoraciones=valoraciones.order_by(asc(ValoracionModel.valoracion))
+        # else: FIX
+        #     raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
+        
+
+        ### FIN FILTROS ####
+        
+        valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)
+
+        return jsonify({'valoraciones': [valoracion.to_json() for valoracion in valoraciones],
+                  'total': valoraciones.total,
+                  'pages': valoraciones.pages,
+                  'page': page
+                })
 
     def post(self):
         valoracion = ValoracionModel.from_json(request.get_json())
