@@ -10,8 +10,8 @@ class Usuario(db.Model):
     apellido = db.Column(db.String(60), nullable=False)
     dni = db.Column(db.Integer, nullable=False)
     telefono = db.Column(db.String(14), nullable=False)
-    email = db.Column(db.String(60), nullable=False)
-    rol = db.Column(db.String(30), nullable=False)
+    email = db.Column(db.String(60),  unique=True, index=True, nullable=False)
+    rol = db.Column(db.String(30), nullable=False, server_default = "Usuario")
     comentarios_user = db.relationship("Comentario", back_populates="fk_user_comentario", cascade="all, delete-orphan")
     notificaciones_user = db.relationship("Notificacion", back_populates="fk_user_notificacion", cascade="all, delete-orphan")
     prestamos_user = db.relationship("Prestamo", back_populates="fk_user_prestamo", cascade="all, delete-orphan")
@@ -41,7 +41,7 @@ class Usuario(db.Model):
     
     @plain_password.setter
     def plain_password(self, contraseña):
-        self.password = generate_password_hash(contraseña)
+        self.contraseña = generate_password_hash(contraseña)
     
     def validate_pass(self, contraseña):
         return check_password_hash(self.contraseña, contraseña)

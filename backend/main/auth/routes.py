@@ -10,7 +10,7 @@ def login():
     #Busca al animal en la db por mail
     user = db.session.query(UsuarioModel).filter(UsuarioModel.email == request.get_json().get("email")).first_or_404()
     #Valida la contraseña
-    if user.validate_pass(request.get_json().get("password")):
+    if user.validate_pass(request.get_json().get("contraseña")):
         #Genera un nuevo token
         #Pasa el objeto user como identidad
         access_token = create_access_token(identity=user)

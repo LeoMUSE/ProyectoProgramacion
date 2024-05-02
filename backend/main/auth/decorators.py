@@ -11,7 +11,7 @@ def role_required(roles):
             #Obtener claims de adentro del JWT
             claims = get_jwt()
             #Verificar que el rol sea uno de los permitidos por la ruta
-            if claims['Admin', "Usuario"] in roles :
+            if claims['rol'] in roles :
                 #Ejecutar función
                 return fn(*args, **kwargs)
             else:
