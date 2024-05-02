@@ -6,9 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 
 api = Api()
-
 #se inicializa SQL
 db = SQLAlchemy()
+#Inicializar JWT
+jwt = JWTManager()
 
 #Inicializa la app , todos lo modulos y recursos
 def create_app():
@@ -41,7 +42,11 @@ def create_app():
     api.add_resource(resources.AutorResource, '/autor/<id>')
     api.add_resource(resources.AutoresResource, '/autores')
     api.init_app(app)
-    # app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
-    # app.config["JWT_ACCES_TOKEN_EXPIRES"] = int(os.getenv("JWT_ACCES_TOKEN_EXPIRES"))
+    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
+    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES"))
+    jwt.init_app(app)
+
+    from main.auth import routes
+    app.register_blueprint(routes.auth)
 
     return app

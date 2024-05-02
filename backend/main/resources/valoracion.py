@@ -4,6 +4,7 @@ from .. import db
 from main.models import ValoracionModel, UsuarioModel, LibroModel
 from sqlalchemy import func, desc, asc
 
+
 class BusquedaIncorrecta(Exception):
     pass
     
@@ -55,10 +56,8 @@ class Valoracion(Resource):
 class Valoraciones(Resource):
     def get(self):
         page = 1
-        #Cantidad de elementos por página por defecto
         per_page = 10
         
-        #no ejecuto el .all()
         valoraciones = db.session.query(ValoracionModel)
         
         if request.args.get('page'):
@@ -68,7 +67,7 @@ class Valoraciones(Resource):
         
         ### FILTROS ###
 
-        #valoraciones por libro
+        #valoraciones n/5
         if request.args.get("nroValoracion"):
             valoraciones=valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
 

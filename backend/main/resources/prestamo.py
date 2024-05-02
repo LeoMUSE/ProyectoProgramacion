@@ -8,6 +8,7 @@ from sqlalchemy import func, desc
 
 
 
+
 #PRESTAMOS = {
 #    1: {'usuario': 'usuario1', 'fechaI': '20/10/20', 'fechaT': '27/10/20' },
 #    2: {'usuario': 'usuario2', 'fechaI': '21/10/20', 'fechaT': '28/10/20' },

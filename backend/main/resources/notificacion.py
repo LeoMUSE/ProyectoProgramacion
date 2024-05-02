@@ -5,6 +5,7 @@ from main.models import NotificacionModel
 
 
 
+
 #NOTIFICACIONES = {
 #    1:{'Usuario':'facu','Notifacion':'Quedan X dias de prestamo'},
 #    2:{'Usuario':'elcapo', 'Notificacion':'Has prestado X libro'}

@@ -5,6 +5,7 @@ from main.models import ComentarioModel, UsuarioModel, LibroModel
 import regex
 from datetime import datetime
 
+
 #COMENTARIO = {
 #    1 : {'Fecha':'21/08/24', 'Usuario':'Leandro Flores', 'Mensaje':'Un libro muy entretenido'},
 #    2 : {'Fecha':'25/08/24', 'Usuario':'Carlos Maidana', 'Mensaje':'Uno de los mejores en su genero'},

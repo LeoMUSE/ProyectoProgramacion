@@ -4,6 +4,7 @@ from .. import db
 from main.models import LibroModel, AutorModel, ValoracionModel
 from sqlalchemy import func, desc
 
+
 #LIBROS = {
 #    1:{'Titulo':'Odisea', 'Autor': 'Homero', 'Genero':'Poema epico', 'Editorial':'La Estacion'},
 #    2:{'Titulo':'Don Quijote de la Mancha', 'Autor':'Miguel de Cervantes', 'Genero': 'Aventura', 'Editorial': 'Urbano Manini'},

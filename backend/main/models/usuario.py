@@ -1,4 +1,5 @@
 from .. import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class Usuario(db.Model):
     __tablename__ = "usuarios"
@@ -25,7 +26,7 @@ class Usuario(db.Model):
         usuario_json = {
             "id" : int(self.idUser),
             "user" : str(self.user),
-            "contraseña" : str(self.contraseña),
+            #"contraseña" : str(self.contraseña),
             "nombre" : str(self.nombre),
             "apellido" : str(self.apellido),
             "dni" : int(self.dni),
@@ -34,6 +35,16 @@ class Usuario(db.Model):
             "rol" : str(self.rol)
         }
         return usuario_json
+    @property
+    def plain_password(self):
+        raise AttributeError('Password cant be read')
+    
+    @plain_password.setter
+    def plain_password(self, contraseña):
+        self.password = generate_password_hash(contraseña)
+    
+    def validate_pass(self, contraseña):
+        return check_password_hash(self.contraseña, contraseña)
     
     @staticmethod
     def from_json(usuario_json):
@@ -49,7 +60,7 @@ class Usuario(db.Model):
         return Usuario(
             idUser=id,
             user=user,
-            contraseña=contraseña,
+            plain_password=contraseña,
             nombre=nombre,
             apellido=apellido,
             dni=dni,
