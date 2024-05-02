@@ -78,6 +78,7 @@ class Prestamos(Resource):
         fecha_termino = request.args.get('fin_prestamo')
         cant_libros = request.args.get('cant_libros')
         libro = request.args.get('libro_id')
+        cant_prestamo = request.args.get("cant_prestamos")
 
         #usuario
         if usuario:
@@ -101,6 +102,10 @@ class Prestamos(Resource):
         if libro:
              libro_id = LibroModel.query.get_or_404(libro)
              prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
+        
+        #Ordenar de manera desc los usuarios con mas prestamos a los menos (Fixing)
+        # if cant_prestamo == "Desc_Prestamos":
+        #     prestamos==prestamos.outerjoin(PrestamoModel.fk_user_prestamo).group_by(UsuarioModel.idUser).order_by(func.count().desc()).all()
         
 
         ### FIN FILTROS ###
