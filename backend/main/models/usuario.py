@@ -16,6 +16,7 @@ class Usuario(db.Model):
     notificaciones_user = db.relationship("Notificacion", back_populates="fk_user_notificacion", cascade="all, delete-orphan")
     prestamos_user = db.relationship("Prestamo", back_populates="fk_user_prestamo", cascade="all, delete-orphan")
     valoraciones_user = db.relationship("Valoracion", back_populates="fk_user_valoracion", cascade="all, delete-orphan")
+    reseñas_user = db.relationship("Reseña", back_populates="fk_user_reseña", cascade="all, delete-orphan")
 
     def __repr__(self):
         return (
