@@ -13,3 +13,5 @@ from .comentario import Comentarios as ComentariosResource
 from .notificacion import Notificacion as NotifacionResource
 from .autor import Autor as AutorResource
 from .autor import Autores as AutoresResource
+from .reseña import Reseña as ReseñaResource
+from .reseña import Reseñas as ReseñasResource

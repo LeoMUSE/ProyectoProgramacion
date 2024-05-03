@@ -85,9 +85,9 @@ class Valoraciones(Resource):
         valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)
 
         return jsonify({'valoraciones': [valoracion.to_json() for valoracion in valoraciones],
-                  'total': valoraciones.total,
-                  'pages': valoraciones.pages,
-                  'page': page
+                'total': valoraciones.total,
+                'pages': valoraciones.pages,
+                'page': page
                 })
 
     def post(self):

@@ -41,6 +41,8 @@ def create_app():
     api.add_resource(resources.NotifacionResource, '/notificacion')
     api.add_resource(resources.AutorResource, '/autor/<id>')
     api.add_resource(resources.AutoresResource, '/autores')
+    api.add_resource(resources.ReseñaResource, '/reseña/<id>')
+    api.add_resource(resources.ReseñasResource, '/reseñas')
     api.init_app(app)
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
     app.config["JWT_ACCESS_TOKEN_EXPIRES"] = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES"))
