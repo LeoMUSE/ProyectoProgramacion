@@ -25,9 +25,10 @@ class Notificacion(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
+        usuario = request.args.get('usuario')
 
         #usuario
-        usuario = request.args.get('usuario')
+        
         if usuario:
             notificaciones=notificaciones.filter(NotificacionModel.fk_idUser == usuario)
 

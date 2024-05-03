@@ -73,7 +73,7 @@ class Prestamos(Resource):
 
         ### FILTROS ###
 
-        usuario = request.args.get('usuario')
+        usuario = request.args.get('idUsuario')
         fecha_inicio = request.args.get('inicio_prestamo')
         fecha_termino = request.args.get('fin_prestamo')
         cant_libros = request.args.get('cant_libros')
@@ -100,8 +100,8 @@ class Prestamos(Resource):
 
         #Prestamo por libro especifico
         if libro:
-             libro_id = LibroModel.query.get_or_404(libro)
-             prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
+            libro_id = LibroModel.query.get_or_404(libro)
+            prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
         
         #Ordenar de manera desc los usuarios con mas prestamos a los menos (Fixing)
         # if cant_prestamo == "Desc_Prestamos":

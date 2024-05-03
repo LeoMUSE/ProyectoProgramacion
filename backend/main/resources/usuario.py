@@ -56,26 +56,33 @@ class Usuarios(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
-
+        
+        rol = request.args.get("rol")
+        nombre = request.args.get("nombre")
+        dni = request.args.get("dni")
+        telefono = request.args.get("telefono")
+        email = request.args.get("email")
+        
+        
         #usuarios por rol
-        if request.args.get("rol"):
-            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+request.args.get('rol')+"%"))
+        if rol:
+            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+rol+"%"))
 
         #usuarios por nombre
-        if request.args.get("nombre"):
-            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+        if nombre:
+            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+nombre+"%"))
 
         #usuarios por dni
-        if request.args.get("dni"):
-            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+request.args.get('dni')+"%"))
+        if dni:
+            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+dni+"%"))
 
         #usuarios por telefono (area)
-        if request.args.get("telefono"):
-            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+request.args.get('telefono')+"%"))
+        if telefono:
+            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+telefono+"%"))
 
         #usuarios por email
-        if request.args.get("email"):
-            usuarios = usuarios.filter(UsuarioModel.email.like("%"+request.args.get('email')+"%"))
+        if email:
+            usuarios = usuarios.filter(UsuarioModel.email.like("%"+email+"%"))
 
 
         ### FIN FILTROS ###

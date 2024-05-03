@@ -16,6 +16,16 @@
 						{
 							"name": "Busqueda por rol",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -44,6 +54,16 @@
 						{
 							"name": "Busqueda por nombre",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -72,6 +92,16 @@
 						{
 							"name": "Busqueda por dni",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -100,6 +130,16 @@
 						{
 							"name": "Busqueda por telefono",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -128,6 +168,16 @@
 						{
 							"name": "Busqueda por email",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -161,6 +211,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -202,7 +262,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"user\" : \"RamonRmz\", \n\"contraseña\" : \"ramon123\", \n\"nombre\" : \"Ramon\",\n\"apellido\" : \"Ramirez\", \n\"dni\" : 42123123,\n\"telefono\" : \"261231223\", \n\"email\" : \"ramonrmz@gmial.com\",\n\"rol\" : \"Usuario\"\n}",
+							"raw": "{\n\"user\" : \"Pepe\", \n\"contraseña\" : \"pepe123\", \n\"nombre\" : \"Jose\",\n\"apellido\" : \"Muñoz\", \n\"dni\" : 42131231,\n\"telefono\" : \"2612436512\", \n\"email\" : \"pepelsapo@gmial.com\",\n\"rol\" : \"Usuario\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -229,6 +289,16 @@
 				{
 					"name": "Ver usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -252,6 +322,16 @@
 				{
 					"name": "Modificar usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -374,7 +454,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/libros?titulo=Harry Potter y el caliz de fuego",
+									"raw": "http://127.0.0.1:5000/libros?titulo=don",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -389,7 +469,7 @@
 									"query": [
 										{
 											"key": "titulo",
-											"value": "Harry Potter y el caliz de fuego"
+											"value": "don"
 										}
 									]
 								}
@@ -1022,7 +1102,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/prestamos?usuario=5",
+									"raw": "http://127.0.0.1:5000/prestamos?idUsuario=2",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -1036,8 +1116,8 @@
 									],
 									"query": [
 										{
-											"key": "usuario",
-											"value": "5"
+											"key": "idUsuario",
+											"value": "2"
 										}
 									]
 								}
@@ -1153,6 +1233,14 @@
 										}
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busqueda cant_prestamos",
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
@@ -1523,6 +1611,75 @@
 							"path": [
 								"autor",
 								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LogIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"vicencara@gmail.com\",\n    \"contraseña\" : \"vicen123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"user\" : \"Pepe\", \n\"contraseña\" : \"pepe123\", \n\"nombre\" : \"Jose\",\n\"apellido\" : \"Muñoz\", \n\"dni\" : 42131231,\n\"telefono\" : \"2612436512\", \n\"email\" : \"pepelsapo@gmail.com\",\n\"rol\" : \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"register"
 							]
 						}
 					},

@@ -57,24 +57,28 @@ class Libros(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
-
+        genero = request.args.get("genero")
+        autor = request.args.get("autor")
+        titulo = request.args.get("titulo")
+        editorial = request.args.get("editorial")
+        
+        
         #genero
-        if request.args.get("genero"):
-            libros=libros.filter(LibroModel.genero.like("%"+request.args.get('genero')+"%"))
+        if genero:
+            libros=libros.filter(LibroModel.genero.like("%"+genero+"%"))
         
         #autor 
-        autor = request.args.get("autor")
         if autor:
-             autor_id = AutorModel.query.get_or_404(autor)
-             libros=libros.filter(LibroModel.fk_idAutor.contains(autor_id))
+            autor_id = AutorModel.query.get_or_404(autor)
+            libros=libros.filter(LibroModel.fk_idAutor.contains(autor_id))
 
         #titulo
-        if request.args.get("titulo"):
-            libros = libros.filter(LibroModel.titulo.like("%"+request.args.get('titulo')+"%"))
+        if titulo:
+            libros = libros.filter(LibroModel.titulo.like("%"+titulo+"%"))
 
         #editorial
-        if request.args.get("editorial"):
-            libros = libros.filter(LibroModel.editorial.like("%"+request.args.get('editorial')+"%"))
+        if editorial:
+            libros = libros.filter(LibroModel.editorial.like("%"+editorial+"%"))
 
 
         ### FIN FILTROS ###
