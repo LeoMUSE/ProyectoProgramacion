@@ -61,18 +61,30 @@ class Reseñas(Resource):
             per_page = int(request.args.get('per_page'))
         
         ### FILTROS ###
+        
+        reseña_n_5 = request.args.get('nroValoracion')
+        reseña_mas_menos = request.args.get('ordenValoracion')
+        reseña_menos_mas = request.args.get('ordenValoracion')
+        reseña_usuario = request.args.get('idUserPost')
+        reseña_x_fecha = request.args.get('FechaReseña')
 
         #reseñas n/5
         if request.args.get("nroValoracion"):
-            reseñas=reseñas.filter(ReseñaModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
+            reseñas=reseñas.filter(ReseñaModel.valoracion.like("%"+reseña_n_5+"%"))
 
         #libro del más valorado al menos valorado 
-        if request.args.get('ordenValoracion') == 'Valoraciones_desc':
+        if reseña_mas_menos == 'Valoraciones_desc':
             reseñas=reseñas.order_by(desc(ReseñaModel.valoracion))
-        elif request.args.get('ordenValoracion') == "Valoraciones_asc":
+        if reseña_menos_mas == "Valoraciones_asc":
             reseñas=reseñas.order_by(asc(ReseñaModel.valoracion))
-        # else: FIX
-        #     raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
+        #reseñas por usuario
+        if reseña_usuario:
+            reseñas=reseñas.filter(ReseñaModel.fk_idUser == reseña_usuario)
+        #reseña por fecha
+        if reseña_x_fecha:
+            reseña_x_fecha = datetime.strptime(reseña_x_fecha, '%d-%m-%Y')
+            reseñas=reseñas.filter(ReseñaModel.fecha == reseña_x_fecha)
+        
         
 
         ### FIN FILTROS ####

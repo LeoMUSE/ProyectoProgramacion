@@ -23,7 +23,7 @@ class Usuario(Resource):
         if current_identity:
             return usuario.to_json()
     
-    @jwt_required()  
+    @role_required(roles=["Admin", "Usuario"])  
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -63,7 +63,6 @@ class Usuarios(Resource):
         telefono = request.args.get("telefono")
         email = request.args.get("email")
         
-        
         #usuarios por rol
         if rol:
             usuarios = usuarios.filter(UsuarioModel.rol.like("%"+rol+"%"))
@@ -84,7 +83,6 @@ class Usuarios(Resource):
         if email:
             usuarios = usuarios.filter(UsuarioModel.email.like("%"+email+"%"))
 
-
         ### FIN FILTROS ###
 
         # obtener valor paginado
@@ -95,7 +93,7 @@ class Usuarios(Resource):
                     'pages':usuarios.pages,
                     'page':page    
                         })
-
+    
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())
         db.session.add(usuario)

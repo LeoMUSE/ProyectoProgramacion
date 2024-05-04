@@ -21,6 +21,7 @@ class Autor(Resource):
         db.session.add(autor)
         db.session.commit()
         return autor.to_json() , 201
+    
     @role_required(roles=['Admin'])
     def delete(self, id):
         autor = db.session.query(AutorModel).get_or_404(id)
@@ -29,7 +30,8 @@ class Autor(Resource):
         return '', 204
 
 class Autores(Resource):
-    @role_required(roles=['Admin', 'Usuario'])
+
+    @jwt_required(optional=True)
     def get(self):
         autores = db.session.query(AutorModel).all()
         return jsonify([autor.to_json() for autor in autores])

@@ -44,7 +44,7 @@ class Libro(Resource):
         return '', 204
 
 class Libros(Resource):
-    @role_required(roles=['Admin', 'Usuario'])
+    @jwt_required(optional=True)
     def get(self):
         page = 1
         per_page = 10
