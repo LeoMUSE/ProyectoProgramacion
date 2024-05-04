@@ -7,7 +7,7 @@ auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 @auth.route('/login', methods=['POST'])
 def login():
-    #Busca al animal en la db por mail
+    #Busca al usuario en la db por mail
     user = db.session.query(UsuarioModel).filter(UsuarioModel.email == request.get_json().get("email")).first_or_404()
     #Valida la contraseña
     if user.validate_pass(request.get_json().get("contraseña")):
@@ -26,7 +26,7 @@ def login():
 
 @auth.route('/register', methods=['POST'])
 def register():
-    #Obtener animal
+    #Obtener usuario
     user = UsuarioModel.from_json(request.get_json())
     #Verificar si el mail ya existe en la db, scalar() para saber la cantidad de ese email
     exists = db.session.query(UsuarioModel).filter(UsuarioModel.email == user.email).scalar() is not None
@@ -34,7 +34,7 @@ def register():
         return 'Duplicated mail', 409
     else:
         try:
-            #Agregar animal a DB
+            #Agregar usuario a DB
             db.session.add(user)
             db.session.commit()
         except Exception as error:

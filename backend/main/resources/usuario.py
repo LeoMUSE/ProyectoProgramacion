@@ -29,9 +29,9 @@ class Usuario(Resource):
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
-        db.session.add(usuario)
-        db.session.commit()
-        return usuario.to_json() , 201
+            db.session.add(usuario)
+            db.session.commit()
+            return usuario.to_json() , 201
     
     @role_required(roles = ["Admin","Usuario"])
     def delete(self, id):

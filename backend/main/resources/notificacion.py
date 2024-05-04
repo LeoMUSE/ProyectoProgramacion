@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import NotificacionModel
-
+from main.auth.decorators import role_required
 
 
 
@@ -12,6 +12,7 @@ from main.models import NotificacionModel
 #}
 
 class Notificacion(Resource):
+    role_required(roles=["Admin", "Usuario"])
     def get(self):
         page = 1
 
@@ -43,7 +44,7 @@ class Notificacion(Resource):
                     'page':page    
                         })
 
-    
+    role_required(roles=["Admin"])
     def post(self):
         notificacion = NotificacionModel.from_json(request.get_json())
         db.session.add(notificacion)

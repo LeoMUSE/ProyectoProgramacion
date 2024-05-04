@@ -5,12 +5,16 @@ from main.models import ReseñaModel, UsuarioModel, LibroModel
 import regex
 from datetime import datetime
 from sqlalchemy import func, desc, asc
+from main.auth.decorators import role_required
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 class Reseña(Resource):
+    @role_required(roles=["Admin", "Usuario"])
     def get(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         return reseña.to_json()
     
+    @role_required(roles=["Usuario"])
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         data = request.get_json()
@@ -35,6 +39,7 @@ class Reseña(Resource):
         db.session.commit()
         return reseña.to_json(), 201
 
+    @role_required(roles=["Admin", "Usuario"])
     def delete(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         db.session.delete( reseña)
@@ -42,6 +47,8 @@ class Reseña(Resource):
         return '', 204
 
 class Reseñas(Resource):
+    
+    @jwt_required(optional=True)
     def get(self):
         page = 1
         per_page = 10
@@ -77,7 +84,7 @@ class Reseñas(Resource):
                 'pages': reseñas.pages,
                 'page': page
                 })
-    
+    @role_required(roles=["Admin", "Usuario"])
     def post(self):
         reseña = ReseñaModel.from_json(request.get_json())
         db.session.add(reseña)
