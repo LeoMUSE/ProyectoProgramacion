@@ -2,11 +2,8 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity,get_jwt
 from main.auth.decorators import role_required
-
-
-
 
 #USUARIOS = {
 #    1:{'Nombre':'Ricardo','Apellido':'Montes','DNI':44909938,'Telefono':2613123216, 'Email':'ricardito12@gmial.com', 'Rol':'Admin'},
@@ -18,12 +15,11 @@ class Usuario(Resource):
     @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
-        
         current_identity = get_jwt_identity()
         if current_identity:
             return usuario.to_json()
     
-    @role_required(roles=["Admin", "Usuario"])  
+    @jwt_required()
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -33,7 +29,7 @@ class Usuario(Resource):
             db.session.commit()
             return usuario.to_json() , 201
     
-    @role_required(roles = ["Admin","Usuario"])
+    @role_required(roles = ["Admin"])
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
@@ -93,7 +89,7 @@ class Usuarios(Resource):
                     'pages':usuarios.pages,
                     'page':page    
                         })
-    
+
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())
         db.session.add(usuario)

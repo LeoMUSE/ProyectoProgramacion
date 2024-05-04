@@ -4,8 +4,6 @@ from .. import db
 from main.models import NotificacionModel
 from main.auth.decorators import role_required
 
-
-
 #NOTIFICACIONES = {
 #    1:{'Usuario':'facu','Notifacion':'Quedan X dias de prestamo'},
 #    2:{'Usuario':'elcapo', 'Notificacion':'Has prestado X libro'}

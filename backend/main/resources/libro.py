@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
-from main.models import LibroModel, AutorModel, ValoracionModel
+from main.models import LibroModel, AutorModel
 from sqlalchemy import func, desc
 from main.auth.decorators import role_required
 from flask_jwt_extended import jwt_required, get_jwt_identity
