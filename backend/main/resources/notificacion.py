@@ -9,6 +9,8 @@ from main.auth.decorators import role_required
 #    2:{'Usuario':'elcapo', 'Notificacion':'Has prestado X libro'}
 #}
 
+#implementar envio de mail
+
 class Notificacion(Resource):
     role_required(roles=["Admin", "Usuario"])
     def get(self):

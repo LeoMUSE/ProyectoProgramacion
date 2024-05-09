@@ -29,6 +29,16 @@ class Libro(db.Model):
         }
         return libro_json
     
+    def to_json_short(self):
+        libro_json = {
+            "id" : int(self.idLibro),
+            "titulo" : str(self.titulo),
+            "autor": [autor.to_json_short() for autor in self.fk_idAutor],
+            "editorial" : str(self.editorial),
+            "genero" : str(self.genero)
+        }
+        return libro_json
+    
     @staticmethod
     def from_json(libro_json):
         id = libro_json.get("id")

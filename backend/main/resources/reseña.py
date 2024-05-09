@@ -8,8 +8,10 @@ from sqlalchemy import func, desc, asc
 from main.auth.decorators import role_required
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
+#implementar envio de mail
+
 class Reseña(Resource):
-    @role_required(roles=["Admin", "Usuario"])
+    @jwt_required(optional=True)
     def get(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         return reseña.to_json()
@@ -18,8 +20,8 @@ class Reseña(Resource):
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         data = request.get_json()
-
         nuevo_usuario_id = data.get('usuario')
+        
         if nuevo_usuario_id:
             nuevo_usuario = UsuarioModel.query.get_or_404(nuevo_usuario_id)
             reseña.fk_user_reseña = nuevo_usuario
@@ -27,7 +29,7 @@ class Reseña(Resource):
         if nuevo_libro_id:
             nuevo_libro = LibroModel.query.get_or_404(nuevo_libro_id)
             reseña.fk_libro_reseña = nuevo_libro
-
+            
         for key, value in data.items():
             if key not in ['usuario', 'libro']:
                 if regex.match(r"(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])\2(\d{4})", str(value)):
@@ -66,7 +68,7 @@ class Reseñas(Resource):
         reseña_mas_menos = request.args.get('ordenValoracion')
         reseña_menos_mas = request.args.get('ordenValoracion')
         reseña_usuario = request.args.get('idUserPost')
-        reseña_x_fecha = request.args.get('FechaReseña')
+        reseña_x_fecha = request.args.get('fechaReseña')
 
         #reseñas n/5
         if request.args.get("nroValoracion"):
