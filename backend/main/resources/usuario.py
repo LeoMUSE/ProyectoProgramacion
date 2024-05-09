@@ -9,7 +9,7 @@ from main.auth.decorators import role_required
 #    1:{'Nombre':'Ricardo','Apellido':'Montes','DNI':44909938,'Telefono':2613123216, 'Email':'ricardito12@gmial.com', 'Rol':'Admin'},
 #    2:{'Nombre':'Anibal','Apellido':'Perez','DNI':4312123,'Telefono':2610913127, 'Email': 'ani.capo@gmail.com', 'Rol':'Usuario'} ,
 #    3:{'Nombre':'Celeste','Apellido':'Ramirez','DNI':42123190,'Telefono':2614123521, 'Email': 'celermz@gmial.com', 'Rol':'Usuario'},
-#}
+
 
 class Usuario(Resource):
     @jwt_required(optional=True)
@@ -18,16 +18,23 @@ class Usuario(Resource):
         current_identity = get_jwt_identity()
         if current_identity:
             return usuario.to_json()
+        else:
+            return usuario.to_json_short()
     
     @jwt_required()
     def put(self, id):
+        #verificacion del usuario actual y el modificado
+        idenity = get_jwt()
+        if idenity.get("rol") in ["Usuario"]:
+            id = idenity.get('id')
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
             db.session.add(usuario)
             db.session.commit()
-            return usuario.to_json() , 201
+            return usuario.to_json(), 201
+
     
     @role_required(roles = ["Admin"])
     def delete(self, id):
@@ -38,7 +45,7 @@ class Usuario(Resource):
 
 class Usuarios(Resource):
     
-    @role_required(roles = ["Admin"])
+    jwt_required(optional=True)
     def get(self):
         page = 1
 

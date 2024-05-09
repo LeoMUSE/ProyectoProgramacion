@@ -12,6 +12,8 @@ from main.auth.decorators import role_required
 #    2: {'usuario': 'usuario2', 'fechaI': '21/10/20', 'fechaT': '28/10/20' },
 #}
 
+#implementar envio de mail
+
 class Prestamo(Resource):
     
     @role_required(roles=["Admin", "Usuario"])
@@ -98,8 +100,8 @@ class Prestamos(Resource):
             prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
         
         #Ordenar de manera desc los usuarios con mas prestamos a los menos (Fixing)
-        # if cant_prestamo == "Desc_Prestamos":
-        #     prestamos==prestamos.outerjoin(PrestamoModel.fk_user_prestamo).group_by(UsuarioModel.idUser).order_by(func.count().desc()).all()
+        if cant_prestamo == "Desc_Prestamos":
+            prestamos==prestamos.outerjoin(PrestamoModel.fk_user_prestamo).group_by(UsuarioModel.idUser).order_by(func.count().desc()).all()
         
 
         ### FIN FILTROS ###

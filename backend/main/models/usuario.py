@@ -34,6 +34,16 @@ class Usuario(db.Model):
             "rol" : str(self.rol)
         }
         return usuario_json
+    
+    def to_json_short(self):
+        usuario_json = {
+            "id" : int(self.idUser),
+            "user" : str(self.user),
+            "nombre" : str(self.nombre),
+            "apellido" : str(self.apellido)
+        }
+        return usuario_json
+    
     @property
     def plain_password(self):
         raise AttributeError('Password cant be read')

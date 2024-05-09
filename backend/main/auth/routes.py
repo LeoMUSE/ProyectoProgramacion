@@ -23,6 +23,8 @@ def login():
         return data, 200
     else:
         return 'Incorrect password', 401
+    
+#implementar envio de mail
 
 @auth.route('/register', methods=['POST'])
 def register():
