@@ -1,4 +1,5 @@
 from .. import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class Usuario(db.Model):
     __tablename__ = "usuarios"
@@ -9,12 +10,11 @@ class Usuario(db.Model):
     apellido = db.Column(db.String(60), nullable=False)
     dni = db.Column(db.Integer, nullable=False)
     telefono = db.Column(db.String(14), nullable=False)
-    email = db.Column(db.String(60), nullable=False)
-    rol = db.Column(db.String(30), nullable=False)
-    comentarios_user = db.relationship("Comentario", back_populates="fk_user_comentario", cascade="all, delete-orphan")
+    email = db.Column(db.String(60),  unique=True, index=True, nullable=False)
+    rol = db.Column(db.String(30), nullable=False, server_default = "Usuario")
     notificaciones_user = db.relationship("Notificacion", back_populates="fk_user_notificacion", cascade="all, delete-orphan")
     prestamos_user = db.relationship("Prestamo", back_populates="fk_user_prestamo", cascade="all, delete-orphan")
-    valoraciones_user = db.relationship("Valoracion", back_populates="fk_user_valoracion", cascade="all, delete-orphan")
+    reseñas_user = db.relationship("Reseña", back_populates="fk_user_reseña", cascade="all, delete-orphan")
 
     def __repr__(self):
         return (
@@ -25,7 +25,7 @@ class Usuario(db.Model):
         usuario_json = {
             "id" : int(self.idUser),
             "user" : str(self.user),
-            "contraseña" : str(self.contraseña),
+            #"contraseña" : str(self.contraseña),
             "nombre" : str(self.nombre),
             "apellido" : str(self.apellido),
             "dni" : int(self.dni),
@@ -34,6 +34,16 @@ class Usuario(db.Model):
             "rol" : str(self.rol)
         }
         return usuario_json
+    @property
+    def plain_password(self):
+        raise AttributeError('Password cant be read')
+    
+    @plain_password.setter
+    def plain_password(self, contraseña):
+        self.contraseña = generate_password_hash(contraseña)
+    
+    def validate_pass(self, contraseña):
+        return check_password_hash(self.contraseña, contraseña)
     
     @staticmethod
     def from_json(usuario_json):
@@ -49,7 +59,7 @@ class Usuario(db.Model):
         return Usuario(
             idUser=id,
             user=user,
-            contraseña=contraseña,
+            plain_password=contraseña,
             nombre=nombre,
             apellido=apellido,
             dni=dni,

@@ -2,8 +2,8 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel
-
-
+from flask_jwt_extended import jwt_required, get_jwt_identity,get_jwt
+from main.auth.decorators import role_required
 
 #USUARIOS = {
 #    1:{'Nombre':'Ricardo','Apellido':'Montes','DNI':44909938,'Telefono':2613123216, 'Email':'ricardito12@gmial.com', 'Rol':'Admin'},
@@ -12,19 +12,29 @@ from main.models import UsuarioModel
 #}
 
 class Usuario(Resource):
+    @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
-        return usuario.to_json()
-
+        current_identity = get_jwt_identity()
+        
+        if current_identity:
+            return usuario.to_json()
+    
+    @jwt_required()
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
+
+        if idenity.get("rol") in ["Usuario"]:
+            id = get_jwt_identity
+
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
-        db.session.add(usuario)
-        db.session.commit()
-        return usuario.to_json() , 201
-
+            db.session.add(usuario)
+            db.session.commit()
+            return usuario.to_json() , 201
+    
+    @role_required(roles = ["Admin"])
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
@@ -32,11 +42,9 @@ class Usuario(Resource):
         return '', 204
 
 class Usuarios(Resource):
+    
+    @role_required(roles = ["Admin"])
     def get(self):
-        # usuarios = db.session.query(UsuarioModel).all()
-        # return jsonify([usuario.to_json() for usuario in usuarios])
-
-        # PAGINACION
         page = 1
 
         per_page = 10
@@ -49,29 +57,34 @@ class Usuarios(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
-
+        
+        rol = request.args.get("rol")
+        nombre = request.args.get("nombre")
+        dni = request.args.get("dni")
+        telefono = request.args.get("telefono")
+        email = request.args.get("email")
+        
         #usuarios por rol
-        if request.args.get("rol"):
-            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+request.args.get('rol')+"%"))
+        if rol:
+            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+rol+"%"))
 
         #usuarios por nombre
-        if request.args.get("nombre"):
-            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+        if nombre:
+            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+nombre+"%"))
 
         #usuarios por dni
-        if request.args.get("dni"):
-            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+request.args.get('dni')+"%"))
+        if dni:
+            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+dni+"%"))
 
         #usuarios por telefono (area)
-        if request.args.get("telefono"):
-            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+request.args.get('telefono')+"%"))
+        if telefono:
+            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+telefono+"%"))
 
         #usuarios por email
-        if request.args.get("email"):
-            usuarios = usuarios.filter(UsuarioModel.email.like("%"+request.args.get('email')+"%"))
+        if email:
+            usuarios = usuarios.filter(UsuarioModel.email.like("%"+email+"%"))
 
         ### FIN FILTROS ###
-
 
         # obtener valor paginado
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
@@ -81,10 +94,6 @@ class Usuarios(Resource):
                     'pages':usuarios.pages,
                     'page':page    
                         })
-                
-
-
-
 
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())

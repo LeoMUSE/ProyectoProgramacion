@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import NotificacionModel
-
+from main.auth.decorators import role_required
 
 #NOTIFICACIONES = {
 #    1:{'Usuario':'facu','Notifacion':'Quedan X dias de prestamo'},
@@ -10,13 +10,8 @@ from main.models import NotificacionModel
 #}
 
 class Notificacion(Resource):
-
-
+    role_required(roles=["Admin", "Usuario"])
     def get(self):
-        # usuarios = db.session.query(UsuarioModel).all()
-        # return jsonify([usuario.to_json() for usuario in usuarios])
-
-        # PAGINACION
         page = 1
 
         per_page = 10
@@ -29,10 +24,12 @@ class Notificacion(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
+        usuario = request.args.get('usuario')
 
-        #fecha
-
-        #usuario/descripcion
+        #usuario
+        
+        if usuario:
+            notificaciones=notificaciones.filter(NotificacionModel.fk_idUser == usuario)
 
         ### FIN FILTROS ###
 
@@ -45,20 +42,14 @@ class Notificacion(Resource):
                     'page':page    
                         })
 
-
-  
-    
+    role_required(roles=["Admin"])
     def post(self):
         notificacion = NotificacionModel.from_json(request.get_json())
         db.session.add(notificacion)
         db.session.commit()
         print(notificacion)
         return notificacion.to_json()
-    
 
-
-
-    
 
 if __name__ == '__main__':
     pass

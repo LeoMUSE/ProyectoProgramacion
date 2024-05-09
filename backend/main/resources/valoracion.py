@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import ValoracionModel, UsuarioModel, LibroModel
+from sqlalchemy import func, desc, asc
 
 
 # VALORACIONES = {
@@ -50,10 +51,7 @@ class Valoracion(Resource):
         return '', 204
 
 class Valoraciones(Resource):
-    # def get(self):
-    #     valoraciones = db.session.query(ValoracionModel).all()
-    #     return jsonify([valoracion.to_json() for valoracion in valoraciones])
-
+  
 
     def get(self):
         page = 1
@@ -71,7 +69,18 @@ class Valoraciones(Resource):
         ### FILTROS ###
 
         #valoraciones por libro
+        if request.args.get("nroValoracion"):
+            valoraciones=valoraciones.filter(ValoracionModel.valoracion.like("%"+request.args.get('nroValoracion')+"%"))
+
+        #libro del más valorado al menos valorado 
+        if request.args.get('ordenValoracion') == 'Valoraciones_desc':
+            valoraciones=valoraciones.order_by(desc(ValoracionModel.valoracion))
+        elif request.args.get('ordenValoracion') == "Valoraciones_asc":
+            valoraciones=valoraciones.order_by(asc(ValoracionModel.valoracion))
+        # else: FIX
+        #     raise BusquedaIncorrecta("Argumento Incorrecto") #Arreglar sin body html
         
+
         ### FIN FILTROS ####
         
         valoraciones = valoraciones.paginate(page=page, per_page=per_page, error_out=True)

@@ -4,8 +4,8 @@ from .. import db
 from main.models import PrestamoModel, LibroModel, UsuarioModel
 import regex
 from datetime import datetime
-
-
+from sqlalchemy import func, desc
+from main.auth.decorators import role_required
 
 #PRESTAMOS = {
 #    1: {'usuario': 'usuario1', 'fechaI': '20/10/20', 'fechaT': '27/10/20' },
@@ -13,11 +13,13 @@ from datetime import datetime
 #}
 
 class Prestamo(Resource):
+    
+    @role_required(roles=["Admin", "Usuario"])
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
 
-    #modificar metodo PUT, para poder cambiar relaciones
+    @role_required(roles=["Admin"])
     def put(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json()
@@ -40,16 +42,8 @@ class Prestamo(Resource):
         db.session.add(prestamo)
         db.session.commit()
         return prestamo.to_json(), 201
-        # prestamo = db.session.query(PrestamoModel).get_or_404(id)
-        # data = request.get_json().items()
-        # for key, value in data:
-        #     if regex.match(r"(0?[1-9]|[12][0-9]|3[01])(-)(0?[1-9]|1[012])\2(\d{4})", str(value)) != None: #expresión regular para fechas tipo dd-mm-aaaa
-        #         setattr(prestamo, key.lower(), datetime.strptime(value, "%d-%m-%Y"))
-        #     else: setattr(prestamo, key.lower(), value)
-        # db.session.add(prestamo)
-        # db.session.commit()
-        # return prestamo.to_json() , 201
-
+    
+    @role_required(roles=["Admin"])
     def delete(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         db.session.delete(prestamo)
@@ -57,11 +51,8 @@ class Prestamo(Resource):
         return '', 204
 
 class Prestamos(Resource):
-    # def get(self):
-    #     prestamos = db.session.query(PrestamoModel).all()
-    #     return jsonify([prestamo.to_json() for prestamo in prestamos])
-
-
+    
+    @role_required(roles=["Admin"])
     def get(self):
         page = 1
 
@@ -76,15 +67,40 @@ class Prestamos(Resource):
 
         ### FILTROS ###
 
-        #prestamos con mas de 1 libro
+        usuario = request.args.get('idUsuario')
+        fecha_inicio = request.args.get('inicio_prestamo')
+        fecha_termino = request.args.get('fin_prestamo')
+        cant_libros = request.args.get('cant_libros')
+        libro = request.args.get('libro_id')
+        cant_prestamo = request.args.get("cant_prestamos")
 
-        #prestamos proximos a finalizar
+        #usuario
+        if usuario:
+            prestamos = prestamos.filter(PrestamoModel.fk_idUser == usuario)
 
-        #prestamos por usuario (usuario puede tener mas de un prestamo)
+        #inicio_prestamo
+        if fecha_inicio:
+            fecha_inicio = datetime.strptime(fecha_inicio, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.inicio_prestamo == fecha_inicio)
 
-        #prestamos finalizados
+        #fin_prestamo
+        if fecha_termino:
+            fecha_termino = datetime.strptime(fecha_termino, '%d-%m-%Y')
+            prestamos = prestamos.filter(PrestamoModel.fin_prestamo == fecha_termino)
+        
+        #prestamos por cantidad de libros
+        if cant_libros:
+            prestamos=prestamos.outerjoin(PrestamoModel.fk_idLibro).group_by(PrestamoModel.idPrestamo).having(func.count(LibroModel.idLibro) == int(request.args.get("cant_libros")))
 
-        #
+        #Prestamo por libro especifico
+        if libro:
+            libro_id = LibroModel.query.get_or_404(libro)
+            prestamos=prestamos.filter(PrestamoModel.fk_idLibro.contains(libro_id))
+        
+        #Ordenar de manera desc los usuarios con mas prestamos a los menos (Fixing)
+        # if cant_prestamo == "Desc_Prestamos":
+        #     prestamos==prestamos.outerjoin(PrestamoModel.fk_user_prestamo).group_by(UsuarioModel.idUser).order_by(func.count().desc()).all()
+        
 
         ### FIN FILTROS ###
         
@@ -96,6 +112,7 @@ class Prestamos(Resource):
                     'page' : page
         })
 
+    @role_required(roles=["Admin"])
     def post(self):
         libro_exist = request.get_json().get("libro")
         prestamo = PrestamoModel.from_json(request.get_json())
