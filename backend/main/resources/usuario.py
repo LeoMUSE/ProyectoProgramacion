@@ -11,37 +11,41 @@ from main.auth.decorators import role_required
 #    3:{'Nombre':'Celeste','Apellido':'Ramirez','DNI':42123190,'Telefono':2614123521, 'Email': 'celermz@gmial.com', 'Rol':'Usuario'},
 
 
-class Usuario(Resource):
+class Usuario(Resource): #arreglado
     @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         current_identity = get_jwt_identity()
-        if current_identity:
-            return usuario.to_json()
-        else:
+        if int(current_identity) != int(id):
             return usuario.to_json_short()
+        else:
+            return usuario.to_json()
     
     @jwt_required()
-    def put(self, id):
-        #verificacion del usuario actual y el modificado
-        idenity = get_jwt()
-        if idenity.get("rol") in ["Usuario"]:
-            id = idenity.get('id')
+    def put(self, id): #arreglado, Hacer algo con Admin, que pueda modificarle el estado
+        #verificar que el usuario actual se esta modificando así mismo
+        # Obtener el ID del usuario del token
+        current_user_id = get_jwt_identity()
+        if int(current_user_id) != int(id):
+            return {'message': 'No tienes permiso para modificar este perfil'}, 403
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
-            db.session.add(usuario)
-            db.session.commit()
-            return usuario.to_json(), 201
-
+        db.session.commit()
+        return usuario.to_json(), 201
     
-    @role_required(roles = ["Admin"])
+    @role_required(roles = ["Admin", "Usuario"])
     def delete(self, id):
+        #el usuario puede borrarse solo a sí mismo
+        #el admin puede borrar a cualquier usuario
+        current_user = get_jwt_identity()
+        if int(current_user) != int(id):
+            return {'message': 'No tiene permisos para borrar este usuario'}, 403
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
-        return '', 204
+        return jsonify({'message': 'El usuario se eliminó correctamente'}), 204
 
 class Usuarios(Resource):
     

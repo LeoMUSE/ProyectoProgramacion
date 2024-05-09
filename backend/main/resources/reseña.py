@@ -17,6 +17,7 @@ class Reseña(Resource):
         return reseña.to_json()
     
     @role_required(roles=["Usuario"])
+    # el usuario se puede modificar solo a si mismo
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         data = request.get_json()
@@ -42,6 +43,8 @@ class Reseña(Resource):
         return reseña.to_json(), 201
 
     @role_required(roles=["Admin", "Usuario"])
+    # el usuario puede borrar la reseña, solo a si mismo
+    # el admin puede borrar cualquiera
     def delete(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         db.session.delete( reseña)

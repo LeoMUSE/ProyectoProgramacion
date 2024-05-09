@@ -17,6 +17,8 @@ from main.auth.decorators import role_required
 class Prestamo(Resource):
     
     @role_required(roles=["Admin", "Usuario"])
+    # solo el usuario puede ver los prestamos de uno mismo
+    # el admin puede ver todos
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
