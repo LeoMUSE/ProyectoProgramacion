@@ -45,7 +45,7 @@ class Usuario(Resource): #arreglado
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
-        return jsonify({'message': 'El usuario se eliminó correctamente'}), 204
+        return '', 204 # status code 204, no debe tener respuesta
 
 class Usuarios(Resource):
     

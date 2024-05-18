@@ -11,6 +11,8 @@ api = Api()
 db = SQLAlchemy()
 #Inicializar JWT
 jwt = JWTManager()
+#se inicializa Flask-mail
+mailsender = Mail()
 
 #Inicializa la app , todos lo modulos y recursos
 def create_app():
@@ -42,10 +44,24 @@ def create_app():
     api.add_resource(resources.ReseñasResource, '/reseñas')
     api.init_app(app)
     #config jwt
-    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
-    app.config["JWT_ACCESS_TOKEN_EXPIRES"] = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES"))
+    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
+    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = int(os.getenv('JWT_ACCESS_TOKEN_EXPIRES'))
     jwt.init_app(app)
     #config mail
+    app.config['MAIL_HOSTNAME'] = os.getenv('MAIL_HOSTNAME')
+    app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+    app.config['MAIL_PORT'] = os.getenv('MAIL_PORT')
+    app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS')
+    app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+    app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+    app.config['FLASKY_MAIL_SENDER'] = os.getenv('FLASKY_MAIL_SENDER')
+    #Inicializar en app
+    mailsender.init_app(app)
+    print(f"MAIL_SERVER: {app.config['MAIL_SERVER']}")
+    print(f"MAIL_PORT: {app.config['MAIL_PORT']}")
+    print(f"MAIL_USE_TLS: {app.config['MAIL_USE_TLS']}")
+    print(f"MAIL_USERNAME: {app.config['MAIL_USERNAME']}")
+    print(f"FLASKY_MAIL_SENDER: {app.config['FLASKY_MAIL_SENDER']}")
     
     
 

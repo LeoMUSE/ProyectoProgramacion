@@ -1,0 +1,12 @@
+Bienvenido {{user.nombre}} {{user.apellido}}!
+
+Gracias por registrarte en nuestro sistema.
+
+Con nuestro servicio podras:
+
+- Ver Todos los libros disponibles
+- Rentar libros
+- Acceder a libros electrónicos
+- Recibir recomendaciones personalizadas
+- Recibir notificaciones personalizadas sobre novedades, eventos y mas...
+- Acceder a soporte y ayuda en linea
