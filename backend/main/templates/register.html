@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-  </head>
-  <style>
-    .main {
-      border: 1px solid black;
-      padding: 30px;
-      background-color: white;
-      margin: 20px;
-    }
-    body {
-      background-color: lightgray;
-    }
-    .services {
-      background-color: #94beff;
-      box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-      padding: 10px;
-      border: 1px solid black;
-      width: 250px;
-    }
-    h1 {
-      font-weight: bold;
-      font-size: 25px;
-      color: #001d62;
-    }
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.nationalgeographicla.com/files/styles/image_3200/public/006-library-biblioteca-angelica-a-roma_0002.jpg?w=1900&h=1523');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
 
-    .button {
-      background-color: #3680f2;
-      border-radius: 2px;
-      border: 1px solid black;
-      display: inline-block;
-      color: #ffffff;
-      font-size: 13px;
-      padding: 6px 24px;
-      text-decoration: none;
-      margin-right: 3px;
-    }
-  </style>
-  <body style="background-color: lightgray">
-    <br />
-    <div
-      class="main"
-      style="
-        border: 1px solid black;
-        padding: 30px;
-        background-color: white;
-        margin: 50px;
-      "
-    >
-      <h1 style="font-weight: bold; font-size: 25px; color: #001d62">
-        Bienvenido {{user.nombre}} {{user.apellido}}!
-      </h1>
-      <p>Gracias por registrarte en nuestro sistema.</p>
-      <div
-        class="services"
-        style="
-          background-color: #94beff;
-          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-          padding: 10px;
-          border: 1px solid black;
-          width: 250px;
-        "
-      >
-        <p>Con nuestro servicio podras:</p>
-        <ul>
-          <li><a href="#">Ver tu historia clínica</a></li>
-          <li><a href="#">Ver todos los libros disponibles</a></li>
-          <li><a href="#">Rentar libros</a></li>
-          <li><a href="#">Acceder a libros electrónicos</a></li>
-          <li><a href="#">Recibir recomendaciones personalizadas</a></li>
-          <li>
-            <a href="#"
-              >Recibir notificaciones personalizadas sobre novedades, eventos y
-              más...</a
-            >
-          </li>
-          <li><a href="#">Acceder a soporte y ayuda en línea</a></li>
-        </ul>
-      </div>
-      <br />
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(243, 236, 220, 0.9); 
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #5d432c;
+            color: #f3e8dc;
+            text-align: center;
+            padding: 10px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .services {
+            background-color: #f3e8dc;
+            border: 1px solid #5d432c; 
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .services ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .services ul li {
+            margin-bottom: 10px;
+        }
+
+        .services ul li a {
+            text-decoration: none;
+            color: #5d432c;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: #777;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Bienvenido {{ user.nombre }} {{ user.apellido }}!</h1>
     </div>
-  </body>
-</html>
+    <div class="content">
+        <p>Gracias por registrarte en nuestro sistema. Esperamos que disfrutes de nuestros servicios:</p>
+        <div class="services">
+            <ul>
+                <li><a href="#">Ver todos los libros disponibles</a></li>
+                <li><a href="#">Rentar libros</a></li>
+                <li><a href="#">Acceder a libros electrónicos</a></li>
+                <li><a href="#">Recibir recomendaciones personalizadas</a></li>
+                <li><a href="#">Recibir notificaciones personalizadas sobre novedades, eventos y más...</a></li>
+                <li><a href="#">Acceder a soporte y ayuda en línea</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>p

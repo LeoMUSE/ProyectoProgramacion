@@ -56,15 +56,8 @@ def create_app():
     app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
     app.config['FLASKY_MAIL_SENDER'] = os.getenv('FLASKY_MAIL_SENDER')
     #Inicializar en app
-    mailsender.init_app(app)
-    print(f"MAIL_SERVER: {app.config['MAIL_SERVER']}")
-    print(f"MAIL_PORT: {app.config['MAIL_PORT']}")
-    print(f"MAIL_USE_TLS: {app.config['MAIL_USE_TLS']}")
-    print(f"MAIL_USERNAME: {app.config['MAIL_USERNAME']}")
-    print(f"FLASKY_MAIL_SENDER: {app.config['FLASKY_MAIL_SENDER']}")
+    mailsender.init_app(app)   
     
-    
-
     from main.auth import routes
     app.register_blueprint(routes.auth)
 
