@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel
-from flask_jwt_extended import jwt_required, get_jwt_identity,get_jwt
+from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt
 from main.auth.decorators import role_required
 
 #USUARIOS = {
@@ -39,10 +39,10 @@ class Usuario(Resource): #arreglado
     def delete(self, id):
         #el usuario puede borrarse solo a sí mismo
         #el admin puede borrar a cualquier usuario
-        current_user = get_jwt_identity()
-        if int(current_user) != int(id):
-            return {'message': 'No tiene permisos para borrar este usuario'}, 403
-        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        current_user_id = get_jwt_identity()
+        usuario = db.session.query(UsuarioModel).get_or_404(id)        
+        if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('roles', []):
+            return {'message': 'No tiene permisos para borrar esta reseña'}, 403
         db.session.delete(usuario)
         db.session.commit()
         return '', 204 # status code 204, no debe tener respuesta

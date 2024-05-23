@@ -6,7 +6,7 @@ import regex
 from datetime import datetime
 from sqlalchemy import func, desc, asc
 from main.auth.decorators import role_required
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt
 
 #implementar envio de mail
 
@@ -17,10 +17,13 @@ class Reseña(Resource):
         return reseña.to_json()
     
     @role_required(roles=["Usuario"])
-    # el usuario se puede modificar solo a si mismo
+    # el usuario se puede modificar, solo a si mismo
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         data = request.get_json()
+        current_user_id = get_jwt_identity()
+        if int(current_user_id) != reseña.fk_idUser:
+            return {'message' : 'No tienes permiso para modificar la reseña de este usuario'}
         nuevo_usuario_id = data.get('usuario')
         
         if nuevo_usuario_id:
@@ -46,8 +49,12 @@ class Reseña(Resource):
     # el usuario puede borrar la reseña, solo a si mismo
     # el admin puede borrar cualquiera
     def delete(self, id):
+        current_user_id = get_jwt_identity()
         reseña = db.session.query(ReseñaModel).get_or_404(id)
-        db.session.delete( reseña)
+        # Verificar permisos
+        if int(current_user_id) != int(reseña.fk_idUser) and "Admin" not in get_jwt().get('roles', []):
+            return {'message': 'No tiene permisos para borrar esta reseña'}, 403
+        db.session.delete(reseña)
         db.session.commit()
         return '', 204
 
