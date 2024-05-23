@@ -21,7 +21,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
 											"type": "string"
 										}
 									]
@@ -59,7 +59,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
 											"type": "string"
 										}
 									]
@@ -97,7 +97,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
 											"type": "string"
 										}
 									]
@@ -105,7 +105,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/usuarios?dni=392123123",
+									"raw": "http://127.0.0.1:5000/usuarios?dni=4490923123",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -120,7 +120,7 @@
 									"query": [
 										{
 											"key": "dni",
-											"value": "392123123"
+											"value": "4490923123"
 										}
 									]
 								}
@@ -135,7 +135,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDc1MzcyMywianRpIjoiZGZjZDFlZTUtMzZlNC00ZWNhLThjZjAtNDFhNzgxZWI4NGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NzUzNzIzLCJjc3JmIjoiZmRiYTIyOTgtNzAyNS00YzU1LThmYTgtNGQ5NjUyNzY4OTNiIiwiZXhwIjoxNzE0NzU3MzIzLCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.fRx0182hQgiozTuGjrK-TVpduKWnw1_tPzBxNGzzTWY",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
 											"type": "string"
 										}
 									]
@@ -143,7 +143,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/usuarios?telefono=112432343",
+									"raw": "http://127.0.0.1:5000/usuarios?telefono=2612359743",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -158,7 +158,7 @@
 									"query": [
 										{
 											"key": "telefono",
-											"value": "112432343"
+											"value": "2612359743"
 										}
 									]
 								}
@@ -181,7 +181,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/usuarios?email=lidiaCarri@gmail.com",
+									"raw": "http://127.0.0.1:5000/usuarios?email=pedroPik@gmail.com",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -196,7 +196,7 @@
 									"query": [
 										{
 											"key": "email",
-											"value": "lidiaCarri@gmail.com"
+											"value": "pedroPik@gmail.com"
 										}
 									]
 								}
@@ -216,7 +216,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjA0Njk4NSwianRpIjoiMTVhNzNiNjctYmEwYi00NmU2LWFmM2QtOTEzNTUzNzUyOWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NywibmJmIjoxNzE2MDQ2OTg1LCJjc3JmIjoiMzE2OGFiNTItZjk5MS00N2FiLThiZmEtMjQ0MmVkYmY2OGYyIiwiZXhwIjoxNzE2MDUwNTg1LCJyb2wiOiJBZG1pbiIsImlkIjo3LCJlbWFpbCI6InZpY2VuY2FyYXRAZ21haWwuY29tIn0.sjVUdpF8qYUFof_zfI9Na16A4KJzdRozMZ7s4QrFa4Y",
 									"type": "string"
 								}
 							]
@@ -258,11 +258,21 @@
 				{
 					"name": "Agregar usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTE4OTg2OSwianRpIjoiMDY5MzdhY2ItZDVkYy00YmQ0LWI4ZDEtMGEyYzUwNjQ2NTQ0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MTg5ODY5LCJjc3JmIjoiYzA1M2JmOWMtMGQyOC00Y2M4LWIwZjItYTgzOGI3N2YzNWZhIiwiZXhwIjoxNzE1MTkzNDY5LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.lDEPjbkjFdGOPQMZerqSn1JC2fxugVbPjyxKZEIkoVY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"user\" : \"Pepe\", \n\"contraseña\" : \"pepe123\", \n\"nombre\" : \"Jose\",\n\"apellido\" : \"Muñoz\", \n\"dni\" : 42131231,\n\"telefono\" : \"2612436512\", \n\"email\" : \"pepelsapo@gmial.com\",\n\"rol\" : \"Usuario\"\n}",
+							"raw": "{\n\"user\" : \"vicen\", \n\"contraseña\" : \"vicen123\", \n\"nombre\" : \"Vicente\",\n\"apellido\" : \"Cara\", \n\"dni\" : 44909938,\n\"telefono\" : \"2612436512\", \n\"email\" : \"vit.cara@alumno.um.edu.ar\",\n\"rol\" : \"Admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -288,21 +298,33 @@
 				},
 				{
 					"name": "Ver usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI2NDE3NCwianRpIjoiZGM0YjEzYTQtMjQ4YS00YjQ1LWEzZjUtNTZmMDM0NDZlN2FhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE1MjY0MTc0LCJjc3JmIjoiMDk4M2FmZTUtZjU5OC00ODJlLWEzODktODYyMDc4OTk3NzQ1IiwiZXhwIjoxNzE1MjY3Nzc0LCJyb2wiOiJVc3VhcmlvIiwiaWQiOjYsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.idibceT0obN9kmu3KE5Ud8_8wQ4b36eAKKgAunBxALs",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/5",
+							"raw": "http://127.0.0.1:5000/usuario/6",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -313,7 +335,7 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"5"
+								"6"
 							]
 						}
 					},
@@ -327,7 +349,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDY1NjM3NSwianRpIjoiYzE5NjAwM2YtNWUzYy00NWMzLTk3ODEtZjFkYjQwMWM5NWI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6OCwibmJmIjoxNzE0NjU2Mzc1LCJjc3JmIjoiODE2MzEyNDYtOGI1Yi00OWRhLWFmNGMtYzAyNWI0ZTkwNjU1IiwiZXhwIjoxNzE0NjU5OTc1LCJyb2wiOiJBZG1pbiIsImlkIjo4LCJlbWFpbCI6InZpY2VuY2FyYUBnbWFpbC5jb20ifQ.N8qF2z3GElP-LqJZcajjlrpATiWxhcaOl6VtYdV-Zk8",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjQ2NDcwMiwianRpIjoiNDE4ZjBlNWMtYzU3OS00MmUxLWE5NGQtZmY5ZDhjNzY1ODRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2NDY0NzAyLCJjc3JmIjoiNjgyZWMyYmItMWNkYi00Nzk4LThkZTYtMzY3NDZmM2E0Nzc1IiwiZXhwIjoxNzE2NDY4MzAyLCJyb2wiOiJVc3VhcmlvIiwiaWQiOjYsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.dqcpNyaFBiHHuSQWpGzyCvQUVwbHl9m9CV0TaxQ_6GQ",
 									"type": "string"
 								}
 							]
@@ -336,7 +358,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user\": \"RamonRMZ\",\n    \"contraseña\": \"ramon123\",\n    \"nombre\": \"Ramon\",\n    \"apellido\": \"Ramirez\",\n    \"dni\": 42123123,\n    \"telefono\": \"261231223\",\n    \"email\": \"ramonrmz@gmial.com\",\n    \"rol\": \"Admin\"\n}",
+							"raw": "{\n    \"user\": \"PodroPk10\",\n    \"nombre\": \"Pedro\",\n    \"apellido\": \"Rodriguez\",\n    \"dni\": 3534213241,\n    \"telefono\": \"0113212312\",\n    \"email\": \"pedroPik@gmail.com\",\n    \"rol\": \"Usuario\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -344,7 +366,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/5",
+							"raw": "http://127.0.0.1:5000/usuario/6",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -355,7 +377,7 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"5"
+								"6"
 							]
 						}
 					},
@@ -364,10 +386,20 @@
 				{
 					"name": "Borrar usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjQ2NTI0NiwianRpIjoiNmE4YmM2MjctZDE0ZS00ZDEwLWFiZTUtOTNlY2E4Y2NlYWE5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NywibmJmIjoxNzE2NDY1MjQ2LCJjc3JmIjoiMTNkODA4ZjYtNGNiOS00MmE2LTg2ZTUtZGU1ZmUxMzM1MWJjIiwiZXhwIjoxNzE2NDY4ODQ2LCJyb2wiOiJBZG1pbiIsImlkIjo3LCJlbWFpbCI6InZpY2VuY2FyYXRAZ21haWwuY29tIn0.dxaiCpilldLg5KtMaXuKz-ZWKUEqk8tGt0nKsjoPjbM",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/usuario/3",
+							"raw": "http://127.0.0.1:5000/usuario/7",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -378,7 +410,7 @@
 							"port": "5000",
 							"path": [
 								"usuario",
-								"3"
+								"7"
 							]
 						}
 					},
@@ -509,6 +541,16 @@
 				{
 					"name": "Listar libros",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTE4ODQzMiwianRpIjoiZDdjMzQ2OTgtMGRjNy00NTVmLWIwOTYtZjE2OWI1ZjIzODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MTg4NDMyLCJjc3JmIjoiMzE5M2QwNTktY2Y5My00ZmM0LTgxNTItMTc2YjI0YmM4ZGE3IiwiZXhwIjoxNzE1MTkyMDMyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.ucf7YZ95lrDPDW8uZQ4gRrKo9tbocb108lHkxKl-U8E",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -537,11 +579,21 @@
 				{
 					"name": "Agregar libro",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTE4ODQzMiwianRpIjoiZDdjMzQ2OTgtMGRjNy00NTVmLWIwOTYtZjE2OWI1ZjIzODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MTg4NDMyLCJjc3JmIjoiMzE5M2QwNTktY2Y5My00ZmM0LTgxNTItMTc2YjI0YmM4ZGE3IiwiZXhwIjoxNzE1MTkyMDMyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.ucf7YZ95lrDPDW8uZQ4gRrKo9tbocb108lHkxKl-U8E",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"titulo\" : \"El señor de los anillo\",\n\"cantidad\" : 2,\n\"autor\" : [5],\n\"editorial\" : \"Tirant Lo Blanch\",\n\"genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
+							"raw": "{\n\"titulo\" : \"El señor de los anillo\",\n\"cantidad\" : 3,\n\"autor\" : [5],\n\"editorial\" : \"Tirant Lo Blanch\",\n\"genero\" : \"Fantastica, Ficcion y Aventura\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -571,11 +623,63 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1MTYxOCwianRpIjoiZjk3NjVhY2UtMmIxMC00YThkLWExMGEtYTM5YzZiNTVmNzQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNzE0ODUxNjE4LCJjc3JmIjoiNTljYzc2NTctNDBlZS00ZGUwLWE2ZWYtZGJjMjcwNzVjNWE1IiwiZXhwIjoxNzE0ODU1MjE4LCJyb2wiOiJVc3VhcmlvIiwiaWQiOjQsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.lpn8cS8h-5Tugwh_HUWBzIQTx_7DybX4wkR4sEsxAzs",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/libro/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"libro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1OTU5MywianRpIjoiZTA4ZmJlNGYtZmQwNS00NzE0LTg5YWQtNDgzYmQ2OTNlOGU0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MywibmJmIjoxNzE0ODU5NTkzLCJjc3JmIjoiOTQ1Mjc0ZmItNzA2NC00YzJmLTg2YzItOGRlMjk2ZjYyMDE0IiwiZXhwIjoxNzE0ODYzMTkzLCJyb2wiOiJBZG1pbiIsImlkIjozLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.sm5OutDDKdcZFgPudCYkJsmc41-XhLj--Yg4U2uWpqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 5,\n    \"autor\": [1],\n    \"editorial\": \"Double\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -595,38 +699,6 @@
 							"path": [
 								"libro",
 								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificar libro",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"El Codigo Da Vinci\",\n    \"cantidad\": 5,\n    \"autor\": [1],\n    \"editorial\": \"Doubleday\",\n    \"genero\": \"Policiaca-Ficcion\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/libro/4",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"libro",
-								"4"
 							]
 						}
 					},
@@ -730,367 +802,6 @@
 			]
 		},
 		{
-			"name": "Comentario",
-			"item": [
-				{
-					"name": "Listar comentarios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/comentarios",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"comentarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar comentario",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 4,\n\"fecha\" : \"21-11-2024\",\n\"descripcion\": \" asadvsdasedcxas\" \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/comentarios",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"comentarios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver comentario",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/comentario/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"comentario",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificar comentario",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"usuario\": 2,\n    \"libro\": 2,\n    \"fecha\": \"23-02-2024\",\n    \"descripcion\": \"Muy buenoooo\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/comentario/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"comentario",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar comentario",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/comentario/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"comentario",
-								"3"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Valoracion",
-			"item": [
-				{
-					"name": "Filters",
-					"item": [
-						{
-							"name": "Busqueda por n/5",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/valoraciones?nroValoracion=5/5",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"valoraciones"
-									],
-									"query": [
-										{
-											"key": "nroValoracion",
-											"value": "5/5"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Busqueda + a - valorado",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/valoraciones?ordenValoracion=Valoraciones_desc",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"valoraciones"
-									],
-									"query": [
-										{
-											"key": "ordenValoracion",
-											"value": "Valoraciones_desc"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Busqueda - a + valorado",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:5000/valoraciones?ordenValoracion=Valoraciones_asc",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "5000",
-									"path": [
-										"valoraciones"
-									],
-									"query": [
-										{
-											"key": "ordenValoracion",
-											"value": "Valoraciones_asc"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Listar Valoraciones",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/valoraciones",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"valoraciones"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar valoracion",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 3,\n\"valoracion\" : \"3/5\" \n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/valoraciones",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"valoraciones"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver valoracion",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/valoracion/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"valoracion",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificar valoracion",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"usuario\": 5,\n    \"libro\": 4,\n    \"valoracion\": \"2/5\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:5000/valoracion/6",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"valoracion",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar valoracion",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:5000/valoracion/2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "5000",
-							"path": [
-								"valoracion",
-								"2"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Prestamo",
 			"item": [
 				{
@@ -1099,6 +810,16 @@
 						{
 							"name": "Busqueda por usuario",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1127,10 +848,20 @@
 						{
 							"name": "Busqueda por inicio_prestamo",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/prestamos?inicio_prestamo=10-11-2024",
+									"raw": "http://127.0.0.1:5000/prestamos?inicio_prestamo=08-08-2024",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -1145,7 +876,7 @@
 									"query": [
 										{
 											"key": "inicio_prestamo",
-											"value": "10-11-2024"
+											"value": "08-08-2024"
 										}
 									]
 								}
@@ -1155,10 +886,20 @@
 						{
 							"name": "Busqueda por fin_prestamos",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/prestamos?fin_prestamo=09-07-2024",
+									"raw": "http://127.0.0.1:5000/prestamos?fin_prestamo=17-03-2024",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -1173,7 +914,7 @@
 									"query": [
 										{
 											"key": "fin_prestamo",
-											"value": "09-07-2024"
+											"value": "17-03-2024"
 										}
 									]
 								}
@@ -1183,6 +924,16 @@
 						{
 							"name": "Busqueda por cant. de libros",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1211,10 +962,20 @@
 						{
 							"name": "Busqueda por libro",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:5000/prestamos?libro_id=2",
+									"raw": "http://127.0.0.1:5000/prestamos?libro_id=3",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -1229,7 +990,7 @@
 									"query": [
 										{
 											"key": "libro_id",
-											"value": "2"
+											"value": "3"
 										}
 									]
 								}
@@ -1239,8 +1000,38 @@
 						{
 							"name": "Busqueda cant_prestamos",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/prestamos?cant_prestamos=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"prestamos"
+									],
+									"query": [
+										{
+											"key": "cant_prestamos",
+											"value": "3"
+										}
+									]
+								}
 							},
 							"response": []
 						}
@@ -1249,6 +1040,16 @@
 				{
 					"name": "Listar prestamos",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1277,11 +1078,21 @@
 				{
 					"name": "Agregar prestamo",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTI1NzQ1OCwianRpIjoiOThhZGMxYTktMDFhOC00OTRjLWFmNTItZTEwNWM5MDFjMGUwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MjU3NDU4LCJjc3JmIjoiYjNkZWNkOGUtMWVmYi00YjIwLWJhMzktZGUwZmI3ZTE4Nzk4IiwiZXhwIjoxNzE1MjYxMDU4LCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.Xx9V5YQZkmu_FtzHBdiJ2YBlJlFWrMLtpdw-WBVwHag",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [2],\n\"inicio_prestamo\" : \"08-08-2024\",\n\"fin_prestamo\" : \"10-08-2024\"\n}",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : [2, 1, 5],\n\"inicio_prestamo\" : \"17-05-2024\",\n\"fin_prestamo\" : \"24-05-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1308,10 +1119,20 @@
 				{
 					"name": "Ver prestamo",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1MTYxOCwianRpIjoiZjk3NjVhY2UtMmIxMC00YThkLWExMGEtYTM5YzZiNTVmNzQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNzE0ODUxNjE4LCJjc3JmIjoiNTljYzc2NTctNDBlZS00ZGUwLWE2ZWYtZGJjMjcwNzVjNWE1IiwiZXhwIjoxNzE0ODU1MjE4LCJyb2wiOiJVc3VhcmlvIiwiaWQiOjQsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.lpn8cS8h-5Tugwh_HUWBzIQTx_7DybX4wkR4sEsxAzs",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/prestamo/1",
+							"raw": "http://127.0.0.1:5000/prestamo/5",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1322,7 +1143,7 @@
 							"port": "5000",
 							"path": [
 								"prestamo",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -1331,11 +1152,21 @@
 				{
 					"name": "Modificar prestamo",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1NDMyMiwianRpIjoiZjVhYjBjMTgtYzg2ZC00MTFjLTk2ZGMtYWZhMTQzZWU3ZWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE0ODU0MzIyLCJjc3JmIjoiNzY2YTRhYWYtYTM4YS00YzE3LThlN2ItN2VmMGNjNjU5MGU5IiwiZXhwIjoxNzE0ODU3OTIyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.0IGaIeN6WPWNfdmqVvKn1ZoBoKXh9uUcAIvqb5KZ690",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [2],\n\"inicio_prestamo\" : \"10-11-2024\",\n\"fin_prestamo\" : \"23-11-2024\"\n}",
+							"raw": "{\n\"usuario\" : 2,\n\"libro\" : [2, 1],\n\"inicio_prestamo\" : \"10-11-2024\",\n\"fin_prestamo\" : \"23-11-2024\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1424,11 +1255,21 @@
 				{
 					"name": "Agregar notificacion",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1NDMyMiwianRpIjoiZjVhYjBjMTgtYzg2ZC00MTFjLTk2ZGMtYWZhMTQzZWU3ZWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE0ODU0MzIyLCJjc3JmIjoiNzY2YTRhYWYtYTM4YS00YzE3LThlN2ItN2VmMGNjNjU5MGU5IiwiZXhwIjoxNzE0ODU3OTIyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.0IGaIeN6WPWNfdmqVvKn1ZoBoKXh9uUcAIvqb5KZ690",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"Usuario\" : 4,\n\"Descripcion\" : \"Falta 1 dia para la entrega de su libro\"\n}\n",
+							"raw": "{\n\"usuario\" : 2,\n\"descripcion\" : \"Falta 1 dia para la entrega de su libro\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1455,6 +1296,16 @@
 				{
 					"name": "Listar notificaciones",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1NDMyMiwianRpIjoiZjVhYjBjMTgtYzg2ZC00MTFjLTk2ZGMtYWZhMTQzZWU3ZWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE0ODU0MzIyLCJjc3JmIjoiNzY2YTRhYWYtYTM4YS00YzE3LThlN2ItN2VmMGNjNjU5MGU5IiwiZXhwIjoxNzE0ODU3OTIyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.0IGaIeN6WPWNfdmqVvKn1ZoBoKXh9uUcAIvqb5KZ690",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1488,6 +1339,16 @@
 				{
 					"name": "Listar autores",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTE4ODQzMiwianRpIjoiZDdjMzQ2OTgtMGRjNy00NTVmLWIwOTYtZjE2OWI1ZjIzODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MTg4NDMyLCJjc3JmIjoiMzE5M2QwNTktY2Y5My00ZmM0LTgxNTItMTc2YjI0YmM4ZGE3IiwiZXhwIjoxNzE1MTkyMDMyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.ucf7YZ95lrDPDW8uZQ4gRrKo9tbocb108lHkxKl-U8E",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1510,6 +1371,16 @@
 				{
 					"name": "Agregar autor",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNTE4ODQzMiwianRpIjoiZDdjMzQ2OTgtMGRjNy00NTVmLWIwOTYtZjE2OWI1ZjIzODIyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE1MTg4NDMyLCJjc3JmIjoiMzE5M2QwNTktY2Y5My00ZmM0LTgxNTItMTc2YjI0YmM4ZGE3IiwiZXhwIjoxNzE1MTkyMDMyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.ucf7YZ95lrDPDW8uZQ4gRrKo9tbocb108lHkxKl-U8E",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -1564,11 +1435,21 @@
 				{
 					"name": "Modificar autor",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNDg1NDMyMiwianRpIjoiZjVhYjBjMTgtYzg2ZC00MTFjLTk2ZGMtYWZhMTQzZWU3ZWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzE0ODU0MzIyLCJjc3JmIjoiNzY2YTRhYWYtYTM4YS00YzE3LThlN2ItN2VmMGNjNjU5MGU5IiwiZXhwIjoxNzE0ODU3OTIyLCJyb2wiOiJBZG1pbiIsImlkIjoyLCJlbWFpbCI6InZpY2VudGVjYXJhdEBnbWFpbC5jb20ifQ.0IGaIeN6WPWNfdmqVvKn1ZoBoKXh9uUcAIvqb5KZ690",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Miguel\",\n    \"apellido\": \"De Cervantes Saavedra\",\n    \"apodo\": \"Migue\"\n}",
+							"raw": "{\n    \"nombre\": \"Miguel\",\n    \"apellido\": \"De Cervantes Saavedra\",\n    \"apodo\": \"Miguel\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1628,7 +1509,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\" : \"vicencara@gmail.com\",\n    \"contraseña\" : \"vicen123\"\n}",
+							"raw": "{\n    \"email\" : \"vicencarat@gmail.com\",\n    \"contraseña\" : \"vicen123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1660,7 +1541,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"user\" : \"Pepe\", \n\"contraseña\" : \"pepe123\", \n\"nombre\" : \"Jose\",\n\"apellido\" : \"Muñoz\", \n\"dni\" : 42131231,\n\"telefono\" : \"2612436512\", \n\"email\" : \"pepelsapo@gmail.com\",\n\"rol\" : \"Admin\"\n}",
+							"raw": "{\n\"user\" : \"VicentCT\", \n\"contraseña\" : \"vicen123\", \n\"nombre\" : \"Vicente\",\n\"apellido\" : \"Cara\", \n\"dni\" : 442631631,\n\"telefono\" : \"011321223\", \n\"email\" : \"vicencarat@gmail.com\",\n\"rol\" : \"Admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1680,6 +1561,327 @@
 							"path": [
 								"auth",
 								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reseña",
+			"item": [
+				{
+					"name": "Filters",
+					"item": [
+						{
+							"name": "Busqueda por n/5",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/reseñas?nroValoracion=5/5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"reseñas"
+									],
+									"query": [
+										{
+											"key": "nroValoracion",
+											"value": "5/5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busqueda + a - valorado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/reseñas?ordenValoracion=Valoraciones_desc",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"reseñas"
+									],
+									"query": [
+										{
+											"key": "ordenValoracion",
+											"value": "Valoraciones_desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busqueda - a + valorado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/reseñas?ordenValoracion=Valoraciones_asc",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"reseñas"
+									],
+									"query": [
+										{
+											"key": "ordenValoracion",
+											"value": "Valoraciones_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busqueda por usuario",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/reseñas?idUserPost=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"reseñas"
+									],
+									"query": [
+										{
+											"key": "idUserPost",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busqueda por fecha",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/reseñas?fechaReseña=11-04-2024",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"reseñas"
+									],
+									"query": [
+										{
+											"key": "fechaReseña",
+											"value": "11-04-2024"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Listar reseñas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/reseñas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"reseñas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar reseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjQ2NDcwMiwianRpIjoiNDE4ZjBlNWMtYzU3OS00MmUxLWE5NGQtZmY5ZDhjNzY1ODRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2NDY0NzAyLCJjc3JmIjoiNjgyZWMyYmItMWNkYi00Nzk4LThkZTYtMzY3NDZmM2E0Nzc1IiwiZXhwIjoxNzE2NDY4MzAyLCJyb2wiOiJVc3VhcmlvIiwiaWQiOjYsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.dqcpNyaFBiHHuSQWpGzyCvQUVwbHl9m9CV0TaxQ_6GQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"usuario\" : 6,\n\"libro\" : 4,\n\"fecha\" : \"10-10-2024\",\n\"descripcion\" : \"Buenisimo\",\n\"valoracion\" : \"4/5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/reseñas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"reseñas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver reseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjA1ODUwNywianRpIjoiYTExODRjMWYtOGIzYy00YTQ2LTk2OGYtYWQ1NDY4YjU3MjZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE2MDU4NTA3LCJjc3JmIjoiNGIxNzE4OTAtYzI4OC00OTJiLTlhN2YtNWNiOGY0YmE4Mjg1IiwiZXhwIjoxNzE2MDYyMTA3LCJyb2wiOiJVc3VhcmlvIiwiaWQiOjEsImVtYWlsIjoicGVwZWxzYXBvQGdtYWlsLmNvbSJ9.sc5CqjTEQOT5eGmirAB_NAN0IVgQIYJgOk0CzSPumjA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/reseña/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"reseña",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar reseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjQ2NDcwMiwianRpIjoiNDE4ZjBlNWMtYzU3OS00MmUxLWE5NGQtZmY5ZDhjNzY1ODRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2NDY0NzAyLCJjc3JmIjoiNjgyZWMyYmItMWNkYi00Nzk4LThkZTYtMzY3NDZmM2E0Nzc1IiwiZXhwIjoxNzE2NDY4MzAyLCJyb2wiOiJVc3VhcmlvIiwiaWQiOjYsImVtYWlsIjoicGVkcm9QaWtAZ21haWwuY29tIn0.dqcpNyaFBiHHuSQWpGzyCvQUVwbHl9m9CV0TaxQ_6GQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"usuario\" : 1,\n\"libro\" : 1,\n\"fecha\" : \"10-03-2024\",\n\"descripcion\" : \"Muy buen libro.....\",\n\"valoracion\" : \"4/5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/reseña/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"reseña",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar reseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjA1OTQ2OCwianRpIjoiMGFhN2QxMGItMzhiNC00ODZhLWJkZWItOWY4ZDA4NzVhZTk2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE2MDU5NDY4LCJjc3JmIjoiOWJmNDg3NzctYmEwNi00ODM1LWEwMzMtNTdkNzZhMWNlMmY3IiwiZXhwIjoxNzE2MDYzMDY4LCJyb2wiOiJVc3VhcmlvIiwiaWQiOjEsImVtYWlsIjoicGVwZWxzYXBvQGdtYWlsLmNvbSJ9.CFAZnwK59rFeMH0h5NCnTdeHamyl8WSXde8YI9ZAHXA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/reseña/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"reseña",
+								"4"
 							]
 						}
 					},
