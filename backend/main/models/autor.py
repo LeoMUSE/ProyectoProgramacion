@@ -20,6 +20,12 @@ class Autor(db.Model):
         }
         return autor_json
     
+    def to_json_short(self):
+        autor_json= {
+            "apodo" : str(self.apodo)
+        }
+        return autor_json
+    
     @staticmethod
     def from_json(autor_json):
         id = autor_json.get("id")

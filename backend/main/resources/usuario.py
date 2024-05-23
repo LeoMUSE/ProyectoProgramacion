@@ -2,36 +2,54 @@ from flask_restful import Resource
 from flask import request, jsonify
 from .. import db
 from main.models import UsuarioModel
-
-
+from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt
+from main.auth.decorators import role_required
 
 #USUARIOS = {
 #    1:{'Nombre':'Ricardo','Apellido':'Montes','DNI':44909938,'Telefono':2613123216, 'Email':'ricardito12@gmial.com', 'Rol':'Admin'},
 #    2:{'Nombre':'Anibal','Apellido':'Perez','DNI':4312123,'Telefono':2610913127, 'Email': 'ani.capo@gmail.com', 'Rol':'Usuario'} ,
 #    3:{'Nombre':'Celeste','Apellido':'Ramirez','DNI':42123190,'Telefono':2614123521, 'Email': 'celermz@gmial.com', 'Rol':'Usuario'},
-#}
 
-class Usuario(Resource):
+
+class Usuario(Resource): #arreglado
+    @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
-        return usuario.to_json()
-
-    def put(self, id):
+        current_identity = get_jwt_identity()
+        if int(current_identity) != int(id):
+            return usuario.to_json_short()
+        else:
+            return usuario.to_json()
+    
+    @jwt_required()
+    def put(self, id): #arreglado, Hacer algo con Admin, que pueda modificarle el estado
+        #verificar que el usuario actual se esta modificando así mismo
+        # Obtener el ID del usuario del token
+        current_user_id = get_jwt_identity()
+        if int(current_user_id) != int(id):
+            return {'message': 'No tienes permiso para modificar este perfil'}, 403
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
-        db.session.add(usuario)
         db.session.commit()
-        return usuario.to_json() , 201
-
+        return usuario.to_json(), 201
+    
+    @role_required(roles = ["Admin", "Usuario"])
     def delete(self, id):
-        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        #el usuario puede borrarse solo a sí mismo
+        #el admin puede borrar a cualquier usuario
+        current_user_id = get_jwt_identity()
+        usuario = db.session.query(UsuarioModel).get_or_404(id)        
+        if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('roles', []):
+            return {'message': 'No tiene permisos para borrar esta reseña'}, 403
         db.session.delete(usuario)
         db.session.commit()
-        return '', 204
+        return '', 204 # status code 204, no debe tener respuesta
 
 class Usuarios(Resource):
+    
+    jwt_required(optional=True)
     def get(self):
         page = 1
 
@@ -45,27 +63,32 @@ class Usuarios(Resource):
             per_page = int(request.args.get('per_page'))
 
         ### FILTROS ###
-
+        
+        rol = request.args.get("rol")
+        nombre = request.args.get("nombre")
+        dni = request.args.get("dni")
+        telefono = request.args.get("telefono")
+        email = request.args.get("email")
+        
         #usuarios por rol
-        if request.args.get("rol"):
-            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+request.args.get('rol')+"%"))
+        if rol:
+            usuarios = usuarios.filter(UsuarioModel.rol.like("%"+rol+"%"))
 
         #usuarios por nombre
-        if request.args.get("nombre"):
-            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+request.args.get('nombre')+"%"))
+        if nombre:
+            usuarios = usuarios.filter(UsuarioModel.nombre.like("%"+nombre+"%"))
 
         #usuarios por dni
-        if request.args.get("dni"):
-            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+request.args.get('dni')+"%"))
+        if dni:
+            usuarios = usuarios.filter(UsuarioModel.dni.like("%"+dni+"%"))
 
         #usuarios por telefono (area)
-        if request.args.get("telefono"):
-            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+request.args.get('telefono')+"%"))
+        if telefono:
+            usuarios = usuarios.filter(UsuarioModel.telefono.like("%"+telefono+"%"))
 
         #usuarios por email
-        if request.args.get("email"):
-            usuarios = usuarios.filter(UsuarioModel.email.like("%"+request.args.get('email')+"%"))
-
+        if email:
+            usuarios = usuarios.filter(UsuarioModel.email.like("%"+email+"%"))
 
         ### FIN FILTROS ###
 
