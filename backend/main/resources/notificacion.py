@@ -12,7 +12,7 @@ from main.auth.decorators import role_required
 #implementar envio de mail
 
 class Notificacion(Resource):
-    role_required(roles=["Admin", "Usuario"])
+    #@role_required(roles=["Admin", "Usuario"])
     def get(self):
         page = 1
 
@@ -44,7 +44,7 @@ class Notificacion(Resource):
                     'page':page    
                         })
 
-    role_required(roles=["Admin"])
+    #@role_required(roles=["Admin"])
     def post(self):
         notificacion = NotificacionModel.from_json(request.get_json())
         db.session.add(notificacion)

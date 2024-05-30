@@ -17,13 +17,14 @@ from flask_jwt_extended import get_jwt_identity, get_jwt, jwt_required
 
 class Prestamo(Resource):
     
-    @role_required(roles=["Admin", "Usuario"])
+    #@role_required(roles=["Admin", "Usuario"])
     # solo el usuario puede ver los prestamos de uno mismo
+    # el admin y bibliotecario puede ver cualquiera
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
 
-    @role_required(roles=["Admin"])
+    #@role_required(roles=["Admin"])
     def put(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json()
@@ -47,7 +48,7 @@ class Prestamo(Resource):
         db.session.commit()
         return prestamo.to_json(), 201
     
-    @role_required(roles=["Admin"])
+    #@role_required(roles=["Admin"])
     def delete(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         db.session.delete(prestamo)
@@ -56,7 +57,7 @@ class Prestamo(Resource):
 
 class Prestamos(Resource):
     
-    @role_required(roles=["Admin"])
+    #@role_required(roles=["Admin"])
     def get(self):
         page = 1
 
@@ -116,7 +117,7 @@ class Prestamos(Resource):
                     'page' : page
         })
 
-    @role_required(roles=["Admin"])
+    #@role_required(roles=["Admin"])
     def post(self):
         libro_exist = request.get_json().get("libro")
         prestamo = PrestamoModel.from_json(request.get_json())

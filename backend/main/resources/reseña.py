@@ -11,12 +11,12 @@ from flask_jwt_extended import jwt_required, get_jwt_identity, get_jwt
 #implementar envio de mail
 
 class Reseña(Resource):
-    @jwt_required(optional=True)
+    #@jwt_required(optional=True)
     def get(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         return reseña.to_json()
     
-    @role_required(roles=["Usuario"])
+    #@role_required(roles=["Usuario"])
     # el usuario se puede modificar, solo a si mismo
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
@@ -45,9 +45,9 @@ class Reseña(Resource):
         db.session.commit()
         return reseña.to_json(), 201
 
-    @role_required(roles=["Admin", "Usuario"])
+    #@role_required(roles=["Admin", "Usuario"])
     # el usuario puede borrar la reseña, solo a si mismo
-    # el admin puede borrar cualquiera
+    # el admin o bibliotecario puede borrar cualquiera
     def delete(self, id):
         current_user_id = get_jwt_identity()
         reseña = db.session.query(ReseñaModel).get_or_404(id)
@@ -60,7 +60,7 @@ class Reseña(Resource):
 
 class Reseñas(Resource):
     
-    @jwt_required(optional=True)
+    #@jwt_required(optional=True)
     def get(self):
         page = 1
         per_page = 10
@@ -96,8 +96,6 @@ class Reseñas(Resource):
         if reseña_x_fecha:
             reseña_x_fecha = datetime.strptime(reseña_x_fecha, '%d-%m-%Y')
             reseñas=reseñas.filter(ReseñaModel.fecha == reseña_x_fecha)
-        
-        
 
         ### FIN FILTROS ####
         
@@ -108,7 +106,8 @@ class Reseñas(Resource):
                 'pages': reseñas.pages,
                 'page': page
                 })
-    @role_required(roles=["Admin", "Usuario"])
+        
+    #@role_required(roles=["Admin", "Usuario"])
     def post(self):
         reseña = ReseñaModel.from_json(request.get_json())
         db.session.add(reseña)
