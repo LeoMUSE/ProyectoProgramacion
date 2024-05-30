@@ -18,6 +18,7 @@ class Reseña(Resource):
     
     @role_required(roles=["Usuario"])
     # el usuario se puede modificar, solo a si mismo
+    # Admin puede modificar cualquiera
     def put(self, id):
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         data = request.get_json()
@@ -45,14 +46,13 @@ class Reseña(Resource):
         db.session.commit()
         return reseña.to_json(), 201
 
-    @role_required(roles=["Admin", "Usuario"])
+    @jwt_required()
     # el usuario puede borrar la reseña, solo a si mismo
-    # el admin puede borrar cualquiera
+    # el admin y bibliotecario puede borrar cualquiera
     def delete(self, id):
         current_user_id = get_jwt_identity()
         reseña = db.session.query(ReseñaModel).get_or_404(id)
-        # Verificar permisos
-        if int(current_user_id) != int(reseña.fk_idUser) and "Admin" not in get_jwt().get('roles', []):
+        if int(current_user_id) != int(reseña.fk_idUser) or ["Admin", "Bibliotecario"] not in get_jwt().get('roles', []): #arreglar
             return {'message': 'No tiene permisos para borrar esta reseña'}, 403
         db.session.delete(reseña)
         db.session.commit()
