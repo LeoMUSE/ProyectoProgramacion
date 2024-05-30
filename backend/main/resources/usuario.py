@@ -12,7 +12,7 @@ from main.auth.decorators import role_required
 
 
 class Usuario(Resource): #arreglado
-    @jwt_required()
+    @jwt_required(optional=True)
     def get(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         current_identity = get_jwt_identity()
@@ -23,7 +23,8 @@ class Usuario(Resource): #arreglado
     
     @jwt_required()
     def put(self, id): #arreglado, Hacer algo con Admin, que pueda modificarle el estado
-        # el admin puede modificar cualquier dato
+        #verificar que el usuario actual se esta modificando así mismo
+        # Obtener el ID del usuario del token
         current_user_id = get_jwt_identity()
         if int(current_user_id) != int(id):
             return {'message': 'No tienes permiso para modificar este perfil'}, 403
@@ -34,19 +35,21 @@ class Usuario(Resource): #arreglado
         db.session.commit()
         return usuario.to_json(), 201
     
-    @role_required(roles = ["Admin"])
+    @role_required(roles = ["Admin", "Usuario"])
     def delete(self, id):
+        #el usuario puede borrarse solo a sí mismo
         #el admin puede borrar a cualquier usuario
+        current_user_id = get_jwt_identity()
         usuario = db.session.query(UsuarioModel).get_or_404(id)        
-        current_user = get_jwt()
-        if current_user.get('rol') not in ["Admin"]:
-            return {'message': 'No tiene permisos para borrar este usuario'}, 403
+        if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('roles', []):
+            return {'message': 'No tiene permisos para borrar esta reseña'}, 403
         db.session.delete(usuario)
         db.session.commit()
         return '', 204 # status code 204, no debe tener respuesta
 
 class Usuarios(Resource):
-    @role_required(roles=["Admin", "Bibliotecario"])
+    
+    jwt_required(optional=True)
     def get(self):
         page = 1
 

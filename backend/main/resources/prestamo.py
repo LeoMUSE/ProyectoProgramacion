@@ -17,13 +17,13 @@ from flask_jwt_extended import get_jwt_identity, get_jwt, jwt_required
 
 class Prestamo(Resource):
     
-    @jwt_required()
+    @role_required(roles=["Admin", "Usuario"])
     # solo el usuario puede ver los prestamos de uno mismo
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()
 
-    @role_required(roles=["Admin", "Bibliotecario"])
+    @role_required(roles=["Admin"])
     def put(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json()
