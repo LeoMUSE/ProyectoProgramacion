@@ -47,7 +47,7 @@ class Reseña(Resource):
 
     @role_required(roles=["Admin", "Usuario"])
     # el usuario puede borrar la reseña, solo a si mismo
-    # el admin puede borrar cualquiera
+    # el admin o bibliotecario puede borrar cualquiera
     def delete(self, id):
         current_user_id = get_jwt_identity()
         reseña = db.session.query(ReseñaModel).get_or_404(id)
@@ -96,8 +96,6 @@ class Reseñas(Resource):
         if reseña_x_fecha:
             reseña_x_fecha = datetime.strptime(reseña_x_fecha, '%d-%m-%Y')
             reseñas=reseñas.filter(ReseñaModel.fecha == reseña_x_fecha)
-        
-        
 
         ### FIN FILTROS ####
         
@@ -108,6 +106,7 @@ class Reseñas(Resource):
                 'pages': reseñas.pages,
                 'page': page
                 })
+        
     @role_required(roles=["Admin", "Usuario"])
     def post(self):
         reseña = ReseñaModel.from_json(request.get_json())

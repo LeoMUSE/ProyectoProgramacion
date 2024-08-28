@@ -15,7 +15,7 @@ def role_required(roles):
                 #Ejecutar función
                 return fn(*args, **kwargs)
             else:
-                return 'Rol sin permisos de acceso al recurso', 403
+                return {'message': 'Rol sin permisos de acceso al recurso'}, 403
         return wrapper
     return decorator
 

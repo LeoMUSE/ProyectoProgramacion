@@ -19,6 +19,7 @@ class Prestamo(Resource):
     
     @role_required(roles=["Admin", "Usuario"])
     # solo el usuario puede ver los prestamos de uno mismo
+    # el admin y bibliotecario puede ver cualquiera
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json()

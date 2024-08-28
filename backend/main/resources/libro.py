@@ -4,7 +4,7 @@ from .. import db
 from main.models import LibroModel, AutorModel
 from sqlalchemy import func, desc
 from main.auth.decorators import role_required
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required
 
 #LIBROS = {
 #    1:{'Titulo':'Odisea', 'Autor': 'Homero', 'Genero':'Poema epico', 'Editorial':'La Estacion'},
@@ -17,9 +17,7 @@ class Libro(Resource):
     @jwt_required(optional=True)
     def get(self, id):
         libro = db.session.query(LibroModel).get_or_404(id)
-        current_identity = get_jwt_identity()
-        if current_identity:
-            return libro.to_json()
+        return libro.to_json()
     
     @role_required(roles=["Admin"])
     def put(self, id):

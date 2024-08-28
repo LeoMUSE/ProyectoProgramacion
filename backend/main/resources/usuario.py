@@ -22,9 +22,8 @@ class Usuario(Resource): #arreglado
             return usuario.to_json()
     
     @jwt_required()
-    def put(self, id): #arreglado, Hacer algo con Admin, que pueda modificarle el estado
-        #verificar que el usuario actual se esta modificando así mismo
-        # Obtener el ID del usuario del token
+    def put(self, id): 
+        #arreglado, Hacer algo con Admin, que pueda modificar cualquier usuario
         current_user_id = get_jwt_identity()
         if int(current_user_id) != int(id):
             return {'message': 'No tienes permiso para modificar este perfil'}, 403
@@ -37,8 +36,8 @@ class Usuario(Resource): #arreglado
     
     @role_required(roles = ["Admin", "Usuario"])
     def delete(self, id):
-        #el usuario puede borrarse solo a sí mismo
-        #el admin puede borrar a cualquier usuario
+        #el usuario puede borrarse solo a sí mismo pero un borrado lógico
+        #el admin o bibliotecario puede borrar a cualquier usuario
         current_user_id = get_jwt_identity()
         usuario = db.session.query(UsuarioModel).get_or_404(id)        
         if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('roles', []):
@@ -49,7 +48,7 @@ class Usuario(Resource): #arreglado
 
 class Usuarios(Resource):
     
-    jwt_required(optional=True)
+    @jwt_required(optional=True)
     def get(self):
         page = 1
 
