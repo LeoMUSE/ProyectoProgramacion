@@ -1,0 +1,89 @@
+/* main */
+
+body {
+    background-color: #302f2f;
+    color: #ffffff;
+}
+
+.hello-text {
+    color: #ffd700; 
+}
+
+.notification-box {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-box p {
+    margin: 0;
+}
+
+.notification-box strong {
+    color: #ffd700; /* Resalta el título del libro y las fechas */
+}
+
+.btn-close {
+    color: #ffffff;
+}
+
+i.bi-bell {
+    color: #ffd700; 
+}
+
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: #6C6C6C;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.navbar .navbar-brand:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .fa-book {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.notification-button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    margin-right: 10px; /* Space between notification and hamburger */
+}
+
