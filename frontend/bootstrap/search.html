@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/search.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="../bootstrap/perfil.html">
+              <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+              <span>Vicente</span>
+          </a>
+          <div class="d-flex align-items-center ms-auto">
+              <button class="notification-button">
+                  <i class="fa-solid fa-bell"></i>
+              </button>
+              <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <div class="navbar-nav">
+                  <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                      <i class="fa-solid fa-house"></i>
+                      <span class="ms-2">Home</span>
+                  </a>
+                  <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <span class="ms-2">Search</span>
+                  </a>
+                  <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                      <i class="fa-solid fa-bookmark"></i>
+                      <span class="ms-2">Saved</span>
+                  </a>
+                  <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                      <i class="fa-solid fa-gear"></i>
+                      <span class="ms-2">Tools</span>
+                  </a>
+                  <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                      <i class="fa-solid fa-book"></i>
+                      <span class="ms-2">Loans</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </nav>
+
+  <div class="container">
+    <!-- Barra de búsqueda -->
+      <section class="search-bar">
+        <input type="text" placeholder="Título, autor, género, editorial" class="search-input">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </section>
+
+    <h2 class="fw-regular">Search</h2>
+
+    <!-- Explorar Géneros -->
+    <div class="section-title">
+      <h3>Explorar Géneros</h3>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="rounded-button">Acción</div>
+        <div class="rounded-button">Fantasía</div>
+        <div class="rounded-button">Policial</div>
+      </div>
+      <div class="col-6">
+        <div class="rounded-button">Ciencia Ficción</div>
+        <div class="rounded-button">Romance</div>
+        <div class="rounded-button">Terror</div>
+      </div>
+    </div>
+
+    <!-- Autores Más Buscados -->
+    <div class="section-title">
+      <h3>Autores Más Buscados</h3>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="rounded-button">J.K.Rowling</div>
+        <div class="rounded-button">Edgar Allan Poe</div>
+        <div class="rounded-button">Dan Brawn</div>
+      </div>
+      <div class="col-6">
+        <div class="rounded-button">Ken Follet</div>
+        <div class="rounded-button">J.R.R. Tolkien</div>
+        <div class="rounded-button">Miguel de Cervantes</div>
+      </div>
+    </div>
+
+      <!-- Footer -->
+  <footer class="footer fixed-bottom">
+    <p>&copy; 2024 Everland Library. Todos los derechos reservados.</p>
+    <p>
+      <a href="#">Política de Privacidad</a> |
+      <a href="#">Términos de Servicio</a> |
+      <a href="#">Contacto</a>
+    </p>
+  </footer>
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

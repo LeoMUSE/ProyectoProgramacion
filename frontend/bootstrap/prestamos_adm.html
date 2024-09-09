@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <title>Administrar Préstamos</title>
+    <link rel="stylesheet" href="../css/prestamos_adm.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <button class="notification-button">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        <!-- Barra de búsqueda -->
+        <section class="search-bar">
+            <input type="text" placeholder="Título, autor, género, editorial" class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </section>
+
+        <h2>Loans</h2>
+
+        <h3>Active Loans</h3>
+
+        <section class="loans">
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/codigo_d.jpeg" alt="El Código Da Vinci" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> EmCalde</a></p>
+                    <p><b>Libro:</b> El Código Da Vinci</p>
+                    <p><b>Inicio Préstamo:</b> 15/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 15/09/2024</p>
+                    <p><b><b>Estado:</b></b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">Editar Préstamo ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/hp-pa.jpeg" alt="Harry Potter">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> PepitoF.</a></p>
+                    <p><b>Libro:</b> Harry Potter y el Prisionero de Azkaban</p>
+                    <p><b>Inicio Prestamo:</b> 12/08/2024</p>
+                    <p>Fin Préstamo: 12/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">Editar Préstamo ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/alicia.jpeg" alt="Alicia en el País de las Maravillas" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> Alicia en el País de las Maravillas</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">Editar Préstamo ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/alicia.jpeg" alt="Alicia en el País de las Maravillas" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p>Libro: Alicia en el País de las Maravillas</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p> 
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">Editar Préstamo ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/violeta.jpeg" alt="Violeta" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> Violeta</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>  
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">Editar Préstamo ></a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editLoanModal" tabindex="-1" aria-labelledby="editLoanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editLoanModalLabel">Editar Préstamo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario de edición -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="bookTitle" class="form-label">Título del Libro</label>
+                            <input type="text" class="form-control" id="bookTitle" value="El Código Da Vinci">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loanStart" class="form-label">Inicio del Préstamo</label>
+                            <input type="date" class="form-control" id="loanStart" value="2024-08-15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loanEnd" class="form-label">Fin del Préstamo</label>
+                            <input type="date" class="form-control" id="loanEnd" value="2024-09-15">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loanStatus" class="form-label">Estado</label>
+                            <select class="form-select" id="loanStatus">
+                                <option value="activo" selected>Activo</option>
+                                <option value="desacivo">Desactivo</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-icon" data-bs-toggle="modal" data-bs-target="#addLoanModal">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+
+    <!-- Modal para agregar un nuevo préstamo -->
+    <div class="modal fade" id="addLoanModal" tabindex="-1" aria-labelledby="addLoanModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addLoanModalLabel">Agregar Nuevo Préstamo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario para agregar un nuevo préstamo -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="newBookTitle" class="form-label">Título del Libro</label>
+                            <input type="text" class="modal-body-input" id="newBookTitle" placeholder="Título del libro">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newLoanStart" class="form-label">Inicio del Préstamo</label>
+                            <input type="date" class="modal-body-input" id="newLoanStart" placeholder="Início del Préstamo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newLoanEnd" class="form-label">Fin del Préstamo</label>
+                            <input type="date" class="modal-body-input" id="newLoanEnd" placeholder="Fin del Préstamo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newLoanStatus" class="form-label">Estado</label>
+                            <select class="modal-body-input" id="newLoanStatus">
+                                <option value="activo">Activo</option>
+                                <option value="desactivo">Desactivo</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Guardar Préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+/* Navbar Styles */
+.navbar {
+    background-color: #6C6C6C;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.navbar .navbar-brand:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .fa-book {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.notification-button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    margin-right: 10px; 
+}
+
+/* Estilos de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espacio entre el botón de filtro y el botón de búsqueda */
+}
+
+.search-btn i {
+    font-size: 20px;
+}
+
+/* Estilos para el botón de filtro */
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espacio entre el campo de búsqueda y el botón de filtro */
+}
+
+.filter-btn i {
+    font-size: 20px;
+}
+
+/* Estilos para el dropdown */
+.dropdown-menu-dark {
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Estilos para los ítems con radio button */
+.dropdown-item {
+    color: #f1f1f1;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #F5F378; /* Color del radio button */
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+}
+
+/* Estilos de contenedor principal */
+.user-adm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-adm-item {
+    display: flex;
+    align-items: center; /* Alinea verticalmente todos los elementos dentro del contenedor */
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    transition: transform 0.3s ease;
+}
+
+.user-adm-item:hover {
+    transform: translateY(-5px);
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.user-details {
+    flex-grow: 1; /* Hace que este div ocupe todo el espacio disponible */
+}
+
+.user-details p {
+    color: white;
+    margin: 0;
+}
+
+.status-icon {
+    font-size: 20px;
+    color: #A0F199; /* Color del candado */
+    margin-left: auto; /* Mueve el ícono a la derecha */
+}
+
+/* Estilo para el dropdown */
+.user-adm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-adm-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-bottom: 0;
+}
+
+
+.user-adm-item:hover {
+    transform: translateY(-5px);
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    color: #fff;
+}
+
+.status-icon {
+    font-size: 24px;
+    color: #A0F199;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.status-icon:hover {
+    color: #EC704B;
+}
+
+.user-adm-dropdown {
+    background-color: #6C6C6C;
+    border-radius: 0 0 10px 10px;
+    margin-top: 0;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.user-adm-dropdown p {
+    margin: 5px 0;
+    color: #ddd;
+}
+
+.user-actions {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.user-actions .btn-link {
+    color: #F5F378;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user-actions .btn-link:hover {
+    text-decoration: underline;
+}
+
+.role {
+    color: #fff;
+}
+
+/* Estilo para el ícono de + */
+.add-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F5F378;
+    color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    background-color: #e5e05e;
+}
+
+/* Estilos para el modal */
+.modal-dialog {
+    max-width: 50%; 
+    margin: 5vh auto; 
+    width: 500px;
+}
+
+.modal-content {
+    background-color: #222; 
+    color: #fff; 
+    border-radius: 8px; 
+    padding: 3px;
+    min-height: 10vh;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #F5F378;
+    font-weight: bold;
+}
+
+.modal-body {
+    margin-top: 20px; 
+}
+
+.modal-footer {
+    border-top: none; 
+    justify-content: center; 
+}
+
+.modal-body-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.btn-warning {
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e5e05e !important; 
+    color: #333 !important;
+}
+
+.btn-warning:active {
+    background-color: #e5e05e !important;
+    color: #ffffff !important; 
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.form-select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}

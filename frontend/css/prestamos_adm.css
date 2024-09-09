@@ -1,0 +1,274 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #A0F199;
+}
+
+a {
+    text-decoration: none;
+    color: #F5F378;
+}
+
+.loans {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Items del container*/
+.loans-item {
+    display: flex;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    transition: transform 0.3s ease;
+    flex-wrap: wrap;
+}
+
+.loans-info {
+    flex: 1;
+}
+
+.loans-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.loans-item:hover {
+    transform: translateY(-5px);
+}
+
+.edit-link {
+    color: #F5F378;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none; /* Asegura que no tenga subrayado */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.edit-link:hover {
+    color: #e5e05e; /* Color de hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.loans-item img {
+    width: 120px;
+    height: 160px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #6C6C6C;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: auto; 
+}
+
+.navbar .navbar-brand:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: #F5F378;
+    color: #ffffff;
+}
+
+.navbar .fa-book {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.notification-button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    margin-right: 10px; /* Space between notification and hamburger */
+}
+
+/*Search Bar*/
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-btn i {
+    font-size: 20px;
+}
+
+/* Modal */
+.modal-dialog {
+    max-width: 50%; 
+    margin: 5vh auto; 
+    width: 500px;
+}
+
+.modal-content {
+    background-color: #222; 
+    color: #fff; 
+    border-radius: 8px; 
+    padding: 3px;
+    min-height: 10vh;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #F5F378;
+    font-weight: bold;
+}
+
+.modal-body {
+    margin-top: 20px; 
+}
+
+.modal-footer {
+    border-top: none; 
+    justify-content: center; 
+}
+
+.btn-warning {
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e5e05e !important; 
+    color: #333 !important;
+}
+
+.btn-warning:active {
+    background-color: #e5e05e !important;
+    color: #ffffff !important; 
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.form-select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.modal-body-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+/* Estilo para el ícono de + */
+.add-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F5F378;
+    color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    background-color: #e5e05e;
+}
+
