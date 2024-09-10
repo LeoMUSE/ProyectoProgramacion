@@ -227,19 +227,20 @@ h2 {
     color: #fff;
 }
 
+/* Lock icon */
 .status-icon {
     font-size: 24px;
     color: #A0F199;
-    position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
 }
 
-.status-icon:hover {
-    color: #EC704B;
-}
-
+/* Dropdown usuario */
 .user-adm-dropdown {
     background-color: #6C6C6C;
     border-radius: 0 0 10px 10px;
@@ -253,6 +254,7 @@ h2 {
     color: #ddd;
 }
 
+/* Acciónes del admin sobre usuario */
 .user-actions {
     display: flex;
     justify-content: space-between;
@@ -267,6 +269,7 @@ h2 {
 
 .user-actions .btn-link:hover {
     text-decoration: underline;
+    color: #e5e05e;
 }
 
 .role {
