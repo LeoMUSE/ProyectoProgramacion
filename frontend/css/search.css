@@ -130,23 +130,3 @@ h3 {
 .section-title {
     margin-top: 20px;
 }
-
-.footer {
-    background-color: #6C6C6C;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.footer a {
-    color: #f5f378;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}

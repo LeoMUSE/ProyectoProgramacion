@@ -300,7 +300,7 @@ h2 {
 
 /* Estilos para el modal */
 .modal-dialog {
-    max-width: 50%; 
+    max-width: 100%; 
     margin: 5vh auto; 
     width: 500px;
 }
