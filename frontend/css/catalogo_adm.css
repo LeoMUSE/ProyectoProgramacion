@@ -222,7 +222,7 @@ h2 {
 
 /* Modal */
 .modal-dialog {
-    max-width: 50%; 
+    max-width: 100%; 
     margin: 5vh auto; 
     width: 500px;
 }
