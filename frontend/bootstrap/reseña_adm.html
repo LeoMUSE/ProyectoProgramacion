@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <title>Administrar Reseñas</title>
+    <link rel="stylesheet" href="../css/reseña_adm.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="../bootstrap/notificaciones.html">
+                    <button class="notification-button">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-3">
+        <!-- Barra de búsqueda -->
+        <section class="search-bar">
+            <input type="text" placeholder="Título, autor, usuario" class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </section>
+        <h2>Administrar Reseñas</h2>
+        <!-- Lista de usuarios -->
+        <section class="user-adm">
+            <!-- Usuario 1 -->
+            <div class="user-adm-item d-flex align-items-center">
+                <div class="user-info">
+                    <img src="../img/el-hombre.jpeg" alt="Protada libro" class="book-image">
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Titulo: El Hombre y sus Simbolos</p>
+                        <p>Usuario: EmCalde.</p>
+                        <p>Comentario: Muy buen libro, lo recomiendo.</p>
+                        <div class="rating me-2">
+                            <p>Rating: </p>
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Ícono de basura -->
+                    <button id="deleteIcon" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Usuario 2 -->
+            <div class="user-adm-item d-flex align-items-center">
+                <div class="user-info">
+                    <div class="book-info d-flex align-items-center">
+                        <img src="../img/el-hombre.jpeg" alt="Protada libro" class="book-image">
+                    </div>
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Titulo: El Hombre y sus Simbolos</p>
+                        <p>Usuario: EmCalde.</p>
+                        <p>Comentario: Muy buen libro, lo recomiendo.</p>
+                        <div class="rating me-2">
+                            <p>Rating: </p>
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Ícono de basura -->
+                    <button id="deleteIcon" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            
+        
+            <!-- Usuario 3 -->
+            <div class="user-adm-item d-flex align-items-center">
+                <div class="user-info">
+                    <div class="book-info d-flex align-items-center">
+                        <img src="../img/el-hombre.jpeg" alt="Protada libro" class="book-image">
+                    </div>
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Titulo: El Hombre y sus Simbolos</p>
+                        <p>Usuario: EmCalde.</p>
+                        <p>Comentario: Muy buen libro, lo recomiendo.</p>
+                        <div class="rating me-2">
+                            <p>Rating: </p>
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Ícono de basura -->
+                    <button id="deleteIcon" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            
+        
+            <!-- Usuario 4 -->
+            <div class="user-adm-item d-flex align-items-center">
+                <div class="user-info">
+                    <div class="book-info d-flex align-items-center">
+                        <img src="../img/el-hombre.jpeg" alt="Protada libro" class="book-image">
+                    </div>
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Titulo: El Hombre y sus Simbolos</p>
+                        <p>Usuario: EmCalde.</p>
+                        <p>Comentario: Muy buen libro, lo recomiendo.</p>
+                        <div class="rating me-2">
+                            <p>Rating: </p>
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Ícono de basura -->
+                    <button id="deleteIcon" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            
+        
+            <!-- Usuario 5 -->
+            <div class="user-adm-item d-flex align-items-center">
+                <div class="user-info">
+                    <div class="book-info d-flex align-items-center">
+                        <img src="../img/el-hombre.jpeg" alt="Protada libro" class="book-image">
+                    </div>
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Titulo: El Hombre y sus Simbolos</p>
+                        <p>Usuario: EmCalde.</p>
+                        <p>Comentario: Muy buen libro, lo recomiendo.</p>
+                        <div class="rating me-2">
+                            <p>Rating: </p>
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- Ícono de basura -->
+                    <button id="deleteIcon" class="delete-icon">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.querySelectorAll('.delete-icon').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-lock')) {
+                    icon.classList.remove('fa-lock');
+                    icon.classList.add('fa-unlock');
+                    icon.style.color = '#A0F199';
+                } else {
+                    icon.classList.remove('fa-unlock');
+                    icon.classList.add('fa-lock');
+                    icon.style.color = '#EC704B';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
