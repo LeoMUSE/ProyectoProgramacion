@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <title>Prestamos Usuario</title>
+    <link rel="stylesheet" href="../css/prestamos_user.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="../bootstrap/notificaciones.html">
+                    <button class="notification-button">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenedor Principal -->
+    <div class="container mt-3">
+        <!-- Barra de búsqueda -->
+        <section class="search-bar">
+            <input type="text" placeholder="Título, autor, género, editorial" class="search-input">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </section>
+
+        <h2>Loans</h2>
+
+        <h3>Active Loans</h3>
+
+        <section class="loans">
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/codigo_d.jpeg" alt="El Código Da Vinci" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> El Código Da Vinci</p>
+                    <p><b>Inicio Préstamo:</b> 15/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 15/09/2024</p>
+                    <p><b><b>Estado:</b></b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">Realizar Reseña ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/hp-pa.jpeg" alt="Harry Potter">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> Harry Potter y el Prisionero de Azkaban</p>
+                    <p><b>Inicio Prestamo:</b> 12/08/2024</p>
+                    <p>Fin Préstamo: 12/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">Realizar Reseña ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/alicia.jpeg" alt="Alicia en el País de las Maravillas" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> Alicia en el País de las Maravillas</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">Realizar Reseña ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/alicia.jpeg" alt="Alicia en el País de las Maravillas" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p>Libro: Alicia en el País de las Maravillas</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p> 
+                    <p><b>Estado:</b> Activo</p>
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">Realizar Reseña ></a>
+            </div>
+
+            <div class="loans-item d-flex mb-1">
+                <img src="../img/violeta.jpeg" alt="Violeta" class="img-fluid">
+                <div class="loans-info">
+                    <p><b>Usuario:</b><a href="#"> Guille10</a></p>
+                    <p><b>Libro:</b> Violeta</p>
+                    <p><b>Inicio Préstamo:</b> 08/08/2024</p>
+                    <p><b>Fin Préstamo:</b> 08/09/2024</p>
+                    <p><b>Estado:</b> Activo</p>  
+                </div>
+                <a href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">Realizar Reseña ></a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal para Realizar Reseña -->
+    <div class="modal fade" id="realizarReseña" tabindex="-1" aria-labelledby="realizarReseñaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="realizarReseñaLabel">Realizar Reseña</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Calificación de Estrellas Centrada -->
+                    <div class="text-center mb-3">
+                        <h6>Calificar Libro:</h6>
+                        <div class="rating-save d-flex justify-content-center align-items-center">
+                            <div class="rating me-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Campo para Escribir Reseña -->
+                    <div class="mb-3">
+                        <label for="reseñaTexto" class="form-label">Escribe tu reseña:</label>
+                        <textarea class="form-control modal-body-input" id="reseñaTexto" rows="4" placeholder="Escribe aquí tu reseña..."></textarea>
+                    </div>
+
+                    <!-- Otras Reseñas de Usuarios -->
+                    <h5>Otras reseñas:</h5>
+                    <div class="user-reviews overflow-auto" style="max-height: 400px;">
+                        <!-- Reseña 1 -->
+                        <div class="review-item p-3 mb-3 text-light rounded">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="../img/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
+                                <p class="mb-0"><strong>EmCalde</strong></p>
+                            </div>
+                            <p>Una obra maestra que te mantiene al filo del asiento.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <!-- Reseña 2 -->
+                        <div class="review-item p-3 mb-3 text-light rounded">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="../img/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
+                                <p class="mb-0"><strong>EmCalde</strong></p>
+                            </div>
+                            <p>Una obra maestra que te mantiene al filo del asiento.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                        <!-- Reseña 3 -->
+                        <div class="review-item p-3 mb-3 text-light rounded">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="../img/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
+                                <p class="mb-0"><strong>EmCalde</strong></p>
+                            </div>
+                            <p>Una obra maestra que te mantiene al filo del asiento.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <!-- Reseña 4 -->
+                        <div class="review-item p-3 mb-3 text-light rounded">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="../img/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
+                                <p class="mb-0"><strong>EmCalde</strong></p>
+                            </div>
+                            <p>Una obra maestra que te mantiene al filo del asiento.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning">Guardar Reseña</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

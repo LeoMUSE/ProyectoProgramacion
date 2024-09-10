@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="../bootstrap/notificaciones.html">
+                    <button class="notification-button">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Top Categories-->
+    <section class="top-categories container-flex p-3">
+        <div class="justify-content-between flex-wrap">
+            <a href="../bootstrap/top.html">
+                <button type="button" class="category-btn btn-warning mb-2">Top ✩</button>
+                <button type="button" class="category-btn btn-secondary mb-2">Top</button>
+                <button type="button" class="category-btn btn-secondary mb-2">Top</button>
+                <button type="button" class="category-btn btn-secondary mb-2">Top</button>
+                <button type="button" class="category-btn btn-secondary mb-2">Top</button>
+                <button type="button" class="category-btn btn-secondary mb-2">Top</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de Libros más vendidos -->
+    <section class="books-section position-relative">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Libros más vendidos</h2>
+            <div class="row flex-nowrap overflow-auto" id="booksContainer">
+            
+                    <!-- Primer libro -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                        <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                            <img src="../img/el-hombre.jpeg" class="card-img-top" alt="El hombre y sus símbolos">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">El hombre y sus Símbolos</h5>
+                                <p class="card-text">Carl Gustav Jung</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="review-rating">
+                                        <i class="fas fa-star"></i> 4.5
+                                    </span>
+                                    <span class="save-icon">
+                                        <i class="fas fa-bookmark"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Segundo libro -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal2">
+                        <img src="../img/violeta.jpeg" class="card-img-top" alt="Violeta">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Violeta</h5>
+                            <p class="card-text">Isabel Allende</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tercer libro -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal3">
+                        <img src="../img/roma.jpeg" class="card-img-top" alt="Roma soy yo">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Roma soy yo</h5>
+                            <p class="card-text">Santiago Posteguillo</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primer libro copia -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                        <img src="../img/el-hombre.jpeg" class="card-img-top" alt="El hombre y sus símbolos">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">El hombre y sus Símbolos</h5>
+                            <p class="card-text">Carl Gustav Jung</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segundo libro copia -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal2">
+                        <img src="../img/violeta.jpeg" class="card-img-top" alt="Violeta">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Violeta</h5>
+                            <p class="card-text">Isabel Allende</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tercer libro copia -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal3">
+                        <img src="../img/roma.jpeg" class="card-img-top" alt="Roma soy yo">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Roma soy yo</h5>
+                            <p class="card-text">Santiago Posteguillo</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primer libro copiav2 -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                        <img src="../img/el-hombre.jpeg" class="card-img-top" alt="El hombre y sus símbolos">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">El hombre y sus Símbolos</h5>
+                            <p class="card-text">Carl Gustav Jung</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!--Modales-->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="bookModal1" tabindex="-1" aria-labelledby="bookModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel1">El Hombre y sus Símbolos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/el-hombre.jpeg" class="img-fluid mb-3" alt="El hombre y sus símbolos">
+                    <p><strong>Sinopsis:</strong> Esta es la primera y única obra de Carl G. Jung, el famoso psicólogo suizo, dedicada a explicar a los lectores cuál fue su mayor contribución al conocimiento de la mente humana: la teoría del simbolismo y, en especial, el papel que ésta desempeña en los sueños.</p>
+                    <p><strong>Género:</strong> Psicología, Introspección</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.5 (255) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="bookModal2" tabindex="-1" aria-labelledby="bookModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel2">Violeta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/violeta.jpeg" class="img-fluid mb-3" alt="Violeta">
+                    <p><strong>Sinopsis:</strong> Violeta es la historia de una mujer que vive durante la segunda mitad del siglo XX, en Chile. La novela narra la vida de Violeta, una mujer fuerte y decidida que lucha contra las adversidades.</p>
+                    <p><strong>Género:</strong> Ficción, Drama</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.5 (350) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="bookModal3" tabindex="-1" aria-labelledby="bookModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel3">Roma soy yo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/roma.jpeg" class="img-fluid mb-3" alt="Roma soy yo">
+                    <p><strong>Sinopsis:</strong> Roma soy yo es una novela que narra la vida de un joven romano en la antigua Roma. Con una trama llena de acción y drama, el libro ofrece una visión fascinante de la vida en la antigua Roma.</p>
+                    <p><strong>Género:</strong> Historia, Aventuras</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.5 (175) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sección "Porque leíste Harry Potter" -->
+    <section class="books-section">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Porque leíste Harry Potter</h2>
+            <div class="row flex-nowrap overflow-auto">
+                <!-- Primer libro -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal-hp1">
+                        <img src="../img/hp-pa.jpeg" class="card-img-top" alt="Harry Potter y el Prisionero de Azkaban">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Harry Potter y el Prisionero de Azkaban</h5>
+                            <p class="card-text">J.K. Rowling</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segundo libro -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal-hp2">
+                        <img src="../img/hp-cs.jpeg" class="card-img-top" alt="Harry Potter y la Cámara Secreta">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Harry Potter y la Cámara Secreta</h5>
+                            <p class="card-text">J.K. Rowling</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tercer libro -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                    <div class="card h-100" tabindex="0" data-bs-toggle="modal" data-bs-target="#bookModal-hp3">
+                        <img src="../img/hp-cf.jpeg" class="card-img-top" alt="Harry Potter y el Cáliz de Fuego">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Harry Potter y el Cáliz de Fuego</h5>
+                            <p class="card-text">J.K. Rowling</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="review-rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                                <span class="save-icon">
+                                    <i class="fas fa-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agrega más libros aquí según sea necesario -->
+            </div>
+        </div>
+    </section>
+
+
+<!-- Modales-->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="bookModal-hp1" tabindex="-1" aria-labelledby="bookModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel1">Harry Potter y el Prisionero de Azkaban</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/hp-pa.jpeg" class="img-fluid mb-3" alt="Harry Potter y el Prisionero de Azkaban">
+                    <p><strong>Sinopsis:</strong> En su tercer año en Hogwarts, Harry se enfrenta a una de las pruebas más peligrosas de su vida, cuando se entera de la verdad sobre Sirius Black.</p>
+                    <p><strong>Género:</strong> Fantasía, Aventura</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.7 (276) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="bookModal-hp2" tabindex="-1" aria-labelledby="bookModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel2">Harry Potter y la Cámara Secreta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/hp-cs.jpeg" class="img-fluid mb-3" alt="Harry Potter y la Cámara Secreta">
+                    <p><strong>Sinopsis:</strong> En su segundo año, Harry descubre un oscuro secreto en Hogwarts y debe enfrentarse a un gran peligro.</p>
+                    <p><strong>Género:</strong> Fantasía, Aventura</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.6 (184) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="bookModal-hp3" tabindex="-1" aria-labelledby="bookModalLabel3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="bookModalLabel3">Harry Potter y el Cáliz de Fuego</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="../img/hp-cf.jpeg" class="img-fluid mb-3" alt="Harry Potter y el Cáliz de Fuego">
+                    <p><strong>Sinopsis:</strong> En el cuarto año de Harry en Hogwarts, se enfrenta al peligroso Torneo de los Tres Magos mientras que Voldemort se acerca.</p>
+                    <p><strong>Género:</strong> Fantasía, Aventura</p>
+                    <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> 4.8 (221) reseñas</span></p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl)
+            })
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Top Libros</title>
+    <link rel="stylesheet" href="../css/top.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="../bootstrap/notificaciones.html">
+                    <button class="notification-button">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+        <!--Top Categories-->
+    <section class="top-categories container-flex p-3">
+        <div class="justify-content-between flex-wrap">
+            <button class="category-btn btn-warning mb-2">Top ✩</button>
+            <button class="category-btn btn-secondary mb-2">Top</button>
+            <button class="category-btn btn-secondary mb-2">Top</button>
+            <button class="category-btn btn-secondary mb-2">Top</button>
+            <button class="category-btn btn-secondary mb-2">Top</button>
+            <button class="category-btn btn-secondary mb-2">Top</button>
+        </div>
+    </section>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-4">
+
+        <!-- Título de la sección -->
+        <h2>Top Libros</h2>
+
+        <!-- Lista de libros guardados -->
+        <section class="top-books">
+            <!-- Libro 1 -->
+            <div class="top-book-item d-flex mb-1">
+                <div class="book-top-number">1.</div>
+                <img src="../img/señor_d_a.jpeg" alt="El señor de los Anillos" class="img-fluid">
+                <div class="book-info">
+                    <h3>El señor de los Anillos</h3>
+                    <p class="author">J.R.R. Tolkien</p>
+                    <p class="synopsis">Una épica de J.R.R. Tolkien donde Frodo Bolsón y sus compañeros intentan destruir un anillo maldito para salvar al mundo de la oscuridad.</p>
+                    <div class="rating-save d-flex align-items-center">
+                        <div class="rating me-2">
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="reviews">(392 reseñas)</span>
+                    </div>
+                    <!-- Ícono de guardar -->
+                    <div class="save-icon ms-auto">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libro 2 -->
+            <div class="top-book-item d-flex mb-1">
+                <div class="book-top-number">2.</div>
+                <img src="../img/codigo_d.jpeg" alt="El Código Da Vinci" class="img-fluid">
+                <div class="book-info">
+                    <h3>El Código Da Vinci</h3>
+                    <p class="author">Dan Brown</p>
+                    <p class="synopsis">Un thriller en el que un profesor de simbología investiga un asesinato en el Louvre y descubre un misterio que podría cambiar la historia.</p>
+                    <div class="rating-save d-flex align-items-center">
+                        <div class="rating me-2">
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="reviews">(235 reseñas)</span>
+                    </div>
+                    <!-- Ícono de guardar -->
+                    <div class="save-icon ms-auto">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libro 3 -->
+            <div class="top-book-item d-flex mb-1">
+                <div class="book-top-number">3.</div>
+                <img src="../img/alicia.jpeg" alt="Alicia en el País de Las Maravillas" class="img-fluid">
+                <div class="book-info">
+                    <h3>Alicia en el País de Las Maravillas</h3>
+                    <p class="author">Lewis Carroll</p>
+                    <p class="synopsis">Una joven llamada Alicia cae en un mundo fantástico lleno de personajes y situaciones absurdas, donde vive una serie de aventuras surrealistas.</p>
+                    <div class="rating-save d-flex align-items-center">
+                        <div class="rating me-2">
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i> 
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="reviews">(281 reseñas)</span>
+                    </div>
+                    <!-- Ícono de guardar -->
+                    <div class="save-icon ms-auto">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<!-- Scripts de Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

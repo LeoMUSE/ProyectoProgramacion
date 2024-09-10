@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <title>Administrar Usuarios</title>
+    <link rel="stylesheet" href="../css/user_adm.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../bootstrap/perfil.html">
+                <img src="../img/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
+                <span>Vicente</span>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="../bootstrap/notificaciones.html">
+                    <button class="notification-button">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </a>
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="ms-2">Home</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/search.html">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="ms-2">Search</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/save.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span class="ms-2">Saved</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/tools_adm.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ms-2">Tools</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="../bootstrap/prestamos_user.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ms-2">Loans</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenedor principal -->
+    <div class="container mt-3">
+        <!-- Barra de búsqueda -->
+        <section class="search-bar mb-4">
+            <input type="text" placeholder="Usuario, nombre, apellido" class="search-input">
+            <div class="btn-group">
+                <button class="filter-btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li>
+                        <label class="dropdown-item">
+                            <input type="radio" name="filter" value="title"> Usuarios
+                        </label>
+                    </li>
+                    <li>
+                        <label class="dropdown-item">
+                            <input type="radio" name="filter" value="author"> Bibliotecarios
+                        </label>
+                    </li>
+                    <li>
+                        <label class="dropdown-item">
+                            <input type="radio" name="filter" value="genre"> Bloqueados
+                        </label>
+                    </li>
+                    <li>
+                        <label class="dropdown-item">
+                            <input type="radio" name="filter" value="publisher"> Desbloqueados
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </section>
+
+        <h2>Administrar Usuarios</h2>
+        <!-- Lista de usuarios -->
+        <section class="user-adm">
+            <!-- Tarjeta de usuario destacada -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user1">
+                <div class="user-info">
+                    <img src="../img/EmmaCeleron.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: EmCalde.</p>
+                        <p>Nombre: Emma Calderon</p>
+                    </div>
+                    <!-- Ícono de estado de usuario -->
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user1" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2610931231</p>
+                    <p>Email: emmaCalde@gmail.com.ar</p>
+                    <p>DNI: 4231234122</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Usuario 2 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user2">
+                <div class="user-info">
+                    <img src="../img/LioGoat.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: LioGoat</p>
+                        <p>Nombre: Lionel Messi</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user2" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2612345678</p>
+                    <p>Email: lionel.messi@psg.com</p>
+                    <p>DNI: 12345678</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Usuario 3 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user3">
+                <div class="user-info">
+                    <img src="../img/AnAgilera.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: AnaAguilarOk</p>
+                        <p>Nombre: Ana Aguilar</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user3" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2640987654</p>
+                    <p>Email: ana.aguilar@correo.com</p>
+                    <p>DNI: 87654321</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Usuario 4 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user4">
+                <div class="user-info">
+                    <img src="../img/LidiaPau.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: LidiaPau</p>
+                        <p>Nombre: Lidia Paula Moreno</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user4" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2654321987</p>
+                    <p>Email: lidia.moreno@correo.com</p>
+                    <p>DNI: 19876543</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Usuario 5 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user5">
+                <div class="user-info">
+                    <img src="../img/Guille10.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: Guille10</p>
+                        <p>Nombre: Guillermo Roces</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user5" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2676543210</p>
+                    <p>Email: guille.roces@correo.com</p>
+                    <p>DNI: 21098765</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Usuario 6 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user6">
+                <div class="user-info">
+                    <img src="../img/PepitoF.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: PepitoF.</p>
+                        <p>Nombre: José Flores</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user6" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2698765432</p>
+                    <p>Email: jose.flores@correo.com</p>
+                    <p>DNI: 43210987</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Moderador ></a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Usuario 7 -->
+            <div class="user-adm-item d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#user7">
+                <div class="user-info">
+                    <img src="../img/MartaAg2024.png" alt="Usuario" class="user-image">
+                    <div class="user-details">
+                        <p>Usuario: MartAg2024</p>
+                        <p>Nombre: Marta Aguiirre</p>
+                    </div>
+                    <button id="statusIcon" class="status-icon">
+                        <i class="fas fa-unlock"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="user7" class="collapse user-adm-dropdown">
+                <div class="p-3">
+                    <p>Tel: 2619988777</p>
+                    <p>Email: marta.aguiirre@correo.com</p>
+                    <p>DNI: 77788999</p>
+                    <div class="user-actions">
+                        <a href="../bootstrap/prestamos_adm.html" class="btn btn-link">Ver Préstamos ></a>
+                        <a href="../bootstrap/reseña_adm.html" class="btn btn-link">Ver Reseñas ></a>
+                        <a href="#" class="btn btn-link role">Rol: Usuario</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Agregar Usuario-->
+    <div class="add-icon" data-bs-toggle="modal" data-bs-target="#addUserModal">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Agregar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control modal-body-input" id="name" placeholder="Nombre completo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname" class="form-label">Apellido</label>
+                            <input type="text" class="form-control modal-body-input" id="lastname" placeholder="Nombre completo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="text" class="form-control modal-body-input" id="dni" placeholder="Nombre completo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">User</label>
+                            <input type="text" class="form-control modal-body-input" id="username" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control modal-body-input" id="email" placeholder="Correo electrónico">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control modal-body-input" id="phone" placeholder="Número de teléfono">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control modal-body-input" id="password" placeholder="Contraseña">
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Rol</label>
+                            <select id="role" class="form-select modal-body-input">
+                                <option value="" disabled selected>Seleccionar rol</option>
+                                <option value="admin">Administrador</option>
+                                <option value="librarian">Bibliotecario</option>
+                                <option value="user">Usuario</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning">Agregar Usuario</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.querySelectorAll('.status-icon').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-lock')) {
+                    icon.classList.remove('fa-lock');
+                    icon.classList.add('fa-unlock');
+                    icon.style.color = '#A0F199';
+                } else {
+                    icon.classList.remove('fa-unlock');
+                    icon.classList.add('fa-lock');
+                    icon.style.color = '#EC704B';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
