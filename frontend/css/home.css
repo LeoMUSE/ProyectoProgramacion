@@ -1,9 +1,4 @@
 /* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     background-color: #333; /* Color de fondo general */
@@ -234,30 +229,6 @@ a {
 .card-title, .card-text {
     color: #f1f1f1; 
     margin: 0;
-}
-
-@media (max-width: 1199.98px) {
-    .card {
-        width: 90%;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .card {
-        width: 85%;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .card {
-        width: 80%;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .card {
-        width: 50%;
-    }
 }
 
 /* Scroll bar */
