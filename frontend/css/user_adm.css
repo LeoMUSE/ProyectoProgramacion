@@ -116,6 +116,18 @@ h2 {
     font-size: 20px;
 }
 
+/* Back Button */
+.back-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease; /* Suavizar el cambio de color */
+}
+
 /* Estilos para el dropdown */
 .dropdown-menu-dark {
     background-color: #444;
