@@ -9,7 +9,7 @@
             <div class="row flex-nowrap overflow-auto" id="booksContainer">
                 <!-- Iterar sobre el array de libros y renderizar el componente de la tarjeta -->
                 <div *ngFor="let book of books" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
-                    <app-book-card [book]="book"></app-book-card> <!-- Llamada al componente BookCardComponent -->
+                    <app-home-book-card [book]="book"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
                 </div>
             </div>
         </div>
@@ -86,7 +86,7 @@
             <div class="row flex-nowrap overflow-auto">
                 <!-- Iterar sobre el array de libros de Harry Potter -->
                 <div *ngFor="let hpBook of hpBooks" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
-                    <app-book-card [book]="hpBook"></app-book-card> <!-- Llamada al componente BookCardComponent -->
+                    <app-home-book-card [book]="hpBook"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
                 </div>
             </div>
         </div>
