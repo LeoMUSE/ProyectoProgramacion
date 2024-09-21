@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HomeBookCardComponent } from './components/home-book-card/home-book-card.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotificacionesComponent } from './pages/notificaciones/notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeBookCardComponent } from './components/home-book-card/home-book-car
     HomeComponent,
     NavbarComponent,
     CategoriesComponent,
-    HomeBookCardComponent
+    HomeBookCardComponent,
+    LoginComponent,
+    NotificacionesComponent
   ],
   imports: [
     BrowserModule,

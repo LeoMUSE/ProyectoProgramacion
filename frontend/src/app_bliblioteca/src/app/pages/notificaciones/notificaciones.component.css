@@ -1,0 +1,22 @@
+.notification-box {
+    background-color: #444;
+    border-radius: 8px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-box p {
+    margin: 0;
+}
+
+.notification-box strong {
+    color: #F5F378; /* Resalta el título del libro y las fechas */
+}
+
+.btn-close {
+    color: #ffffff;
+}
+
+i.bi-bell {
+    color: #F5F378; 
+}
