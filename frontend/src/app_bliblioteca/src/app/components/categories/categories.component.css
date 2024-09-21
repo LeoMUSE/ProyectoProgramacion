@@ -1,0 +1,33 @@
+/* Top categories */
+.top-categories {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #464646;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.category-btn {
+    background-color: #666;
+    border: 1px solid #F5F378;
+    margin: 0 50px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #f1f1f1;
+    cursor: pointer;
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+@media (max-width: 576px) {
+    .category-btn {
+        min-width: 120px; 
+    }
+}
+
+.category-btn:nth-child(1) { border-color: #F5F378; }
+.category-btn:nth-child(2) { border-color: #A0F199; }
+.category-btn:nth-child(3) { border-color: #DCC1FF; }
+.category-btn:nth-child(4) { border-color: #F5F378; }
+.category-btn:nth-child(5) { border-color: #A0F199; }
+.category-btn:nth-child(6) { border-color: #DCC1FF; }
