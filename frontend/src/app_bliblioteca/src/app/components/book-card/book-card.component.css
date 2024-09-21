@@ -1,0 +1,53 @@
+/* Estilos para la reseña con estrellas */
+.review-rating {
+    color: #ffdd57; 
+    font-size: 14px;
+}
+
+.review-rating i {
+    margin-right: 5px;
+}
+
+/* Estilo del icono de guardar */
+.save-icon {
+    color: #f1f1f1;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.save-icon:hover {
+    color: #f5c542; 
+}
+
+/* Cards */
+.card {
+    background-color: #444 !important; 
+    border: none;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.card-body {
+    background-color: #444 !important;
+    color: #f1f1f1;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-img-top {
+    border-radius: 15px 15px 0 0; 
+}
+
+.card-title, .card-text {
+    color: #f1f1f1; 
+    margin: 0;
+}
