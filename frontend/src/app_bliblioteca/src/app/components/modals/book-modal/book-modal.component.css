@@ -1,8 +1,9 @@
 /* Modal */
 .modal-dialog {
-    max-width: 100%;
+    max-width: 80%;
     margin: 5vh auto; 
     width: 500px;
+    display: block;
 }
 
 .modal-content {

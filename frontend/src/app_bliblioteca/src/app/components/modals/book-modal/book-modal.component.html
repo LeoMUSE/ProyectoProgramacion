@@ -1,10 +1,19 @@
-<h1 mat-dialog-title class="modal-title">{{ data.title }}</h1>
-<div mat-dialog-content class="modal-body text-center">
-    <img [src]="data.image" alt="{{ data.title }}" class="img-fluid mb-3">
-    <p><strong>Sinopsis:</strong> {{ data.synopsis }}</p>
-    <p><strong>Género:</strong> {{ data.genre }}</p>
-    <p><strong>Valoración:</strong> <span class="review-rating"><i class="fas fa-star"></i> {{ data.rating }}</span></p>
-</div>
-<div mat-dialog-actions class="modal-footer justify-content-center">
-    <button mat-button class="btn-warning">Solicitar préstamo</button>
+<div class="modal fade show" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="bookModalLabel">{{ book?.title }}</h5>
+                <button type="button" class="btn btn-warning btn-close" (click)="closeModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img [src]="book?.image" class="img-fluid mb-3" alt="{{ book?.title }}">
+                <p><strong>Sinopsis:</strong> {{ book?.synopsis }}</p>
+                <p><strong>Género:</strong> {{ book?.genre }}</p>
+                <p><strong>Estrellas:</strong> <span class="review-rating"><i class="fas fa-star"></i> {{ book?.rating }} (276 reseñas)</span></p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-warning">Solicitar préstamo</button>
+            </div>
+        </div>
+    </div>
 </div>

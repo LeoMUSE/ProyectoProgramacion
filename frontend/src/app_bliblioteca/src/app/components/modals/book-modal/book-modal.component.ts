@@ -1,5 +1,5 @@
-import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-book-modal',
@@ -7,5 +7,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './book-modal.component.css'
 })
 export class BookModalComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+  @Input() book: any;
+
+  constructor(private modalService: NgbModal) { }
+
+  openModal(content: any) {
+    this.modalService.open(content)
+  }
+
+  closeModal() {
+    this.modalService.dismissAll()
+  }
 }
