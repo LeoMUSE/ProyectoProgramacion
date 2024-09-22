@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loan-item',
@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class LoanItemComponent {
   @Input() loan: any; //prestamo como objeto
-
-  constructor() { }
+  @Input() id: string = '';
+  @Input() rol: string = 'user';
 }

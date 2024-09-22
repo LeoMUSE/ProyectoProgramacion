@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'notificaciones', component: NotificacionesComponent},
   { path: 'signup', component: SignupComponent },
   { path: 'perfil', component: PerfilComponent },
-  { path: 'prestamo', component: PrestamoComponent },
+  { path: 'prestamo/:id/:rol', component: PrestamoComponent },
   //{ path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];

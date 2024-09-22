@@ -15,6 +15,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PrestamoComponent } from './pages/prestamo/prestamo.component';
 import { LoanItemComponent } from './components/loan-item/loan-item.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { AddIconComponent } from './components/add-icon/add-icon.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     PerfilComponent,
     PrestamoComponent,
     LoanItemComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    AddIconComponent
   ],
   imports: [
     BrowserModule,

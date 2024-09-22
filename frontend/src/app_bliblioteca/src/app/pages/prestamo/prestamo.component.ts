@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-prestamo',
@@ -42,25 +43,34 @@ export class PrestamoComponent implements OnInit{
     }
   ];
 
+  id: string = '';
+  rol: string = '';
+
   filteredLoans = [...this.loans]
 
-  constructor(private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
 
   ngOnInit(): void {
-    // Si deseas que se cargue una búsqueda desde la URL
-    const searchParam = this.router.getCurrentNavigation()?.extras.state?.['searchQuery'];
-    if (searchParam) {
-      this.handleSearch(searchParam);
-    }
+    // Obtener los parámetros de la URL
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id') || '';
+      this.rol = params.get('rol') || '';
+      this.handleSearch(this.id);
+      this.filteredLoans = [...this.loans];
+    });
   }
 
   handleSearch(query: string) {
-    this.filteredLoans = this.loans.filter(loan => 
-      loan.bookTitle.toLowerCase().includes(query.toLowerCase()) ||
-      loan.user.toLowerCase().includes(query.toLowerCase())
-    );
-
-    // Si deseas navegar a la misma ruta con el parámetro de búsqueda
-    this.router.navigate(['./prestamos'], { state: { searchQuery: query } });
+    if (query) {
+      this.filteredLoans = this.loans.filter(loan =>
+        loan.bookTitle.toLowerCase().includes(query.toLowerCase()) ||
+        loan.user.toLowerCase().includes(query.toLowerCase())      ||
+        loan.startDate.toLowerCase().includes(query.toLowerCase())  ||
+        loan.endDate.toLowerCase().includes(query.toLowerCase())
+      );
+    } else {
+      this.filteredLoans = [...this.loans];
+    }
   }
 }
