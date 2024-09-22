@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class HomeBookCardComponent {
   @Input() book: any; //libro como objeto
+  
+  constructor() { }
 }

@@ -1,0 +1,15 @@
+<section class="search-bar">
+    <a href="../bootstrap/tools_adm.html" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <input 
+        type="text" 
+        (input)="onSearch()"
+        placeholder="Título, autor, usuario" 
+        class="search-input" 
+        [(ngModel)]="searchQuery" 
+        (keyup.enter)="onSearch()">
+    <button class="search-btn" (click)="onSearch()">
+        <i class="fas fa-search"></i>
+    </button>
+</section>

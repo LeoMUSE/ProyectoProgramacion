@@ -1,0 +1,95 @@
+.loans {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Modal */
+.modal-dialog {
+    max-width: 100%; 
+    margin: 5vh auto; 
+    width: 500px;
+}
+
+.modal-content {
+    background-color: #222; 
+    color: #fff; 
+    border-radius: 8px; 
+    padding: 3px;
+    min-height: 10vh;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #F5F378;
+    font-weight: bold;
+}
+
+.modal-body {
+    margin-top: 20px; 
+}
+
+.modal-footer {
+    border-top: none; 
+    justify-content: center; 
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.form-select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.modal-body-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+/* Estilo para el ícono de + */
+.add-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F5F378;
+    color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    background-color: #e5e05e;
+}
+
