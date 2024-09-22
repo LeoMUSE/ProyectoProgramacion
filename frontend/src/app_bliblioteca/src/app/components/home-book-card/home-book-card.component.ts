@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home-book-card',
@@ -7,6 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class HomeBookCardComponent {
   @Input() book: any; //libro como objeto
-  
-  constructor() { }
+  @Output() bookClick = new EventEmitter<any>();
+
+  cardClick() {
+    this.bookClick.emit(this.book);
+  }
 }

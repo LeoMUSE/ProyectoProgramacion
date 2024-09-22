@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +18,9 @@ import { PrestamoComponent } from './pages/prestamo/prestamo.component';
 import { LoanItemComponent } from './components/loan-item/loan-item.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { AddIconComponent } from './components/add-icon/add-icon.component';
+import { BookModalComponent } from './components/modals/book-modal/book-modal.component';
+import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -31,14 +36,20 @@ import { AddIconComponent } from './components/add-icon/add-icon.component';
     PrestamoComponent,
     LoanItemComponent,
     SearchbarComponent,
-    AddIconComponent
+    AddIconComponent,
+    BookModalComponent,
+    AbmModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
