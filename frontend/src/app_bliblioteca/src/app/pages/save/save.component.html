@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+    <!-- Contenedor principal -->
+    <div class="container mt-3">
+        <!-- Barra de búsqueda -->
+        <app-searchbar></app-searchbar>
+
+        <!-- Título de la sección -->
+        <h2>Saved</h2>
+
+        <!-- Lista de libros guardados -->
+        <section class="saved-books">
+            <app-book-item
+                *ngFor="let book of savedBooks"
+                [book]="book">
+            </app-book-item>
+        </section>
+        
+    </div>

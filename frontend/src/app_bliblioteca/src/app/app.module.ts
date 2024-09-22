@@ -20,6 +20,10 @@ import { AddIconComponent } from './components/add-icon/add-icon.component';
 import { BookModalComponent } from './components/modals/book-modal/book-modal.component';
 import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SaveComponent } from './pages/save/save.component';
+import { BookItemComponent } from './components/book-item/book-item.component';
+import { SearchComponent } from './pages/search/search.component';
+import { TopComponent } from './pages/top/top.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AddIconComponent,
     BookModalComponent,
     AbmModalComponent,
+    SaveComponent,
+    BookItemComponent,
+    SearchComponent,
+    TopComponent,
   ],
   imports: [
     BrowserModule,

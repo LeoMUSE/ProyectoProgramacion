@@ -6,6 +6,9 @@ import { NotificacionesComponent } from './pages/notificaciones/notificaciones.c
 import { SignupComponent } from './pages/signup/signup.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PrestamoComponent } from './pages/prestamo/prestamo.component';
+import { SaveComponent } from './pages/save/save.component';
+import { SearchComponent } from './pages/search/search.component';
+import { TopComponent } from './pages/top/top.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,7 +17,10 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'prestamo/:id/:rol', component: PrestamoComponent },
-  //{ path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'save', component: SaveComponent },
+  { path: 'search', component: SearchComponent },
+  {path: 'top', component: TopComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
 

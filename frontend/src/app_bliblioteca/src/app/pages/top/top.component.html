@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+
+<app-categories></app-categories>
+
+    <!-- Contenedor principal -->
+    <div class="container mt-3">
+
+        <!-- Título de la sección -->
+        <h2>Top Libros</h2>
+
+        <!-- Lista de libros top -->
+        <section class="top-books">
+            <app-book-item
+                *ngFor="let book of topBooks"
+                [book]="book">
+            </app-book-item>
+        </section>
+    </div>
