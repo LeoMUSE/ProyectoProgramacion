@@ -1,4 +1,4 @@
-/* Items del container*/
+/* Items del container */
 .loans-item {
     display: flex;
     background-color: #444;
@@ -31,6 +31,7 @@
     right: 10px;
     text-decoration: none; /* Asegura que no tenga subrayado */
     transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
 }
 
 .edit-link:hover {
@@ -52,7 +53,7 @@
         text-align: center; 
     }
 
-    .loans-book-item img {
+    .loans-item img {
         margin-right: 0;
         margin-bottom: 10px; 
     }

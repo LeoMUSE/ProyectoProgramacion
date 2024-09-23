@@ -8,9 +8,9 @@
         <p><b>Estado:</b> {{ loan.status }}</p>
     </div>
     <!-- para Administrador -->
-    <a *ngIf="rol === 'admin'" href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#editLoanModal">
+    <span *ngIf="rol === 'admin'" class="edit-link" (click)="editClick()">
         Editar Préstamo >
-    </a>
+    </span>
         <!-- para Usuario -->
     <a *ngIf="rol === 'user'" href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">
         Realizar Reseña >

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-icon',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './add-icon.component.css'
 })
 export class AddIconComponent {
+  @Output() addLoan = new EventEmitter<void>();
 
+  addLoanClick() {
+    this.addLoan.emit();
+  }
 }

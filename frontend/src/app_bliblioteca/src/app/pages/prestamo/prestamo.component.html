@@ -14,7 +14,8 @@
             <app-loan-item 
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan"
-                [rol]="rol">
+                [rol]="rol"
+                (editLoan)="openEditLoanModal($event)">
             </app-loan-item>
         </section>
 
@@ -23,91 +24,14 @@
             <app-loan-item 
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan" 
-                [rol]="rol">
+                [rol]="rol"
+                (editLoan)="openEditLoanModal($event)">
             </app-loan-item>
         </section>
     </div>
 
-    <!-- Modal para editar prestamo -->
-    <div class="modal fade" id="editLoanModal" tabindex="-1" aria-labelledby="editLoanModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editLoanModalLabel">Editar Préstamo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulario de edición -->
-                    <form>
-                        <div class="mb-3">
-                            <label for="bookTitle" class="form-label">Título del Libro</label>
-                            <input type="text" class="form-control" id="bookTitle" value="El Código Da Vinci">
-                        </div>
-                        <div class="mb-3">
-                            <label for="loanStart" class="form-label">Inicio del Préstamo</label>
-                            <input type="date" class="form-control" id="loanStart" value="2024-08-15">
-                        </div>
-                        <div class="mb-3">
-                            <label for="loanEnd" class="form-label">Fin del Préstamo</label>
-                            <input type="date" class="form-control" id="loanEnd" value="2024-09-15">
-                        </div>
-                        <div class="mb-3">
-                            <label for="loanStatus" class="form-label">Estado</label>
-                            <select class="form-select" id="loanStatus">
-                                <option value="activo" selected>Activo</option>
-                                <option value="desacivo">Desactivo</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Guardar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Icono + -->
-    <app-add-icon *ngIf="rol === 'admin'"></app-add-icon>
-
-    <!-- Modal para agregar un nuevo préstamo -->
-    <div class="modal fade" id="addLoanModal" tabindex="-1" aria-labelledby="addLoanModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addLoanModalLabel">Agregar Nuevo Préstamo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Formulario para agregar un nuevo préstamo -->
-                    <form>
-                        <div class="mb-3">
-                            <label for="newBookTitle" class="form-label">Título del Libro</label>
-                            <input type="text" class="modal-body-input" id="newBookTitle" placeholder="Título del libro">
-                        </div>
-                        <div class="mb-3">
-                            <label for="newLoanStart" class="form-label">Inicio del Préstamo</label>
-                            <input type="date" class="modal-body-input" id="newLoanStart" placeholder="Início del Préstamo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="newLoanEnd" class="form-label">Fin del Préstamo</label>
-                            <input type="date" class="modal-body-input" id="newLoanEnd" placeholder="Fin del Préstamo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="newLoanStatus" class="form-label">Estado</label>
-                            <select class="modal-body-input" id="newLoanStatus">
-                                <option value="activo">Activo</option>
-                                <option value="desactivo">Desactivo</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Guardar Préstamo</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-add-icon *ngIf="rol === 'admin'" (addLoan)="openAddLoanDialog()"></app-add-icon>
 
 
         <!-- Modal para Realizar Reseña -->

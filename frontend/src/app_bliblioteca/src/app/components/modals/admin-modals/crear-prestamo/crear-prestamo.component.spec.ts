@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AbmModalComponent } from './abm-modal.component';
+import { CrearPrestamoComponent } from './crear-prestamo.component';
 
-describe('AbmModalComponent', () => {
-  let component: AbmModalComponent;
-  let fixture: ComponentFixture<AbmModalComponent>;
+describe('CrearPrestamoComponent', () => {
+  let component: CrearPrestamoComponent;
+  let fixture: ComponentFixture<CrearPrestamoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AbmModalComponent]
+      declarations: [CrearPrestamoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AbmModalComponent);
+    fixture = TestBed.createComponent(CrearPrestamoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

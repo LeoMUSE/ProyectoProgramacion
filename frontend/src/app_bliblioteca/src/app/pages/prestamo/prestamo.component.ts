@@ -1,5 +1,8 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarPrestamoComponent } from '../../components/modals/admin-modals/editar-prestamo/editar-prestamo.component';
+import { CrearPrestamoComponent } from '../../components/modals/admin-modals/crear-prestamo/crear-prestamo.component';
 
 
 @Component({
@@ -47,11 +50,7 @@ export class PrestamoComponent implements OnInit{
   rol: string = 'user';
   filteredLoans = [...this.loans]
 
-  //propiedades para el modal
-  selectedLoan: any;
-  modalAction: string = '';
-
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
@@ -75,5 +74,37 @@ export class PrestamoComponent implements OnInit{
     } else {
       this.filteredLoans = [...this.loans];
     }
+  }
+
+  openEditLoanModal(loan: any): void {
+    const dialogRef = this.dialog.open(EditarPrestamoComponent, {
+      width: '500px',
+      data: { ...loan } // Pasa los datos del préstamo seleccionado
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Actualiza el préstamo en tu lista con los datos editados
+        const index = this.loans.findIndex(l => l.user === result.user && l.bookTitle === result.bookTitle);
+        if (index !== -1) {
+          this.loans[index] = result;
+          this.filteredLoans = [...this.loans];
+        }
+      }
+    });
+  }
+
+  openAddLoanDialog(): void {
+    const dialogRef = this.dialog.open(CrearPrestamoComponent, {
+      width: '500px',
+      data: {} // Puedes pasar datos adicionales aquí si lo necesitas
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Nuevo préstamo:', result);
+        // Aquí puedes manejar el resultado del modal, como guardar el nuevo préstamo.
+      }
+    });
   }
 }

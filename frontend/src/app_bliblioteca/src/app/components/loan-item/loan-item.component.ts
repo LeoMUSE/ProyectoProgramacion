@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-loan-item',
@@ -9,4 +9,10 @@ export class LoanItemComponent {
   @Input() loan: any; //prestamo como objeto
   @Input() id: string = '';
   @Input() rol: string = 'user';
+
+  @Output() editLoan = new EventEmitter<any>();
+
+  editClick(): void {
+    this.editLoan.emit(this.loan);
+  }
 }
