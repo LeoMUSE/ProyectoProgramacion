@@ -9,15 +9,12 @@
             <div class="row flex-nowrap overflow-auto" id="booksContainer">
                 <!-- Iterar sobre el array de libros y renderizar el componente de la tarjeta -->
                 <div *ngFor="let book of books" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
-                    <app-home-book-card [book]="book" (bookClick)="openModal(book)"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
+                    <app-home-book-card [book]="book" (bookClick)="openBookModal(book)"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
                 </div>
             </div>
         </div>
     </section>
 
-<ng-template #myModalContent let-modal>
-    <app-book-modal [book]="selectedBook"></app-book-modal>
-</ng-template>
 
     <!-- Sección "Porque leíste Harry Potter" -->
     <section class="books-section position-relative">
@@ -26,7 +23,7 @@
             <div class="row flex-nowrap overflow-auto">
                 <!-- Iterar sobre el array de libros de Harry Potter -->
                 <div *ngFor="let hpBook of hpBooks" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
-                    <app-home-book-card [book]="hpBook" (bookClick)="openModal(hpBook)"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
+                    <app-home-book-card [book]="hpBook" (bookClick)="openBookModal(hpBook)"></app-home-book-card> <!-- Llamada al componente BookCardComponent -->
                 </div>
             </div>
         </div>

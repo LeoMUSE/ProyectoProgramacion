@@ -17,9 +17,10 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'prestamo/:id/:rol', component: PrestamoComponent },
+  { path: 'prestamo', component: PrestamoComponent },
   { path: 'save', component: SaveComponent },
   { path: 'search', component: SearchComponent },
-  {path: 'top', component: TopComponent },
+  { path: 'top', component: TopComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];

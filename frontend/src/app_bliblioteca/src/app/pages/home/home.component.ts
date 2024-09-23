@@ -1,5 +1,7 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BookModalComponent } from '../../components/modals/book-modal/book-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -62,13 +64,13 @@ export class HomeComponent {
     },
   ];
 
-  selectedBook: any;
+  constructor(public dialog: MatDialog) {}
 
-  @ViewChild('myModalContent', { static: true }) myModalContent?: TemplateRef<any>;
-  constructor(private modalService: NgbModal) {}
-
-  openModal(book: any) {
-    this.selectedBook = book; // Guardar el libro seleccionado
-    this.modalService.open(this.myModalContent, { centered: true }); // Modal centrado
+  openBookModal(book: any): void {
+    this.dialog.open(BookModalComponent, {
+      width: '500px',
+      data: book
+    }
+    )
   }
 }

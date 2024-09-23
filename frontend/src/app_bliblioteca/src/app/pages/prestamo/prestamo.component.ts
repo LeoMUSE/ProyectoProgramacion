@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -44,9 +44,12 @@ export class PrestamoComponent implements OnInit{
   ];
 
   id: string = '';
-  rol: string = '';
-
+  rol: string = 'user';
   filteredLoans = [...this.loans]
+
+  //propiedades para el modal
+  selectedLoan: any;
+  modalAction: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -55,7 +58,7 @@ export class PrestamoComponent implements OnInit{
     // Obtener los parámetros de la URL
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || '';
-      this.rol = params.get('rol') || '';
+      this.rol = params.get('rol') || 'user';
       this.handleSearch(this.id);
       this.filteredLoans = [...this.loans];
     });
