@@ -35,6 +35,8 @@ import { CrearLibroComponent } from './components/modals/admin-modals/crear-libr
 import { EditarLibroComponent } from './components/modals/admin-modals/editar-libro/editar-libro.component';
 import { CrearResenaComponent } from './components/modals/user-modals/crear-resena/crear-resena.component';
 import { EditarPerfilComponent } from './components/modals/user-modals/editar-perfil/editar-perfil.component';
+import { OptionButtonComponent } from './components/option-button/option-button.component';
+import { ToolsComponent } from './pages/tools/tools.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { EditarPerfilComponent } from './components/modals/user-modals/editar-pe
     EditarLibroComponent,
     CrearResenaComponent,
     EditarPerfilComponent,
+    OptionButtonComponent,
+    ToolsComponent,
   ],
   imports: [
     BrowserModule,

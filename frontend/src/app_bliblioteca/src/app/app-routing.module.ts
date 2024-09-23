@@ -9,6 +9,7 @@ import { PrestamoComponent } from './pages/prestamo/prestamo.component';
 import { SaveComponent } from './pages/save/save.component';
 import { SearchComponent } from './pages/search/search.component';
 import { TopComponent } from './pages/top/top.component';
+import { ToolsComponent } from './pages/tools/tools.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'save', component: SaveComponent },
   { path: 'search', component: SearchComponent },
   { path: 'top', component: TopComponent },
+  { path: 'tools', component: ToolsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];

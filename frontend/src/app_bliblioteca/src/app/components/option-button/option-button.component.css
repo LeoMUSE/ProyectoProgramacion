@@ -1,0 +1,27 @@
+.menu-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 18px; 
+    text-decoration: none;
+    color: #f1f1f1;
+    background-color: #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; 
+    border: none;
+    margin-bottom: 15px; 
+}
+
+.menu-button:hover {
+    background-color: #6C6C6C;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.menu-button .arrow {
+    font-size: 22px; 
+    color: #F5F378;
+    margin-left: 10px;
+}

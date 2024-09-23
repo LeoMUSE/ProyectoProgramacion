@@ -23,26 +23,11 @@
     
                 <!-- Botones en una columna -->
                 <div class="row g-3">
-                    <div class="col-12">
-                        <a href="#" class="menu-button fw-bold">Información de la Cuenta <span class="arrow">></span></a>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="menu-button fw-bold">Historial de Préstamos <span class="arrow">></span></a>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="menu-button fw-bold">Historial de Reseñas <span class="arrow">></span></a>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="menu-button fw-bold">Support <span class="arrow">></span></a>
-                    </div>
-                    <div class="col-12">
-                        <a href="#" class="menu-button fw-bold">Acerca de la App <span class="arrow">></span></a>
-                    </div>
-                    <div class="col-12">
-                        <a routerLink="/login">
-                            <button type="button" class="btn btn-warning w-20">Log out</button>    
-                        </a>
-                    </div>
+                    <app-option-button label="Información de la Cuenta" link="#"></app-option-button>
+                    <app-option-button label="Historial de Préstamos" link="/prestamo"></app-option-button>
+                    <app-option-button label="Historial de Reseñas" link="#"></app-option-button>
+                    <app-option-button label="Support" link="#"></app-option-button>
+                    <app-option-button label="Acerca de la App" link="#"></app-option-button>
                 </div>
             </div>
         </div>
