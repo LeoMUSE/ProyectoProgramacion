@@ -15,32 +15,32 @@ export class PrestamoComponent implements OnInit{
     {
       user: 'EmCalde',
       bookTitle: 'El Código Da Vinci',
-      startDate: '15/08/2024',
-      endDate: '15/09/2024',
+      startDate: '2024-08-15',
+      endDate: '2024-09-15',
       status: 'Activo',
       image: 'assets/codigo_d.jpeg'
     },
     {
       user: 'PepitoF.',
       bookTitle: 'Harry Potter y el Prisionero de Azkaban',
-      startDate: '12/08/2024',
-      endDate: '12/09/2024',
+      startDate: '2024-08-12',
+      endDate: '2024-09-12',
       status: 'Activo',
       image: 'assets/hp-pa.jpeg'
     },
     {
       user: 'Guille10',
       bookTitle: 'Alicia en el País de las Maravillas',
-      startDate: '08/08/2024',
-      endDate: '08/09/2024',
+      startDate: '2024-08-08',
+      endDate: '2024-09-08',
       status: 'Activo',
       image: 'assets/alicia.jpeg'
     },
     {
       user: 'Guille10',
       bookTitle: 'Violeta',
-      startDate: '08/08/2024',
-      endDate: '08/09/2024',
+      startDate: '2024-08-08',
+      endDate: '2024-09-08',
       status: 'Activo',
       image: 'assets/violeta.jpeg'
     }

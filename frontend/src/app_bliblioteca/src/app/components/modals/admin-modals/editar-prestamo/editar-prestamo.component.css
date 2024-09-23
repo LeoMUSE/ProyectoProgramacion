@@ -1,0 +1,21 @@
+.modal-title {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.modal-form {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button[mat-button] {
+    margin-right: 8px;
+    border-radius: 15px;
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}

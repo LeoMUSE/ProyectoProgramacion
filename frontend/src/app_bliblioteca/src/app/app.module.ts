@@ -25,8 +25,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { SaveComponent } from './pages/save/save.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { SearchComponent } from './pages/search/search.component';
-import { TopComponent } from './pages/top/top.component';
 import { BookModalComponent } from './components/modals/book-modal/book-modal.component';
+import { TopComponent } from './pages/top/top.component';
 import { CrearUserComponent } from './components/modals/admin-modals/crear-user/crear-user.component';
 import { EditarUserComponent } from './components/modals/admin-modals/editar-user/editar-user.component';
 import { CrearPrestamoComponent } from './components/modals/admin-modals/crear-prestamo/crear-prestamo.component';

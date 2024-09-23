@@ -1,48 +1,31 @@
-<h1 mat-dialog-title>Agregar Nuevo Préstamo</h1>
+<h1 mat-dialog-title class="modal-title">Agregar Nuevo Préstamo</h1>
 <div mat-dialog-content>
     <form>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Título del Libro</mat-label>
+            <input matInput [(ngModel)]="data.bookTitle" name="bookTitle" placeholder="Título del libro" required>
+        </mat-form-field>
 
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Usuario</mat-label>
-                <input matInput [(ngModel)]="data.user" name="bookTitle" placeholder="Usuario" required>
-            </mat-form-field>
-        </div>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Inicio del Préstamo</mat-label>
+            <input matInput [(ngModel)]="data.startDate" name="startDate" type="date" required>
+        </mat-form-field>
 
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Título del Libro</mat-label>
-                <input matInput [(ngModel)]="data.bookTitle" name="bookTitle" placeholder="Título del libro" required>
-            </mat-form-field>
-        </div>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Fin del Préstamo</mat-label>
+            <input matInput [(ngModel)]="data.endDate" name="endDate" type="date" required>
+        </mat-form-field>
 
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Inicio del Préstamo</mat-label>
-                <input matInput [(ngModel)]="data.startDate" name="startDate" type="date" required>
-            </mat-form-field>
-        </div>
-
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Fin del Préstamo</mat-label>
-                <input matInput [(ngModel)]="data.endDate" name="endDate" type="date" required>
-            </mat-form-field>   
-        </div>
-
-        <div class="mb-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Estado</mat-label>
-                <mat-select [(ngModel)]="data.status" name="status">
-                    <mat-option value="activo">Activo</mat-option>
-                    <mat-option value="desactivo">Desactivo</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Estado</mat-label>
+            <mat-select [(ngModel)]="data.status" name="status">
+                <mat-option value="activo">Activo</mat-option>
+                <mat-option value="desactivo">Desactivo</mat-option>
+            </mat-select>
+        </mat-form-field>
     </form>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="closeModal()">Cancelar</button>
-    <button mat-button (click)="saveChanges()">Agregar Préstamo</button>
+    <button mat-button (click)="saveChanges()">Guardar Préstamo</button>
 </div>
