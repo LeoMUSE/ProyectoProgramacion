@@ -1,39 +1,32 @@
-/* Modal */
-.modal-dialog {
-    max-width: 100%;
-    margin: 5vh auto; 
-    width: 500px;
+.modal-title {
+    text-align: center;
+    color: #F5F378;
+    font-size: 1.5em;
+    background-color: #333;
+    margin: 0;
 }
-
-.modal-content {
-    background-color: #222; 
-    color: #fff; 
-    border-radius: 8px; 
-    padding: 3px; 
-    min-height: 10vh; 
-}
-
-/* Estilo para la imagen en el modal */
-.modal-body img {
+.mat-content img {
     width: 50%;
     height: auto; 
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.modal-header {
-    border-bottom: none; 
+
+.mat-content{
+    background-color: #333;
+    color: #fff;
 }
 
-.modal-title {
-    font-size: 1.5rem; 
+.mat-footer{
+    background-color: #333;
 }
 
-.modal-body {
-    margin-top: 20px;
-}
-
-.modal-footer {
-    border-top: none;
-    justify-content: center;
+button[mat-button] {
+    margin-right: 8px;
+    border-radius: 15px;
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
 }

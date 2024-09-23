@@ -1,6 +1,6 @@
 <h5 mat-dialog-title class="modal-title">Editar Préstamo</h5>
-<div mat-dialog-content>
-    <form>
+<div mat-dialog-content class="mat-content">
+    <form class="modal-form">
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Título del Libro</mat-label>
             <input matInput [(ngModel)]="data.bookTitle" name="bookTitle" required>
@@ -26,7 +26,7 @@
     </form>
 </div>
 
-<div mat-dialog-actions>
+<div mat-dialog-actions class="mat-footer">
     <button mat-button (click)="closeModal()">Cancelar</button>
     <button mat-button (click)="saveChanges()">Guardar Cambios</button>
 </div>

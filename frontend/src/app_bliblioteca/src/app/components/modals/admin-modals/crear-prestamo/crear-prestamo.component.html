@@ -1,6 +1,6 @@
-<h1 mat-dialog-title class="modal-title">Agregar Nuevo Préstamo</h1>
-<div mat-dialog-content>
-    <form>
+<h1 mat-dialog-title class="modal-title">Crear Nuevo Préstamo</h1>
+<div mat-dialog-content class="mat-content">
+    <form class="mat-form">
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Título del Libro</mat-label>
             <input matInput [(ngModel)]="data.bookTitle" name="bookTitle" placeholder="Título del libro" required>
@@ -25,7 +25,7 @@
         </mat-form-field>
     </form>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="mat-footer">
     <button mat-button (click)="closeModal()">Cancelar</button>
-    <button mat-button (click)="saveChanges()">Guardar Préstamo</button>
+    <button mat-button (click)="saveChanges()">Crear Préstamo</button>
 </div>
