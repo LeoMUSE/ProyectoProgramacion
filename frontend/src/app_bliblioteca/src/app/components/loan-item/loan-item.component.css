@@ -1,0 +1,60 @@
+/* Items del container */
+.loans-item {
+    display: flex;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    transition: transform 0.3s ease;
+    flex-wrap: wrap;
+}
+
+.loans-info {
+    flex: 1;
+}
+
+.loans-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.loans-item:hover {
+    transform: translateY(-5px);
+}
+
+.edit-link {
+    color: #F5F378;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-decoration: none; /* Asegura que no tenga subrayado */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+}
+
+.edit-link:hover {
+    color: #e5e05e; /* Color de hover */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.loans-item img {
+    width: 120px;
+    height: 160px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+    .loans-item {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .loans-item img {
+        margin-right: 0;
+        margin-bottom: 10px; 
+    }
+}

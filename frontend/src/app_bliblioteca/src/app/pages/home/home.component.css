@@ -1,0 +1,15 @@
+
+/* Books section */
+.books-section {
+    margin: 20px;
+}
+
+.books-section h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* Scroll bar */
+.row::-webkit-scrollbar {
+    display: none; 
+}

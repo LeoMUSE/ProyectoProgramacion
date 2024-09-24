@@ -1,0 +1,18 @@
+<div class="loans-item d-flex mb-1">
+    <img [src]="loan.image" [alt]="loan.bookTitle" class="img-fluid">
+    <div class="loans-info">
+        <p><b>Usuario:</b><a href="#"> {{ loan.user }}</a></p>
+        <p><b>Libro:</b> {{ loan.bookTitle }}</p>
+        <p><b>Inicio Préstamo:</b> {{ loan.startDate }}</p>
+        <p><b>Fin Préstamo:</b> {{ loan.endDate }}</p>
+        <p><b>Estado:</b> {{ loan.status }}</p>
+    </div>
+    <!-- para Administrador -->
+    <span *ngIf="rol === 'admin'" class="edit-link" (click)="editClick()">
+        Editar Préstamo >
+    </span>
+        <!-- para Usuario -->
+    <span *ngIf="rol === 'user'" class="edit-link" (click)="resenaClick()">
+        Realizar Reseña >
+    </span>
+</div>

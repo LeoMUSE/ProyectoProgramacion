@@ -1,0 +1,61 @@
+
+/* Estilos adicionales para la clase .profile si es necesario */
+.profile {
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile-title {
+    font-size: 24px;
+    color: #F5F378;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.profile-footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.username {
+    color: #F5F378;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Icono para editar */
+.edit-icon {
+    color: #F5F378;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.edit-icon:hover {
+    color: #ccc;
+}
+
+.logout a {
+    color: #f9d923;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout a:hover {
+    text-decoration: underline;
+}

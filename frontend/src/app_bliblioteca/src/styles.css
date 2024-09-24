@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 5em;
+    text-align: center;
+    font-weight: bold;
+    margin: 40px;
+
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #A0F199;
+    margin-top: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+a {
+    text-decoration: none;
+    color: #F5F378;
+}
+
+.btn-warning {
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}
+
+.btn-warning:hover {
+    background-color: #e5e05e !important; 
+    color: #333 !important;
+}
+
+.btn-warning:active {
+    background-color: #e5e05e !important;
+    color: #ffffff !important; 
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}

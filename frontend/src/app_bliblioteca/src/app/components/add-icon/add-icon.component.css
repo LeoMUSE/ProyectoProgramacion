@@ -1,0 +1,22 @@
+/* Estilo para el ícono de + */
+.add-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F5F378;
+    color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    background-color: #e5e05e;
+}
+

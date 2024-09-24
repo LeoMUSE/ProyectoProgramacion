@@ -1,0 +1,55 @@
+<!-- Si es una reseña -->
+<div *ngIf="isReviewPage" class="user-adm-item d-flex align-items-center mt-4">
+    <div class="user-info">
+        <!-- Imagen del libro -->
+        <img [src]="review.bookImg" alt="Portada libro" class="book-image me-3">
+        <!-- Imagen del usuario -->
+        <img [src]="review.userImg" alt="Usuario" class="user-image me-3">
+        <div class="user-details">
+            <p>Título: {{ review.bookTitle }}</p>
+            <p>Usuario: {{ review.username }}</p>
+            <p>Comentario: {{ review.comment }}</p>
+            <div class="rating me-2">
+                <p>Rating: </p>
+                <!-- Calificación de estrellas -->
+                <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.rating}"></i>
+            </div>
+        </div>
+            <!-- Ícono de basura -->
+            <button class="delete-icon ms-auto" (click)="toggleIcon()">
+                <i class="fas fa-trash" [ngStyle]="{'color': iconColor()}"></i>
+            </button>
+        </div>
+</div>
+
+<!-- Si NO es una reseña, es un usuario -->
+<div *ngIf="!isReviewPage && user" class="user-adm-item d-flex align-items-center" 
+        [attr.data-bs-target]="showDropdown ? '#' + user.id : null" 
+        [attr.data-bs-toggle]="showDropdown ? 'collapse' : null">
+    <div class="user-info">
+        <!-- Imagen del usuario -->
+        <img [src]="user.img" alt="Usuario" class="user-image">
+        <div class="user-details">
+            <p>Usuario: {{ user.username }}</p>
+            <p>Nombre: {{ user.name }}</p>
+        </div>
+        <!-- Ícono de estado de usuario (candado) -->
+        <button class="status-icon ms-auto" (click)="toggleIcon()">
+            <i class="fas" [ngClass]="getIconClass()" [ngStyle]="{'color': iconColor()}"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Mostrar dropdown sólo si showDropdown es true (cuando no es reseña) -->
+<div *ngIf="showDropdown && !isReviewPage" [id]="user.id" class="collapse user-adm-dropdown">
+    <div class="p-3">
+        <p>Tel: {{ user.phone }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>DNI: {{ user.dni }}</p>
+        <div class="user-actions">
+            <a routerLink="/prestamo/1/admin" class="btn btn-link">Ver Préstamos ></a>
+            <a routerLink="" class="btn btn-link">Ver Reseñas ></a>
+            <a href="#" class="btn btn-link role">Rol: {{ user.role }}</a>
+        </div>
+    </div>
+</div>

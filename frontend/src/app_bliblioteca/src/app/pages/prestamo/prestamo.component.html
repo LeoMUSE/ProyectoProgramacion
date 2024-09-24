@@ -1,0 +1,36 @@
+    <!-- Navbar -->
+<app-navbar></app-navbar>
+
+    <!-- Contenedor Principal -->
+    <div class="container mt-3">
+        <!-- Barra de búsqueda -->
+        <app-searchbar (searchEvent)="handleSearch($event)"></app-searchbar>
+
+        <h2>Loans</h2>
+
+        <h3>Active Loans</h3>
+
+        <section class="loans">
+            <app-loan-item 
+                *ngFor="let loan of filteredLoans" 
+                [loan]="loan"
+                [rol]="rol"
+                (editLoan)="openEditLoanModal($event)"
+                (resena)="openRealizarResena($event)">
+            </app-loan-item>
+        </section>
+
+        <h3 style="color:#EC704B">Deactive Loans</h3>
+        <section class="loans">
+            <app-loan-item 
+                *ngFor="let loan of filteredLoans" 
+                [loan]="loan" 
+                [rol]="rol"
+                (editLoan)="openEditLoanModal($event)"
+                (resena)="openRealizarResena($event)">
+            </app-loan-item>
+        </section>
+    </div>
+
+    <!-- Icono + -->
+    <app-add-icon *ngIf="rol === 'admin'" (addEvent)="openAddLoanDialog()"></app-add-icon>

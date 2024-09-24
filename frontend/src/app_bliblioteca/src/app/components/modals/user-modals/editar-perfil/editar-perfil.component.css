@@ -1,0 +1,37 @@
+.modal-title {
+    text-align: center;
+    color: #F5F378;
+    font-size: 1.5em;
+    background-color: #333;
+    margin: 0;
+}
+
+.modal-form {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button[mat-button] {
+    margin-right: 8px;
+    border-radius: 15px;
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}
+
+.mat-content{
+    background-color: #333;
+}
+
+.mat-footer{
+    background-color: #333;
+}
+
+.form-img{
+    color: #ffffff;
+    padding: 20px;
+}

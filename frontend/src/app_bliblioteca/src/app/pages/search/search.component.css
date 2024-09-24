@@ -1,0 +1,35 @@
+h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+}
+
+/* Boton pildora */
+.rounded-button {
+    display: inline-block; 
+    background-color: #444; 
+    color: #ffffff;
+    padding: 15px 30px; 
+    border-radius: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    text-align: center; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    cursor: pointer;
+    border: none; 
+    font-size: 16px; 
+    font-weight: bold; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 15px;
+}
+
+.rounded-button:hover {
+    background-color: #e5e05e; /* Color de fondo al pasar el mouse */
+}
+
+.rounded-button:active {
+    background-color: #F5F378; /* Color de fondo al hacer clic */
+    transform: scale(0.98); /* Escala ligeramente el botón al hacer clic */
+}

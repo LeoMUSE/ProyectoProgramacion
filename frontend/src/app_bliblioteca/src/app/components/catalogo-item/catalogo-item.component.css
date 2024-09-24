@@ -1,0 +1,73 @@
+/* Contenido lista de libros*/
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.book-item {
+    display: flex;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.book-item img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.book-info {
+    flex: 1; 
+}
+
+.book-info h3 {
+    font-size: 18px;
+    color: #f9f9f9;
+}
+
+.book-info p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+/* Lock icon */
+.status-icon {
+    font-size: 24px;
+    color: #A0F199;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+/* cantidad disponible */
+
+.book-quantity {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.book-quantity label {
+    margin-right: 10px;
+}
+
+.book-quantity input {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}

@@ -1,0 +1,151 @@
+.user-adm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Estilos de la barra de búsqueda */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espacio entre el botón de filtro y el botón de búsqueda */
+}
+
+.search-btn i {
+    font-size: 20px;
+}
+
+/* Estilos para el botón de filtro */
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Espacio entre el campo de búsqueda y el botón de filtro */
+}
+
+.filter-btn i {
+    font-size: 20px;
+}
+
+/* Back Button */
+.back-btn {
+    padding: 10px 20px;
+    background-color: #444;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease; /* Suavizar el cambio de color */
+}
+
+/* Estilo para el ícono de + */
+.add-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #F5F378;
+    color: #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.add-icon:hover {
+    background-color: #e5e05e;
+}
+
+/* Estilos para el modal */
+.modal-dialog {
+    max-width: 100%; 
+    margin: 5vh auto; 
+    width: 500px;
+}
+
+.modal-content {
+    background-color: #222; 
+    color: #fff; 
+    border-radius: 8px; 
+    padding: 3px;
+    min-height: 10vh;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #F5F378;
+    font-weight: bold;
+}
+
+.modal-body {
+    margin-top: 20px; 
+}
+
+.modal-footer {
+    border-top: none; 
+    justify-content: center; 
+}
+
+.modal-body-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.form-select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #555;
+    color: #f1f1f1;
+}

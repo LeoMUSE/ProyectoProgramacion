@@ -1,0 +1,15 @@
+<div class="book-item">
+    <img [src]="book.img" alt="Portada {{ book.title }}">
+    <div class="book-info">
+        <h3>{{ book.title }}</h3>
+        <p>{{ book.author }}</p>
+        <p>{{ book.description }}</p>
+        <div class="book-quantity">
+            <label for="cantidad-libro-{{ book.id }}">Cantidad disponible:</label>
+            <input type="number" id="cantidad-libro-{{ book.id }}" [value]="book.quantity" min="0">
+        </div>
+    </div>
+    <button id="statusIcon" class="status-icon">
+        <i class="fas fa-unlock"></i>
+    </button>
+</div>

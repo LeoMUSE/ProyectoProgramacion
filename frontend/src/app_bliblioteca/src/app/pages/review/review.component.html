@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<!-- Contenedor principal -->
+<div class="container mt-3">
+    <app-searchbar></app-searchbar>
+    <h2>Administrar Reseñas</h2>
+    <!-- Lista de reseñas -->
+    <section class="user-adm" *ngFor="let review of reviews">
+        <app-user-item 
+            [user]="null" 
+            [review]="review" 
+            [isReviewPage]="true" 
+            [showDropdown]="true">
+        </app-user-item>
+    </section>
+</div>

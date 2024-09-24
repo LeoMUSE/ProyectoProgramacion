@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+
+    <div class="container">
+    <app-searchbar></app-searchbar>
+
+        <h2>Administrar Catálogo Bibliotecario</h2>
+
+        <div class="book-list">
+            <app-catalogo-item *ngFor="let book of books" [book]="book"></app-catalogo-item>
+        </div>
+    </div>
+
+    <!-- Icono + -->
+    <app-add-icon (addEvent)="openAddBookDialog()"></app-add-icon>

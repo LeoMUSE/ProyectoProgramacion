@@ -1,0 +1,15 @@
+<section class="search-bar">
+    <a (click)="goBack()" class="back-btn" style="cursor: pointer;">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+    <input 
+        type="text" 
+        (input)="onSearch()"
+        placeholder="Buscar..." 
+        class="search-input" 
+        [(ngModel)]="searchQuery" 
+        (keyup.enter)="onSearch()">
+    <button class="search-btn" (click)="onSearch()">
+        <i class="fas fa-search"></i>
+    </button>
+</section>
