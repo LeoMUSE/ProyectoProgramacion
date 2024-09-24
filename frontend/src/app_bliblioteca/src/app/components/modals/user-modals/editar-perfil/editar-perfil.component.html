@@ -1,8 +1,8 @@
+<h5 mat-dialog-title class="modal-title">Modificar Perfil</h5>
 <!-- Modal para modificar el perfil -->
-<mat-dialog-content class="modal-content">
-    <h5 mat-dialog-title>Modificar Perfil</h5>
-    <form>
-        <div class="form-group">
+<mat-dialog-content class="mat-content">
+    <form class="mat-form">
+        <div class="form-img">
             <mat-label>Foto de Perfil</mat-label>
             <input type="file" accept="image/*" />
         </div>
@@ -23,7 +23,7 @@
     </form>
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<mat-dialog-actions class="mat-footer">
     <button mat-button (click)="saveChanges()">Guardar Cambios</button>
     <button mat-button (click)="closeModal()">Cancelar</button>
 </mat-dialog-actions>
