@@ -1,1 +1,41 @@
-<p>crear-resena works!</p>
+<h5 mat-dialog-title class="modal-title">Realizar Reseña</h5>
+
+<div mat-dialog-content class="mat-content">
+    <form class="mat-form">
+        <h3>Calificar Libro</h3>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Calificación</mat-label>
+            <div class="rating-choise">
+                <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                    <i 
+                        class="fas fa-star"
+                        (click)="data.rating = i + 1" 
+                        [ngStyle]="{ 'color': i < data.rating ? '#F5F378' : '#6C6C6C' }"
+                        style="cursor: pointer; font-size: 24px;">
+                    </i>
+                </ng-container>
+            </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Escribe tu reseña</mat-label>
+            <textarea matInput [(ngModel)]="data.reviewText" rows="4" placeholder="Escribe tu reseña..." style="width: 100%;"></textarea>
+        </mat-form-field>
+
+        <h3>Otras reseñas:</h3>
+        <div class="review-item" *ngFor="let review of data.reviews">
+            <strong>{{ review.user }}</strong>
+            <p>{{ review.text }}</p>
+            <div class="rating">
+                <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                    <i class="fas" [class.fa-star]="i < review.rating" [class.fa-star-o]="i >= review.rating"></i>
+                </ng-container>
+            </div>
+        </div>
+    </form>
+<div>
+
+<mat-dialog-actions class="mat-footer">
+    <button mat-button (click)="closeModal()">Cancelar</button>
+    <button mat-button (click)="saveChanges()">Guardar Reseña</button>
+</mat-dialog-actions>

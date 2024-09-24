@@ -11,8 +11,14 @@ export class LoanItemComponent {
   @Input() rol: string = 'user';
 
   @Output() editLoan = new EventEmitter<any>();
+  @Output() resena = new EventEmitter<any>();
 
   editClick(): void {
     this.editLoan.emit(this.loan);
   }
+
+  resenaClick(): void {
+    this.resena.emit()
+  }
+
 }

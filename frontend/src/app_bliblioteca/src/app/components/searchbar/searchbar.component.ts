@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,10 +9,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchbarComponent {
   @Output() searchEvent = new EventEmitter<string>();
 
+  constructor(private location: Location) {}
+
   searchQuery: string = '';
 
   onSearch() {
     console.log('buscar: ', this.searchQuery);
     this.searchEvent.emit(this.searchQuery)
+  }
+
+  goBack() {
+    this.location.back()
   }
 }

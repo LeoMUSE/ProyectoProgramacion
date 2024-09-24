@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarPrestamoComponent } from '../../components/modals/admin-modals/editar-prestamo/editar-prestamo.component';
 import { CrearPrestamoComponent } from '../../components/modals/admin-modals/crear-prestamo/crear-prestamo.component';
+import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
 
 
 @Component({
@@ -87,6 +88,22 @@ export class PrestamoComponent implements OnInit{
     const dialogRef = this.dialog.open(CrearPrestamoComponent, {
       width: '500px',
       data: {} // Puedes pasar datos adicionales aquí si lo necesitas
+    });
+  }
+
+  openRealizarResena(loan: any): void {
+    const dialogRef = this.dialog.open(CrearResenaComponent, {
+      width: '500px',
+      data: {
+        loan: loan,
+        reviews: [ // Aquí puedes obtener las reseñas actuales de algún servicio o base de datos
+          { user: 'EmCalde', text: 'Excelente libro, me encantó.', rating: 5 },
+          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 4 },
+          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 3 },
+          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 2 },
+          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 1 }
+        ]
+      }
     });
   }
 }

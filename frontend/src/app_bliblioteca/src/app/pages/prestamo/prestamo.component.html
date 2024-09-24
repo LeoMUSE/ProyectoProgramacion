@@ -15,7 +15,8 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan"
                 [rol]="rol"
-                (editLoan)="openEditLoanModal($event)">
+                (editLoan)="openEditLoanModal($event)"
+                (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
 
@@ -25,115 +26,11 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan" 
                 [rol]="rol"
-                (editLoan)="openEditLoanModal($event)">
+                (editLoan)="openEditLoanModal($event)"
+                (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
     </div>
 
     <!-- Icono + -->
     <app-add-icon *ngIf="rol === 'admin'" (addEvent)="openAddLoanDialog()"></app-add-icon>
-
-
-        <!-- Modal para Realizar Reseña -->
-        <div class="modal fade" id="realizarReseña" tabindex="-1" aria-labelledby="realizarReseñaLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="realizarReseñaLabel">Realizar Reseña</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Calificación de Estrellas Centrada -->
-                        <div class="text-center mb-3">
-                            <h6>Calificar Libro:</h6>
-                            <div class="rating-save d-flex justify-content-center align-items-center">
-                                <div class="rating me-2">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <!-- Campo para Escribir Reseña -->
-                        <div class="mb-3">
-                            <label for="reseñaTexto" class="form-label">Escribe tu reseña:</label>
-                            <textarea class="form-control modal-body-input" id="reseñaTexto" rows="4" placeholder="Escribe aquí tu reseña..."></textarea>
-                        </div>
-    
-                        <!-- Otras Reseñas de Usuarios -->
-                        <h5>Otras reseñas:</h5>
-                        <div class="user-reviews overflow-auto" style="max-height: 400px;">
-                            <!-- Reseña 1 -->
-                            <div class="review-item p-3 mb-3 text-light rounded">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="assets/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
-                                    <p class="mb-0"><strong>EmCalde</strong></p>
-                                </div>
-                                <p>Una obra maestra que te mantiene al filo del asiento.</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-    
-                            <!-- Reseña 2 -->
-                            <div class="review-item p-3 mb-3 text-light rounded">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="assets/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
-                                    <p class="mb-0"><strong>EmCalde</strong></p>
-                                </div>
-                                <p>Una obra maestra que te mantiene al filo del asiento.</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-    
-                            <!-- Reseña 3 -->
-                            <div class="review-item p-3 mb-3 text-light rounded">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="assets/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
-                                    <p class="mb-0"><strong>EmCalde</strong></p>
-                                </div>
-                                <p>Una obra maestra que te mantiene al filo del asiento.</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                            <!-- Reseña 4 -->
-                            <div class="review-item p-3 mb-3 text-light rounded">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="assets/EmmaCeleron.png" alt="Foto de EmCalde." class="user-image me-2">
-                                    <p class="mb-0"><strong>EmCalde</strong></p>
-                                </div>
-                                <p>Una obra maestra que te mantiene al filo del asiento.</p>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-    
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-warning">Guardar Reseña</button>
-                    </div>
-                </div>
-            </div>
-        </div>

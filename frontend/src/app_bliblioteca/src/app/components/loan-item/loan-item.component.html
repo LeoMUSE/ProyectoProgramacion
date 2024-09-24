@@ -12,7 +12,7 @@
         Editar Préstamo >
     </span>
         <!-- para Usuario -->
-    <a *ngIf="rol === 'user'" href="#" class="edit-link" data-bs-toggle="modal" data-bs-target="#realizarReseña">
+    <span *ngIf="rol === 'user'" class="edit-link" (click)="resenaClick()">
         Realizar Reseña >
-    </a>
+    </span>
 </div>

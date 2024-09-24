@@ -1,1 +1,29 @@
-<p>editar-perfil works!</p>
+<!-- Modal para modificar el perfil -->
+<mat-dialog-content class="modal-content">
+    <h5 mat-dialog-title>Modificar Perfil</h5>
+    <form>
+        <div class="form-group">
+            <mat-label>Foto de Perfil</mat-label>
+            <input type="file" accept="image/*" />
+        </div>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Nombre de Usuario</mat-label>
+            <input matInput [(ngModel)]="data.username" placeholder="Nombre de Usuario" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Teléfono</mat-label>
+            <input matInput [(ngModel)]="data.phone" placeholder="Teléfono" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput [(ngModel)]="data.email" placeholder="Correo Electrónico" type="email" />
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="saveChanges()">Guardar Cambios</button>
+    <button mat-button (click)="closeModal()">Cancelar</button>
+</mat-dialog-actions>

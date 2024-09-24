@@ -1,0 +1,63 @@
+.modal-title {
+    text-align: center;
+    color: #F5F378;
+    font-size: 1.5em;
+    background-color: #333;
+    margin: 0;
+}
+
+.modal-form {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+button[mat-button] {
+    margin-right: 8px;
+    border-radius: 15px;
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}
+
+.mat-content{
+    background-color: #333;
+}
+
+.mat-footer{
+    background-color: #333;
+}
+
+/* Modal Realizar reseña */
+.rating {
+    color: #F5F378;
+}
+
+.user-reviews {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.review-item {
+    background-color: #555;
+    color: #f1f1f1;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 5px;
+}
+
+.review-item p {
+    margin-bottom: 0;
+}
+
+.rating-choise {
+    color: #F5F378;
+    display: flex; 
+    justify-content: center; 
+    gap: 10px;
+}
