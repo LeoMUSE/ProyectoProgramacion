@@ -81,30 +81,12 @@ export class PrestamoComponent implements OnInit{
       width: '500px',
       data: { ...loan } // Pasa los datos del préstamo seleccionado
     });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // Actualiza el préstamo en tu lista con los datos editados
-        const index = this.loans.findIndex(l => l.user === result.user && l.bookTitle === result.bookTitle);
-        if (index !== -1) {
-          this.loans[index] = result;
-          this.filteredLoans = [...this.loans];
-        }
-      }
-    });
   }
 
   openAddLoanDialog(): void {
     const dialogRef = this.dialog.open(CrearPrestamoComponent, {
       width: '500px',
       data: {} // Puedes pasar datos adicionales aquí si lo necesitas
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log('Nuevo préstamo:', result);
-        // Aquí puedes manejar el resultado del modal, como guardar el nuevo préstamo.
-      }
     });
   }
 }

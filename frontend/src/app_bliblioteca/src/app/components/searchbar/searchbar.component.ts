@@ -11,6 +11,7 @@ export class SearchbarComponent {
   searchQuery: string = '';
 
   onSearch() {
+    console.log('buscar: ', this.searchQuery);
     this.searchEvent.emit(this.searchQuery)
   }
 }

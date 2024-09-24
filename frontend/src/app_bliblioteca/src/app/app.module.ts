@@ -37,6 +37,8 @@ import { CrearResenaComponent } from './components/modals/user-modals/crear-rese
 import { EditarPerfilComponent } from './components/modals/user-modals/editar-perfil/editar-perfil.component';
 import { OptionButtonComponent } from './components/option-button/option-button.component';
 import { ToolsComponent } from './pages/tools/tools.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { ToolsComponent } from './pages/tools/tools.component';
     EditarPerfilComponent,
     OptionButtonComponent,
     ToolsComponent,
+    UsersComponent,
+    UserItemComponent,
   ],
   imports: [
     BrowserModule,

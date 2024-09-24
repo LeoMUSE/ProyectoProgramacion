@@ -1,0 +1,127 @@
+.user-adm-item {
+    display: flex;
+    align-items: center; /* Alinea verticalmente todos los elementos dentro del contenedor */
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    transition: transform 0.3s ease;
+}
+
+.user-adm-item:hover {
+    transform: translateY(-5px);
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.user-details {
+    flex-grow: 1; /* Hace que este div ocupe todo el espacio disponible */
+}
+
+.user-details p {
+    color: white;
+    margin: 0;
+}
+
+.status-icon {
+    font-size: 20px;
+    color: #A0F199; /* Color del candado */
+    margin-left: auto; /* Mueve el ícono a la derecha */
+}
+
+/* Estilo para el dropdown */
+.user-adm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-adm-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-bottom: 0;
+}
+
+
+.user-adm-item:hover {
+    transform: translateY(-5px);
+}
+
+.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-details {
+    color: #fff;
+}
+
+/* Lock icon */
+.status-icon {
+    font-size: 24px;
+    color: #A0F199;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Dropdown usuario */
+.user-adm-dropdown {
+    background-color: #6C6C6C;
+    border-radius: 0 0 10px 10px;
+    margin-top: 0;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.user-adm-dropdown p {
+    margin: 5px 0;
+    color: #ddd;
+}
+
+/* Acciónes del admin sobre usuario */
+.user-actions {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.user-actions .btn-link {
+    color: #F5F378;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.user-actions .btn-link:hover {
+    text-decoration: underline;
+    color: #e5e05e;
+}
+
+.role {
+    color: #fff;
+}
