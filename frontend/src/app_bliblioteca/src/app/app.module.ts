@@ -39,6 +39,7 @@ import { OptionButtonComponent } from './components/option-button/option-button.
 import { ToolsComponent } from './pages/tools/tools.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
+import { ReviewComponent } from './pages/review/review.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { UserItemComponent } from './components/user-item/user-item.component';
     ToolsComponent,
     UsersComponent,
     UserItemComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

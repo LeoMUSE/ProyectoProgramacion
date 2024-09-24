@@ -125,3 +125,49 @@
 .role {
     color: #fff;
 }
+
+
+.delete-icon {
+    font-size: 24px;
+    color: #A0F199;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+}
+
+.book-image {
+    width: 120px;
+    height: 160px;
+    margin-right: 20px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Reseñas css */
+.rating {
+    display: flex;
+    gap: 5px;
+}
+
+.rating i {
+    color: #ffdd57;
+}
+
+
+@media (max-width: 576px) {
+    .user-info {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .user-image {
+        margin-right: 0;
+        margin-bottom: 10px; 
+        margin-top: 10px;
+    }
+}

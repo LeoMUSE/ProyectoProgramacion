@@ -11,6 +11,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { TopComponent } from './pages/top/top.component';
 import { ToolsComponent } from './pages/tools/tools.component';
 import { UsersComponent } from './pages/users/users.component';
+import { ReviewComponent } from './pages/review/review.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'top', component: TopComponent },
   { path: 'tools', component: ToolsComponent },
   { path: 'users', component: UsersComponent },
+  { path: 'review', component: ReviewComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];

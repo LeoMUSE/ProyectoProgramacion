@@ -7,12 +7,23 @@ import { Component, Input } from '@angular/core';
 })
 export class UserItemComponent {
   @Input() user: any;
+  @Input() review: any;
+  @Input() isReviewPage: boolean = false;
+  @Input() showDropdown: boolean = true;
 
-  toggleLock() {
-    this.user.locked = !this.user.locked;
+  toggleIcon() {
+    if (this.isReviewPage) {
+      this.user.deleted = !this.user.deleted;  // Simula el borrado
+    } else {
+      this.user.locked = !this.user.locked;
+    }
   }
 
-  lockIconColor(): string {
-    return this.user.locked ? '#EC704B' : '#A0F199';
+  iconColor(): string {
+    return this.isReviewPage ? '#EC704B' : (this.user.locked ? '#EC704B' : '#A0F199');
+  }
+
+  getIconClass(): string {
+    return this.isReviewPage ? 'fas fa-trash' : (this.user.locked ? 'fas fa-lock' : 'fas fa-unlock');
   }
 }
