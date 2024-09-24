@@ -1,0 +1,22 @@
+
+/* Contenido lista de libros*/
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+@media (min-width: 768px) {
+    .book-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .book-list {
+        grid-template-columns: 1fr 1fr 1fr; /* Tres columnas en pantallas más grandes */
+    }
+}

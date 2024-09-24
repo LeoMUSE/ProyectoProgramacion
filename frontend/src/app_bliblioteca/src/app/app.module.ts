@@ -40,6 +40,8 @@ import { ToolsComponent } from './pages/tools/tools.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { ReviewComponent } from './pages/review/review.component';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { CatalogoItemComponent } from './components/catalogo-item/catalogo-item.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { ReviewComponent } from './pages/review/review.component';
     ToolsComponent,
     UsersComponent,
     UserItemComponent,
-    ReviewComponent
+    ReviewComponent,
+    CatalogoComponent,
+    CatalogoItemComponent
   ],
   imports: [
     BrowserModule,

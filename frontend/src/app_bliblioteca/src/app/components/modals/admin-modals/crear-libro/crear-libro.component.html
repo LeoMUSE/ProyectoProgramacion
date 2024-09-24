@@ -1,1 +1,38 @@
-<p>crear-libro works!</p>
+<h1 mat-dialog-title class="modal-title">Agregar Libro</h1>
+<div mat-dialog-content class="mat-content">
+    <form class="mat-form">
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Título del Libro</mat-label>
+            <input matInput [(ngModel)]="data.bookTitle" name="bookTitle" placeholder="Título del libro" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Autor</mat-label>
+            <input matInput [(ngModel)]="data.bookAutor" name="bookAutor" placeholder="Ingrese Autor..." required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Editorial</mat-label>
+            <input matInput [(ngModel)]="data.bookEditorial" name="bookEditorial" placeholder="Ingrese Editorial..." required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Género</mat-label>
+            <input matInput [(ngModel)]="data.bookGenero" name="bookGenero" placeholder="Ingrese géneros..." required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Sinopsis</mat-label>
+            <textarea matInput [(ngModel)]="data.bookSinopsis" name="bookSinopsis" placeholder="Ingrese Sinopsis..." required></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Cantidad</mat-label>
+            <input matInput [(ngModel)]="data.bookCantidad" name="bookCantidad" type="number" placeholder="Ingrese Cantidad..." required>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions class="mat-footer">
+    <button mat-button (click)="closeModal()">Cancelar</button>
+    <button mat-button (click)="saveChanges()">Guardar Cambios</button>
+</div>
