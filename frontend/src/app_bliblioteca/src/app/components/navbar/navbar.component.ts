@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(
+    private authService: AuthService
+  ) { }
+
+  isAdmin() { 
+    const tokenRol = localStorage.getItem('token_rol');
+  if (tokenRol && tokenRol.includes("Admin")) {
+    return true;
+  } else {
+    return false;
+  }
+  }
 }
