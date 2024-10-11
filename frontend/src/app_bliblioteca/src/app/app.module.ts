@@ -43,6 +43,7 @@ import { UserItemComponent } from './components/user-item/user-item.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { CatalogoItemComponent } from './components/catalogo-item/catalogo-item.component';
+import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { CatalogoItemComponent } from './components/catalogo-item/catalogo-item.
     UserItemComponent,
     ReviewComponent,
     CatalogoComponent,
-    CatalogoItemComponent
+    CatalogoItemComponent,
+    AbmModalComponent,
   ],
   imports: [
     BrowserModule,

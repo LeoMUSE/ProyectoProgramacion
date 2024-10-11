@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearLibroComponent } from '../../components/modals/admin-modals/crear-libro/crear-libro.component';
+import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 
 @Component({
   selector: 'app-catalogo',
@@ -41,10 +42,17 @@ export class CatalogoComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  openAddBookDialog(): void {
-    const dialogRef = this.dialog.open(CrearLibroComponent, {
+  openABMbookModal(bookData: any, operation: string): void {
+    const dialogRef = this.dialog.open(AbmModalComponent, {
       width: '500px',
-      data: {} // Puedes pasar datos adicionales aquí si lo necesitas
+      data: {
+        formType: 'book',
+        formOperation: operation,
+        ...bookData
+      } 
     });
+    dialogRef.afterClosed().subscribe( result => {
+      console.log('El modal se cerro', result)
+    })
   }
 }
