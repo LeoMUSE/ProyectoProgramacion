@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { EditarPrestamoComponent } from '../../components/modals/admin-modals/editar-prestamo/editar-prestamo.component';
-import { CrearPrestamoComponent } from '../../components/modals/admin-modals/crear-prestamo/crear-prestamo.component';
 import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
+import { AuthService } from '../../services/auth.service';
+
 
 
 @Component({
@@ -54,7 +54,8 @@ export class PrestamoComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute, 
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService
   ) {}
 
 
@@ -93,6 +94,15 @@ export class PrestamoComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('El modal se cerró', result)
     })
+  }
+
+  isUser() { 
+    const tokenRol = localStorage.getItem('token_rol');
+  if (tokenRol && tokenRol.includes("Usuario")) {
+    return true;
+  } else {
+    return false;
+  }
   }
 
   openRealizarResena(loan: any): void {

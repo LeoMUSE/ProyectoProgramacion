@@ -28,30 +28,31 @@ export class AbmModalComponent {
       case 'book':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Libro' : 'Agregar Libro';
         this.formEntity = this.formBuilder.group({
-          bookTitle: [this.data.bookTitle || '', Validators.required],
-          bookAutor: [this.data.bookAutor || '', Validators.required],
-          bookEditorial: [this.data.bookEditorial || '', Validators.required],
-          bookGenero: [this.data.bookGenero || '', Validators.required],
-          bookSinopsis: [this.data.bookSinopsis || '', Validators.required],
-          bookCantidad: [this.data.bookCantidad || '', Validators.required],
+          titulo: [this.data.titulo || '', Validators.required],
+          cantidad: [this.data.cantidad || '', Validators.required],
+          autor: [this.data.autor || '', Validators.required],
+          editorial: [this.data.editorial || '', Validators.required],
+          genero: [this.data.genero || '', Validators.required],
+          sinopsis: [this.data.sinopsis || '', Validators.required],
         });
         break;
       case 'loan':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Préstamo' : 'Crear Prestamo';
         this.formEntity = this.formBuilder.group({
-          bookTitle: [this.data.bookTitle || '', Validators.required],
           username: [this.data.username || '', Validators.required],
-          startDate: [this.data.startDate || '', Validators.required],
-          endDate: [this.data.endDate || '', Validators.required],
+          libro: [this.data.libro || '', Validators.required],
+          inicio_prestamo: [this.data.inicio_prestamo || '', Validators.required],
+          fin_prestamo: [this.data.fin_prestamo || '', Validators.required],
           status: [this.data.status || '', Validators.required]
         })
         break;
       case 'user':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Usuario' : 'Agregar Usuario';
         this.formEntity = this.formBuilder.group({
-          username: [this.data.username || '', Validators.required],
-          name: [this.data.user || '', Validators.required],
-          lastname: [this.data.user || '', Validators.required],
+          user: [this.data.user || '', Validators.required],
+          contraseña: [this.data.contraseña || '', Validators.required],
+          nombre: [this.data.nombre || '', Validators.required],
+          apellido: [this.data.apellido || '', Validators.required],
           dni: [this.data.dni || '', Validators.required],
           telefono: [this.data.telefono || '', Validators.required],
           email: [this.data.email || '', Validators.required],

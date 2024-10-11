@@ -6,39 +6,39 @@
         <div *ngIf="data.formType === 'book'">
             <mat-form-field class="full-width">
                 <mat-label>Título del Libro</mat-label>
-                <input matInput formControlName="bookTitle" placeholder="Ingrese el título">
-                <mat-error *ngIf="formEntity.get('bookTitle')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="titulo" placeholder="Ingrese el título">
+                <mat-error *ngIf="formEntity.get('titulo')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Autor</mat-label>
-                <input matInput formControlName="bookAutor" placeholder="Ingrese el autor">
-                <mat-error *ngIf="formEntity.get('bookAutor')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="autor" placeholder="Ingrese el autor">
+                <mat-error *ngIf="formEntity.get('autor')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Editorial</mat-label>
-                <input matInput formControlName="bookEditorial" placeholder="Ingrese la editorial">
-                <mat-error *ngIf="formEntity.get('bookEditorial')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="editorial" placeholder="Ingrese la editorial">
+                <mat-error *ngIf="formEntity.get('editorial')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Género</mat-label>
-                <input matInput formControlName="bookGenero" placeholder="Ingrese el género">
-                <mat-error *ngIf="formEntity.get('bookGenero')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="genero" placeholder="Ingrese el género">
+                <mat-error *ngIf="formEntity.get('genero')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Sinopsis</mat-label>
-                <textarea matInput formControlName="bookSinopsis" placeholder="Ingrese la sinopsis"></textarea>
-                <mat-error *ngIf="formEntity.get('bookSinopsis')?.invalid">Este campo es requerido.</mat-error>
+                <textarea matInput formControlName="sinopsis" placeholder="Ingrese la sinopsis"></textarea>
+                <mat-error *ngIf="formEntity.get('sinopsis')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <!-- Este campo solo lo verá un administrador -->
             <mat-form-field *ngIf="isAdmin()" class="full-width">
                 <mat-label>Cantidad</mat-label>
-                <input matInput formControlName="bookCantidad" type="number" placeholder="Ingrese la cantidad">
-                <mat-error *ngIf="formEntity.get('bookCantidad')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="cantidad" type="number" placeholder="Ingrese la cantidad">
+                <mat-error *ngIf="formEntity.get('cantidad')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
         </div>
 
@@ -46,8 +46,8 @@
         <div *ngIf="data.formType === 'loan'">
             <mat-form-field class="full-width">
                 <mat-label>Título del Libro</mat-label>
-                <input matInput formControlName="bookTitle" placeholder="Ingrese el título del libro">
-                <mat-error *ngIf="formEntity.get('bookTitle')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="titulo" placeholder="Ingrese el título del libro">
+                <mat-error *ngIf="formEntity.get('titulo')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
@@ -58,14 +58,14 @@
 
             <mat-form-field class="full-width">
                 <mat-label>Fecha de Inicio</mat-label>
-                <input matInput formControlName="startDate" type="date" placeholder="Seleccione fecha de inicio">
-                <mat-error *ngIf="formEntity.get('startDate')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="inicio_prestamo" type="date" placeholder="Seleccione fecha de inicio">
+                <mat-error *ngIf="formEntity.get('inicio_prestamo')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Fecha de Fin</mat-label>
-                <input matInput formControlName="endDate" type="date" placeholder="Seleccione fecha de fin">
-                <mat-error *ngIf="formEntity.get('endDate')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="fin_prestamo" type="date" placeholder="Seleccione fecha de fin">
+                <mat-error *ngIf="formEntity.get('fin_prestamo')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
@@ -79,20 +79,26 @@
         <div *ngIf="data.formType === 'user'">
             <mat-form-field class="full-width">
                 <mat-label>Usuario</mat-label>
-                <input matInput formControlName="username" placeholder="Ingrese el nombre de usuario">
-                <mat-error *ngIf="formEntity.get('username')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="user" placeholder="Ingrese el nombre de usuario">
+                <mat-error *ngIf="formEntity.get('user')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Constraseña</mat-label>
+                <input matInput formControlName="contraseña" placeholder="Ingrese la contraseña de usuario">
+                <mat-error *ngIf="formEntity.get('contraseña')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Nombre</mat-label>
-                <input matInput formControlName="name" placeholder="Ingrese el nombre">
-                <mat-error *ngIf="formEntity.get('name')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="nombre" placeholder="Ingrese el nombre">
+                <mat-error *ngIf="formEntity.get('nombre')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Apellido</mat-label>
-                <input matInput formControlName="lastname" placeholder="Ingrese el apellido">
-                <mat-error *ngIf="formEntity.get('lastname')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="apellido" placeholder="Ingrese el apellido">
+                <mat-error *ngIf="formEntity.get('apellido')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">

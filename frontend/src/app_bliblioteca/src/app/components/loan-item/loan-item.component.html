@@ -8,11 +8,11 @@
         <p><b>Estado:</b> {{ loan.status }}</p>
     </div>
     <!-- para Administrador -->
-    <span *ngIf="rol === 'admin'" class="edit-link" (click)="editClick()">
+    <span *ngIf="isAdmin()" class="edit-link" (click)="editClick()">
         Editar Préstamo >
     </span>
         <!-- para Usuario -->
-    <span *ngIf="rol === 'user'" class="edit-link" (click)="resenaClick()">
+    <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
         Realizar Reseña >
     </span>
 </div>

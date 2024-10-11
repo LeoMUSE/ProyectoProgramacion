@@ -15,7 +15,8 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan"
                 [rol]="rol"
-                (editLoan)="openABMLoanModal($event, 'edit')">
+                (editLoan)="openABMLoanModal($event, 'edit')"
+                (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
 
@@ -25,7 +26,8 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan" 
                 [rol]="rol"
-                (editLoan)="openABMLoanModal($event, 'edit')">
+                (editLoan)="openABMLoanModal($event, 'edit')"
+                (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
     </div>
