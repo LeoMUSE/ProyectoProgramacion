@@ -8,40 +8,40 @@
     <!--Log in Form-->
     <div class="d-flex justify-content-center align-items-center">
         <div class="login-container">
-            <form>
+            <form [formGroup]="signInForm">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="vit.cara">
+                    <input type="text" class="form-control" formControlName="user" id="username" placeholder="vit.cara">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder=".................">
+                    <input type="password" class="form-control" formControlName="contraseña" id="password" placeholder=".................">
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder=".................">
+                    <input type="text" class="form-control" formControlName="nombre" id="name" placeholder="nombre">
                 </div>
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Lastname</label>
-                    <input type="text" class="form-control" id="lastname" placeholder=".................">
+                    <input type="text" class="form-control" formControlName="apellido" id="lastname" placeholder="apellido">
                 </div>
                 <div class="mb-3">
                     <label for="dni" class="form-label">dni</label>
-                    <input type="text" class="form-control" id="dni" placeholder=".................">
+                    <input type="text" class="form-control" formControlName="dni" id="dni" placeholder="dni">
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="phone" placeholder=".................">
+                    <input type="text" class="form-control" formControlName="telefono" id="phone" placeholder="telefono">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="everland@gmail.com">
+                    <input type="email" class="form-control" formControlName="email" id="email" placeholder="everland@gmail.com">
                 </div>
-                <a routerLink="/login">
-                    <button type="button" class="btn btn-primary w-100">Create an account</button>    
-                </a>
                 
             </form>
+                <button type="button" (click)="submit()" href="#" class="btn btn-primary w-100">Create an account</button>    
+                
+
             <div class="register-link">
                 Already have an account<br>
                 <a routerLink="/login">Sign in ></a>

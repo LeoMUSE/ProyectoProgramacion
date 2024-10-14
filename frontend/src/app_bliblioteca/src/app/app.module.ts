@@ -28,12 +28,6 @@ import { BookItemComponent } from './components/book-item/book-item.component';
 import { SearchComponent } from './pages/search/search.component';
 import { BookModalComponent } from './components/modals/book-modal/book-modal.component';
 import { TopComponent } from './pages/top/top.component';
-import { CrearUserComponent } from './components/modals/admin-modals/crear-user/crear-user.component';
-import { EditarUserComponent } from './components/modals/admin-modals/editar-user/editar-user.component';
-import { CrearPrestamoComponent } from './components/modals/admin-modals/crear-prestamo/crear-prestamo.component';
-import { EditarPrestamoComponent } from './components/modals/admin-modals/editar-prestamo/editar-prestamo.component';
-import { CrearLibroComponent } from './components/modals/admin-modals/crear-libro/crear-libro.component';
-import { EditarLibroComponent } from './components/modals/admin-modals/editar-libro/editar-libro.component';
 import { CrearResenaComponent } from './components/modals/user-modals/crear-resena/crear-resena.component';
 import { EditarPerfilComponent } from './components/modals/user-modals/editar-perfil/editar-perfil.component';
 import { OptionButtonComponent } from './components/option-button/option-button.component';
@@ -65,12 +59,6 @@ import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.compo
     SearchComponent,
     TopComponent,
     BookModalComponent,
-    CrearUserComponent,
-    EditarUserComponent,
-    CrearPrestamoComponent,
-    EditarPrestamoComponent,
-    CrearLibroComponent,
-    EditarLibroComponent,
     CrearResenaComponent,
     EditarPerfilComponent,
     OptionButtonComponent,

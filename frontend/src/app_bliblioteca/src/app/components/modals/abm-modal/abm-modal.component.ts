@@ -79,7 +79,6 @@ export class AbmModalComponent {
   }
 
   handleSave(formData: any): void {
-    console.log('Guardando datos...', formData);
     this.dialogRef.close(formData);
   }
 

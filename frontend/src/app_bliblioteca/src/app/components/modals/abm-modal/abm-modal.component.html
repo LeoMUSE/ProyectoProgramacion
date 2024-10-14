@@ -46,8 +46,8 @@
         <div *ngIf="data.formType === 'loan'">
             <mat-form-field class="full-width">
                 <mat-label>Título del Libro</mat-label>
-                <input matInput formControlName="titulo" placeholder="Ingrese el título del libro">
-                <mat-error *ngIf="formEntity.get('titulo')?.invalid">Este campo es requerido.</mat-error>
+                <input matInput formControlName="libro" placeholder="Ingrese el título del libro">
+                <mat-error *ngIf="formEntity.get('libro')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">

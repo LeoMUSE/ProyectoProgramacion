@@ -10,14 +10,14 @@ import { jwtDecode } from 'jwt-decode';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  loginForm!: FormGroup;
+  signInForm!: FormGroup;
 
   constructor(
       private authService: AuthService,
       private router: Router,
       private formBuilder: FormBuilder
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.signInForm = this.formBuilder.group({
       user: ['', Validators.required],
       contraseña: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -48,9 +48,9 @@ export class SignupComponent {
   }
 
   submit() { 
-    if(this.loginForm.valid) {
-      console.log('Dato del formulario: ', this.loginForm.value);
-      this.irLogin(this.loginForm.value);
+    if(this.signInForm.valid) {
+      console.log('Dato del formulario: ', this.signInForm.value);
+      this.irLogin(this.signInForm.value);
     } else {
       alert('Los valores son requeridos');
     }   
