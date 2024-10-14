@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CrearLibroComponent } from '../../components/modals/admin-modals/crear-libro/crear-libro.component';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 
 @Component({
