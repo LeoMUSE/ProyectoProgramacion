@@ -15,7 +15,7 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan"
                 [rol]="rol"
-                (editLoan)="openEditLoanModal($event)"
+                (editLoan)="openABMLoanModal($event, 'edit')"
                 (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
@@ -26,11 +26,11 @@
                 *ngFor="let loan of filteredLoans" 
                 [loan]="loan" 
                 [rol]="rol"
-                (editLoan)="openEditLoanModal($event)"
+                (editLoan)="openABMLoanModal($event, 'edit')"
                 (resena)="openRealizarResena($event)">
             </app-loan-item>
         </section>
     </div>
 
     <!-- Icono + -->
-    <app-add-icon *ngIf="rol === 'admin'" (addEvent)="openAddLoanDialog()"></app-add-icon>
+    <app-add-icon (addEvent)="openABMLoanModal($event, 'create')"></app-add-icon>

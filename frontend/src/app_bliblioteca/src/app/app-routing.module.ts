@@ -13,23 +13,25 @@ import { ToolsComponent } from './pages/tools/tools.component';
 import { UsersComponent } from './pages/users/users.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { authSessionGuard } from './guards/auth-session.guard';
+import { adminSessionGuard } from './guards/admin-session.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'notificaciones', component: NotificacionesComponent},
+  { path: 'notificaciones', component: NotificacionesComponent, canActivate:[authSessionGuard]},
   { path: 'signup', component: SignupComponent },
-  { path: 'perfil', component: PerfilComponent },
-  { path: 'prestamo', component: PrestamoComponent },  
-  { path: 'prestamo/:id/:rol', component: PrestamoComponent },
-  { path: 'save', component: SaveComponent },
+  { path: 'perfil', component: PerfilComponent, canActivate:[authSessionGuard]},
+  { path: 'prestamo', component: PrestamoComponent, canActivate:[authSessionGuard]},  
+  { path: 'prestamo/:id/:rol', component: PrestamoComponent, canActivate:[adminSessionGuard]},
+  { path: 'save', component: SaveComponent, canActivate:[authSessionGuard]},
   { path: 'search', component: SearchComponent },
   { path: 'top', component: TopComponent },
-  { path: 'tools', component: ToolsComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'review', component: ReviewComponent },
-  { path: 'catalogo', component: CatalogoComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'tools', component: ToolsComponent, canActivate:[adminSessionGuard]},
+  { path: 'users', component: UsersComponent, canActivate:[adminSessionGuard]},
+  { path: 'review', component: ReviewComponent, canActivate:[adminSessionGuard]},
+  { path: 'catalogo', component: CatalogoComponent, canActivate:[adminSessionGuard]},
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
 
 ];
 

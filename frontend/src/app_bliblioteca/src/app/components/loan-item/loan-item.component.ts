@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-loan-item',
@@ -12,6 +13,28 @@ export class LoanItemComponent {
 
   @Output() editLoan = new EventEmitter<any>();
   @Output() resena = new EventEmitter<any>();
+
+  constructor(
+    private authService: AuthService
+  ) { }
+
+  isAdmin() { 
+    const tokenRol = localStorage.getItem('token_rol');
+  if (tokenRol && tokenRol.includes("Admin")) {
+    return true;
+  } else {
+    return false;
+  }
+  }
+
+  isUser() { 
+    const tokenRol = localStorage.getItem('token_rol');
+  if (tokenRol && tokenRol.includes("Usuario")) {
+    return true;
+  } else {
+    return false;
+  }
+  }
 
   editClick(): void {
     this.editLoan.emit(this.loan);

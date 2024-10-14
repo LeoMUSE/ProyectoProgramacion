@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { EditarPrestamoComponent } from '../../components/modals/admin-modals/editar-prestamo/editar-prestamo.component';
-import { CrearPrestamoComponent } from '../../components/modals/admin-modals/crear-prestamo/crear-prestamo.component';
 import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
+import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
+import { AuthService } from '../../services/auth.service';
+
 
 
 @Component({
@@ -51,7 +52,11 @@ export class PrestamoComponent implements OnInit{
   rol: string = 'user';
   filteredLoans = [...this.loans]
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private dialog: MatDialog,
+    private authService: AuthService
+  ) {}
 
 
   ngOnInit(): void {
@@ -77,18 +82,27 @@ export class PrestamoComponent implements OnInit{
     }
   }
 
-  openEditLoanModal(loan: any): void {
-    const dialogRef = this.dialog.open(EditarPrestamoComponent, {
+  openABMLoanModal(loanData: any, operation: string): void {
+    const dialogRef = this.dialog.open(AbmModalComponent, {
       width: '500px',
-      data: { ...loan } // Pasa los datos del préstamo seleccionado
+      data: {
+        formType: 'loan',
+        formOperation: operation,
+        ...loanData
+      }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró', result)
+    })
   }
 
-  openAddLoanDialog(): void {
-    const dialogRef = this.dialog.open(CrearPrestamoComponent, {
-      width: '500px',
-      data: {} // Puedes pasar datos adicionales aquí si lo necesitas
-    });
+  isUser() { 
+    const tokenRol = localStorage.getItem('token_rol');
+  if (tokenRol && tokenRol.includes("Usuario")) {
+    return true;
+  } else {
+    return false;
+  }
   }
 
   openRealizarResena(loan: any): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { CrearUserComponent } from '../../components/modals/admin-modals/crear-user/crear-user.component';
+import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 
 @Component({
   selector: 'app-users',
@@ -111,10 +111,17 @@ export class UsersComponent implements OnInit{
     }
   }
 
-  openAddUserDialog(): void {
-    const dialogRef = this.dialog.open(CrearUserComponent, {
+  openABMUserModal(userData: any, operation: string): void {
+    const dialogRef = this.dialog.open(AbmModalComponent, {
       width: '500px',
-      data: {} // Puedes pasar datos adicionales aquí si lo necesitas
+      data: {
+        formType: 'user',
+        formOperation: operation,
+        ...userData
+      }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró', result)
+    })
   }
 }
