@@ -23,10 +23,13 @@ export class PerfilComponent {
     this.router.navigateByUrl('login')
   }
 
-  openEditPerfilDialog(): void {
+  openEditPerfilDialog(perfilData: any): void {
     const dialogRef = this.dialog.open(EditarPerfilComponent, {
       width: '500px',
-      data: {} // Puedes pasar datos adicionales aquí si lo necesitas
+      data: {...perfilData}
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró', result)
+    })
   }
 }

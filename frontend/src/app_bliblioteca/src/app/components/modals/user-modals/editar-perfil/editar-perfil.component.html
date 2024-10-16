@@ -1,25 +1,57 @@
 <h5 mat-dialog-title class="modal-title">Modificar Perfil</h5>
 <!-- Modal para modificar el perfil -->
 <mat-dialog-content class="mat-content">
-    <form class="mat-form">
+    <form [formGroup]="formPerfil" class="mat-form">
         <div class="form-img">
-            <mat-label>Foto de Perfil</mat-label>
-            <input type="file" accept="image/*" />
+            <mat-form-field class="full-width">
+                <mat-label>Usuario</mat-label>
+                <input matInput formControlName="user" placeholder="Ingrese el nombre de usuario">
+                <mat-error *ngIf="formPerfil.get('user')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Constraseña</mat-label>
+                <input matInput formControlName="contraseña" placeholder="Ingrese la contraseña de usuario">
+                <mat-error *ngIf="formPerfil.get('contraseña')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" placeholder="Ingrese el nombre">
+                <mat-error *ngIf="formPerfil.get('nombre')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput formControlName="apellido" placeholder="Ingrese el apellido">
+                <mat-error *ngIf="formPerfil.get('apellido')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>DNI</mat-label>
+                <input matInput formControlName="dni" placeholder="Ingrese el DNI">
+                <mat-error *ngIf="formPerfil.get('dni')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefono" placeholder="Ingrese el teléfono">
+                <mat-error *ngIf="formPerfil.get('telefono')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Ingrese el email">
+                <mat-error *ngIf="formPerfil.get('email')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <!-- Solo los administradores pueden ver y modificar el rol -->
+            <mat-form-field *ngIf="isAdmin()" class="full-width">
+                <mat-label>Rol</mat-label>
+                <input matInput formControlName="rol" placeholder="Ingrese el rol">
+                <mat-error *ngIf="formPerfil.get('rol')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
         </div>
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Nombre de Usuario</mat-label>
-            <input matInput [(ngModel)]="data.username" placeholder="Nombre de Usuario" />
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Teléfono</mat-label>
-            <input matInput [(ngModel)]="data.phone" placeholder="Teléfono" />
-        </mat-form-field>
-
-        <mat-form-field appearance="fill" class="full-width">
-            <mat-label>Correo Electrónico</mat-label>
-            <input matInput [(ngModel)]="data.email" placeholder="Correo Electrónico" type="email" />
-        </mat-form-field>
     </form>
 </mat-dialog-content>
 
