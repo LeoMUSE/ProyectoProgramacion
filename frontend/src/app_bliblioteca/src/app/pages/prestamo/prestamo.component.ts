@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 
 

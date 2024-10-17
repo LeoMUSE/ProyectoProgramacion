@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarPerfilComponent } from '../../components/modals/user-modals/editar-perfil/editar-perfil.component';
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from '../../services/auth/auth.service'
 import { Router } from '@angular/router';
 
 @Component({
