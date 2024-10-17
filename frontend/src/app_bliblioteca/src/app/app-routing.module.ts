@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent, canActivate:[adminSessionGuard]},
   { path: 'catalogo', component: CatalogoComponent, canActivate:[adminSessionGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-
+  
 ];
 
 @NgModule({
