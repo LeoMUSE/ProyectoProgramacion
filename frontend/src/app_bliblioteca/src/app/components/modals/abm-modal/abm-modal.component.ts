@@ -53,8 +53,8 @@ export class AbmModalComponent {
           contraseña: [this.data.contraseña || '', Validators.required],
           nombre: [this.data.nombre || '', Validators.required],
           apellido: [this.data.apellido || '', Validators.required],
-          dni: [this.data.dni || '', Validators.required],
-          telefono: [this.data.telefono || '', Validators.required],
+          dni: [this.data.dni || '', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+          telefono: [this.data.telefono || '', Validators.required, Validators.maxLength(10)],
           email: [this.data.email || '', Validators.required],
           rol: [this.data.rol || '', Validators.required],
         })

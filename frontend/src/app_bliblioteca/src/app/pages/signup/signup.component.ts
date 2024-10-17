@@ -24,8 +24,8 @@ export class SignupComponent {
       contraseña: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      dni: ['', Validators.required],
-      telefono: ['', Validators.required],
+      dni: ['', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+      telefono: ['', Validators.required, Validators.maxLength(10)],
       email: ['', Validators.required],
     })
   }
