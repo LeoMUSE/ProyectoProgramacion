@@ -5,37 +5,37 @@
         <div class="form-img">
             <mat-form-field class="full-width">
                 <mat-label>Usuario</mat-label>
-                <input matInput formControlName="user" placeholder="Ingrese el nombre de usuario">
+                <input matInput formControlName="user" type="text" placeholder="Ingrese el nombre de usuario">
                 <mat-error *ngIf="formPerfil.get('user')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Constraseña</mat-label>
-                <input matInput formControlName="contraseña" placeholder="Ingrese la contraseña de usuario">
+                <input matInput formControlName="contraseña" type="password" placeholder="Ingrese la contraseña de usuario">
                 <mat-error *ngIf="formPerfil.get('contraseña')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Nombre</mat-label>
-                <input matInput formControlName="nombre" placeholder="Ingrese el nombre">
+                <input matInput formControlName="nombre" type="text" placeholder="Ingrese el nombre">
                 <mat-error *ngIf="formPerfil.get('nombre')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Apellido</mat-label>
-                <input matInput formControlName="apellido" placeholder="Ingrese el apellido">
+                <input matInput formControlName="apellido" type="text" placeholder="Ingrese el apellido">
                 <mat-error *ngIf="formPerfil.get('apellido')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="dni" placeholder="Ingrese el DNI">
+                <input matInput formControlName="dni" type="number" placeholder="Ingrese el DNI" min="10000000" max="99999999" step="1">
                 <mat-error *ngIf="formPerfil.get('dni')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Teléfono</mat-label>
-                <input matInput formControlName="telefono" placeholder="Ingrese el teléfono">
+                <input matInput formControlName="telefono" type="tel" placeholder="Ingrese el teléfono">
                 <mat-error *ngIf="formPerfil.get('telefono')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 

@@ -103,13 +103,13 @@
 
             <mat-form-field class="full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="dni" placeholder="Ingrese el DNI">
+                <input matInput formControlName="dni" type="number" placeholder="Ingrese el DNI" min="10000000" max="99999999" step="1">
                 <mat-error *ngIf="formEntity.get('dni')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Teléfono</mat-label>
-                <input matInput formControlName="telefono" placeholder="Ingrese el teléfono">
+                <input matInput formControlName="telefono" type="tel" placeholder="Ingrese el teléfono">
                 <mat-error *ngIf="formEntity.get('telefono')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
