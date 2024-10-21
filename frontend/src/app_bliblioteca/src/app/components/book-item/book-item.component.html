@@ -1,10 +1,10 @@
 <div class="book-item d-flex">
     <div *ngIf="book.rank" class="book-top-number">{{ book.rank }}.</div> <!-- Mostrar el número de posición solo si existe -->
-    <img [src]="book.image" alt="{{ book.title }}" class="img-fluid">
+    <img [src]="book.img" alt="{{ book.titulo }}" class="img-fluid">
     <div class="book-info">
-        <h3>{{ book.title }}</h3>
-        <p class="author">{{ book.author }}</p>
-        <p class="synopsis">{{ book.synopsis }}</p>
+        <h3>{{ book.titulo }}</h3>
+        <p class="author">{{ book.autor[0].apodo }}</p>
+        <p class="synopsis">{{ book.sinopsis }}</p>
         <div class="rating-save d-flex align-items-center">
             <div class="rating me-2">
                 <i *ngFor="let star of [].constructor(book.rating); let j = index" class="fas fa-star"></i>

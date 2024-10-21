@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
@@ -13,12 +13,45 @@ export class ReseñasService {
     private httpClient: HttpClient
   ) { }
 
-  getReviews(): Observable<any> {
+  getReviews(page: number, params?: {nroValoracion:string, ordenValoracion:string, idUserPost:string, fechaReseña:string, Valoraciones_desc:string, Valoraciones_asc:string}){
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     })
+    let httpParams = new HttpParams().set('page', page.toString());
+
+    if (params) {
+      if (params.nroValoracion) {
+        httpParams = httpParams.set('nroValoracion', params.nroValoracion)
+      }
+    }
+    if (params) {
+      if (params.ordenValoracion) {
+        httpParams = httpParams.set('ordenValoracion', params.ordenValoracion)
+      }
+    }
+    if (params) {
+      if (params.idUserPost) {
+        httpParams = httpParams.set('idUserPost', params.idUserPost)
+      }
+    }
+    if (params) {
+      if (params.idUserPost) {
+        httpParams = httpParams.set('idUserPost', params.idUserPost)
+      }
+    }
+    if (params) {
+      if (params.Valoraciones_desc) {
+        httpParams = httpParams.set('Valoraciones_desc', params.Valoraciones_desc)
+      }
+    }
+    if (params) {
+      if (params.Valoraciones_asc) {
+        httpParams = httpParams.set('Valoraciones_asc', params.Valoraciones_asc)
+      }
+    }
+    
     return this.httpClient.get(`${this.url}/reseñas`, {headers: headers})
   }
 

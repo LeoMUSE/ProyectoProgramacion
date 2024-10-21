@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, first } from 'rxjs';
 
@@ -12,23 +12,30 @@ export class NotificacionesService {
     private httpClient: HttpClient,
   ) { }
 
-  getNotification() {
+  getNotification(page: number, params?: {usuario:string}) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     })
-    this.httpClient.get(`${this.url}/reseñas`, {headers: headers})
+    let httpParams = new HttpParams().set('page', page.toString());
+
+    if (params) {
+      if (params.usuario) {
+        httpParams = httpParams.set('usuario', params.usuario)
+      }
+    }
+
+    this.httpClient.get(`${this.url}/notificacion`, {headers: headers})
   }
 
-  updateNotification(id: number, userData: any): Observable<any> {
+  postNotification(page: number, params?: {idUsuario:string}) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     })
-    console.log(userData)
-    return this.httpClient.put(`${this.url}/reseñas/${id}`, userData, {headers: headers}).pipe(first())
+    this.httpClient.post(`${this.url}/notificacion`, {headers: headers})
   }
 
 }
