@@ -15,6 +15,7 @@ class Prestamo(db.Model):
     fk_idLibro= db.relationship("Libro", secondary=prestamos_libros, backref=db.backref("prestamos", lazy="dynamic")) #un libro tiene varios prestaos y los prestamos pueden tener varios libros n:m
     inicio_prestamo = db.Column(db.DateTime, nullable=False)
     fin_prestamo = db.Column(db.DateTime, nullable=False)
+    # Agregar estado de prestamo 
 
     def __repr__(self):
         return f"<id: {self.idPrestamo}, Usuario: {self.fk_idUser}, Libro: {self.fk_idLibro}, Inicio_Prestamo: {self.inicio_prestamo}, Fin_Prestamo: {self.fin_prestamo}"

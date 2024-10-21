@@ -12,6 +12,8 @@ class Usuario(db.Model):
     telefono = db.Column(db.String(14), nullable=False)
     email = db.Column(db.String(60),  unique=True, index=True, nullable=False)
     rol = db.Column(db.String(30), nullable=False, server_default = "Usuario")
+    profile_img = db.Column(db.String(60))
+    status = db.Column(db.Boolean, nullable=False, default=False)
     notificaciones_user = db.relationship("Notificacion", back_populates="fk_user_notificacion", cascade="all, delete-orphan")
     prestamos_user = db.relationship("Prestamo", back_populates="fk_user_prestamo", cascade="all, delete-orphan")
     reseñas_user = db.relationship("Reseña", back_populates="fk_user_reseña", cascade="all, delete-orphan")
@@ -19,7 +21,7 @@ class Usuario(db.Model):
     def __repr__(self):
         return (
             f"<id: {self.idUser}, User: {self.user}, Contraseña: {self.contraseña}, Nombre: {self.nombre},"
-            + f"Apellido: {self.apellido}, DNI: {self.dni}, Telefono: {self.telefono}, Email: {self.email}, Rol: {self.rol}>"
+            + f"Apellido: {self.apellido}, DNI: {self.dni}, Telefono: {self.telefono}, Email: {self.email}, Rol: {self.rol}, Profile Img: {self.profile_img}>"
         )
     def to_json(self):
         usuario_json = {
@@ -31,7 +33,9 @@ class Usuario(db.Model):
             "dni" : int(self.dni),
             "telefono" : str(self.telefono),
             "email" : str(self.email),
-            "rol" : str(self.rol)
+            "rol" : str(self.rol),
+            "img" : str(self.profile_img), # ver como manejar las imagenes
+            "status": str(self.status)
         }
         return usuario_json
     
@@ -66,6 +70,8 @@ class Usuario(db.Model):
         telefono = usuario_json.get("telefono")
         email = usuario_json.get("email")
         rol = usuario_json.get("rol")   
+        img = usuario_json.get("img") #ver como manejar las imagenes
+        status = usuario_json.get("status")
         return Usuario(
             idUser=id,
             user=user,
@@ -75,5 +81,7 @@ class Usuario(db.Model):
             dni=dni,
             telefono=telefono,
             email=email,
-            rol=rol
+            rol=rol,
+            profile_img=img,
+            status=status
         )
