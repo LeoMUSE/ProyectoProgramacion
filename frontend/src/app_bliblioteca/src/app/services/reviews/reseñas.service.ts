@@ -40,4 +40,13 @@ export class ReseñasService {
     console.log(reviewData)
     return this.httpClient.put(`${this.url}/reseña/${id}`, reviewData, {headers: headers}).pipe(first())
   }
+
+  deleteReview(id: number): Observable<any> {
+    let auth_token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+    return this.httpClient.delete(`${this.url}/reseña/${id}`, {headers: headers}).pipe(first())
+  }
 }

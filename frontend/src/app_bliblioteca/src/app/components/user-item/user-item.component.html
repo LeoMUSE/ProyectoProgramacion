@@ -30,8 +30,9 @@
         <!-- Imagen del usuario -->
         <img [src]="user.img" alt="Usuario" class="user-image">
         <div class="user-details">
-            <p>Usuario: {{ user.username }}</p>
-            <p>Nombre: {{ user.name }}</p>
+            <p>Usuario: {{ user.user }}</p>
+            <p>Nombre: {{ user.nombre }}</p>
+            <p>Apellido: {{ user.apellido }}</p>
         </div>
         <!-- Ícono de estado de usuario (candado) -->
         <button class="status-icon ms-auto" (click)="toggleIcon()">
@@ -43,13 +44,13 @@
 <!-- Mostrar dropdown sólo si showDropdown es true (cuando no es reseña) -->
 <div *ngIf="showDropdown && !isReviewPage" [id]="user.id" class="collapse user-adm-dropdown">
     <div class="p-3">
-        <p>Tel: {{ user.phone }}</p>
-        <p>Email: {{ user.email }}</p>
         <p>DNI: {{ user.dni }}</p>
+        <p>Tel: {{ user.telefono }}</p>
+        <p>Email: {{ user.email }}</p>
         <div class="user-actions">
             <a routerLink="/prestamo/1/admin" class="btn btn-link">Ver Préstamos ></a>
             <a routerLink="" class="btn btn-link">Ver Reseñas ></a>
-            <a href="#" class="btn btn-link role">Rol: {{ user.role }}</a>
+            <a href="#" class="btn btn-link role">Rol: {{ user.rol }}</a>
         </div>
     </div>
 </div>
