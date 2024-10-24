@@ -51,16 +51,17 @@
         <!-- Formulario para Préstamos -->
         <div *ngIf="data.formType === 'loan'">
             <mat-form-field class="full-width">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="number" formControlName="usuario" placeholder="Ingrese el id del usuario">
+                <mat-error *ngIf="formEntity.get('usuario')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="full-width">
                 <mat-label>Libro</mat-label>
                 <input matInput type="number" formControlName="libro" placeholder="Ingrese el id del libro">
                 <mat-error *ngIf="formEntity.get('libro')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="full-width">
-                <mat-label>Usuario</mat-label>
-                <input matInput type="number" formControlName="usuario" placeholder="Ingrese el id del usuario">
-                <mat-error *ngIf="formEntity.get('usuario')?.invalid">Este campo es requerido.</mat-error>
-            </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Fecha de Inicio</mat-label>
@@ -76,7 +77,10 @@
 
             <mat-form-field class="full-width">
                 <mat-label>Estado</mat-label>
-                <input matInput formControlName="estado" placeholder="Ingrese el estado del préstamo">
+                <mat-select formControlName="estado" placeholder="Seleccione el estado">
+                    <mat-option value="Activo">Activo</mat-option>
+                    <mat-option value="Desactivo">Desactivo</mat-option>
+                </mat-select>
                 <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
         </div>
@@ -115,7 +119,7 @@
 
             <mat-form-field class="full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="dni" type="number" placeholder="Ingrese el DNI" min="10000000" max="99999999" step="1">
+                <input matInput formControlName="dni" type="number" placeholder="Ingrese el DNI">
                 <mat-error *ngIf="formEntity.get('dni')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
@@ -134,12 +138,20 @@
             <!-- Solo los administradores pueden ver y modificar el rol -->
             <mat-form-field *ngIf="isAdmin()" class="full-width">
                 <mat-label>Rol</mat-label>
-                <input matInput formControlName="rol" placeholder="Ingrese el rol">
+                <mat-select formControlName="rol" placeholder="Seleccione un rol">
+                    <mat-option value="Admin">Admin</mat-option>
+                    <mat-option value="Usuario">Usuario</mat-option>
+                    <mat-option value="Bibliotecario">Bibliotecario</mat-option>
+                </mat-select>
                 <mat-error *ngIf="formEntity.get('rol')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
-            <mat-form-field *ngIf="isAdmin()" class="full-width">
+
+            <mat-form-field class="full-width">
                 <mat-label>Estado</mat-label>
-                <input matInput formControlName="estado" placeholder="Ingrese el estado">
+                    <mat-select formControlName="estado" placeholder="Seleccione el estado">
+                        <mat-option [value]="true">Desbloqueado</mat-option>
+                        <mat-option [value]="false">Bloqueado</mat-option>
+                    </mat-select>
                 <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
         </div>

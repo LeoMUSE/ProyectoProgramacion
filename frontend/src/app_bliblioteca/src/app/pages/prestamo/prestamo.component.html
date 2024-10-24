@@ -6,9 +6,9 @@
         <!-- Barra de búsqueda -->
         <app-searchbar></app-searchbar>
 
-        <h2>Loans</h2>
+        <h2>Préstamos</h2>
 
-        <h3>Active Loans</h3>
+        <h3>Préstamos Activos</h3>
 
         <section class="loans">
             <app-loan-item 
@@ -20,7 +20,7 @@
             </app-loan-item>
         </section>
 
-        <h3 style="color:#EC704B">Deactive Loans</h3>
+        <h3 style="color:#EC704B">Préstamos Desactivos</h3>
         <section class="loans">
             <app-loan-item 
                 *ngFor="let loan of filteredLoans" 

@@ -68,7 +68,7 @@ export class PrestamoComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('El modal se cerró', result);
       
-      if (result) {
+      if (result && result !== null) {
         if (operation === 'create') {
           this.loanService.postLoan(result).subscribe(() => {
             this.refreshLoanList();

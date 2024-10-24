@@ -78,7 +78,7 @@ export class AbmModalComponent {
   }
 
   closeModal(): void {
-    this.dialogRef.close()
+    this.dialogRef.close(null)
   }
 
   handleSave(formData: any): void {
@@ -87,8 +87,24 @@ export class AbmModalComponent {
 
   saveChanges(): void {
     if (this.formEntity.valid) {
-      console.log('Datos del formulario: ', this.formEntity.value);
-      this.handleSave(this.formEntity.value)
+      const formData = { ...this.formEntity.value };
+
+      // Si el formulario es de préstamo, formatea las fechas
+      if (formData.inicio_prestamo && formData.fin_prestamo) {
+        formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
+        formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
+      }
+
+      console.log('Datos del formulario: ', formData);
+      this.handleSave(formData);
     }
+  }
+
+  formatDate(date: string | Date): string {
+    const parsedDate = new Date(date);
+    const day = parsedDate.getDate().toString().padStart(2, '0'); // Asegura dos dígitos para el día
+    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0'); // Los meses son 0-indexados
+    const year = parsedDate.getFullYear();
+    return `${day}-${month}-${year}`;
   }
 }

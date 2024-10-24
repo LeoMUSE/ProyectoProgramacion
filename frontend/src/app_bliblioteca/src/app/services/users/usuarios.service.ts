@@ -57,13 +57,14 @@ export class UsuariosService {
     return this.httpClient.get(`${this.url}/usuario/${id}`, {headers: headers}).pipe(first())
   }
 
-  postUser(userDate:any) {
+  postUser(userData:any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     })
-    return this.httpClient.post(`${this.url}/usuarios`, {headers : headers})
+    console.log(userData)
+    return this.httpClient.post(`${this.url}/usuarios`, userData, {headers : headers})
   }
 
   updateUser(id: number, userData: any) {
