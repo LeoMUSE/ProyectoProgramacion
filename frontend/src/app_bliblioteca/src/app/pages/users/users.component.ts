@@ -52,7 +52,28 @@ export class UsersComponent implements OnInit{
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal se cerró', result)
+      console.log('El modal se cerró', result);
+      if (result) {
+        if (operation === 'create') {
+          this.usuarioService.postUser(result).subscribe(() => {
+            this.refreshUserList();
+          });
+        } else if (result) {
+          if (operation === 'edit') {
+            this.usuarioService.updateUser(userData.id, result).subscribe(() => {
+              this.refreshUserList();
+            });
+          }
+        }
+      }
+    })
+  }
+
+  refreshUserList(): void {
+    this.usuarioService.getUsers(1).subscribe((rta: any) => {
+      console.log('Usuarios api: ', rta);
+      this.usersList = rta.usuarios || [];
+      this.filteredUsers = [...this.filteredUsers]
     })
   }
 }

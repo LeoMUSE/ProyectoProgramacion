@@ -13,7 +13,7 @@ export class ReseñasService {
     private httpClient: HttpClient
   ) { }
 
-  getReviews(page: number, params?: {nroValoracion:string, ordenValoracion:string, idUserPost:string, fechaReseña:string, Valoraciones_desc:string, Valoraciones_asc:string}){
+  getReviews(page: number, params?: {nroValoracion?:string, ordenValoracion?:string, idUserPost?:string, fechaReseña?:string, Valoraciones_desc?:string, Valoraciones_asc?:string}){
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export class ReseñasService {
     return this.httpClient.get(`${this.url}/reseñas`, {headers: headers})
   }
 
-  getReviewById(id: number): Observable<any> {
+  getReviewById(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export class ReseñasService {
     return this.httpClient.get(`${this.url}/reseña/${id}`, {headers: headers}).pipe(first())
   }
 
-  updateReview(id: number, reviewData: any): Observable<any> {
+  updateReview(id: number, reviewData: any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export class ReseñasService {
     return this.httpClient.put(`${this.url}/reseña/${id}`, reviewData, {headers: headers}).pipe(first())
   }
 
-  deleteReview(id: number): Observable<any> {
+  deleteReview(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

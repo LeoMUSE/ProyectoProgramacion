@@ -2,7 +2,7 @@
     <img [src]="book.img" alt="Portada {{ book.titulo }}">
     <div class="book-info">
         <h3>{{ book.titulo }}</h3>
-        <p>{{ book.autor[0].apodo }}</p>
+        <p>{{ book.autor.apodo }}</p>
         <div class="book-quantity">
             <label for="cantidad-libro-{{ book.cantidad }}">Cantidad disponible:</label>
             <input type="number" id="cantidad-libro-{{ book.cantidad }}" [value]="book.cantidad" min="0">

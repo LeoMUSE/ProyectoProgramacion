@@ -12,7 +12,7 @@ export class PrestamosService {
     private httpClient: HttpClient,
   ) { }
 
-  getLoans(page: number, params?: {idUsuario:string, inicio_prestamo:string, fin_prestamo:string, cant_libros:string, libro_id:string, cant_prestamos:string}) {
+  getLoans(page: number, params?: {idUsuario?:string, inicio_prestamo?:string, fin_prestamo?:string, cant_libros?:string, libro_id?:string, cant_prestamos?:string}) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -27,39 +27,39 @@ export class PrestamosService {
     }
 
     if (params) {
-      if (params.idUsuario) {
+      if (params.inicio_prestamo) {
         httpParams = httpParams.set('inicio_prestamo', params.inicio_prestamo)
       }
     }
 
     if (params) {
-      if (params.idUsuario) {
+      if (params.fin_prestamo) {
         httpParams = httpParams.set('fin_prestamo', params.fin_prestamo)
       }
     }
 
     if (params) {
-      if (params.idUsuario) {
+      if (params.cant_libros) {
         httpParams = httpParams.set('cant_libros', params.cant_libros)
       }
     }
 
     if (params) {
-      if (params.idUsuario) {
+      if (params.libro_id) {
         httpParams = httpParams.set('libro_id', params.libro_id)
       }
     }
 
     if (params) {
-      if (params.idUsuario) {
+      if (params.cant_prestamos) {
         httpParams = httpParams.set('cant_prestamos', params.cant_prestamos)
       }
     }
 
-    return this.httpClient.get(`${this.url}/prestamos`, {headers: headers})
+    return this.httpClient.get(`${this.url}/prestamos`, {headers: headers, params:httpParams})
   }
 
-  getLoanById(id: number): Observable<any> {
+  getLoanById(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -68,7 +68,17 @@ export class PrestamosService {
     return this.httpClient.get(`${this.url}/prestamo/${id}`, {headers: headers}).pipe(first())
   } 
 
-  updateLoanInfo(id: number, loanData: any): Observable<any> {
+  postLoan(loanData:any) {
+    let auth_token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+    console.log(loanData)
+    return this.httpClient.post(`${this.url}/prestamos`, loanData, {headers: headers}).pipe(first())
+  }
+
+  updateLoanInfo(id: number, loanData: any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -78,7 +88,7 @@ export class PrestamosService {
     return this.httpClient.put(`${this.url}/prestamo/${id}`, loanData, {headers: headers}).pipe(first())
   }
 
-  deleteLoan(id: number): Observable<any> {
+  deleteLoan(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

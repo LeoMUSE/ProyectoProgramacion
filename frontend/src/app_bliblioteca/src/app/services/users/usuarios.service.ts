@@ -12,7 +12,7 @@ export class UsuariosService {
     private httpClient: HttpClient
   ) { }
 
-  getUsers(page: number, params?: {rol:string, nombre:string, dni:string, telefono:string, email:string}) {
+  getUsers(page: number, params?: {rol?:string, nombre?:string, dni?:string, telefono?:string, email?:string}) {
     let auth_token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export class UsuariosService {
     return this.httpClient.get(`${this.url}/usuarios`, {headers: headers, params: httpParams}).pipe(first())
   }
 
-  getUserById(id: number): Observable<any> {
+  getUserById(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -57,7 +57,16 @@ export class UsuariosService {
     return this.httpClient.get(`${this.url}/usuario/${id}`, {headers: headers}).pipe(first())
   }
 
-  updateUser(id: number, userData: any): Observable<any> {
+  postUser(userDate:any) {
+    let auth_token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+    return this.httpClient.post(`${this.url}/usuarios`, {headers : headers})
+  }
+
+  updateUser(id: number, userData: any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -67,7 +76,7 @@ export class UsuariosService {
     return this.httpClient.put(`${this.url}/usuario/${id}`, userData, {headers: headers}).pipe(first())
   }
 
-  deleteUser(id: number): Observable<any> {
+  deleteUser(id: number) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

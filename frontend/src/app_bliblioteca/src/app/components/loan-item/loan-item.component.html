@@ -5,7 +5,7 @@
         <p><b>Libro:</b> {{ loan.libro[0].titulo }}</p>
         <p><b>Inicio Préstamo:</b> {{ loan.inicio_prestamo }}</p>
         <p><b>Fin Préstamo:</b> {{ loan.fin_prestamo }}</p>
-        <p><b>Estado:</b> {{ loan.status }}</p>
+        <p><b>Estado:</b> {{ loan.estado }}</p>
     </div>
     <!-- para Administrador -->
     <span *ngIf="isAdmin()" class="edit-link" (click)="editClick()">

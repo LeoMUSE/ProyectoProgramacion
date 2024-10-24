@@ -33,7 +33,8 @@ export class PrestamoComponent implements OnInit{
       this.id = params.get('id') || '';
       this.rol = params.get('rol') || 'user';
       // this.handleSearch(this.id);
-    }),
+    });
+    //const params = { cant_prestamos: "3"}
     this.loanService.getLoans(1).subscribe((rta: any) => {
       console.log("Prestamos Api: ", rta);
       this.loanList = rta.prestamos || [];
@@ -65,7 +66,27 @@ export class PrestamoComponent implements OnInit{
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal se cerró', result)
+      console.log('El modal se cerró', result);
+      
+      if (result) {
+        if (operation === 'create') {
+          this.loanService.postLoan(result).subscribe(() => {
+            this.refreshLoanList();
+          });
+        } else if (operation === 'edit') {
+          this.loanService.updateLoanInfo(loanData.id, result).subscribe(() => {
+            this.refreshLoanList();
+          })
+        }
+      }
+    })
+  }
+
+  refreshLoanList(): void {
+    this.loanService.getLoans(1).subscribe((rta: any) => {
+      console.log("Libros api: ", rta);
+      this.loanList = rta.prestamos || [];
+      this.filteredLoans = [...this.loanList];
     })
   }
 

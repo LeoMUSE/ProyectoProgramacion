@@ -28,9 +28,10 @@ export class AbmModalComponent {
       case 'book':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Libro' : 'Agregar Libro';
         this.formEntity = this.formBuilder.group({
+          img: [this.data.img || '', Validators.required],
           titulo: [this.data.titulo || '', Validators.required],
           cantidad: [this.data.cantidad || '', Validators.required],
-          autor: [this.data.autor || '', Validators.required],
+          autor: [this.data.autor || [], Validators.required],
           editorial: [this.data.editorial || '', Validators.required],
           genero: [this.data.genero || '', Validators.required],
           sinopsis: [this.data.sinopsis || '', Validators.required],
@@ -39,11 +40,11 @@ export class AbmModalComponent {
       case 'loan':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Préstamo' : 'Crear Prestamo';
         this.formEntity = this.formBuilder.group({
-          username: [this.data.username || '', Validators.required],
+          usuario: [this.data.usuario || '', Validators.required],
           libro: [this.data.libro || '', Validators.required],
           inicio_prestamo: [this.data.inicio_prestamo || '', Validators.required],
           fin_prestamo: [this.data.fin_prestamo || '', Validators.required],
-          status: [this.data.status || '', Validators.required]
+          estado: [this.data.estado || '', Validators.required]
         })
         break;
       case 'user':
@@ -53,10 +54,12 @@ export class AbmModalComponent {
           contraseña: [this.data.contraseña || '', Validators.required],
           nombre: [this.data.nombre || '', Validators.required],
           apellido: [this.data.apellido || '', Validators.required],
-          dni: [this.data.dni || '', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
-          telefono: [this.data.telefono || '', Validators.required, Validators.maxLength(10)],
+          dni: [this.data.dni || '', Validators.required],
+          telefono: [this.data.telefono || '', Validators.required],
           email: [this.data.email || '', Validators.required],
           rol: [this.data.rol || '', Validators.required],
+          img: [this.data.img || '', Validators.required],
+          estado: [this.data.estado || '', Validators.required],
         })
         break;
       

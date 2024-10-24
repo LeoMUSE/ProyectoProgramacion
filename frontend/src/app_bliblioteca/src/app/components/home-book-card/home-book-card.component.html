@@ -2,7 +2,7 @@
     <img [src]="book.img" class="card-img-top" [alt]="book.titulo">
     <div class="card-body text-center">
     <h5 class="card-title" style="color: #F5F378;">{{ book.titulo }}</h5>
-    <p class="card-text">Autor: {{ book.autor[0].apodo }}</p>
+    <p class="card-text" *ngIf="book.autor && book.autor.length > 0">Autor: {{ book.autor[0].apodo }}</p>
     <p class="card-text">Editorial: {{ book.editorial }}</p>
     <p class="card-text">Genero: {{ book.genero }}</p>
         <div class="d-flex justify-content-between align-items-center">

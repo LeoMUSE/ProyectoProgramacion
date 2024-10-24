@@ -37,7 +37,27 @@ export class CatalogoComponent implements OnInit{
       } 
     });
     dialogRef.afterClosed().subscribe( result => {
-      console.log('El modal se cerro', result)
+      console.log('El modal se cerro', result);
+      
+      if(result) {
+        if (operation == 'create') {
+          this.bookService.postBook(result).subscribe(() => {
+            this.refreshBookList();
+          });
+        } else if (operation === 'edit') {
+          this.bookService.updateBook(bookData.id, result).subscribe(() => {
+            this.refreshBookList();
+          })
+        }
+      }
+    });
+  }
+  
+  refreshBookList(): void {
+    this.bookService.getBooks(1).subscribe((rta: any) => {
+      console.log("Libros api: ", rta);
+      this.bookList = rta.libros || [];
+      this.filteredBook = [...this.bookList];
     })
   }
 }
