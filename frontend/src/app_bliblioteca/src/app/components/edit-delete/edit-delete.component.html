@@ -1,0 +1,10 @@
+<div>
+    <!-- Icono de Editar -->
+    <button class="edit-icon" *ngIf="isAdmin()" (click)="addClick()" style="cursor: pointer;">
+        <i class="fas fa-edit">Editar</i>
+    </button>
+    <!-- Ícono de basura -->
+    <button *ngIf="isAdmin()" class="delete-icon ms-auto" (click)="addClick()" style="cursor: pointer;">
+        <i class="fas fa-trash">Eliminar</i>
+    </button>
+</div>

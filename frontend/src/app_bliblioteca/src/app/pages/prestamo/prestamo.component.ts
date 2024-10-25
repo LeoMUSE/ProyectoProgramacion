@@ -29,13 +29,18 @@ export class PrestamoComponent implements OnInit{
 
   ngOnInit(): void {
     // Obtener los parámetros de la URL
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id') || '';
-      this.rol = params.get('rol') || 'user';
-      // this.handleSearch(this.id);
-    });
+    // this.route.paramMap.subscribe(params => {
+    //   this.id = params.get('id') || '';
+    //   this.rol = params.get('rol') || 'user';
+    //   // this.handleSearch(this.id);
+    // });
     //const params = { cant_prestamos: "3"}
-    this.loanService.getLoans(1).subscribe((rta: any) => {
+    const tokenRol = localStorage.getItem('token_rol');
+    const tokenUserId = localStorage.getItem('user_id');
+
+    const params = tokenRol === 'Usuario' && tokenUserId ? { idUsuario: tokenUserId } : {};
+
+    this.loanService.getLoans(1, params).subscribe((rta: any) => {
       console.log("Prestamos Api: ", rta);
       this.loanList = rta.prestamos || [];
       this.filteredLoans = [...this.loanList]
@@ -66,9 +71,10 @@ export class PrestamoComponent implements OnInit{
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal se cerró', result);
+      console.log('El modal se cerró', result); 
+      // arreglar porque al apretar close se hace el post igual
       
-      if (result && result !== null) {
+      if (result) {
         if (operation === 'create') {
           this.loanService.postLoan(result).subscribe(() => {
             this.refreshLoanList();

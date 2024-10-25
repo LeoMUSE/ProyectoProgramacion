@@ -78,7 +78,7 @@ export class AbmModalComponent {
   }
 
   closeModal(): void {
-    this.dialogRef.close(null)
+    this.dialogRef.close(null) // arreglar el close pq se hace el put y post igual
   }
 
   handleSave(formData: any): void {
@@ -102,7 +102,7 @@ export class AbmModalComponent {
 
   formatDate(date: string | Date): string {
     const parsedDate = new Date(date);
-    const day = parsedDate.getDate().toString().padStart(2, '0'); // Asegura dos dígitos para el día
+    const day = (parsedDate.getDate() + 1).toString().padStart(2, '0'); // Asegura dos dígitos para el día
     const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0'); // Los meses son 0-indexados
     const year = parsedDate.getFullYear();
     return `${day}-${month}-${year}`;

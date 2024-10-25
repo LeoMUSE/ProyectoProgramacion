@@ -38,6 +38,7 @@ import { ReviewComponent } from './pages/review/review.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { CatalogoItemComponent } from './components/catalogo-item/catalogo-item.component';
 import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.component';
+import { EditDeleteComponent } from './components/edit-delete/edit-delete.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.compo
     CatalogoComponent,
     CatalogoItemComponent,
     AbmModalComponent,
+    EditDeleteComponent,
   ],
   imports: [
     BrowserModule,

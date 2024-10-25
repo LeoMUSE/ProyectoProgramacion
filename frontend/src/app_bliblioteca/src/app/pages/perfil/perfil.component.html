@@ -10,12 +10,12 @@
     
                 <!-- Imagen de perfil -->
                 <div class="profile-pic">
-                    <img src="assets/user.jpeg" alt="Foto de Perfil">
+                    <img [src]="user?.img" alt="Foto de Perfil">
                 </div>
     
                 <!-- Nombre del usuario y botón de modificación -->
                 <div class="profile-footer">
-                    <p class="username">Vicente</p>
+                    <p class="username">{{ user?.nombre || 'Usuario' }}</p>
                     <a class="edit-icon" (click)="openEditPerfilDialog($event)" style="cursor: pointer;">
                         <i class="fas fa-edit"></i>
                     </a>

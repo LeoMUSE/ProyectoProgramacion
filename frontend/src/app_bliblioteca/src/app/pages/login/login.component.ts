@@ -28,9 +28,14 @@ export class LoginComponent {
       next: (rta: any) => {
         alert('Credenciales Correctas');
         console.log('Exito: ', rta);
+
+        // Almacena el token
         localStorage.setItem('token', rta.access_token);
+
+        // Decodifica el token para obtener roles y demas cosas
         let tokenPayload: any = jwtDecode(rta.access_token);
         localStorage.setItem('token_rol', tokenPayload.rol);
+        localStorage.setItem('user_id', tokenPayload.id)
         this.router.navigateByUrl('home')
       }, error: (err: any) => {
         alert('Usuario o constraseña Incorrecta');
