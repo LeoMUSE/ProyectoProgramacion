@@ -10,7 +10,7 @@
         <h2>Administrar Usuarios</h2>
         <!-- Lista de usuarios -->
         <section class="user-adm" *ngFor="let user of usersList">
-            <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true"></app-user-item> 
+            <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true" (actionEvent)="handleActionEvent($event)"></app-user-item> 
         <section>
     <div>
     <!-- Modal Agregar Usuario-->

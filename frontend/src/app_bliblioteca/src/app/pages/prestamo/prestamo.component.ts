@@ -16,7 +16,6 @@ export class PrestamoComponent implements OnInit{
   rol: string = 'user';
 
   constructor(
-    private route: ActivatedRoute, 
     private dialog: MatDialog,
     private loanService: PrestamosService
 

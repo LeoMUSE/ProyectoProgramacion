@@ -1,0 +1,45 @@
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+}
+
+/* Estilos generales para los enlaces */
+a {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    color: inherit; /* Use the color set by specific classes */
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Estilo para el enlace de editar */
+.edit-icon {
+    color: #A0F199;
+    margin-bottom: 15px;
+}
+
+.edit-icon:hover {
+    color: #8DE486;
+    transform: scale(1.05);
+}
+
+/* Estilo para el enlace de borrar */
+.delete-icon {
+    color: #EC704B;
+}
+
+.delete-icon:hover {
+    color: #D95E38;
+    transform: scale(1.05);
+}

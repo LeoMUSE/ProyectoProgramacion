@@ -94,7 +94,7 @@ export class AbmModalComponent {
         formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
         formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
       }
-
+      
       console.log('Datos del formulario: ', formData);
       this.handleSave(formData);
     }

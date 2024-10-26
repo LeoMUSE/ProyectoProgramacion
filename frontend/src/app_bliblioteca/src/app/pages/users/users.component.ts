@@ -42,6 +42,23 @@ export class UsersComponent implements OnInit{
     }
   }
 
+
+  handleActionEvent(event: { action: string, user: any }) {
+    if (event.action === 'edit') {
+      this.openABMUserModal(event.user, 'edit');
+    } else if (event.action === 'delete') {
+      this.usuarioService.deleteUser(event.user.id).subscribe({
+        next: () => {
+          console.log('Usuario eliminado con éxito');
+          this.refreshUserList();
+        },
+        error: (err) => {
+          console.error('Error al eliminar el usuario', err)
+        }
+      })
+    }
+  }
+
   openABMUserModal(userData: any, operation: string): void {
     const dialogRef = this.dialog.open(AbmModalComponent, {
       width: '500px',

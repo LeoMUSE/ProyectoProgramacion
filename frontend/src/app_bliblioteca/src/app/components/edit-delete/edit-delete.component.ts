@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './edit-delete.component.css'
 })
 export class EditDeleteComponent {
-  @Output() editDelete = new EventEmitter<void>();
+  @Output() editDelete = new EventEmitter<string>();
 
 
   isAdmin() { 
@@ -18,8 +18,12 @@ export class EditDeleteComponent {
   }
   }
 
-  addClick() {
-    this.editDelete.emit();
+  emitEditClick(){
+    this.editDelete.emit('edit')
+  }
+
+  emitDeleteClick() {
+    this.editDelete.emit('delete')
   }
 
 }
