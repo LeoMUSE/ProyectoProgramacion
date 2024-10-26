@@ -12,7 +12,7 @@ export class PrestamosService {
     private httpClient: HttpClient,
   ) { }
 
-  getLoans(page: number, params?: {idUsuario?:string, inicio_prestamo?:string, fin_prestamo?:string, cant_libros?:string, libro_id?:string, cant_prestamos?:string}) {
+  getLoans(page: number, params?: {idUsuario?:string, inicio_prestamo?:string, fin_prestamo?:string, cant_libros?:string, libro_id?:string, cant_prestamos?:string, estado?:string, fecha_proxima?:string}) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -56,7 +56,18 @@ export class PrestamosService {
       }
     }
 
-    return this.httpClient.get(`${this.url}/prestamos`, {headers: headers, params:httpParams})
+    if (params) {
+      if (params.estado) {
+        httpParams = httpParams.set('estado', params.estado)
+      }
+    }
+
+    if (params) {
+      if (params.fecha_proxima) {
+        httpParams = httpParams.set('fecha_proxima', params.fecha_proxima)
+      }
+    }
+    return this.httpClient.get(`${this.url}/prestamos`, {headers: headers, params:httpParams}).pipe(first())
   }
 
   getLoanById(id: number) {

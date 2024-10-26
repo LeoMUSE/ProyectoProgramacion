@@ -50,9 +50,10 @@ export class SearchbarComponent implements OnChanges{
         break;
       case 'prestamo':
         this.filterOptions = [
-          { value: 'pendiente', label: 'Pendiente' },
-          { value: 'activos', label: 'Activos' },
-          { value: 'Desactivos', label: 'Desactivos' }
+          { value: 'Pendiente', label: 'Pendiente' },
+          { value: 'Activo', label: 'Activos' },
+          { value: 'Desactivo', label: 'Desactivos' },
+          { value: 'fecha_proxima', label: 'Fechas Proximas' }
         ];
         break;
         case 'usuarios':
@@ -71,6 +72,7 @@ export class SearchbarComponent implements OnChanges{
   }
 
   onFilterChange(type: string, value: string) {
+    console.log('Filter changed:', type, value);
     this.filterChange.emit({ type, value });
 }
 

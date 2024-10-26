@@ -9,7 +9,7 @@
 
         <h2>Administrar Usuarios</h2>
         <!-- Lista de usuarios -->
-        <section class="user-adm" *ngFor="let user of usersList">
+        <section class="user-adm" *ngFor="let user of filteredUsers">
             <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true" (actionEvent)="handleActionEvent($event)"></app-user-item> 
         <section>
     <div>
