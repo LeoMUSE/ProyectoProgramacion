@@ -12,7 +12,7 @@ export class UsuariosService {
     private httpClient: HttpClient
   ) { }
 
-  getUsers(page: number, params?: {rol?:string, nombre?:string, dni?:string, telefono?:string, email?:string}) {
+  getUsers(page: number, params?: {rol?:string, nombre?:string, dni?:string, telefono?:string, email?:string, estado?: string}) {
     let auth_token = localStorage.getItem('token');
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -43,6 +43,11 @@ export class UsuariosService {
     if (params) {
       if (params.email) {
         httpParams = httpParams.set('rol', params.email)
+      }
+    }
+    if (params) {
+      if (params.estado) {
+        httpParams = httpParams.set('estado', params.estado)
       }
     }
     return this.httpClient.get(`${this.url}/usuarios`, {headers: headers, params: httpParams}).pipe(first())

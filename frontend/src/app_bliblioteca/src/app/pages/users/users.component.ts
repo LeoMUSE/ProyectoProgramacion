@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 import { UsuariosService } from '../../services/users/usuarios.service';
 
@@ -10,22 +9,28 @@ import { UsuariosService } from '../../services/users/usuarios.service';
   styleUrl: './users.component.css'
 })
 export class UsersComponent implements OnInit{
+
   constructor(
-    private route: ActivatedRoute, 
     private dialog: MatDialog,
     private usuarioService: UsuariosService
   ) {}
 
-  usersList:any[] = []
+  usersList:any[] = [];
 
-  filteredUsers:any = []
+  filteredUsers:any = [];
+  currentFilter: { type: string, value: string } | null = null;
 
   ngOnInit(): void {
-      this.usuarioService.getUsers(1).subscribe((rta: any) => {
-        console.log("Usuarios Api: ", rta);
-        this.usersList = rta.usuarios || [];
-        this.filteredUsers = [...this.usersList]
-      })
+    this.fetchUsers(1)
+  }
+
+  fetchUsers(page: number, params?: { rol?: string, estado?: string }): void {
+    console.log("Llamando a fetchUsers con params:", params); // Debug
+    this.usuarioService.getUsers(page, params).subscribe((rta: any) => {
+      console.log("Usuarios API: ", rta); // Debug
+      this.usersList = rta.usuarios || [];
+      this.filteredUsers = [...this.usersList];
+    });
   }
 
   handleSearch(query: string) {
@@ -87,10 +92,23 @@ export class UsersComponent implements OnInit{
   }
 
   refreshUserList(): void {
-    this.usuarioService.getUsers(1).subscribe((rta: any) => {
-      console.log('Usuarios api: ', rta);
-      this.usersList = rta.usuarios || [];
-      this.filteredUsers = [...this.filteredUsers]
-    })
+    this.fetchUsers(1, this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {});
   }
+
+  handleFilterChange(option: { type: string, value: string }): void {
+    console.log("Filtro seleccionado:", option); // Debug
+    let filters: any = {};
+
+    // Ajustar el manejo de tipos de filtro
+    if (option.value === 'Usuario' || option.value === 'Admin' || option.value === 'Bibliotecario') {
+        filters.rol = option.value;
+    } else if (option.value === '0' || option.value === '1') {
+        filters.estado = option.value;
+    }
+    
+    // Actualiza el filtro actual
+    this.currentFilter = { type: option.type, value: option.value };
+    console.log("Filtros aplicados:", filters); // Debug
+    this.fetchUsers(1, filters);
+}
 }
