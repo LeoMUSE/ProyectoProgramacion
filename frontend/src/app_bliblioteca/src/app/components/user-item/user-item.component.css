@@ -1,5 +1,6 @@
 .user-adm-item {
     display: flex;
+    flex-direction: row;
     align-items: center; /* Alinea verticalmente todos los elementos dentro del contenedor */
     background-color: #444;
     padding: 20px;
@@ -30,29 +31,11 @@
     margin: 0;
 }
 
-.status-icon {
-    font-size: 20px;
-    color: #A0F199; /* Color del candado */
-    margin-left: auto; /* Mueve el ícono a la derecha */
-}
-
 /* Estilo para el dropdown */
 .user-adm {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.user-adm-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background-color: #444;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    margin-bottom: 0;
 }
 
 
@@ -75,19 +58,6 @@
 
 .user-details {
     color: #fff;
-}
-
-/* Lock icon */
-.status-icon {
-    font-size: 24px;
-    color: #A0F199;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    position: absolute;
 }
 
 /* Dropdown usuario */
@@ -126,19 +96,6 @@
     color: #fff;
 }
 
-
-.delete-icon {
-    font-size: 24px;
-    color: #A0F199;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    position: absolute;
-}
-
 .book-image {
     width: 120px;
     height: 160px;
@@ -163,6 +120,9 @@
         flex-direction: column; 
         align-items: center; 
         text-align: center; 
+    }
+    .user-adm-item{
+        justify-content: center;
     }
 
     .user-image {

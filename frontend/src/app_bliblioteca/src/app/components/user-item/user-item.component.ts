@@ -13,14 +13,6 @@ export class UserItemComponent {
   @Output() actionEvent = new EventEmitter<{action: string, user: any}>();
 
 
-  toggleIcon() {
-    if (this.isReviewPage) {
-      this.user.deleted = !this.user.deleted;  // Simula el borrado
-    } else {
-      this.user.locked = !this.user.locked;
-    }
-  }
-
   handleEditDelete(action: string) {
     this.actionEvent.emit({ action, user: this.user });
   }

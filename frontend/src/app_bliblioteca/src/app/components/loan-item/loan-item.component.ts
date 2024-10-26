@@ -8,11 +8,9 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class LoanItemComponent {
   @Input() loan: any; //prestamo como objeto
-  @Input() id: string = '';
-  @Input() rol: string = 'user';
 
-  @Output() editLoan = new EventEmitter<any>();
   @Output() resena = new EventEmitter<any>();
+  @Output() actionEvent = new EventEmitter<{action: string, loan: any}>();
 
   constructor(
     private authService: AuthService
@@ -36,8 +34,8 @@ export class LoanItemComponent {
   }
   }
 
-  editClick(): void {
-    this.editLoan.emit(this.loan);
+  handleEditDelete(action: string) {
+    this.actionEvent.emit({ action, loan: this.loan });
   }
 
   resenaClick(): void {

@@ -1,14 +1,15 @@
-<div class="book-item">
-    <img [src]="book.img" alt="Portada {{ book.titulo }}">
-    <div class="book-info">
+<div class="book-item d-flex mb-1">
+    <img [src]="book.img" alt="Portada {{ book.titulo }}" class="me-3">
+    <div class="book-info flex-grow-1">
+        
         <h3>{{ book.titulo }}</h3>
-        <p>{{ book.autor.apodo }}</p>
-        <div class="book-quantity">
+        <p *ngIf="book.autor && book.autor.length">Autor: {{ book.autor[0].apodo }}</p>
+        <div class="book-quantity d-flex">
             <label for="cantidad-libro-{{ book.cantidad }}">Cantidad disponible:</label>
             <input type="number" id="cantidad-libro-{{ book.cantidad }}" [value]="book.cantidad" min="0">
         </div>
     </div>
-    <button id="statusIcon" class="status-icon">
-        <i class="fas fa-unlock"></i>
-    </button>
+    <div class="edit-delete d-flex">
+        <app-edit-delete (editDelete)="handleEditDelete($event)"></app-edit-delete>
+    </div>
 </div>

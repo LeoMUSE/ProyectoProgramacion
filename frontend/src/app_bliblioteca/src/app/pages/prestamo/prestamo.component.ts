@@ -12,8 +12,6 @@ import { PrestamosService } from '../../services/loans/prestamos.service';
   styleUrl: './prestamo.component.css'
 })
 export class PrestamoComponent implements OnInit{
-  id: string = '';
-  rol: string = 'user';
 
   constructor(
     private dialog: MatDialog,
@@ -59,6 +57,23 @@ export class PrestamoComponent implements OnInit{
   //     this.filteredLoans = [...this.loans];
   //   }
   // }
+
+  handleActionEvent(event: { action: string, loan: any }) {
+    if (event.action === 'edit') {
+      this.openABMLoanModal(event.loan, 'edit');
+    } else if (event.action === 'delete') {
+      this.loanService.deleteLoan(event.loan.id).subscribe({
+        next: () => {
+          console.log('Prestamo eliminado con éxito');
+          this.refreshLoanList();
+        },
+        error: (err) => {
+          console.error('Error al eliminar el prestamo', err)
+        }
+      })
+    }
+  }
+
 
   openABMLoanModal(loanData: any, operation: string): void {
     const dialogRef = this.dialog.open(AbmModalComponent, {

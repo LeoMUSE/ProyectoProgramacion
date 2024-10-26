@@ -26,6 +26,21 @@ export class CatalogoComponent implements OnInit{
     })
 }
   
+handleActionEvent(event: { action: string, book: any }) {
+  if (event.action === 'edit') {
+    this.openABMbookModal(event.book, 'edit');
+  } else if (event.action === 'delete') {
+    this.bookService.deleteBook(event.book.id).subscribe({
+      next: () => {
+        console.log('Libro eliminado con éxito');
+        this.refreshBookList();
+      },
+      error: (err) => {
+        console.error('Error al eliminar el libro', err)
+      }
+    })
+  }
+}
 
   openABMbookModal(bookData: any, operation: string): void {
     const dialogRef = this.dialog.open(AbmModalComponent, {

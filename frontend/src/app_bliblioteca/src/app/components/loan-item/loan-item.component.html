@@ -8,11 +8,11 @@
         <p><b>Estado:</b> {{ loan.estado }}</p>
     </div>
     <!-- para Administrador -->
-    <span *ngIf="isAdmin()" class="edit-link" (click)="editClick()">
-        Editar Préstamo >
-    </span>
+    <div class="edit-delete d-flex">
+        <app-edit-delete (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
         <!-- para Usuario -->
-    <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
-        Realizar Reseña >
-    </span>
+        <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
+            Realizar Reseña >
+        </span>
+    </div>
 </div>

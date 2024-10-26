@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-catalogo-item',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class CatalogoItemComponent {
   @Input() book: any;
+
+  @Output() actionEvent = new EventEmitter<{action: string, book: any}>();
+
+  handleEditDelete(action: string) {
+    this.actionEvent.emit({ action, book: this.book });
+  }
 }

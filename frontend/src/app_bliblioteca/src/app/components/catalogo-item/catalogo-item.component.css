@@ -1,11 +1,6 @@
-/* Contenido lista de libros*/
-.book-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
 .book-item {
+    position: relative;
     display: flex;
     background-color: #444;
     padding: 20px;
@@ -37,19 +32,6 @@
     margin: 5px 0;
 }
 
-/* Lock icon */
-.status-icon {
-    font-size: 24px;
-    color: #A0F199;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 15px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
 
 /* cantidad disponible */
 
@@ -60,7 +42,7 @@
 }
 
 .book-quantity label {
-    margin-right: 10px;
+    margin-right: 1px;
 }
 
 .book-quantity input {
@@ -70,4 +52,12 @@
     border: none;
     outline: none;
     margin-right: 10px;
+}
+
+.edit-delete {
+    position: absolute; /* Posiciona el componente de edición y eliminación */
+    right: 20px; /* Espacio desde la derecha */
+    display: flex; /* Asegura que los íconos estén alineados */
+    flex-direction: column; /* Para colocar los íconos uno encima del otro */
+    gap: 5px; /* Espacio entre los íconos */
 }

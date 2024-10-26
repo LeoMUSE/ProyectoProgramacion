@@ -15,8 +15,10 @@
                 <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.rating}"></i>
             </div>
         </div>
-        <app-edit-delete (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
+        <div class="ms-auto mt-3 mt-md-0">
+            <app-edit-delete (editDelete)="handleEditDelete($event)"></app-edit-delete>
         </div>
+    </div>
 </div>
 
 <!-- Si NO es una reseña, es un usuario -->
@@ -31,7 +33,9 @@
             <p>Nombre: {{ user.nombre }}</p>
             <p>Apellido: {{ user.apellido }}</p>
         </div>
-        <app-edit-delete (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
+        <div class="ms-auto mt-3 mt-md-0">
+            <app-edit-delete (editDelete)="handleEditDelete($event)"></app-edit-delete>
+        </div>
     </div>
 </div>
 

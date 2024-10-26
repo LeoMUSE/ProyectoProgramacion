@@ -1,10 +1,10 @@
-.button-container {
+.edit-delete {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
     position: absolute;
-    right: 20px;
+    right: 15px;
     top: 0;
     bottom: 0;
     justify-content: center;
@@ -26,7 +26,9 @@ a {
 /* Estilo para el enlace de editar */
 .edit-icon {
     color: #A0F199;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .edit-icon:hover {
@@ -37,9 +39,32 @@ a {
 /* Estilo para el enlace de borrar */
 .delete-icon {
     color: #EC704B;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .delete-icon:hover {
     color: #D95E38;
     transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+    .edit-delete {
+        position: static; /* Elimina la posición absoluta */
+        flex-direction: row; /* Cambia a disposición en fila */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        align-items: center;
+        width: 100%; /* Asegura que ocupe todo el ancho disponible */
+        gap: 20px; /* Ajusta el espacio entre los elementos */
+        margin-top: 10px; /* Añade espacio superior para separación */
+    }
+
+    .edit-icon, .delete-icon {
+        font-size: 18px; /* Ajusta el tamaño del icono para pantallas pequeñas */
+    }
+
+    a {
+        justify-content: center; /* Centra los iconos dentro de los enlaces */
+    }
 }
