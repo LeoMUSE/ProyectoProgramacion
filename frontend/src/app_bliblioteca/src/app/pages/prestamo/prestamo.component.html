@@ -7,13 +7,8 @@
         <app-searchbar [currentPage]="'prestamo'" (searchEvent)="handleSearch($event)" (filterChange)="handleFilterChange($event)"></app-searchbar>
 
         <h2>Préstamos</h2>
-        <section class="loans">
-            <app-loan-item 
-                *ngFor="let loan of filteredLoans" 
-                [loan]="loan"
-                (actionEvent)="handleActionEvent($event)"
-                (resena)="openRealizarResena($event)">
-            </app-loan-item>
+        <section class="loans mb-3" *ngFor="let loan of filteredLoans" >
+            <app-loan-item [loan]="loan" (actionEvent)="handleActionEvent($event)" (resena)="openRealizarResena($event)"></app-loan-item>
         </section>
     </div>
 

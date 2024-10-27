@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 import { UsuariosService } from '../../services/users/usuarios.service';
+import { catchError, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -18,6 +19,7 @@ export class UsersComponent implements OnInit{
   usersList:any[] = [];
 
   filteredUsers:any = [];
+
   currentFilter: { type: string, value: string } | null = null;
 
   ngOnInit(): void {
@@ -25,9 +27,7 @@ export class UsersComponent implements OnInit{
   }
 
   fetchUsers(page: number, params?: { rol?: string, estado?: string }): void {
-    console.log("Llamando a fetchUsers con params:", params); // Debug
     this.usuarioService.getUsers(page, params).subscribe((rta: any) => {
-      console.log("Usuarios API: ", rta); // Debug
       this.usersList = rta.usuarios || [];
       this.filteredUsers = [...this.usersList];
     });
@@ -56,7 +56,6 @@ export class UsersComponent implements OnInit{
     } else if (event.action === 'delete' || event.action === 'decline') {
       this.usuarioService.deleteUser(event.user.id).subscribe({
         next: () => {
-          console.log('Usuario eliminado con éxito');
           this.refreshUserList();
         },
         error: (err) => {
@@ -98,7 +97,6 @@ export class UsersComponent implements OnInit{
   }
 
   handleFilterChange(option: { type: string, value: string }): void {
-    console.log("Filtro seleccionado:", option); // Debug
     let filters: any = {};
 
     // Ajustar el manejo de tipos de filtro
@@ -110,15 +108,20 @@ export class UsersComponent implements OnInit{
     
     // Actualiza el filtro actual
     this.currentFilter = { type: option.type, value: option.value };
-    console.log("Filtros aplicados:", filters); // Debug
     this.fetchUsers(1, filters);
   }
 
   acceptUser(user: any) {
-    this.usuarioService.updateUser(user.id, { rol: 'Usuario' }).subscribe(() => {
-      user.rol = 'Usuario';
-    }, error => {
-      console.error('Error al aceptar el usuario', error);
-    });
+    this.usuarioService.updateUser(user.id, { rol: 'Usuario' }).subscribe({
+      next: () => {
+        user.rol = 'Usuario';
+      },
+      error: (error) => {
+        console.error('Error al aceptar usuario', error);
+      },
+      complete: () => {
+        console.log('Usuario aceptado')
+      }
+    })
   }
 }

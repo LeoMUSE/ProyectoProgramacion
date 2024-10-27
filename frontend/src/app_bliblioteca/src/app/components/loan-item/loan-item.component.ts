@@ -7,14 +7,10 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './loan-item.component.css'
 })
 export class LoanItemComponent {
-  @Input() loan: any; //prestamo como objeto
+  @Input() loan: any;
 
   @Output() resena = new EventEmitter<any>();
   @Output() actionEvent = new EventEmitter<{action: string, loan: any}>();
-
-  constructor(
-    private authService: AuthService
-  ) { }
 
   isAdmin() { 
     const tokenRol = localStorage.getItem('token_rol');

@@ -78,7 +78,7 @@
                 <mat-label>Estado</mat-label>
                 <mat-select formControlName="estado" placeholder="Seleccione el estado">
                     <mat-option value="Activo">Activo</mat-option>
-                    <mat-option value="Desactivo">Desactivo</mat-option>
+                    <mat-option value="Pendiente">Pendiente</mat-option>
                 </mat-select>
                 <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>

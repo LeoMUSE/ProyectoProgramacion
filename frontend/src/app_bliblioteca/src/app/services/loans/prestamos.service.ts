@@ -89,7 +89,7 @@ export class PrestamosService {
     return this.httpClient.post(`${this.url}/prestamos`, loanData, {headers: headers}).pipe(first())
   }
 
-  updateLoanInfo(id: number, loanData: any) {
+  updateLoan(id: number, loanData: any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

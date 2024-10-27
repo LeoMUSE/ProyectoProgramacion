@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 import { PrestamosService } from '../../services/loans/prestamos.service';
+import { catchError, of, tap } from 'rxjs';
 
 
 @Component({
@@ -34,9 +35,7 @@ export class PrestamoComponent implements OnInit{
     }
 
     fetchLoans(page: number, params?: { estado?: string, idUsuario?: string }): void {
-      console.log("Llamando a fetchLoans con params:", params); // Debug
       this.loanService.getLoans(page, params).subscribe((rta: any) => {
-        console.log("Prestamos API: ", rta); // Debug
         this.loanList = rta.prestamos || [];
         this.filteredLoans = [...this.loanList];
       });
@@ -56,12 +55,13 @@ export class PrestamoComponent implements OnInit{
   }
 
   handleActionEvent(event: { action: string, loan: any }) {
-    if (event.action === 'edit') {
+    if (event.action === 'accept') {
+      this.acceptLoan(event.loan);
+    } else if (event.action === 'edit') {
       this.openABMLoanModal(event.loan, 'edit');
-    } else if (event.action === 'delete') {
+    } else if (event.action === 'delete' || event.action === 'decline') {
       this.loanService.deleteLoan(event.loan.id).subscribe({
         next: () => {
-          console.log('Prestamo eliminado con éxito');
           this.refreshLoanList();
         },
         error: (err) => {
@@ -83,14 +83,13 @@ export class PrestamoComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('El modal se cerró', result); 
       // arreglar porque al apretar close se hace el post igual
-      
       if (result) {
         if (operation === 'create') {
           this.loanService.postLoan(result).subscribe(() => {
             this.refreshLoanList();
           });
         } else if (operation === 'edit') {
-          this.loanService.updateLoanInfo(loanData.id, result).subscribe(() => {
+          this.loanService.updateLoan(loanData.id, result).subscribe(() => {
             this.refreshLoanList();
           })
         }
@@ -107,7 +106,6 @@ export class PrestamoComponent implements OnInit{
   }
 
   handleFilterChange(option: { type: string, value: string }): void {
-    console.log("Filtro seleccionado:", option); // Debug
     let filters: any = {};
 
     // Ajustar el manejo de tipos de filtro
@@ -119,18 +117,7 @@ export class PrestamoComponent implements OnInit{
     
     // Actualiza el filtro actual
     this.currentFilter = { type: option.type, value: option.value };
-    console.log("Filtros aplicados:", filters); // Debug
     this.fetchLoans(1, filters);
-  }
-
-
-  isUser() { 
-    const tokenRol = localStorage.getItem('token_rol');
-  if (tokenRol && tokenRol.includes("Usuario")) {
-    return true;
-  } else {
-    return false;
-  }
   }
 
   openRealizarResena(loan: any): void {
@@ -145,6 +132,21 @@ export class PrestamoComponent implements OnInit{
           { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 2 },
           { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 1 }
         ]
+      }
+    });
+  }
+
+  // Arreglar put
+  acceptLoan(loan: any) {
+    this.loanService.updateLoan(loan.id, { estado: 'Activo' }).subscribe({
+      next: () => {
+        loan.estado = 'Activo';
+      },
+      error: (error) => {
+        console.error('Error al aceptar el préstamo', error);
+      },
+      complete: () => {
+        console.log('Prestamo acceptado');
       }
     });
   }

@@ -1,5 +1,5 @@
 <div class="edit-delete d-flex" *ngIf="isAdmin()">
-    <ng-container *ngIf="userRol === 'Pendiente'; else adminButtons">
+    <ng-container *ngIf="isPending() ; else adminButtons">
         <!-- Icono de Aceptar -->
         <a class="accept-icon" (click)="emitAcceptClick()">
             <i class="fas fa-check"></i>

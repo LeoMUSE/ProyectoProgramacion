@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class EditDeleteComponent {
   @Input() userRol: string = '';
+  @Input() loanStatus: string = '';
   @Output() editDelete = new EventEmitter<string>();
 
 
@@ -17,6 +18,10 @@ export class EditDeleteComponent {
   } else {
     return false;
   }
+  }
+
+  isPending() {
+    return this.userRol === 'Pendiente' || this.loanStatus === 'Pendiente';
   }
 
   emitEditClick(){

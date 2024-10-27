@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { AuthService } from '../../../services/auth/auth.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
@@ -14,7 +13,6 @@ export class AbmModalComponent {
   formOperation: string = '';
 
   constructor(
-    private authService: AuthService,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AbmModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

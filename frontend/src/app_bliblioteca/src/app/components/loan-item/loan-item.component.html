@@ -9,7 +9,7 @@
     </div>
     <!-- para Administrador -->
     <div class="edit-delete d-flex">
-        <app-edit-delete (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
+        <app-edit-delete [loanStatus]="loan.estado" (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
         <!-- para Usuario -->
         <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
             Realizar Reseña >

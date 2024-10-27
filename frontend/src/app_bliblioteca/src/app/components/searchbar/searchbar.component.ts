@@ -52,7 +52,6 @@ export class SearchbarComponent implements OnChanges{
         this.filterOptions = [
           { value: 'Pendiente', label: 'Pendiente' },
           { value: 'Activo', label: 'Activos' },
-          { value: 'Desactivo', label: 'Desactivos' },
           { value: 'fecha_proxima', label: 'Fechas Proximas' }
         ];
         break;
