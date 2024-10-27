@@ -26,7 +26,6 @@ export class LoginComponent {
   irLogin(dataLogin: any) {
     this.authService.login(dataLogin).subscribe({
       next: (rta: any) => {
-        alert('Credenciales Correctas');
         console.log('Exito: ', rta);
 
         // Almacena el token
@@ -36,7 +35,16 @@ export class LoginComponent {
         let tokenPayload: any = jwtDecode(rta.access_token);
         localStorage.setItem('token_rol', tokenPayload.rol);
         localStorage.setItem('user_id', tokenPayload.id)
-        this.router.navigateByUrl('home')
+
+        // Verificar si el usuario tiene el rol "Pendiente"
+        if (tokenPayload.rol === 'Pendiente') {
+          alert('Su usuario debe ser aceptado por un administrador.')
+          localStorage.removeItem('token');
+          localStorage.removeItem('token_rol');
+          localStorage.removeItem('user_id');
+        } else {
+          this.router.navigateByUrl('home')
+        }
       }, error: (err: any) => {
         alert('Usuario o constraseña Incorrecta');
         console.log('Error: ' + err);
