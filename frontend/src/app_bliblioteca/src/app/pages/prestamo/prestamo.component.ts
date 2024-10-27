@@ -57,6 +57,8 @@ export class PrestamoComponent implements OnInit{
   handleActionEvent(event: { action: string, loan: any }) {
     if (event.action === 'accept') {
       this.acceptLoan(event.loan);
+    } else if (event.action === '') {
+      this.refreshLoanList()
     } else if (event.action === 'edit') {
       this.openABMLoanModal(event.loan, 'edit');
     } else if (event.action === 'delete' || event.action === 'decline') {

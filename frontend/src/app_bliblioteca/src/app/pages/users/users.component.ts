@@ -51,6 +51,8 @@ export class UsersComponent implements OnInit{
   handleActionEvent(event: { action: string, user: any }) {
     if (event.action === 'accept') {
       this.acceptUser(event.user)
+    } else if (event.action === '') {
+      this.refreshUserList()
     } else if (event.action === 'edit') {
       this.openABMUserModal(event.user, 'edit');
     } else if (event.action === 'delete' || event.action === 'decline') {

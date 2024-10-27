@@ -5,7 +5,7 @@
     <app-searchbar></app-searchbar>
     <h2>Administrar Reseñas</h2>
     <!-- Lista de reseñas -->
-    <section class="user-adm" *ngFor="let review of reviews">
+    <section class="user-adm" *ngFor="let review of filteredReviews">
         <app-user-item 
             [user]="null" 
             [review]="review" 

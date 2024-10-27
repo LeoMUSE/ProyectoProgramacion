@@ -40,9 +40,12 @@ export class SearchbarComponent implements OnChanges{
   }
 
   setFilterOptions() {
+    const clearFilterOption = { value: '', label: 'Quitar filtros' };
+
     switch (this.currentPage) {
       case 'catalogo':
         this.filterOptions = [
+          clearFilterOption,
           {value: 'user', label: 'Usuarios'},
           {value: 'book', label: 'Libros'},
           {value: 'status', label: 'Estado'}
@@ -50,6 +53,7 @@ export class SearchbarComponent implements OnChanges{
         break;
       case 'prestamo':
         this.filterOptions = [
+          clearFilterOption,
           { value: 'Pendiente', label: 'Pendiente' },
           { value: 'Activo', label: 'Activos' },
           { value: 'fecha_proxima', label: 'Fechas Proximas' }
@@ -57,6 +61,7 @@ export class SearchbarComponent implements OnChanges{
         break;
         case 'usuarios':
           this.filterOptions = [
+            clearFilterOption,
             { value: 'Pendiente', label: 'Pendiente' },
             { value: 'Usuario', label: 'Usuarios' },
             { value: 'Admin', label: 'Administradores' },

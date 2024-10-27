@@ -1,26 +1,25 @@
 <!-- Si es una reseña -->
-<div *ngIf="isReviewPage" class="user-adm-item d-flex align-items-center mt-4">
+<div *ngIf="isReviewPage && review" class="user-adm-item d-flex align-items-center mt-4">
     <div class="user-info">
         <!-- Imagen del libro -->
-        <img [src]="review.bookImg" alt="Portada libro" class="book-image me-3">
+        <img *ngIf="review.libro?.img" [src]="review.libro.img" alt="Portada libro" class="book-image me-3">
         <!-- Imagen del usuario -->
-        <img [src]="review.userImg" alt="Usuario" class="user-image me-3">
+        <img *ngIf="review.usuario?.img" [src]="review.usuario.img" alt="Usuario" class="user-image me-3">
         <div class="user-details">
-            <p>Título: {{ review.bookTitle }}</p>
-            <p>Usuario: {{ review.username }}</p>
-            <p>Comentario: {{ review.comment }}</p>
+            <p *ngIf="review.libro?.titulo">Título: {{ review.libro.titulo }}</p>
+            <p *ngIf="review.usuario?.user">Usuario: {{ review.usuario.user }}</p>
+            <p>Comentario: {{ review.descripcion }}</p>
             <div class="rating me-2">
                 <p>Rating: </p>
                 <!-- Calificación de estrellas -->
-                <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.rating}"></i>
+                <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.valoracion}"></i>
             </div>
         </div>
         <div class="ms-auto mt-3 mt-md-0">
-            <app-edit-delete [userRol]="user.rol" (editDelete)="handleEditDelete($event)"></app-edit-delete>
+            <app-edit-delete  (editDelete)="handleEditDelete($event)"></app-edit-delete>
         </div>
     </div>
 </div>
-
 <!-- Si NO es una reseña, es un usuario -->
 <div *ngIf="!isReviewPage && user" class="user-adm-item d-flex align-items-center" 
         [attr.data-bs-target]="showDropdown ? '#' + user.id : null" 
