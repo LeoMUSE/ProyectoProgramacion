@@ -49,9 +49,11 @@ export class UsersComponent implements OnInit{
 
 
   handleActionEvent(event: { action: string, user: any }) {
-    if (event.action === 'edit') {
+    if (event.action === 'accept') {
+      this.acceptUser(event.user)
+    } else if (event.action === 'edit') {
       this.openABMUserModal(event.user, 'edit');
-    } else if (event.action === 'delete') {
+    } else if (event.action === 'delete' || event.action === 'decline') {
       this.usuarioService.deleteUser(event.user.id).subscribe({
         next: () => {
           console.log('Usuario eliminado con éxito');
@@ -100,7 +102,7 @@ export class UsersComponent implements OnInit{
     let filters: any = {};
 
     // Ajustar el manejo de tipos de filtro
-    if (option.value === 'Usuario' || option.value === 'Admin' || option.value === 'Bibliotecario') {
+    if (option.value === 'Usuario' || option.value === 'Admin' || option.value === 'Bibliotecario' || option.value === 'Pendiente') {
         filters.rol = option.value;
     } else if (option.value === '0' || option.value === '1') {
         filters.estado = option.value;
@@ -110,5 +112,13 @@ export class UsersComponent implements OnInit{
     this.currentFilter = { type: option.type, value: option.value };
     console.log("Filtros aplicados:", filters); // Debug
     this.fetchUsers(1, filters);
-}
+  }
+
+  acceptUser(user: any) {
+    this.usuarioService.updateUser(user.id, { rol: 'Usuario' }).subscribe(() => {
+      user.rol = 'Usuario';
+    }, error => {
+      console.error('Error al aceptar el usuario', error);
+    });
+  }
 }

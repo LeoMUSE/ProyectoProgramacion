@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="ms-auto mt-3 mt-md-0">
-            <app-edit-delete (editDelete)="handleEditDelete($event)"></app-edit-delete>
+            <app-edit-delete [userRol]="user.rol" (editDelete)="handleEditDelete($event)"></app-edit-delete>
         </div>
     </div>
 </div>
@@ -34,7 +34,7 @@
             <p>Apellido: {{ user.apellido }}</p>
         </div>
         <div class="ms-auto mt-3 mt-md-0">
-            <app-edit-delete (editDelete)="handleEditDelete($event)"></app-edit-delete>
+            <app-edit-delete [userRol]="user.rol" (editDelete)="handleEditDelete($event)"></app-edit-delete>
         </div>
     </div>
 </div>

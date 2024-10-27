@@ -49,6 +49,33 @@ a {
     transform: scale(1.05);
 }
 
+/*Estilo Aceptacion de Usuario */
+.accept-icon {
+    color: #A0F199;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+.accept-icon:hover {
+    color: #8DE486;
+    transform: scale(1.05);
+}
+
+/* Estilo Declinacion de Usuario */
+.decline-icon {
+    color: #EC704B;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.decline-icon:hover {
+    color: #D95E38;
+    transform: scale(1.05);
+}
+
+
+
 @media (max-width: 576px) {
     .edit-delete {
         position: static; /* Elimina la posición absoluta */

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-delete',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './edit-delete.component.css'
 })
 export class EditDeleteComponent {
+  @Input() userRol: string = '';
   @Output() editDelete = new EventEmitter<string>();
 
 
@@ -24,6 +25,14 @@ export class EditDeleteComponent {
 
   emitDeleteClick() {
     this.editDelete.emit('delete')
+  }
+
+  emitAcceptClick() {
+    this.editDelete.emit('accept')
+  }
+
+  emitDeclineClick() {
+    this.editDelete.emit('decline')
   }
 
 }
