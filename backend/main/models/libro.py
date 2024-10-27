@@ -15,7 +15,6 @@ class Libro(db.Model):
     editorial = db.Column(db.String(60), nullable=False)
     genero = db.Column(db.String(60), nullable=False)
     sinopsis = db.Column(db.String(300), nullable=False)
-    #Agregar rating del libro 4/5, etc...
     reseñas_libro = db.relationship("Reseña", back_populates="fk_libro_reseña", cascade="all, delete-orphan")
 
     def __repr__(self):

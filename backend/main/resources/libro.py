@@ -94,10 +94,18 @@ class Libros(Resource):
         autor_exist = request.get_json().get("autor")
         libro = LibroModel.from_json(request.get_json())
 
-        if autor_exist:
-            autor_id = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
-            libro.fk_idAutor.extend(autor_id)
-        
+        # Asegúrate de que autor_exist sea una lista
+        if not isinstance(autor_exist, list):
+            autor_exist = [autor_exist]
+
+        # Realiza la consulta
+        autor_id = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
+
+        # Verifica si los autores existen
+        if not autor_id:
+            return {'message': 'Autor no encontrado'}, 404
+
+        # Crea el libro
         db.session.add(libro)
         db.session.commit()
         return libro.to_json(), 201

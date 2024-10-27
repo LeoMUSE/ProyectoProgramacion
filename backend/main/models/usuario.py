@@ -11,9 +11,9 @@ class Usuario(db.Model):
     dni = db.Column(db.Integer, nullable=False)
     telefono = db.Column(db.String(14), nullable=False)
     email = db.Column(db.String(60),  unique=True, index=True, nullable=False)
-    rol = db.Column(db.String(30), nullable=False, server_default = "Usuario")
+    rol = db.Column(db.String(30), nullable=False, server_default = "Pendiente")
     profile_img = db.Column(db.String(60))
-    status = db.Column(db.Boolean, nullable=False, default=False)
+    estado = db.Column(db.Boolean, nullable=False, default=False)
     notificaciones_user = db.relationship("Notificacion", back_populates="fk_user_notificacion", cascade="all, delete-orphan")
     prestamos_user = db.relationship("Prestamo", back_populates="fk_user_prestamo", cascade="all, delete-orphan")
     reseñas_user = db.relationship("Reseña", back_populates="fk_user_reseña", cascade="all, delete-orphan")
@@ -35,7 +35,7 @@ class Usuario(db.Model):
             "email" : str(self.email),
             "rol" : str(self.rol),
             "img" : str(self.profile_img), # ver como manejar las imagenes
-            "status": str(self.status)
+            "estado": str(self.estado)
         }
         return usuario_json
     
@@ -71,7 +71,7 @@ class Usuario(db.Model):
         email = usuario_json.get("email")
         rol = usuario_json.get("rol")   
         img = usuario_json.get("img") #ver como manejar las imagenes
-        status = usuario_json.get("status")
+        estado = usuario_json.get("estado")    
         return Usuario(
             idUser=id,
             user=user,
@@ -83,5 +83,5 @@ class Usuario(db.Model):
             email=email,
             rol=rol,
             profile_img=img,
-            status=status
+            estado=estado
         )

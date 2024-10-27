@@ -21,18 +21,18 @@ class Usuario(Resource): #arreglado
         else:
             return usuario.to_json()
     
-    @jwt_required()
+    @role_required(roles = ["Admin", "Usuario"])
     def put(self, id): 
-        #arreglado, Hacer algo con Admin, que pueda modificar cualquier usuario
         current_user_id = get_jwt_identity()
-        if int(current_user_id) != int(id):
+        if int(current_user_id) != int(id) and "Admin" not in get_jwt().get('rol', []):
             return {'message': 'No tienes permiso para modificar este perfil'}, 403
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
             setattr(usuario, key, value)
+        db.session.add(usuario)
         db.session.commit()
-        return usuario.to_json(), 201
+        return usuario.to_json(), 200
     
     @role_required(roles = ["Admin", "Usuario"])
     def delete(self, id):
@@ -40,8 +40,8 @@ class Usuario(Resource): #arreglado
         #el admin o bibliotecario puede borrar a cualquier usuario
         current_user_id = get_jwt_identity()
         usuario = db.session.query(UsuarioModel).get_or_404(id)        
-        if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('roles', []):
-            return {'message': 'No tiene permisos para borrar esta reseña'}, 403
+        if int(current_user_id) != int(usuario.idUser) and "Admin" not in get_jwt().get('rol', []): # cambiado de roles a rol
+            return {'message': 'No tiene permisos para borrar esta perfil'}, 403
         db.session.delete(usuario)
         db.session.commit()
         return '', 204 # status code 204, no debe tener respuesta
@@ -68,6 +68,7 @@ class Usuarios(Resource):
         dni = request.args.get("dni")
         telefono = request.args.get("telefono")
         email = request.args.get("email")
+        estado = request.args.get("estado")
         
         #usuarios por rol
         if rol:
@@ -88,6 +89,11 @@ class Usuarios(Resource):
         #usuarios por email
         if email:
             usuarios = usuarios.filter(UsuarioModel.email.like("%"+email+"%"))
+            
+        # Filtro por estado
+        if estado:
+            usuarios = usuarios.filter(UsuarioModel.estado.like("%"+estado+"%"))
+
 
         ### FIN FILTROS ###
 
@@ -105,7 +111,7 @@ class Usuarios(Resource):
         db.session.add(usuario)
         db.session.commit()
         print(usuario)
-        return usuario.to_json()
+        return usuario.to_json(), 201
     
 if __name__ == '__main__':
     pass
