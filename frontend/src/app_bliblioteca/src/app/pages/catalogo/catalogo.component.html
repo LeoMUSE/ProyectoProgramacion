@@ -8,6 +8,8 @@
         <div class="book-list">
             <app-catalogo-item *ngFor="let book of bookList" [book]="book" (actionEvent)="handleActionEvent($event)"></app-catalogo-item>
         </div>
+
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="changePage($event)"></app-pagination>
     </div>
 
     <!-- Icono + -->

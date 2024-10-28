@@ -10,6 +10,7 @@
         <section class="loans mb-3" *ngFor="let loan of filteredLoans" >
             <app-loan-item [loan]="loan" (actionEvent)="handleActionEvent($event)" (resena)="openRealizarResena($event)"></app-loan-item>
         </section>
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="changePage($event)"></app-pagination>
     </div>
 
     <!-- Icono + -->

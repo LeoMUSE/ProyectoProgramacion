@@ -20,11 +20,11 @@ export class PrestamoComponent implements OnInit{
   ) {}
 
   loanList:any[] = []
-
   filteredLoans:any[] = []
+  currentPage: number = 1;
+  totalPages: number = 1;
 
   currentFilter: { type: string, value: string } | null = null;
-
 
   ngOnInit(): void {
     const tokenRol = localStorage.getItem('token_rol');
@@ -38,16 +38,17 @@ export class PrestamoComponent implements OnInit{
       this.loanService.getLoans(page, params).subscribe((rta: any) => {
         this.loanList = rta.prestamos || [];
         this.filteredLoans = [...this.loanList];
+        this.totalPages = rta.pages;
       });
     }
 
   handleSearch(query: string) {
     if (query) {
       this.filteredLoans = this.loanList.filter(loan =>
-        loan.bookTitle.toLowerCase().includes(query.toLowerCase()) ||
-        loan.user.toLowerCase().includes(query.toLowerCase())      ||
-        loan.startDate.toLowerCase().includes(query.toLowerCase())  ||
-        loan.endDate.toLowerCase().includes(query.toLowerCase())
+        loan.titulo.toLowerCase().includes(query.toLowerCase()) ||
+        loan.usuario.user.toLowerCase().includes(query.toLowerCase())      ||
+        loan.inicio_fecha.toLowerCase().includes(query.toLowerCase())  ||
+        loan.fin_fecha.toLowerCase().includes(query.toLowerCase())
       );
     } else {
       this.filteredLoans = [...this.loanList];
@@ -104,7 +105,14 @@ export class PrestamoComponent implements OnInit{
     const tokenUserId = localStorage.getItem('user_id');
     const params = tokenRol === 'Usuario' && tokenUserId ? { idUsuario: tokenUserId } : {};
 
-    this.fetchLoans(1, { ...params, ...(this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {}) });
+    this.fetchLoans(this.currentPage, { ...params, ...(this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {}) });
+  }
+
+  changePage(newPage: number): void {
+    if (newPage >= 1 && newPage <= this.totalPages) {
+      this.currentPage = newPage;
+      this.fetchLoans(this.currentPage);
+    }
   }
 
   handleFilterChange(option: { type: string, value: string }): void {
@@ -119,7 +127,7 @@ export class PrestamoComponent implements OnInit{
     
     // Actualiza el filtro actual
     this.currentFilter = { type: option.type, value: option.value };
-    this.fetchLoans(1, filters);
+    this.fetchLoans(this.currentPage, filters);
   }
 
   openRealizarResena(loan: any): void {
