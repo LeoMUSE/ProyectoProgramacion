@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 import { UsuariosService } from '../../services/users/usuarios.service';
-import { catchError, of, tap } from 'rxjs';
+import { catchError, of, race, tap } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -17,8 +17,9 @@ export class UsersComponent implements OnInit{
   ) {}
 
   usersList:any[] = [];
-
   filteredUsers:any = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
 
   currentFilter: { type: string, value: string } | null = null;
 
@@ -30,6 +31,7 @@ export class UsersComponent implements OnInit{
     this.usuarioService.getUsers(page, params).subscribe((rta: any) => {
       this.usersList = rta.usuarios || [];
       this.filteredUsers = [...this.usersList];
+      this.totalPages = rta.pages;
     });
   }
 
@@ -95,7 +97,14 @@ export class UsersComponent implements OnInit{
   }
 
   refreshUserList(): void {
-    this.fetchUsers(1, this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {});
+    this.fetchUsers(this.currentPage, this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {});
+  }
+
+  changePage(newPage: number): void {
+    if (newPage >= 1 && newPage <= this.totalPages) {
+      this.currentPage = newPage;
+      this.fetchUsers(this.currentPage);
+    }
   }
 
   handleFilterChange(option: { type: string, value: string }): void {
@@ -110,7 +119,7 @@ export class UsersComponent implements OnInit{
     
     // Actualiza el filtro actual
     this.currentFilter = { type: option.type, value: option.value };
-    this.fetchUsers(1, filters);
+    this.fetchUsers(this.currentPage, filters);
   }
 
   acceptUser(user: any) {
