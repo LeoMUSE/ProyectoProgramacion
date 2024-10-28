@@ -79,6 +79,7 @@ class Reseñas(Resource):
         reseña_menos_mas = request.args.get('ordenValoracion')
         reseña_usuario = request.args.get('idUserPost')
         reseña_x_fecha = request.args.get('fechaReseña')
+        reseña_libro = request.args.get('idLibro')
 
         #reseñas n/5
         if request.args.get("nroValoracion"):
@@ -96,6 +97,10 @@ class Reseñas(Resource):
         if reseña_x_fecha:
             reseña_x_fecha = datetime.strptime(reseña_x_fecha, '%d-%m-%Y')
             reseñas=reseñas.filter(ReseñaModel.fecha == reseña_x_fecha)
+        # Reseñas por libro
+        if reseña_libro:
+            reseñas = reseñas.filter(ReseñaModel.fk_idLibro == reseña_libro)
+
 
         ### FIN FILTROS ####
         

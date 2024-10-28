@@ -142,7 +142,7 @@ class Prestamos(Resource):
                     'page' : page
         })
 
-    @role_required(roles=["Admin"])
+    @role_required(roles=["Admin", "Usuario"]) #Cambiado para que el usuario pueda solicitar un prestamo
     def post(self):
         libro_exist = request.get_json().get("libro")
         prestamo = PrestamoModel.from_json(request.get_json())

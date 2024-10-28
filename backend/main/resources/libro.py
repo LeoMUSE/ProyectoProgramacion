@@ -99,7 +99,7 @@ class Libros(Resource):
             if not isinstance(autor_exist, list):
                 autor_exist = [autor_exist]
             autores = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
-            libro.autores.extend(autores)
+            libro.fk_idAutor.extend(autores)
 
         db.session.add(libro)
         db.session.commit()
