@@ -19,6 +19,13 @@ export class LibrosService {
       'Authorization': `Bearer ${auth_token}`
     })
     let httpParams = new HttpParams().set('page', page.toString());
+    // Probar que las paginas puedan ser opcionales
+    // let httpParams = new HttpParams();
+    
+    // // Añadir 'page' solo si está definido
+    // if (page !== undefined) {
+    //     httpParams = httpParams.set('page', page.toString());
+    // }
     if (params) {
       if (params.genero) {
         httpParams = httpParams.set('genero', params.genero)
@@ -49,7 +56,7 @@ export class LibrosService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     })
-    return this.httpClient.get(`${this.url}/libro/${id}`, {headers: headers})
+    return this.httpClient.get(`${this.url}/libro/${id}`, {headers: headers}).pipe(first())
   }
 
   postBook(bookData:any) {
