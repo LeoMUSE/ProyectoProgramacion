@@ -13,4 +13,6 @@
             [showDropdown]="true">
         </app-user-item>
     </section>
+
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="changePage($event)"></app-pagination>
 </div>

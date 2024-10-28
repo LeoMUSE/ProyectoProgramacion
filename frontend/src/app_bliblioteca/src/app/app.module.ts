@@ -39,6 +39,7 @@ import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { CatalogoItemComponent } from './components/catalogo-item/catalogo-item.component';
 import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.component';
 import { EditDeleteComponent } from './components/edit-delete/edit-delete.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { EditDeleteComponent } from './components/edit-delete/edit-delete.compon
     CatalogoItemComponent,
     AbmModalComponent,
     EditDeleteComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

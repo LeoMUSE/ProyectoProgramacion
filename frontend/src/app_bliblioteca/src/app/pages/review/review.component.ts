@@ -14,14 +14,15 @@ export class ReviewComponent implements OnInit{
 
   reviewList: any[] = [];
   filteredReviews: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
   
   ngOnInit(): void {
     const tokenRol = localStorage.getItem('token_rol');
     const tokenUserId = localStorage.getItem('user_id');
 
     const params = tokenRol === 'Usuario' && tokenUserId ? { idUserPost: tokenUserId } : {};
-    console.log(params)
-    this.fetchReviews(1, params);
+    this.fetchReviews(this.currentPage, params);
   }
 
   fetchReviews(page: number, params?: { idUserPost?: string, idLibro?: string }): void {
@@ -29,6 +30,14 @@ export class ReviewComponent implements OnInit{
       console.log('Reseñas API: ', rta);
       this.reviewList = rta.reseñas || [];
       this.filteredReviews = [...this.reviewList];
+      this.totalPages = rta.pages;
     });
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.fetchReviews(this.currentPage);
+    }
   }
 }
