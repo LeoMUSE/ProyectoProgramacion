@@ -1,8 +1,9 @@
-<div class="pagination-controls">
-    <a (click)="changePage(currentPage - 1)" class="nav-btn" style="cursor: pointer;">
+<div class="pagination-controls" *ngIf="showPagination()">
+    <button (click)="changePage(currentPage - 1)" class="nav-btn" style="cursor: pointer;">
         <i class="fa-solid fa-arrow-left"></i> Back
-    </a>
-    <a (click)="changePage(currentPage + 1)" class="nav-btn" style="cursor: pointer;">
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" class="nav-btn" style="cursor: pointer;">
         Next <i class="fa-solid fa-arrow-right"></i>
-    </a>
+    </button>
 </div>
