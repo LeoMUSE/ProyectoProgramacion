@@ -35,7 +35,11 @@ export class LoanItemComponent {
   }
 
   resenaClick(): void {
-    this.resena.emit()
+    if (this.loan && this.loan.libro && this.loan.libro.length > 0) {
+      this.resena.emit(this.loan);
+    } else {
+      console.error('Datos del libro no disponibles:', this.loan);
+    }
   }
 
 }

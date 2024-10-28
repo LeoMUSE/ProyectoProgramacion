@@ -69,6 +69,17 @@ export class ReseñasService {
     return this.httpClient.get(`${this.url}/reseña/${id}`, {headers: headers}).pipe(first())
   }
 
+  postReview(reviewData:any) {
+    let auth_token = localStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+    console.log(reviewData)
+    return this.httpClient.post(`${this.url}/reseñas`, reviewData, {headers: headers}).pipe(first())
+  }
+
+
   updateReview(id: number, reviewData: any) {
     let auth_token = localStorage.getItem('token')
     const headers = new HttpHeaders({

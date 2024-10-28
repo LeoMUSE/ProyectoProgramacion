@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CrearResenaComponent } from '../../components/modals/user-modals/crear-resena/crear-resena.component';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
 import { PrestamosService } from '../../services/loans/prestamos.service';
-import { catchError, of, tap } from 'rxjs';
+import { ReseñasService } from '../../services/reviews/reseñas.service';
 
 
 @Component({
@@ -16,7 +15,8 @@ export class PrestamoComponent implements OnInit{
 
   constructor(
     private dialog: MatDialog,
-    private loanService: PrestamosService
+    private loanService: PrestamosService,
+    private reviewService: ReseñasService
   ) {}
 
   loanList:any[] = []
@@ -123,20 +123,22 @@ export class PrestamoComponent implements OnInit{
   }
 
   openRealizarResena(loan: any): void {
-    const dialogRef = this.dialog.open(CrearResenaComponent, {
-      width: '500px',
-      data: {
-        loan: loan,
-        reviews: [ // Aquí puedes obtener las reseñas actuales de algún servicio o base de datos
-          { user: 'EmCalde', text: 'Excelente libro, me encantó.', rating: 5 },
-          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 4 },
-          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 3 },
-          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 2 },
-          { user: 'PepitoF.', text: 'Muy interesante, aunque un poco largo.', rating: 1 }
-        ]
-      }
+    if (!loan || !loan.libro || loan.libro.length === 0) {
+        console.error("El objeto loan o loan.libro es undefined o está vacío", loan);
+        return;
+    }
+
+    const params = { idLibro: loan.libro[0].id };
+    this.reviewService.getReviews(1, params).subscribe(reviewsResponse => {
+        const dialogRef = this.dialog.open(CrearResenaComponent, {
+            width: '500px',
+            data: {
+                loan: loan,
+                reviews: (reviewsResponse as any).reseñas
+            }
+        });
     });
-  }
+}
 
   // Arreglar put
   acceptLoan(loan: any) {
