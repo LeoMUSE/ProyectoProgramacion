@@ -1,39 +1,57 @@
 <app-navbar></app-navbar>
 <div class="container mt-3">
-    <app-searchbar></app-searchbar>
+    <app-searchbar (searchEvent)="handleSearch($event)"></app-searchbar>
 
     <h2 class="fw-regular">Search</h2>
 
-    <!-- Explorar Géneros -->
-    <div class="section-title">
-        <h3>Explorar Géneros</h3>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class="rounded-button">Acción</div>
-            <div class="rounded-button">Fantasía</div>
-            <div class="rounded-button">Policial</div>
-        </div>
-        <div class="col-6">
-            <div class="rounded-button">Ciencia Ficción</div>
-            <div class="rounded-button">Romance</div>
-            <div class="rounded-button">Terror</div>
-        </div>
+<!-- Mostrar resultados de búsqueda en un dropdown -->
+  <div *ngIf="showDropdown" class="search-dropdown">
+        <ul class="dropdown-menu show" style="display: block; position: relative;">
+            <li *ngFor="let book of searchResults" class="dropdown-item">
+                <div class="d-flex align-items-start">
+                    <img [src]="book.img" alt="{{ book.titulo }}" class="book-img">
+                    <div class="ms-3">
+                        <p class="mb-1"><strong>{{ book.titulo }}</strong></p>
+                        <p class="mb-0">by {{ book.autor[0].apodo }}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 
-    <!-- Autores Más Buscados -->
-    <div class="section-title">
-        <h3>Autores Más Buscados</h3>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <div class="rounded-button">J.K.Rowling</div>
-            <div class="rounded-button">Edgar Allan Poe</div>
-            <div class="rounded-button">Dan Brawn</div>
+    <!-- Explorar Géneros -->
+    <div *ngIf="!showDropdown">
+        <div class="section-title">
+            <h3>Explorar Géneros</h3>
         </div>
-        <div class="col-6">
-            <div class="rounded-button">Ken Follet</div>
-            <div class="rounded-button">J.R.R. Tolkien</div>
-            <div class="rounded-button">Miguel de Cervantes</div>
+        <div class="row">
+            <div class="col-6">
+                <div class="rounded-button">Acción</div>
+                <div class="rounded-button">Fantasía</div>
+                <div class="rounded-button">Policial</div>
+            </div>
+            <div class="col-6">
+                <div class="rounded-button">Ciencia Ficción</div>
+                <div class="rounded-button">Romance</div>
+                <div class="rounded-button">Terror</div>
+            </div>
+        </div>
+
+        <!-- Autores Más Buscados -->
+        <div class="section-title">
+            <h3>Autores Más Buscados</h3>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="rounded-button">J.K.Rowling</div>
+                <div class="rounded-button">Edgar Allan Poe</div>
+                <div class="rounded-button">Dan Brown</div>
+            </div>
+            <div class="col-6">
+                <div class="rounded-button">Ken Follet</div>
+                <div class="rounded-button">J.R.R. Tolkien</div>
+                <div class="rounded-button">Miguel de Cervantes</div>
+            </div>
         </div>
     </div>
+</div>
