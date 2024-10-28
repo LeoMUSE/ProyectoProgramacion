@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
     <div class="container">
-    <app-searchbar [currentPage]="'catalogo'"></app-searchbar>
+    <app-searchbar [currentPage]="'catalogo'" (searchEvent)="handleSearch($event)"></app-searchbar>
 
         <h2>Administrar Catálogo Bibliotecario</h2>
 

@@ -31,6 +31,21 @@ export class CatalogoComponent implements OnInit{
       this.totalPages = rta.pages;
     })
   }
+
+  // ARREGLAR ya que no filtra
+  handleSearch(query: string) {
+    if(query) {
+      this.bookService.getBooks(1, { titulo: query }).subscribe(
+        (response: any) => {
+          if (response && response.libros) {
+            this.filteredBook = response.libros
+          } else {
+            this.filteredBook = [...this.bookList]
+          }
+        }
+      )
+    }
+  }
   
   handleActionEvent(event: { action: string, book: any }) {
     if (event.action === 'edit') {
