@@ -34,16 +34,16 @@ export class UsersComponent implements OnInit{
   }
 
   handleSearch(query: string) {
-    console.log('Buscar: ', query);
     if (query) {
-      this.filteredUsers = this.usersList.filter(user =>
-        user.username.toLowerCase().includes(query.toLowerCase()) ||
-        user.name.toLowerCase().includes(query.toLowerCase()) ||
-        user.email.toLowerCase().includes(query.toLowerCase()) ||
-        user.id.toLowerCase().includes(query.toLowerCase())
-      );
-    } else {
-      this.filteredUsers = [...this.usersList]; // Restablece si no hay búsqueda
+      this.usuarioService.getUsers(1, { nombre: query }).subscribe(
+        (reseponse: any) => {
+          if (reseponse && reseponse.usuarios) {
+            this.filteredUsers = reseponse.usuarios;
+          } else {
+            this.filteredUsers = [...this.usersList];
+          }
+        }
+      )
     }
   }
 
