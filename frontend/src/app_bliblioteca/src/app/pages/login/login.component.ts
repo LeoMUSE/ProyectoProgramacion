@@ -36,7 +36,7 @@ export class LoginComponent {
         localStorage.setItem('token_rol', tokenPayload.rol);
         localStorage.setItem('user_id', tokenPayload.id)
 
-        // Verificar si el usuario tiene el rol "Pendiente"
+        // Si el usuario tiene rol "Pendiente" no puede entrar a la pagina
         if (tokenPayload.rol === 'Pendiente') {
           alert('Su usuario debe ser aceptado por un administrador.')
           localStorage.removeItem('token');
