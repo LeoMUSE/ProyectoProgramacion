@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
+import { UsuariosService } from '../../services/users/usuarios.service';
+import { catchError, of, race, tap } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -9,105 +10,62 @@ import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.c
   styleUrl: './users.component.css'
 })
 export class UsersComponent implements OnInit{
-  usersList = [
-    {
-      id: 'user1',
-      img: 'assets/EmmaCeleron.png',
-      username: 'EmCalde',
-      name: 'Emma Calderon',
-      phone: '2610931231',
-      email: 'emmaCalde@gmail.com',
-      dni: '4231234122',
-      role: 'Usuario',
-      locked: false
-    },
-    {
-      id: 'user2',
-      img: 'assets/LioGoat.png',
-      username: 'LioGoat',
-      name: 'Lionel Messi',
-      phone: '2612345678',
-      email: 'lionel.messipsg@gmail.com',
-      dni: '12345678',
-      role: 'Usuario',
-      locked: false
-    },
-    {
-      id: 'user3',
-      img: 'assets/AnAgilera.png',
-      username: 'AnaAguilarOk',
-      name: 'Ana Aguilar',
-      phone: '2640987654',
-      email: 'ana.aguilar@gmail.com',
-      dni: '87654321',
-      role: 'Usuario',
-      locked: false
-    },
-    {
-      id: 'user4',
-      img: 'assets/LidiaPau.png',
-      username: 'LidiaPau',
-      name: 'Lidia Paula Moreno',
-      phone: '2654321987',
-      email: 'lidia.moreno@gmail.com',
-      dni: '19876543',
-      role: 'Usuario',
-      locked: false
-    },
-    {
-      id: 'user5',
-      img: 'assets/Guille10.png',
-      username: 'Guille10',
-      name: 'Guillermo Roces',
-      phone: '2676543210',
-      email: 'guille.roces@gmail.com',
-      dni: '21098765',
-      role: 'Usuario',
-      locked: false
-    },
-    {
-      id: 'user6',
-      img: 'assets/PepitoF.png',
-      username: 'PepitoF',
-      name: 'José Flores',
-      phone: '2698765432',
-      email: 'jose.flores@gmail.com',
-      dni: '43210987',
-      role: 'Moderador',
-      locked: false
-    },
-    {
-      id: 'user7',
-      img: 'assets/MartaAg2024.png',
-      username: 'MartAg2024',
-      name: 'Marta Aguiirre',
-      phone: '2619988777',
-      email: 'marta.aguiirre@gmail.com',
-      dni: '77788999',
-      role: 'Usuario',
-      locked: false
-    }
-  ];
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private usuarioService: UsuariosService
+  ) {}
 
-  filteredUsers = [...this.usersList]
+  usersList:any[] = [];
+  filteredUsers:any = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
+
+  currentFilter: { type: string, value: string } | null = null;
 
   ngOnInit(): void {
-      this.filteredUsers = [...this.usersList]
+    this.fetchUsers(1)
+  }
+
+  fetchUsers(page: number, params?: { rol?: string, estado?: string }): void {
+    this.usuarioService.getUsers(page, params).subscribe((rta: any) => {
+      this.usersList = rta.usuarios || [];
+      this.filteredUsers = [...this.usersList];
+      this.totalPages = rta.pages;
+    });
   }
 
   handleSearch(query: string) {
-    console.log('Buscar: ', query);
     if (query) {
-      this.filteredUsers = this.usersList.filter(user =>
-        user.username.toLowerCase().includes(query.toLowerCase()) ||
-        user.name.toLowerCase().includes(query.toLowerCase()) ||
-        user.email.toLowerCase().includes(query.toLowerCase()) ||
-        user.id.toLowerCase().includes(query.toLowerCase())
-      );
-    } else {
-      this.filteredUsers = [...this.usersList]; // Restablece si no hay búsqueda
+      this.usuarioService.getUsers(1, { nombre: query }).subscribe(
+        (reseponse: any) => {
+          if (reseponse && reseponse.usuarios) {
+            this.filteredUsers = reseponse.usuarios;
+          } else {
+            this.filteredUsers = [...this.usersList];
+          }
+        }
+      )
+    }
+  }
+
+
+  handleActionEvent(event: { action: string, user: any }) {
+    if (event.action === 'accept') {
+      this.acceptUser(event.user)
+    } else if (event.action === '') {
+      this.refreshUserList()
+    } else if (event.action === 'edit') {
+      this.openABMUserModal(event.user, 'edit');
+    } else if (event.action === 'delete' || event.action === 'decline') {
+      this.usuarioService.deleteUser(event.user.id).subscribe({
+        next: () => {
+          this.refreshUserList();
+        },
+        error: (err) => {
+          console.error('Error al eliminar el usuario', err)
+        }
+      })
     }
   }
 
@@ -121,7 +79,60 @@ export class UsersComponent implements OnInit{
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal se cerró', result)
+      console.log('El modal se cerró', result);
+      if (result) {
+        if (operation === 'create') {
+          this.usuarioService.postUser(result).subscribe(() => {
+            this.refreshUserList();
+          });
+        } else if (result) {
+          if (operation === 'edit') {
+            this.usuarioService.updateUser(userData.id, result).subscribe(() => {
+              this.refreshUserList();
+            });
+          }
+        }
+      }
+    })
+  }
+
+  refreshUserList(): void {
+    this.fetchUsers(this.currentPage, this.currentFilter ? { [this.currentFilter.type]: this.currentFilter.value } : {});
+  }
+
+  changePage(newPage: number): void {
+    if (newPage >= 1 && newPage <= this.totalPages) {
+      this.currentPage = newPage;
+      this.fetchUsers(this.currentPage);
+    }
+  }
+
+  handleFilterChange(option: { type: string, value: string }): void {
+    let filters: any = {};
+
+    // Ajustar el manejo de tipos de filtro
+    if (option.value === 'Usuario' || option.value === 'Admin' || option.value === 'Bibliotecario' || option.value === 'Pendiente') {
+        filters.rol = option.value;
+    } else if (option.value === '0' || option.value === '1') {
+        filters.estado = option.value;
+    }
+    
+    // Actualiza el filtro actual
+    this.currentFilter = { type: option.type, value: option.value };
+    this.fetchUsers(this.currentPage, filters);
+  }
+
+  acceptUser(user: any) {
+    this.usuarioService.updateUser(user.id, { rol: 'Usuario' }).subscribe({
+      next: () => {
+        user.rol = 'Usuario';
+      },
+      error: (error) => {
+        console.error('Error al aceptar usuario', error);
+      },
+      complete: () => {
+        console.log('Usuario aceptado')
+      }
     })
   }
 }

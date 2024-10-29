@@ -5,6 +5,12 @@
         <!-- Formulario para Libros -->
         <div *ngIf="data.formType === 'book'">
             <mat-form-field class="full-width">
+                <mat-label>Imágen del Libro</mat-label>
+                <input matInput formControlName="img" placeholder="Ingrese el título">
+                <mat-error *ngIf="formEntity.get('img')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="full-width">
                 <mat-label>Título del Libro</mat-label>
                 <input matInput formControlName="titulo" placeholder="Ingrese el título">
                 <mat-error *ngIf="formEntity.get('titulo')?.invalid">Este campo es requerido.</mat-error>
@@ -12,7 +18,7 @@
 
             <mat-form-field class="full-width">
                 <mat-label>Autor</mat-label>
-                <input matInput formControlName="autor" placeholder="Ingrese el autor">
+                <input matInput type="number" formControlName="autor" placeholder="Ingrese el autor">
                 <mat-error *ngIf="formEntity.get('autor')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
@@ -45,15 +51,15 @@
         <!-- Formulario para Préstamos -->
         <div *ngIf="data.formType === 'loan'">
             <mat-form-field class="full-width">
-                <mat-label>Título del Libro</mat-label>
-                <input matInput formControlName="libro" placeholder="Ingrese el título del libro">
-                <mat-error *ngIf="formEntity.get('libro')?.invalid">Este campo es requerido.</mat-error>
+                <mat-label>Usuario</mat-label>
+                <input matInput type="number" formControlName="usuario" placeholder="Ingrese el id del usuario">
+                <mat-error *ngIf="formEntity.get('usuario.id')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
-
+            
             <mat-form-field class="full-width">
-                <mat-label>Nombre de Usuario</mat-label>
-                <input matInput formControlName="username" placeholder="Ingrese el nombre de usuario">
-                <mat-error *ngIf="formEntity.get('username')?.invalid">Este campo es requerido.</mat-error>
+                <mat-label>Libro</mat-label>
+                <input matInput type="number" formControlName="libro" placeholder="Ingrese el id del libro">
+                <mat-error *ngIf="formEntity.get('libro.id')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
@@ -70,22 +76,31 @@
 
             <mat-form-field class="full-width">
                 <mat-label>Estado</mat-label>
-                <input matInput formControlName="status" placeholder="Ingrese el estado del préstamo">
-                <mat-error *ngIf="formEntity.get('status')?.invalid">Este campo es requerido.</mat-error>
+                <mat-select formControlName="estado" placeholder="Seleccione el estado">
+                    <mat-option value="Activo">Activo</mat-option>
+                    <mat-option value="Pendiente">Pendiente</mat-option>
+                </mat-select>
+                <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
         </div>
 
         <!-- Formulario para Usuarios -->
         <div *ngIf="data.formType === 'user'">
             <mat-form-field class="full-width">
+                <mat-label>Imágen de Perfil</mat-label>
+                <input matInput formControlName="img" placeholder="Ingrese assets/img">
+                <mat-error *ngIf="formEntity.get('img')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
                 <mat-label>Usuario</mat-label>
-                <input matInput formControlName="user" placeholder="Ingrese el nombre de usuario">
+                <input matInput type="text" formControlName="user" placeholder="Ingrese el nombre de usuario">
                 <mat-error *ngIf="formEntity.get('user')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Constraseña</mat-label>
-                <input matInput formControlName="contraseña" placeholder="Ingrese la contraseña de usuario">
+                <input matInput type="password" formControlName="contraseña" placeholder="Ingrese la contraseña">
                 <mat-error *ngIf="formEntity.get('contraseña')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
@@ -103,13 +118,13 @@
 
             <mat-form-field class="full-width">
                 <mat-label>DNI</mat-label>
-                <input matInput formControlName="dni" placeholder="Ingrese el DNI">
+                <input matInput formControlName="dni" type="number" placeholder="Ingrese el DNI">
                 <mat-error *ngIf="formEntity.get('dni')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width">
                 <mat-label>Teléfono</mat-label>
-                <input matInput formControlName="telefono" placeholder="Ingrese el teléfono">
+                <input matInput formControlName="telefono" type="tel" placeholder="Ingrese el teléfono">
                 <mat-error *ngIf="formEntity.get('telefono')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
@@ -122,14 +137,28 @@
             <!-- Solo los administradores pueden ver y modificar el rol -->
             <mat-form-field *ngIf="isAdmin()" class="full-width">
                 <mat-label>Rol</mat-label>
-                <input matInput formControlName="rol" placeholder="Ingrese el rol">
+                <mat-select formControlName="rol" placeholder="Seleccione un rol">
+                    <mat-option value="Admin">Admin</mat-option>
+                    <mat-option value="Usuario">Usuario</mat-option>
+                    <mat-option value="Bibliotecario">Bibliotecario</mat-option>
+                    <mat-option value="Pendiente">Pendiente</mat-option>
+                </mat-select>
                 <mat-error *ngIf="formEntity.get('rol')?.invalid">Este campo es requerido.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado" placeholder="Seleccione el estado">
+                        <mat-option [value]="true">Desbloqueado</mat-option>
+                        <mat-option [value]="false">Bloqueado</mat-option>
+                    </mat-select>
+                <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
         </div>
     </mat-dialog-content>
 
     <mat-dialog-actions class="mat-footer">
         <button mat-button (click)="closeModal()">Cancelar</button>
-        <button mat-button [disabled]="formEntity.invalid">Guardar</button>
+        <button mat-button (click)="saveChanges()">Guardar</button>
     </mat-dialog-actions>
 </form>

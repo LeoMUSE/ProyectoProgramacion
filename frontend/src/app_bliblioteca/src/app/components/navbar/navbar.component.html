@@ -2,8 +2,8 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" routerLink="/perfil">
-                <img src="assets/user.jpeg" alt="User" class="rounded-circle me-2" width="40">
-                <span>Vicente</span>
+                <img [src]="user?.img" alt="User" class="rounded-circle me-2" width="40">
+                <span>{{ user?.nombre || 'Usuario' }}</span>
             </a>
             <div class="d-flex align-items-center ms-auto">
                 <a routerLink="/notificaciones">
@@ -33,7 +33,7 @@
                         <i class="fa-solid fa-gear"></i>
                         <span class="ms-2">Tools</span>
                     </a>
-                    <a class="nav-link d-flex align-items-center" routerLink="/prestamo">
+                    <a *ngIf="isUser()" class="nav-link d-flex align-items-center" routerLink="/prestamo">
                         <i class="fa-solid fa-book"></i>
                         <span class="ms-2">Loans</span>
                     </a>

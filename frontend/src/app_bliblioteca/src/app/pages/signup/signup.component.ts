@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { jwtDecode } from 'jwt-decode';
+import { RegisterService } from '../../services/auth/register.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,6 +15,7 @@ export class SignupComponent {
 
   constructor(
       private authService: AuthService,
+      private registerService: RegisterService,
       private router: Router,
       private formBuilder: FormBuilder
   ) {
@@ -22,25 +24,21 @@ export class SignupComponent {
       contraseña: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      dni: ['', Validators.required],
-      telefono: ['', Validators.required],
+      dni: ['', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+      telefono: ['', Validators.required, Validators.maxLength(10)],
       email: ['', Validators.required],
     })
   }
 
-  irLogin(dataLogin: any) {
-    this.authService.login(dataLogin).subscribe({
+  register(registerData: any) {
+    this.registerService.register(registerData).subscribe({
       next: (rta: any) => {
-        alert('Credenciales Correctas');
+        alert('Registro Exitoso');
         console.log('Exito: ', rta);
-        localStorage.setItem('token', rta.access_token);
-        let tokenPayload: any = jwtDecode(rta.access_token);
-        localStorage.setItem('token_rol', tokenPayload.rol);
-        this.router.navigateByUrl('home')
+        this.router.navigateByUrl('login')
       }, error: (err: any) => {
-        alert('Usuario o constraseña Incorrecta');
+        alert('Error al Registrarse');
         console.log('Error: ' + err);
-        localStorage.removeItem('token');
       }, complete: () => {
         console.log('Finalizo');
       }
@@ -50,7 +48,7 @@ export class SignupComponent {
   submit() { 
     if(this.signInForm.valid) {
       console.log('Dato del formulario: ', this.signInForm.value);
-      this.irLogin(this.signInForm.value);
+      this.register(this.signInForm.value);
     } else {
       alert('Los valores son requeridos');
     }   

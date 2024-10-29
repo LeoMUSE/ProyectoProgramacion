@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-item',
@@ -10,20 +10,10 @@ export class UserItemComponent {
   @Input() review: any;
   @Input() isReviewPage: boolean = false;
   @Input() showDropdown: boolean = true;
+  @Output() actionEvent = new EventEmitter<{action: string, user: any}>();
 
-  toggleIcon() {
-    if (this.isReviewPage) {
-      this.user.deleted = !this.user.deleted;  // Simula el borrado
-    } else {
-      this.user.locked = !this.user.locked;
-    }
-  }
 
-  iconColor(): string {
-    return this.isReviewPage ? '#EC704B' : (this.user.locked ? '#EC704B' : '#A0F199');
-  }
-
-  getIconClass(): string {
-    return this.isReviewPage ? 'fas fa-trash' : (this.user.locked ? 'fas fa-lock' : 'fas fa-unlock');
+  handleEditDelete(action: string) {
+    this.actionEvent.emit({ action, user: this.user });
   }
 }

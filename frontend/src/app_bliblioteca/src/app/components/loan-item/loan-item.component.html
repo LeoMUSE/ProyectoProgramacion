@@ -1,18 +1,18 @@
 <div class="loans-item d-flex mb-1">
-    <img [src]="loan.image" [alt]="loan.bookTitle" class="img-fluid">
+    <img [src]="loan.libro[0].img" [alt]="loan.libro[0].titulo" class="img-fluid">
     <div class="loans-info">
-        <p><b>Usuario:</b><a href="#"> {{ loan.user }}</a></p>
-        <p><b>Libro:</b> {{ loan.bookTitle }}</p>
-        <p><b>Inicio Préstamo:</b> {{ loan.startDate }}</p>
-        <p><b>Fin Préstamo:</b> {{ loan.endDate }}</p>
-        <p><b>Estado:</b> {{ loan.status }}</p>
+        <p><b>Usuario:</b><a href="#"> {{ loan.usuario.user }}</a></p>
+        <p><b>Libro:</b> {{ loan.libro[0].titulo }}</p>
+        <p><b>Inicio Préstamo:</b> {{ loan.inicio_prestamo }}</p>
+        <p><b>Fin Préstamo:</b> {{ loan.fin_prestamo }}</p>
+        <p><b>Estado:</b> {{ loan.estado }}</p>
     </div>
     <!-- para Administrador -->
-    <span *ngIf="isAdmin()" class="edit-link" (click)="editClick()">
-        Editar Préstamo >
-    </span>
+    <div class="edit-delete d-flex">
+        <app-edit-delete [loanStatus]="loan.estado" (editDelete)="handleEditDelete($event)" class="ms-auto"></app-edit-delete>
         <!-- para Usuario -->
-    <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
-        Realizar Reseña >
-    </span>
+        <span *ngIf="isUser()" class="edit-link" (click)="resenaClick()">
+            Realizar Reseña >
+        </span>
+    </div>
 </div>

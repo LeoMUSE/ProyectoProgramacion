@@ -1,27 +1,25 @@
 <!-- Si es una reseña -->
-<div *ngIf="isReviewPage" class="user-adm-item d-flex align-items-center mt-4">
+<div *ngIf="isReviewPage && review" class="user-adm-item d-flex align-items-center mt-4">
     <div class="user-info">
         <!-- Imagen del libro -->
-        <img [src]="review.bookImg" alt="Portada libro" class="book-image me-3">
+        <img *ngIf="review.libro?.img" [src]="review.libro.img" alt="Portada libro" class="book-image me-3">
         <!-- Imagen del usuario -->
-        <img [src]="review.userImg" alt="Usuario" class="user-image me-3">
+        <img *ngIf="review.usuario?.img" [src]="review.usuario.img" alt="Usuario" class="user-image me-3">
         <div class="user-details">
-            <p>Título: {{ review.bookTitle }}</p>
-            <p>Usuario: {{ review.username }}</p>
-            <p>Comentario: {{ review.comment }}</p>
+            <p *ngIf="review.libro?.titulo">Título: {{ review.libro.titulo }}</p>
+            <p *ngIf="review.usuario?.user">Usuario: {{ review.usuario.user }}</p>
+            <p>Comentario: {{ review.descripcion }}</p>
             <div class="rating me-2">
                 <p>Rating: </p>
                 <!-- Calificación de estrellas -->
-                <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.rating}"></i>
+                <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" [ngClass]="{'active-star': i < review.valoracion}"></i>
             </div>
         </div>
-            <!-- Ícono de basura -->
-            <button class="delete-icon ms-auto" (click)="toggleIcon()">
-                <i class="fas fa-trash" [ngStyle]="{'color': iconColor()}"></i>
-            </button>
+        <div class="ms-auto mt-3 mt-md-0">
+            <app-edit-delete  (editDelete)="handleEditDelete($event)"></app-edit-delete>
         </div>
+    </div>
 </div>
-
 <!-- Si NO es una reseña, es un usuario -->
 <div *ngIf="!isReviewPage && user" class="user-adm-item d-flex align-items-center" 
         [attr.data-bs-target]="showDropdown ? '#' + user.id : null" 
@@ -30,26 +28,26 @@
         <!-- Imagen del usuario -->
         <img [src]="user.img" alt="Usuario" class="user-image">
         <div class="user-details">
-            <p>Usuario: {{ user.username }}</p>
-            <p>Nombre: {{ user.name }}</p>
+            <p>Usuario: {{ user.user }}</p>
+            <p>Nombre: {{ user.nombre }}</p>
+            <p>Apellido: {{ user.apellido }}</p>
         </div>
-        <!-- Ícono de estado de usuario (candado) -->
-        <button class="status-icon ms-auto" (click)="toggleIcon()">
-            <i class="fas" [ngClass]="getIconClass()" [ngStyle]="{'color': iconColor()}"></i>
-        </button>
+        <div class="ms-auto mt-3 mt-md-0">
+            <app-edit-delete [userRol]="user.rol" (editDelete)="handleEditDelete($event)"></app-edit-delete>
+        </div>
     </div>
 </div>
 
 <!-- Mostrar dropdown sólo si showDropdown es true (cuando no es reseña) -->
 <div *ngIf="showDropdown && !isReviewPage" [id]="user.id" class="collapse user-adm-dropdown">
     <div class="p-3">
-        <p>Tel: {{ user.phone }}</p>
-        <p>Email: {{ user.email }}</p>
         <p>DNI: {{ user.dni }}</p>
+        <p>Tel: {{ user.telefono }}</p>
+        <p>Email: {{ user.email }}</p>
         <div class="user-actions">
-            <a routerLink="/prestamo/1/admin" class="btn btn-link">Ver Préstamos ></a>
+            <a routerLink="/prestamo" class="btn btn-link">Ver Préstamos ></a>
             <a routerLink="" class="btn btn-link">Ver Reseñas ></a>
-            <a href="#" class="btn btn-link role">Rol: {{ user.role }}</a>
+            <a class="btn btn-link role">Rol: {{ user.rol }}</a>
         </div>
     </div>
 </div>

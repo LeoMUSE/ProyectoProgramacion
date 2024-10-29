@@ -1,45 +1,67 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AbmModalComponent } from '../../components/modals/abm-modal/abm-modal.component';
+import { LibrosService } from '../../services/books/libros.service';
 
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
   styleUrl: './catalogo.component.css'
 })
-export class CatalogoComponent {
-  books = [
-    {
-      id: 1,
-      img: 'assets/señor_d_a.jpeg',
-      title: 'El señor de los Anillos',
-      author: 'J.R.R. Tolkien',
-      description: 'Una épica de J.R.R. Tolkien donde Frodo Bolsón y sus compañeros intentan destruir un anillo maldito para salvar al mundo de la oscuridad.',
-      rating: 5,
-      quantity: 5
-    },
-    {
-      id: 2,
-      img: 'assets/codigo_d.jpeg',
-      title: 'El Código Da Vinci',
-      author: 'Dan Brown',
-      description: 'Un thriller en el que un profesor de simbología investiga un asesinato en el Louvre y descubre un misterio que podría cambiar la historia.',
-      rating: 5,
-      quantity: 3
-    },
-    {
-      id: 3,
-      img: 'assets/alicia.jpeg',
-      title: 'Alicia en el País de Las Maravillas',
-      author: 'Lewis Carroll',
-      description: 'Una joven llamada Alicia cae en un mundo fantástico lleno de personajes y situaciones absurdas, donde vive una serie de aventuras surrealistas.',
-      rating: 5,
-      quantity: 4
-    },
-    // Agrega más libros según sea necesario
-  ];
+export class CatalogoComponent implements OnInit{
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private bookService: LibrosService,
+  ) {}
+
+  bookList:any[] = []
+  filteredBook:any = []
+  currentPage: number = 1;
+  totalPages: number = 1;
+
+  ngOnInit(): void {
+    this.fetchBooks(this.currentPage);
+  }
+
+  fetchBooks(page: number): void {
+    this.bookService.getBooks(page).subscribe((rta: any) => {
+      this.bookList = rta.libros || [];
+      this.filteredBook = [...this.filteredBook];
+      this.totalPages = rta.pages;
+    })
+  }
+
+  // ARREGLAR ya que no filtra
+  handleSearch(query: string) {
+    if(query) {
+      this.bookService.getBooks(1, { titulo: query }).subscribe(
+        (response: any) => {
+          if (response && response.libros) {
+            this.filteredBook = response.libros
+          } else {
+            this.filteredBook = [...this.bookList]
+          }
+        }
+      )
+    }
+  }
+  
+  handleActionEvent(event: { action: string, book: any }) {
+    if (event.action === 'edit') {
+      this.openABMbookModal(event.book, 'edit');
+    } else if (event.action === 'delete') {
+      this.bookService.deleteBook(event.book.id).subscribe({
+        next: () => {
+          console.log('Libro eliminado con éxito');
+          this.refreshBookList();
+        },
+        error: (err) => {
+          console.error('Error al eliminar el libro', err)
+        }
+      })
+    }
+  }
 
   openABMbookModal(bookData: any, operation: string): void {
     const dialogRef = this.dialog.open(AbmModalComponent, {
@@ -51,7 +73,30 @@ export class CatalogoComponent {
       } 
     });
     dialogRef.afterClosed().subscribe( result => {
-      console.log('El modal se cerro', result)
-    })
+      console.log('El modal se cerro', result);
+      
+      if(result) {
+        if (operation == 'create') {
+          this.bookService.postBook(result).subscribe(() => {
+            this.refreshBookList();
+          });
+        } else if (operation === 'edit') {
+          this.bookService.updateBook(bookData.id, result).subscribe(() => {
+            this.refreshBookList();
+          })
+        }
+      }
+    });
+  }
+  
+  refreshBookList(): void {
+    this.fetchBooks(this.currentPage);
+  }
+
+  changePage(newPage: number): void {
+    if (newPage >= 1 && newPage <= this.totalPages) {
+      this.currentPage = newPage;
+      this.fetchBooks(this.currentPage);
+    }
   }
 }

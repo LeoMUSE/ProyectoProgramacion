@@ -91,15 +91,19 @@ class Libros(Resource):
     
     @role_required(roles=["Admin"])
     def post(self):
-        autor_exist = request.get_json().get("autor")
-        libro = LibroModel.from_json(request.get_json())
+        data = request.get_json()
+        autor_exist = data.get("autor")
+        libro = LibroModel.from_json(data)
 
         if autor_exist:
-            autor_id = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
-            libro.fk_idAutor.extend(autor_id)
-        
+            if not isinstance(autor_exist, list):
+                autor_exist = [autor_exist]
+            autores = AutorModel.query.filter(AutorModel.idAutor.in_(autor_exist)).all()
+            libro.fk_idAutor.extend(autores)
+
         db.session.add(libro)
         db.session.commit()
+
         return libro.to_json(), 201
     
 if __name__ == '__main__':

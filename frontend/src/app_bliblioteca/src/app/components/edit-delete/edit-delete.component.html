@@ -1,0 +1,21 @@
+<div class="edit-delete d-flex" *ngIf="isAdmin()">
+    <ng-container *ngIf="isPending() ; else adminButtons">
+        <!-- Icono de Aceptar -->
+        <a class="accept-icon" (click)="emitAcceptClick()">
+            <i class="fas fa-check"></i>
+        </a>
+        <!-- Ícono de Declinación -->
+        <a class="decline-icon" (click)="emitDeclineClick()">
+            <i class="fas fa-times"></i>
+        </a>
+    </ng-container>
+    <!-- Botones de Editar y Eliminar para usuarios aceptados -->
+    <ng-template #adminButtons>
+        <a class="edit-icon" (click)="emitEditClick()">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a class="delete-icon" (click)="emitDeleteClick()">
+            <i class="fas fa-trash"></i>
+        </a>
+    </ng-template>
+</div>

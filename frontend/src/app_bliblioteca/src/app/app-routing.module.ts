@@ -23,16 +23,15 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'perfil', component: PerfilComponent, canActivate:[authSessionGuard]},
   { path: 'prestamo', component: PrestamoComponent, canActivate:[authSessionGuard]},  
-  { path: 'prestamo/:id/:rol', component: PrestamoComponent, canActivate:[adminSessionGuard]},
   { path: 'save', component: SaveComponent, canActivate:[authSessionGuard]},
   { path: 'search', component: SearchComponent },
   { path: 'top', component: TopComponent },
   { path: 'tools', component: ToolsComponent, canActivate:[adminSessionGuard]},
   { path: 'users', component: UsersComponent, canActivate:[adminSessionGuard]},
-  { path: 'review', component: ReviewComponent, canActivate:[adminSessionGuard]},
+  { path: 'review', component: ReviewComponent, canActivate:[authSessionGuard]},
   { path: 'catalogo', component: CatalogoComponent, canActivate:[adminSessionGuard]},
   { path: '', redirectTo: '/login', pathMatch: 'full'},
-
+  
 ];
 
 @NgModule({

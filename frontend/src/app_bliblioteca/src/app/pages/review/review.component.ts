@@ -1,51 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ReseñasService } from '../../services/reviews/reseñas.service';
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
   styleUrl: './review.component.css'
 })
-export class ReviewComponent {
-  reviews = [
-    {
-      bookImg: 'assets/el-hombre.jpeg',
-      bookTitle: 'El Hombre y sus Símbolos',
-      userImg: 'assets/EmmaCeleron.png',
-      username: 'EmCalde.',
-      comment: 'Muy buen libro, lo recomiendo.',
-      rating: 5
-    },
-    {
-      bookImg: 'assets/el-hombre.jpeg',
-      bookTitle: 'El Hombre y sus Símbolos',
-      userImg: 'assets/EmmaCeleron.png',
-      username: 'JuanaP.',
-      comment: 'Interesante perspectiva sobre los símbolos.',
-      rating: 4
-    },
-    {
-      bookImg: 'assets/el-hombre.jpeg',
-      bookTitle: 'El Hombre y sus Símbolos',
-      userImg: 'assets/EmmaCeleron.png',
-      username: 'CarlosR.',
-      comment: 'Me encantó el enfoque del autor.',
-      rating: 5
-    },
-    {
-      bookImg: 'assets/el-hombre.jpeg',
-      bookTitle: 'El Hombre y sus Símbolos',
-      userImg: 'assets/EmmaCeleron.png',
-      username: 'AnaM.',
-      comment: 'Un libro que invita a reflexionar.',
-      rating: 4
-    },
-    {
-      bookImg: 'assets/el-hombre.jpeg',
-      bookTitle: 'El Hombre y sus Símbolos',
-      userImg: 'assets/EmmaCeleron.png',
-      username: 'PedroF.',
-      comment: 'Lo encontré un poco denso en algunas partes.',
-      rating: 3
+export class ReviewComponent implements OnInit{
+
+  constructor(
+    private reviewService: ReseñasService
+  ) {}
+
+  reviewList: any[] = [];
+  filteredReviews: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
+  
+  ngOnInit(): void {
+    const tokenRol = localStorage.getItem('token_rol');
+    const tokenUserId = localStorage.getItem('user_id');
+
+    const params = tokenRol === 'Usuario' && tokenUserId ? { idUserPost: tokenUserId } : {};
+    this.fetchReviews(this.currentPage, params);
+  }
+
+  fetchReviews(page: number, params?: { idUserPost?: string, idLibro?: string }): void {
+    this.reviewService.getReviews(page, params).subscribe((rta: any) => {
+      console.log('Reseñas API: ', rta);
+      this.reviewList = rta.reseñas || [];
+      this.filteredReviews = [...this.reviewList];
+      this.totalPages = rta.pages;
+    });
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.fetchReviews(this.currentPage);
     }
-  ];
+  }
 }

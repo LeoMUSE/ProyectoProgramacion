@@ -5,12 +5,12 @@
 
     <!-- Contenedor principal -->
     <div class="container mt-3">
-        <app-searchbar (searchEvent)="handleSearch($event)"></app-searchbar>
+        <app-searchbar [currentPage]="'usuarios'" (searchEvent)="handleSearch($event)" (filterChange)="handleFilterChange($event)"></app-searchbar>
 
         <h2>Administrar Usuarios</h2>
         <!-- Lista de usuarios -->
-        <section class="user-adm" *ngFor="let user of usersList">
-            <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true"></app-user-item> 
+        <section class="user-adm" *ngFor="let user of filteredUsers">
+            <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true" (actionEvent)="handleActionEvent($event)"></app-user-item> 
         <section>
     <div>
     <!-- Modal Agregar Usuario-->

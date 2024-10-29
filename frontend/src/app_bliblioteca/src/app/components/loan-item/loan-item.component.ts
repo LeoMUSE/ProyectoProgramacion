@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-loan-item',
@@ -7,16 +7,10 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './loan-item.component.css'
 })
 export class LoanItemComponent {
-  @Input() loan: any; //prestamo como objeto
-  @Input() id: string = '';
-  @Input() rol: string = 'user';
+  @Input() loan: any;
 
-  @Output() editLoan = new EventEmitter<any>();
   @Output() resena = new EventEmitter<any>();
-
-  constructor(
-    private authService: AuthService
-  ) { }
+  @Output() actionEvent = new EventEmitter<{action: string, loan: any}>();
 
   isAdmin() { 
     const tokenRol = localStorage.getItem('token_rol');
@@ -36,12 +30,16 @@ export class LoanItemComponent {
   }
   }
 
-  editClick(): void {
-    this.editLoan.emit(this.loan);
+  handleEditDelete(action: string) {
+    this.actionEvent.emit({ action, loan: this.loan });
   }
 
   resenaClick(): void {
-    this.resena.emit()
+    if (this.loan && this.loan.libro && this.loan.libro.length > 0) {
+      this.resena.emit(this.loan);
+    } else {
+      console.error('Datos del libro no disponibles:', this.loan);
+    }
   }
 
 }

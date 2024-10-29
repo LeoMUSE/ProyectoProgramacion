@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
@@ -14,7 +13,6 @@ export class AbmModalComponent {
   formOperation: string = '';
 
   constructor(
-    private authService: AuthService,
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AbmModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -28,9 +26,10 @@ export class AbmModalComponent {
       case 'book':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Libro' : 'Agregar Libro';
         this.formEntity = this.formBuilder.group({
+          img: [this.data.img || '', Validators.required],
           titulo: [this.data.titulo || '', Validators.required],
           cantidad: [this.data.cantidad || '', Validators.required],
-          autor: [this.data.autor || '', Validators.required],
+          autor: [this.data.autor || [], Validators.required],
           editorial: [this.data.editorial || '', Validators.required],
           genero: [this.data.genero || '', Validators.required],
           sinopsis: [this.data.sinopsis || '', Validators.required],
@@ -39,11 +38,11 @@ export class AbmModalComponent {
       case 'loan':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Préstamo' : 'Crear Prestamo';
         this.formEntity = this.formBuilder.group({
-          username: [this.data.username || '', Validators.required],
+          usuario: [this.data.usuario || '', Validators.required],
           libro: [this.data.libro || '', Validators.required],
           inicio_prestamo: [this.data.inicio_prestamo || '', Validators.required],
           fin_prestamo: [this.data.fin_prestamo || '', Validators.required],
-          status: [this.data.status || '', Validators.required]
+          estado: [this.data.estado || '', Validators.required]
         })
         break;
       case 'user':
@@ -57,6 +56,8 @@ export class AbmModalComponent {
           telefono: [this.data.telefono || '', Validators.required],
           email: [this.data.email || '', Validators.required],
           rol: [this.data.rol || '', Validators.required],
+          img: [this.data.img || '', Validators.required],
+          estado: [this.data.estado || '', Validators.required],
         })
         break;
       
@@ -75,7 +76,7 @@ export class AbmModalComponent {
   }
 
   closeModal(): void {
-    this.dialogRef.close()
+    this.dialogRef.close(null) // arreglar el close pq se hace el put y post igual
   }
 
   handleSave(formData: any): void {
@@ -84,8 +85,24 @@ export class AbmModalComponent {
 
   saveChanges(): void {
     if (this.formEntity.valid) {
-      console.log('Datos del formulario: ', this.formEntity.value);
-      this.handleSave(this.formEntity.value)
+      const formData = { ...this.formEntity.value };
+
+      // Si el formulario es de préstamo, formatea las fechas
+      if (formData.inicio_prestamo && formData.fin_prestamo) {
+        formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
+        formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
+      }
+      
+      console.log('Datos del formulario: ', formData);
+      this.handleSave(formData);
     }
+  }
+
+  formatDate(date: string | Date): string {
+    const parsedDate = new Date(date);
+    const day = (parsedDate.getDate() + 1).toString().padStart(2, '0'); // Asegura dos dígitos para el día
+    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0'); // Los meses son 0-indexados
+    const year = parsedDate.getFullYear();
+    return `${day}-${month}-${year}`;
   }
 }

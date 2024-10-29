@@ -1,10 +1,10 @@
-<h1 mat-dialog-title class="modal-title">{{ data.title }}</h1>
+<h1 mat-dialog-title class="modal-title">{{ data.titulo }}</h1>
 <div mat-dialog-content class="mat-content text-center">
-    <img [src]="data.image" alt="{{ data.title }}" class="img-fluid mb-3">
-    <p><strong>Sinopsis:</strong> {{ data.synopsis }}</p>
-    <p><strong>Género:</strong> {{ data.genre }}</p>
+    <img [src]="data.img" alt="{{ data.titulo }}" class="img-fluid mb-3">
+    <p><strong>Sinopsis:</strong> {{ data.sinopsis }}</p>
+    <p><strong>Género:</strong> {{ data.genero }}</p>
     <p><strong>Valoración:</strong> <span class="review-rating"><i class="fas fa-star"></i> {{ data.rating }}</span></p>
 </div>
 <div mat-dialog-actions class="mat-footer justify-content-center">
-    <button mat-button >Solicitar préstamo</button>
+    <button (click)="solicitarPrestamo()" mat-button>Solicitar préstamo</button>
 </div>
