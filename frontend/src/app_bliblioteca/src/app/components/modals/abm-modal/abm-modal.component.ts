@@ -87,7 +87,7 @@ export class AbmModalComponent {
     if (this.formEntity.valid) {
       const formData = { ...this.formEntity.value };
 
-      // Si el formulario es de préstamo, formatea las fechas
+      // Si el formulario es de préstamo, parsea las fechas
       if (formData.inicio_prestamo && formData.fin_prestamo) {
         formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
         formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
@@ -100,8 +100,8 @@ export class AbmModalComponent {
 
   formatDate(date: string | Date): string {
     const parsedDate = new Date(date);
-    const day = (parsedDate.getDate() + 1).toString().padStart(2, '0'); // Asegura dos dígitos para el día
-    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0'); // Los meses son 0-indexados
+    const day = (parsedDate.getDate() + 1).toString().padStart(2, '0'); 
+    const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0'); 
     const year = parsedDate.getFullYear();
     return `${day}-${month}-${year}`;
   }

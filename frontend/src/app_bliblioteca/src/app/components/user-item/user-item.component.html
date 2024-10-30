@@ -44,10 +44,12 @@
         <p>DNI: {{ user.dni }}</p>
         <p>Tel: {{ user.telefono }}</p>
         <p>Email: {{ user.email }}</p>
+        <p>Estado: {{ user.estado }}</p>
         <div class="user-actions">
             <a routerLink="/prestamo" class="btn btn-link">Ver Préstamos ></a>
-            <a routerLink="" class="btn btn-link">Ver Reseñas ></a>
+            <a routerLink="/review" class="btn btn-link">Ver Reseñas ></a>
             <a class="btn btn-link role">Rol: {{ user.rol }}</a>
+            <a class="btn btn-link"> Estado {{ user.estado }}</a>
         </div>
     </div>
 </div>

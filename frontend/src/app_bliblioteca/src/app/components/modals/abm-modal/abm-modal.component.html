@@ -149,8 +149,8 @@
             <mat-form-field class="full-width">
                 <mat-label>Estado</mat-label>
                     <mat-select formControlName="estado" placeholder="Seleccione el estado">
-                        <mat-option [value]="true">Desbloqueado</mat-option>
-                        <mat-option [value]="false">Bloqueado</mat-option>
+                        <mat-option [value]="false">Desbloqueado</mat-option>
+                        <mat-option [value]="true">Bloqueado</mat-option>
                     </mat-select>
                 <mat-error *ngIf="formEntity.get('estado')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
