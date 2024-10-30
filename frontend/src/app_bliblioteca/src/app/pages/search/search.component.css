@@ -4,7 +4,6 @@ h3 {
     color: #f1f1f1;
 }
 
-/* Boton pildora */
 .rounded-button {
     display: inline-block; 
     background-color: #444; 
@@ -26,12 +25,12 @@ h3 {
 }
 
 .rounded-button:hover {
-    background-color: #e5e05e; /* Color de fondo al pasar el mouse */
+    background-color: #e5e05e;
 }
 
 .rounded-button:active {
-    background-color: #F5F378; /* Color de fondo al hacer clic */
-    transform: scale(0.98); /* Escala ligeramente el botón al hacer clic */
+    background-color: #F5F378; 
+    transform: scale(0.98); 
 }
 
 .dropdown {

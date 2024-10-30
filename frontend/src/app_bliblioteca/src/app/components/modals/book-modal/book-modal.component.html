@@ -6,5 +6,5 @@
     <p><strong>Valoración:</strong> <span class="review-rating"><i class="fas fa-star"></i> {{ data.rating }}</span></p>
 </div>
 <div mat-dialog-actions class="mat-footer justify-content-center">
-    <button (click)="solicitarPrestamo()" mat-button>Solicitar préstamo</button>
+    <button (click)="irADetallesLibro(data.id)" style="cursor: pointer;" mat-button>Detalles del libro</button>
 </div>

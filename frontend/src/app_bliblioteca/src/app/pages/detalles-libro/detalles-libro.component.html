@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4 d-flex">
+    <div class="libro-container p-4 rounded shadow">
+        <div class="book-detail d-flex flex-md-row flex-column align-items-center p-4">
+            <div class="libro-pic me-md-4 mb-3 mb-md-0">
+                <img [src]="book.img" alt="{{ book.titulo }}" class="img-fluid rounded" style="max-width: 300px; height: auto;">
+            </div>
+            <div class="book-info text-center text-md-start">
+                <h2 class="book-titulo">{{ book.titulo }}</h2>
+                <p class="autor">by {{ book.autor[0].apodo }}</p>
+                
+                <p class="descripcion mt-3 text-justify">
+                    {{ book.sinopsis }}
+                </p>
+                
+                <div class="book-footer d-flex flex-column align-items-center align-items-md-start mt-3">
+                    <span class="category badge bg-secondary mb-3"> Editorial: {{ book.editorial }}</span>
+                    <span class="genero badge bg-secondary"> Género: {{ book.genero }}</span>
+                </div>
+                <button class="btn btn-warning mt-3" (click)="solicitarPrestamo()">Solicitar Préstamo</button>
+            </div>
+        </div>
+
+        <div class="reseñas mt-4">
+            <h3>Reseñas del Libro</h3>
+            <div *ngFor="let review of reviews" class="reseña p-2 mb-2 rounded d-flex align-items-start">
+                <div class="usuario-imagen me-3">
+                    <img [src]="review.usuario.img" alt="{{ review.usuario.user }}" class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
+                </div>
+                <div class="contenido-reseña">
+                    <p><strong>{{ review.usuario.user }}:</strong> {{ review.descripcion }}</p>
+                    <p><small>Valoración: {{ review.valoracion }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

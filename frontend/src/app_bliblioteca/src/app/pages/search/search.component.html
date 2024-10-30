@@ -8,13 +8,13 @@
   <div *ngIf="showDropdown" class="search-dropdown">
         <ul class="dropdown-menu show" style="display: block; position: relative;">
             <li *ngFor="let book of searchResults" class="dropdown-item">
-                <div class="d-flex align-items-start">
+                <a [routerLink]="['/libro', book.id]" class="d-flex align-items-start text-decoration-none text-white">
                     <img [src]="book.img" alt="{{ book.titulo }}" class="book-img">
                     <div class="ms-3">
                         <p class="mb-1"><strong>{{ book.titulo }}</strong></p>
                         <p class="mb-0">by {{ book.autor[0].apodo }}</p>
                     </div>
-                </div>
+                </a>
             </li>
         </ul>
     </div>

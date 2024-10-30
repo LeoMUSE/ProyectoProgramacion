@@ -1,0 +1,69 @@
+.libro-container {
+    background-color: #6C6C6C; /* Color de fondo gris claro */
+}
+
+
+.libro-detail {
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px; /* Máximo ancho del contenedor */
+    width: 100%; /* Ancho completo en dispositivos más pequeños */
+    text-align: center;
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.book-titulo {
+    font-size: 24px; /* Cambiado de .book-title a .book-titulo para que coincida con el HTML */
+    color: #F5F378;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.libro-pic img {
+    max-width: 280px; /* Usar max-width para mantener la flexibilidad */
+    height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+    border-radius: 10px;
+    object-fit: cover; /* Mantiene la proporción y cubre el área */
+    margin-bottom: 15px;
+}
+
+.libro-footer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Cambiado a space-between para mejor distribución */
+}
+
+.autor {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.descripcion {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: justify; 
+}
+
+.category,
+.genero {
+    color: #F5F378;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.reseñas {
+    border-top: 1px solid #2b2b2b; /* Línea separadora */
+    padding-top: 20px;
+}
+
+.reseña {
+    background-color: #2b2b2b; /* Fondo gris claro para las reseñas */
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
