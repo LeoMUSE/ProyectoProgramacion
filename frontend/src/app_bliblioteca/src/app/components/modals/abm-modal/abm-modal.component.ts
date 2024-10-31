@@ -29,7 +29,7 @@ export class AbmModalComponent {
           img: [this.data.img || '', Validators.required],
           titulo: [this.data.titulo || '', Validators.required],
           cantidad: [this.data.cantidad || '', Validators.required],
-          autor: [this.data.autor || [], Validators.required],
+          autor: [this.formOperation === 'edit' ? this.data.autor[0].id : '', Validators.required],
           editorial: [this.data.editorial || '', Validators.required],
           genero: [this.data.genero || '', Validators.required],
           sinopsis: [this.data.sinopsis || '', Validators.required],
@@ -38,8 +38,8 @@ export class AbmModalComponent {
       case 'loan':
         this.formTitle = this.formOperation === 'edit' ? 'Editar Préstamo' : 'Crear Prestamo';
         this.formEntity = this.formBuilder.group({
-          usuario: [this.data.usuario || '', Validators.required],
-          libro: [this.data.libro || '', Validators.required],
+          usuario: [this.formOperation === 'edit' ? this.data.usuario.id : '', Validators.required],
+          libro: [this.formOperation === 'edit' ? this.data.libro[0].id : '', Validators.required],
           inicio_prestamo: [this.data.inicio_prestamo || '', Validators.required],
           fin_prestamo: [this.data.fin_prestamo || '', Validators.required],
           estado: [this.data.estado || '', Validators.required]
@@ -49,7 +49,7 @@ export class AbmModalComponent {
         this.formTitle = this.formOperation === 'edit' ? 'Editar Usuario' : 'Agregar Usuario';
         this.formEntity = this.formBuilder.group({
           user: [this.data.user || '', Validators.required],
-          contraseña: [this.data.contraseña || '', Validators.required],
+          ...(this.formOperation !== 'edit' && {contraseña: ['', Validators.required]}),
           nombre: [this.data.nombre || '', Validators.required],
           apellido: [this.data.apellido || '', Validators.required],
           dni: [this.data.dni || '', Validators.required],
@@ -76,27 +76,25 @@ export class AbmModalComponent {
   }
 
   closeModal(): void {
-    this.dialogRef.close(null) // arreglar el close pq se hace el put y post igual
+    this.dialogRef.close(null);
   }
 
   handleSave(formData: any): void {
     this.dialogRef.close(formData);
   }
 
-  saveChanges(): void {
-    if (this.formEntity.valid) {
-      const formData = { ...this.formEntity.value };
+saveChanges(): void {
+  if (this.formEntity.valid) {
+    const formData = { ...this.formEntity.value };
 
-      // Si el formulario es de préstamo, parsea las fechas
-      if (formData.inicio_prestamo && formData.fin_prestamo) {
-        formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
-        formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
-      }
-      
-      console.log('Datos del formulario: ', formData);
-      this.handleSave(formData);
+    // Si el formulario es de préstamo, parsea las fechas
+    if (formData.inicio_prestamo && formData.fin_prestamo) {
+      formData.inicio_prestamo = this.formatDate(formData.inicio_prestamo);
+      formData.fin_prestamo = this.formatDate(formData.fin_prestamo);
     }
+    this.handleSave(formData);
   }
+}
 
   formatDate(date: string | Date): string {
     const parsedDate = new Date(date);

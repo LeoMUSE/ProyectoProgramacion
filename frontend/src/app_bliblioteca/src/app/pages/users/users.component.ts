@@ -79,7 +79,6 @@ export class UsersComponent implements OnInit{
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal se cerró', result);
       if (result) {
         if (operation === 'create') {
           this.usuarioService.postUser(result).subscribe(() => {

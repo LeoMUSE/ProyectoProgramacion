@@ -1,5 +1,5 @@
 <h2 mat-dialog-title class="modal-title">{{ formTitle }}</h2>
-<form [formGroup]="formEntity" (ngSubmit)="saveChanges()" class="mat-form">
+<form [formGroup]="formEntity" class="mat-form">
     <mat-dialog-content class="mat-content">
 
         <!-- Formulario para Libros -->
@@ -98,7 +98,7 @@
                 <mat-error *ngIf="formEntity.get('user')?.invalid">Este campo es requerido.</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="full-width">
+            <mat-form-field class="full-width" *ngIf="formOperation !== 'edit'">
                 <mat-label>Constraseña</mat-label>
                 <input matInput type="password" formControlName="contraseña" placeholder="Ingrese la contraseña">
                 <mat-error *ngIf="formEntity.get('contraseña')?.invalid">Este campo es requerido.</mat-error>
