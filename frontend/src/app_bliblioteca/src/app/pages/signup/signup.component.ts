@@ -24,8 +24,8 @@ export class SignupComponent {
       contraseña: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      dni: ['', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
-      telefono: ['', Validators.required, Validators.maxLength(10)],
+      dni: ['', Validators.required],
+      telefono: ['', Validators.required],
       email: ['', Validators.required],
     })
   }
@@ -46,11 +46,16 @@ export class SignupComponent {
   }
 
   submit() { 
-    if(this.signInForm.valid) {
-      console.log('Dato del formulario: ', this.signInForm.value);
-      this.register(this.signInForm.value);
+    if (this.signInForm.valid) {
+      const registerData = {
+        ...this.signInForm.value,
+        img: 'assets/user.jpeg',
+        rol: 'Pendiente',
+        estado: false
+      };
+      this.register(registerData);
     } else {
-      alert('Los valores son requeridos');
+      alert('Todos los campos son requeridos');
     }   
   }
 
