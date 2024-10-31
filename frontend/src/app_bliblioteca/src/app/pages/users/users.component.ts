@@ -38,9 +38,9 @@ export class UsersComponent implements OnInit{
   handleSearch(query: string) {
     if (query) {
       this.usuarioService.getUsers(1, { nombre: query }).subscribe(
-        (reseponse: any) => {
-          if (reseponse && reseponse.usuarios) {
-            this.filteredUsers = reseponse.usuarios;
+        (response: any) => {
+          if (response && response.usuarios) {
+            this.filteredUsers = response.usuarios;
           } else {
             this.filteredUsers = [...this.usersList];
           }

@@ -1,17 +1,29 @@
-
-    <!-- Navbar -->
+<!-- Navbar -->
 <app-navbar></app-navbar>
 
+<!-- Contenedor principal -->
+<div class="container mt-3">
+    <app-searchbar [currentPage]="'usuarios'" (searchEvent)="handleSearch($event)" (filterChange)="handleFilterChange($event)"></app-searchbar>
 
-    <!-- Contenedor principal -->
-    <div class="container mt-3">
-        <app-searchbar [currentPage]="'usuarios'" (searchEvent)="handleSearch($event)" (filterChange)="handleFilterChange($event)"></app-searchbar>
+    <h2>Administrar Usuarios</h2>
+    <!-- Lista de usuarios -->
+    <section class="user-adm">
+        <app-user-item 
+            *ngFor="let user of filteredUsers" 
+            [user]="user" 
+            [isReviewPage]="false" 
+            [showDropdown]="true" 
+            (actionEvent)="handleActionEvent($event)">
+        </app-user-item>
+    </section>
+    
+    <!-- Paginación -->
+    <app-pagination 
+        [currentPage]="currentPage" 
+        [totalPages]="totalPages" 
+        (pageChange)="changePage($event)">
+    </app-pagination>
+</div>
 
-        <h2>Administrar Usuarios</h2>
-        <!-- Lista de usuarios -->
-        <section class="user-adm" *ngFor="let user of filteredUsers">
-            <app-user-item [user]="user" [isReviewPage]="false" [showDropdown]="true" (actionEvent)="handleActionEvent($event)"></app-user-item> 
-        <section>
-    <div>
-    <!-- Modal Agregar Usuario-->
-    <app-add-icon (addEvent)="openABMUserModal($event, 'create')"></app-add-icon>
+<!-- Modal Agregar Usuario-->
+<app-add-icon (addEvent)="openABMUserModal($event, 'create')"></app-add-icon>

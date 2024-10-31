@@ -38,7 +38,7 @@ export class CatalogoComponent implements OnInit{
       this.bookService.getBooks(1, { titulo: query }).subscribe(
         (response: any) => {
           if (response && response.libros) {
-            this.filteredBook = response.libros
+            this.filteredBook = response.libros;
           } else {
             this.filteredBook = [...this.bookList]
           }
