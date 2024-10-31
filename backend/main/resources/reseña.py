@@ -52,7 +52,7 @@ class Reseña(Resource):
         current_user_id = get_jwt_identity()
         reseña = db.session.query(ReseñaModel).get_or_404(id)
         # Verificar permisos
-        if int(current_user_id) != int(reseña.fk_idUser) and "Admin" not in get_jwt().get('roles', []):
+        if int(current_user_id) != int(reseña.fk_idUser) and "Admin" not in get_jwt().get('rol', []): #cambiado reles por rol
             return {'message': 'No tiene permisos para borrar esta reseña'}, 403
         db.session.delete(reseña)
         db.session.commit()
