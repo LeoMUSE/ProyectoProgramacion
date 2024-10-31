@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LibrosService } from '../../services/books/libros.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PrestamosService } from '../../services/loans/prestamos.service';
 import { ReseñasService } from '../../services/reviews/reseñas.service';
 
@@ -17,7 +17,8 @@ export class DetallesLibroComponent implements OnInit{
     private bookService: LibrosService,
     private loanService: PrestamosService,
     private reviewService: ReseñasService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -80,5 +81,9 @@ export class DetallesLibroComponent implements OnInit{
         console.error('Error al solicitar el préstamo:', error);
       }
     );
+  }
+
+  goBack(): void {
+    this.router.navigate(['/search']);
   }
 }
