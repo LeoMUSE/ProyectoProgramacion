@@ -16,12 +16,12 @@ export class EditarPerfilComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.formPerfil = this.formBuilder.group({
-      user: ['', Validators.required, Validators.maxLength(8), Validators.minLength(8)],
+      user: ['', Validators.required],
       contraseña: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       dni: ['', Validators.required],
-      telefono: ['', Validators.required, Validators.maxLength(10)],
+      telefono: ['', Validators.required],
       email: ['', Validators.required],
       rol: ['', Validators.required],
     })
