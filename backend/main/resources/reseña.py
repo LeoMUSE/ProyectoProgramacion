@@ -59,8 +59,8 @@ class Reseña(Resource):
         return '', 204
 
 class Reseñas(Resource):
-    
-    @jwt_required(optional=True)
+    # cambiado jwt ya que un usuario sin rol puede ingresar al home y ver libros
+    # @jwt_required(optional=True)
     def get(self):
         page = 1
         per_page = 10

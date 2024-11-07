@@ -3,6 +3,8 @@ import { LibrosService } from '../../services/books/libros.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PrestamosService } from '../../services/loans/prestamos.service';
 import { ReseñasService } from '../../services/reviews/reseñas.service';
+import { RegisterModalComponent } from '../../components/modals/register-modal/register-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-detalles-libro',
@@ -18,7 +20,8 @@ export class DetallesLibroComponent implements OnInit{
     private loanService: PrestamosService,
     private reviewService: ReseñasService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -51,12 +54,29 @@ export class DetallesLibroComponent implements OnInit{
 
   solicitarPrestamo(): void {
     const tokenUserId = localStorage.getItem('user_id');
+    const tokenJWT = localStorage.getItem('token'); // Suponiendo que el JWT se almacena como 'token'
+  
+    if (!tokenUserId || !tokenJWT) {
+      const dialogRef = this.dialog.open(RegisterModalComponent, {
+        width: '400px',
+        data: { message: 'Para solicitar un préstamo, debe registrarse o iniciar sesión.' }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'signup') {
+          // Redirigir al usuario al formulario de registro
+          this.router.navigate(['/signup']);
+        }
+      });
+      return; // Salir de la función si no hay token
+    }
+  
     const fechaActual = new Date();
     const dia = String(fechaActual.getDate()).padStart(2, '0');
     const mes = String(fechaActual.getMonth() + 1).padStart(2, '0');
     const anio = fechaActual.getFullYear();
     const inicioPrestamo = `${dia}-${mes}-${anio}`;
-    
+  
     // Calcular la fecha de fin de préstamo (1 mes después)
     const fechaFin = new Date(fechaActual);
     fechaFin.setMonth(fechaFin.getMonth() + 1);
@@ -64,7 +84,7 @@ export class DetallesLibroComponent implements OnInit{
     const mesFin = String(fechaFin.getMonth() + 1).padStart(2, '0');
     const anioFin = fechaFin.getFullYear();
     const finPrestamo = `${diaFin}-${mesFin}-${anioFin}`;
-
+  
     const prestamoData = {
       usuario: tokenUserId,
       libro: [this.book.id], 
@@ -72,7 +92,7 @@ export class DetallesLibroComponent implements OnInit{
       fin_prestamo: finPrestamo,
       estado: 'Pendiente' 
     };
-
+  
     this.loanService.postLoan(prestamoData).subscribe(
       response => {
         console.log('Préstamo solicitado con éxito:', response);
@@ -82,7 +102,6 @@ export class DetallesLibroComponent implements OnInit{
       }
     );
   }
-
   goBack(): void {
     this.router.navigate(['/search']);
   }

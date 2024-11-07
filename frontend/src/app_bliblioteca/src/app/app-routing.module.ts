@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'review', component: ReviewComponent, canActivate:[authSessionGuard]},
   { path: 'catalogo', component: CatalogoComponent, canActivate:[adminSessionGuard]},
   { path: 'libro/:id', component: DetallesLibroComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   
 ];
 

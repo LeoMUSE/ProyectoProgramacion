@@ -14,7 +14,8 @@ from flask_jwt_extended import jwt_required
 
 class Libro(Resource):
     
-    @jwt_required(optional=True)
+    # Cambiado el jwt ya que un usuario sin rol puede ingresar al home
+    #@jwt_required(optional=True)
     def get(self, id):
         libro = db.session.query(LibroModel).get_or_404(id)
         return libro.to_json()
@@ -42,7 +43,8 @@ class Libro(Resource):
         return '', 204
 
 class Libros(Resource):
-    @jwt_required(optional=True)
+    # cambiado jwt ya que un usuario sin rol puede ingresar al home y ver libros
+    # @jwt_required(optional=True)
     def get(self):
         page = 1
         per_page = 10

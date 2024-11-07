@@ -1,0 +1,32 @@
+.modal-title {
+    text-align: center;
+    color: #F5F378;
+    font-size: 1.5em;
+    background-color: #333;
+    margin: 0;
+}
+.mat-content img {
+    width: 50%;
+    height: auto; 
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+.mat-content{
+    background-color: #333;
+    color: #fff;
+}
+
+.mat-footer{
+    background-color: #333;
+}
+
+button[mat-button] {
+    margin-right: 8px;
+    border-radius: 15px;
+    background-color: #F5F378 !important; 
+    color: #333 !important; 
+    border: none !important;
+    font-weight: bold;
+}

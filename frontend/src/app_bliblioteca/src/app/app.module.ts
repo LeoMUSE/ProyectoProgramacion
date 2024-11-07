@@ -41,6 +41,7 @@ import { AbmModalComponent } from './components/modals/abm-modal/abm-modal.compo
 import { EditDeleteComponent } from './components/edit-delete/edit-delete.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { DetallesLibroComponent } from './pages/detalles-libro/detalles-libro.component';
+import { RegisterModalComponent } from './components/modals/register-modal/register-modal.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { DetallesLibroComponent } from './pages/detalles-libro/detalles-libro.co
     EditDeleteComponent,
     PaginationComponent,
     DetallesLibroComponent,
+    RegisterModalComponent,
   ],
   imports: [
     BrowserModule,
