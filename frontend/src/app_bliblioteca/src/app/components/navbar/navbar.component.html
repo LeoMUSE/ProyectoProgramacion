@@ -1,7 +1,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" routerLink="/perfil">
+            <a class="navbar-brand" (click)="checkUser($event)">
                 <img [src]="user?.img" alt="User" class="rounded-circle me-2" width="40">
                 <span>{{ user?.nombre || 'Usuario' }}</span>
             </a>
